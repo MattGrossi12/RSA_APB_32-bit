@@ -30,14 +30,16 @@ module amba_3_apb_rsa_interface #(
     parameter RESET = 1'b1,
     parameter LOAD = 1'b1
 )(
-    input   wire core_clk,
-    input   wire core_rst,
-    input   wire core_load,
-    input   wire [DATA_WIDTH-1:0] core_din,
-    output  wire core_done,
-    output  wire core_err,
-    output  wire [DATA_WIDTH-1:0] core_dout,
-    output  wire core_clk_o
+    //Will be outputs:
+    input   wire core_clk,                      // -> Will be connected to the APB clock (pclk_i) in the top module
+    input   wire core_rst,                      // -> Will be connected to the Assyncronous reset (presetn_i) in the top module
+    input   wire core_load,                     // -> 
+    input   wire [DATA_WIDTH-1:0] core_din,     // ->
+    //Will be inputs:
+    output  wire core_done,                     // ->
+    output  wire core_err,                      // ->
+    output  wire [DATA_WIDTH-1:0] core_dout,    // -> 
+    output  wire core_clk_o                     // -> Will not be used at the interface
 );
 
 endmodule: rsa_apb_top
