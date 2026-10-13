@@ -1,134 +1,131 @@
 module amba_3_apb_data_i_demux #(
     parameter   DATA_WIDTH = 32,
-                D_WID = WIDTH-1
+                D_WID = DATA_WIDTH - 1,
+                ADDR_WIDTH = 11,
+                A_WID = ADDR_WIDTH - 1
 )(
-    input  logic [A_WID:0]  paddr_i,    //Full address    bus
-    input  logic [D_WID:0]  pwdata_i,   //Data-to-write input
-    output logic [D_WID:0]  out1,
-                            out2,
-                            out3,
-                            out4,
-                            out5,
-                            out6,
-                            out7,
-                            out8
+    input  logic [3:0]      paddr_i,
+    input  logic [D_WID:0]  pwdata_i,
+    output logic [D_WID:0]  op_ctl_o,
+                            op_sts_o,
+                            op_ier_o,
+                            op_msg_o,
+                            op_exp_o,
+                            op_mod_o,
+                            op_res_o,
+                            op_idr_o
 );
 
-wire [3:0]  pwdata_w = paddr_i[5:2]
+    // Op codes:
+    localparam  CTRL_R    = 4'b0000,
+                STATUS_R  = 4'b0001,
+                IER_R     = 4'b0010,
+                MSG_R     = 4'b0011,
+                EXP_R     = 4'b0100,
+                MOD_R     = 4'b0101,
+                RESULT_R  = 4'b0110,
+                ID_R      = 4'b0111;
 
-/*
-localparam  CTRL    = 5'b00000, 
-            STATUS  = 5'b00100,
-            IER     = 5'b01000,
-            MSG     = 5'b01100,
-            EXP     = 5'b10000
-            MOD     = 5'b10100,
-            RESULT  = 5'b11000,
-            ID      = 5'b11100;
-            RES     = 
-
-*/
-
-// Op codes:
-localparam  CTRL_R    = 4'b0000,
-            STATUS_R  = 4'b0001,
-            IER_R     = 4'b0010,
-            MSG_R     = 4'b0011,
-            EXP_R     = 4'b0100
-            MOD_R     = 4'b0101,
-            RESULT_R  = 4'b0110,
-            ID_R      = 4'b0111;
-
-always_comb 
-    begin : Demux
-        case(pwdata_w)
-            CTRL_R:       
+    always_comb begin : Demux
+        case (paddr_i)
+            CTRL_R:
                 begin
-                    out1 = pwdata_w;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = 'Z;
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = pwdata_i;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            STATUS_R:     
+            STATUS_R:
                 begin
-                    out1 = 'Z;
-                    out2 = pwdata_w;
-                    out3 = 'Z;
-                    out4 = 'Z;
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = pwdata_i;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            IER_R:        
+            IER_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = pwdata_w;
-                    out4 = 'Z;
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = pwdata_i;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            MSG_R:        
+            MSG_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = pwdata_w;
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = pwdata_i;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            MOD_R:        
+            EXP_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = 'Z;            
-                    out5 = pwdata_w;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = pwdata_i;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            RESULT_R:     
+            MOD_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = 'Z;    
-                    out5 = 'Z;
-                    out6 = pwdata_w;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = pwdata_i;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
-            ID_R:         
+            RESULT_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = 'Z;    
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = pwdata_w;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = pwdata_i;
+                    op_idr_o = 'Z;
                 end
-            default:      
+            ID_R:
                 begin
-                    out1 = 'Z;
-                    out2 = 'Z;
-                    out3 = 'Z;
-                    out4 = 'Z;    
-                    out5 = 'Z;
-                    out6 = 'Z;
-                    out7 = 'Z;
-                    out8 = 'Z;
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = pwdata_i;
+                end
+            default:
+                begin
+                    op_ctl_o = 'Z;
+                    op_sts_o = 'Z;
+                    op_ier_o = 'Z;
+                    op_msg_o = 'Z;
+                    op_exp_o = 'Z;
+                    op_mod_o = 'Z;
+                    op_res_o = 'Z;
+                    op_idr_o = 'Z;
                 end
         endcase
     end

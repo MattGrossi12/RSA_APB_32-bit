@@ -3,6 +3,7 @@ module amba_3_apb_control_path (
     //Interface:
     input  logic             pclk_i,     //Rising edge  APB clock. Also clocks rsa_core (core_clk). 
     input  logic             presetn_i,  //APB reset. Resets all registers, the sequencer and rsa_core.
+    input  logic [3:0]       paddr_i,   
 
     //FSM signals-inputs:
 
@@ -26,6 +27,9 @@ localparam [1:0]    IDLE    = 2'b00,
 
 logic [1:0] apb_phase, apb_action;
 
+
+
+
 always_comb 
     begin : control_path
         if(psel_i && !penable_i)
@@ -40,7 +44,8 @@ always_comb
 
 always_ff @(posedge pclk_i) 
     begin : ACCESS_actions //1 = write transfer, 0 = read transfer.
-        if(pwrite_i)
+        if(apb_phase == ACCESS && pwrite_i)
+            
         else
     end
 
