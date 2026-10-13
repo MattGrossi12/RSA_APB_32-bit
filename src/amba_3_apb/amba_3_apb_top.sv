@@ -40,7 +40,7 @@ module rsa_apb_top #(
                             op_res_o_w,
                             op_idr_o_w;
                             
-    logic [D_WID:0]         pwdata_o_w;
+    logic [D_WID:0]         prdata_o_w;
 
 /*
     // APB response defaults
@@ -60,7 +60,7 @@ module rsa_apb_top #(
 */
 
     // Read data output from the data I/O block
-    assign prdata_o = pwdata_o_w;
+    assign prdata_o = prdata_o_w;
 
     amba_3_apb_data_io_top #(
         .DATA_WIDTH(DATA_WIDTH),
@@ -79,7 +79,7 @@ module rsa_apb_top #(
         .op_res_i(op_res_i_w),
         .op_idr_i(op_idr_i_w),
 
-        .pwdata_o(pwdata_o_w),
+        .prdata_o(prdata_o_w),
 
         .op_ctl_o(op_ctl_o_w),
         .op_sts_o(op_sts_o_w),

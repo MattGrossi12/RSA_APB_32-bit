@@ -14,7 +14,7 @@ module amba_3_apb_data_o_mux #(
                             op_res_i,
                             op_idr_i,
 
-    output logic [D_WID:0]  pwdata_o
+    output logic [D_WID:0]  prdata_o
 );
 
     // Op codes:
@@ -29,15 +29,15 @@ module amba_3_apb_data_o_mux #(
 
     always_comb begin : Mux
         case (paddr_i)
-            CTRL_R:       pwdata_o = op_ctl_i;
-            STATUS_R:     pwdata_o = op_sts_i;
-            IER_R:        pwdata_o = op_ier_i;
-            MSG_R:        pwdata_o = op_msg_i;
-            EXP_R:        pwdata_o = op_exp_i;
-            MOD_R:        pwdata_o = op_mod_i;
-            RESULT_R:     pwdata_o = op_res_i;
-            ID_R:         pwdata_o = op_idr_i;
-            default:      pwdata_o = 'Z;
+            CTRL_R:       prdata_o = op_ctl_i;
+            STATUS_R:     prdata_o = op_sts_i;
+            IER_R:        prdata_o = op_ier_i;
+            MSG_R:        prdata_o = op_msg_i;
+            EXP_R:        prdata_o = op_exp_i;
+            MOD_R:        prdata_o = op_mod_i;
+            RESULT_R:     prdata_o = op_res_i;
+            ID_R:         prdata_o = op_idr_i;
+            default:      prdata_o = 4'b1111;
         endcase
     end
 
