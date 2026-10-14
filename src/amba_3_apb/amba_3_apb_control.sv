@@ -4,8 +4,8 @@ module amba_3_apb_control #(
                 D_WID = DATA_WIDTH - 1
 )(
     // APB Interface:
-    input  logic            pclk_i,
-    input  logic            presetn_i,
+    //input  logic            pclk_i,
+    //input  logic            presetn_i,
 
     // APB Control Inputs:
     input  logic            psel_i,
@@ -32,12 +32,12 @@ module amba_3_apb_control #(
     output logic            irq_o,
 
     // Register Bank Write Enables:
-    output logic            ctl_we,
-    output logic            status_we,
-    output logic            ier_we,
-    output logic            msg_we,
-    output logic            exp_we,
-    output logic            mod_we
+    output logic            we_ctrl_o,
+    output logic            we_status_o,
+    output logic            we_ier_o,
+    output logic            we_msg_o,
+    output logic            we_exp_o,
+    output logic            we_mod_o
 );
 
 // APB Phase Encoding:
@@ -86,13 +86,13 @@ always_comb
     begin : APB_actions
 
         // Default values:
-        ctl_we    = 1'b0;
-        status_we = 1'b0;
-        ier_we    = 1'b0;
-        msg_we    = 1'b0;
-        exp_we    = 1'b0;
-        mod_we    = 1'b0;
-        pslverr_o = 1'b0;
+        we_ctrl_o   = 1'b0;
+        we_status_o = 1'b0;
+        we_ier_o    = 1'b0;
+        we_msg_o    = 1'b0;
+        we_exp_o    = 1'b0;
+        we_mod_o    = 1'b0;
+        pslverr_o   = 1'b0;
 
         case (apb_phase)
 
@@ -127,7 +127,7 @@ always_comb
                                     begin
                                         if (pwdata_i[1]) // SRST priority
                                             begin
-                                                ctl_we = 1'b1;
+                                                we_ctrl_o = 1'b1;
                                             end
                                         else if (pwdata_i[0] && busy_i)
                                             begin
@@ -135,20 +135,20 @@ always_comb
                                             end
                                         else
                                             begin
-                                                ctl_we = 1'b1;
+                                                we_ctrl_o = 1'b1;
                                             end
                                     end
 
                                 // STATUS register (W1C):
                                 STATUS_R:
                                     begin
-                                        status_we = 1'b1;
+                                        we_status_o = 1'b1;
                                     end
 
                                 // IER register:
                                 IER_R:
                                     begin
-                                        ier_we = 1'b1;
+                                        we_ier_o = 1'b1;
                                     end
 
                                 // MSG register:
@@ -156,7 +156,7 @@ always_comb
                                     begin
                                         if (!busy_i)
                                             begin
-                                                msg_we = 1'b1;
+                                                we_msg_o = 1'b1;
                                             end
                                         else
                                             begin
@@ -169,7 +169,7 @@ always_comb
                                     begin
                                         if (!busy_i)
                                             begin
-                                                exp_we = 1'b1;
+                                                we_exp_o = 1'b1;
                                             end
                                         else
                                             begin
@@ -182,7 +182,7 @@ always_comb
                                     begin
                                         if (!busy_i)
                                             begin
-                                                mod_we = 1'b1;
+                                                we_mod_o = 1'b1;
                                             end
                                         else
                                             begin
