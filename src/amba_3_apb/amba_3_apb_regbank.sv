@@ -211,7 +211,6 @@ always_ff @(posedge pclk_i or negedge presetn_i)
             end
     end
 
-
 // RESULT Register:
 always_ff @(posedge pclk_i or negedge presetn_i)
     begin

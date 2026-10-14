@@ -1,37 +1,41 @@
-module amba_3_apb_reset #(
-    parameter   DATA_WIDTH  = 32,
-                D_WID       = WIDTH-1,
-                ADDR_WIDTH  = 11,
-                A_WID       = ADDR_WIDTH-1,
-                LATENCY     = 2,
-                L_WID       = LATENCY-1,
-                MAX_COUNT   = 2**LATENCY-1
-)(
-    //Inputs:
-    input  logic             pclk_i,     //Rising edge  APB clock. Also clocks rsa_core (core_clk). 
-    input  logic             presetn_i,  //APB reset. Resets all registers, the sequencer and rsa_core.
 
-    output logic             presetp_o,  //RSA Assyncronous reset. Resets all registers, the sequencer and rsa_core.
-    output logic             presetnd_o  //APB Syncronous reset. Resets all registers, the sequencer and rsa_core.
+module amba_3_apb_reset #(
+    parameter LATENCY = 2
+)(
+    // Clock and Reset:
+    input  logic pclk_i,
+    input  logic presetn_i,
+
+    // Software Reset:
+    input  logic srst_i,
+
+    // Reset Outputs:
+    output logic presetp_o,
+    output logic presetnsync_o,
+    output logic rsa_rst_o
 );
 
-logic [L_WID:0] lat_reset_counter;
+// Reset Synchronizer Registers:
+logic [LATENCY-1:0] reset_sync_reg;
 
-//Counter to generate a synchronous reset with a latency of LATENCY cycles.
-always_ff @(posedge pclk_i or negedge presetn_i) 
-begin
-    if (!presetn_i) lat_reset_counter   <= 1'b0;
-    else            lat_reset_counter   <= lat_reset_counter + 1'b1;
-end
+// Reset Synchronizer:
+always_ff @(posedge pclk_i or negedge presetn_i)
+    begin
+        if (!presetn_i)
+            begin
+                reset_sync_reg <= '0;
+            end
+        else
+            begin
+                reset_sync_reg <= (reset_sync_reg << 1) | 1'b1;
+            end
+    end
 
-//Synchronous reset generation with a latency of LATENCY cycles.
-always_comb 
-begin
-    if (lat_reset_counter == {L_WID{1'b1}}) presetnd_o = 1'b0;
-    else                                    presetnd_o = 1'b0;
-end
+// Reset Outputs:
+assign presetp_o     = !presetn_i;
+assign presetnsync_o = reset_sync_reg[LATENCY-1];
 
-//Resets attach:
-assign presetp_o   = !presetn_i;
+// RSA Core Reset:
+assign rsa_rst_o = !presetnsync_o || srst_i;
 
 endmodule: amba_3_apb_reset

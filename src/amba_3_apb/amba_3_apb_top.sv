@@ -90,7 +90,11 @@ module rsa_apb_top #(
         .op_res_o(op_res_o_w),
         .op_idr_o(op_idr_o_w),
 
-        .oaddr_o(oaddr_w)
+        .oaddr_o(oaddr_w),
+
+        .addr_valid_o(addr_valid_w)
     );
+
+    
 
 endmodule: rsa_apb_top
