@@ -1,6 +1,6 @@
 # `amba_3_apb_regbank` — Banco de registradores do coprocessador RSA
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_regbank(1).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_regbank.sv`  
 **Estado:** RTL sequencial/combinacional estruturado; integração e verificação pendentes.
 
 ## 1. Objetivo e escopo

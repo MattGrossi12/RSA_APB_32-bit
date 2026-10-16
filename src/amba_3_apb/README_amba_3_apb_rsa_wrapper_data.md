@@ -1,6 +1,6 @@
 # `amba_3_apb_rsa_wrapper_data` — Caminho de dados do wrapper RSA
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_rsa_wrapper_data(1).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_rsa_wrapper_data.sv`  
 **Estado:** descrição combinacional concluída em RTL; integração com o núcleo ainda não validada.
 
 ## 1. Objetivo

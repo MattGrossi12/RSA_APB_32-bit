@@ -1,6 +1,6 @@
 # `amba_3_apb_data_o_mux` — Multiplexador de leitura
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_data_o_mux(3).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_data_o_mux.sv`  
 **Estado:** lógica combinacional descrita; não validada por simulação/síntese.
 
 ## 1. Objetivo
@@ -85,7 +85,7 @@ Os bits reservados de STATUS e IER também já são forçados a zero pelo `regba
 - `INVALID_DATA` é definido como literal de 32 bits mesmo quando `DATA_WIDTH` é parametrizável; parametrizações diferentes de 32 bits podem truncar ou estender o literal.
 - Índices inválidos geram `0xF` **dentro deste módulo**, mas o `data_io_top` entrega zero se o endereço completo for inválido. Distinguir os dois níveis ao depurar.
 - Não há qualificação por fase APB; PRDATA só é consumido pela interface nos momentos válidos do protocolo.
-- A integração antiga do `amba_3_apb_top.sv` ainda referencia `op_ctl_i`; essa porta já não existe.
+- A integração antiga do `rsa_apb_top.sv` ainda referencia `op_ctl_i`; essa porta já não existe.
 - Nenhuma verificação de compilação, lint, simulação ou síntese foi executada para validar as hipóteses descritas.
 
 ## 9. Resumo operacional

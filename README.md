@@ -1,42 +1,98 @@
-# RSA_APB — Índice de documentação dos módulos
+# RSA_APB
 
-**Linguagem:** SystemVerilog · **Protocolo:** AMBA 3 APB (APB3) · **Dados:** 32 bits  
-**Estágio:** concepção RTL inicial; integração e verificação funcional ainda pendentes.
+Periférico RSA com interface AMBA 3 APB (APB3), descrito em SystemVerilog.
+O projeto contém RTL do periférico, um núcleo RSA, testbenches estruturais e
+scripts auxiliares de síntese, LEC e simulação.
 
-Este pacote foi elaborado a partir dos arquivos `.sv` fornecidos nesta conversa e segue o modelo de profundidade e organização de `README_rsa_wrapper.md`. Os arquivos RTL **não foram alterados**.
+## Estrutura do repositório
 
-# Árvore de projeto:
+```text
+.
+├── constraints/                 # SDCs por módulo
+├── docs/                        # Especificações e material de referência
+├── images/                      # Diagramas e imagens do projeto
+├── logs/<modulo>/{genus,lec,xrun}/
+├── ps_files/<modulo>/{db,netlist,sdc}/
+├── reports/<modulo>/
+├── scripts/<modulo>/
+│   ├── bash/                    # Entradas dos fluxos
+│   └── tcl/
+│       └── legacy/              # Tcl legado preservado
+├── src/
+│   ├── amba_3_apb/              # RTL APB e wrapper RSA
+│   │   ├── legacy/              # RTL legado, fora do fluxo ativo
+│   │   └── rsa_apb_top.sv
+│   └── rsa32/
+│       └── rsa_core_32.sv       # Declara rsa_core e módulos auxiliares
+├── testbenchs/<modulo>/testbench.sv
+└── waveforms/
+```
 
-Estrutura inicial de 
-├───docs
-├───images
-├───scripts
-├───src
-├───testbenchs
-└───waveforms
+## Imagens do projeto
 
-# Link editável do diagrama de topo da arquitetura:
+### Sequência de controle do wrapper RSA
 
-https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D
+![Diagrama de estados do controle do wrapper RSA: START, carregamento de mensagem, expoente e módulo, espera por core_done ou core_err, e retorno por DONE ou ERROR.](images/img1.svg)
 
-## 1. Organização
+*Figura 1 — Estados e transições do controle do wrapper RSA, incluindo reset síncrono e conclusão ou erro do núcleo.*
 
-Cada pasta contém um `README.md` específico do módulo. Os arquivos recebem nomes idênticos aos dos módulos para facilitar sua movimentação ao repositório:
+### Transferência de dados para o núcleo
 
-| Pasta / README | Módulo documentado | Principal responsabilidade |
+![Diagrama temporal dos ciclos C0 a C5 com START, LOAD, BUSY, DONE e DIN para mensagem, expoente e módulo.](images/img2.svg)
+
+*Figura 2 — Sequência temporal de inicialização, carregamento dos operandos e sinalização de ocupado/concluído do núcleo RSA.*
+
+### Máquina de estados do protocolo APB
+
+![Diagrama da máquina APB com os estados IDLE, SETUP e ACCESS, e transições controladas por PSELx, PENABLE e PREADY.](images/img3.png)
+
+*Figura 3 — Fases IDLE, SETUP e ACCESS de uma transferência APB, incluindo espera quando PREADY está baixo.*
+
+### Exemplo de escrita APB
+
+![Diagrama temporal de uma escrita APB para o endereço 0x0C com o dado 0x12345678, passando por SETUP e ACCESS.](images/img4.svg)
+
+*Figura 4 — Exemplo de transferência de escrita APB e captura dos dados na borda final do acesso.*
+
+### Geração da interrupção
+
+![Diagrama lógico da IRQ combinando STATUS.DONE e STATUS.ERROR com IER.DONE_IE e IER.ERR_IE.](images/img5.svg)
+
+*Figura 5 — Lógica de interrupção: flags DONE e ERROR habilitadas pelos bits correspondentes do registrador IER.*
+
+## Diagrama editável
+
+O diagrama de topo da arquitetura pode ser editado no diagrams.net:
+[Abrir diagrama de topo](https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D).
+
+O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
+`src/amba_3_apb/legacy/amba_3_apb_data_i_demux.sv` são artefatos legados;
+`amba_3_apb_data_i_demux` não faz parte dos blocos ativos do projeto.
+
+## Módulos RTL
+
+| Módulo | Arquivo-fonte | Responsabilidade |
 |---|---|---|
-| [`amba_3_apb_control/README.md`](amba_3_apb_control/README.md) | `amba_3_apb_control` | Decodificação APB, WE, `PSLVERR`, `PREADY`, IRQ. |
-| [`amba_3_apb_data_io_top/README.md`](amba_3_apb_data_io_top/README.md) | `amba_3_apb_data_io_top` | Endereço reduzido, validação e seleção de leitura. |
-| [`amba_3_apb_data_o_mux/README.md`](amba_3_apb_data_o_mux/README.md) | `amba_3_apb_data_o_mux` | Multiplexador combinacional de PRDATA. |
-| [`amba_3_apb_regbank/README.md`](amba_3_apb_regbank/README.md) | `amba_3_apb_regbank` | Registradores, W1C, START/SRST e RESULT. |
-| [`amba_3_apb_reset/README.md`](amba_3_apb_reset/README.md) | `amba_3_apb_reset` | Reset global com liberação sincronizada e SRST. |
-| [`amba_3_apb_rsa_wrapper_control/README.md`](amba_3_apb_rsa_wrapper_control/README.md) | `amba_3_apb_rsa_wrapper_control` | FSM One-Hot e contador GAP. |
-| [`amba_3_apb_rsa_wrapper_data/README.md`](amba_3_apb_rsa_wrapper_data/README.md) | `amba_3_apb_rsa_wrapper_data` | MUX de operandos, CORE_LOAD e BUSY. |
-| [`amba_3_apb_rsa_wrapper_top/README.md`](amba_3_apb_rsa_wrapper_top/README.md) | `amba_3_apb_rsa_wrapper_top` | Instância do core e integração control/data. |
-| [`rsa_apb_top/README.md`](rsa_apb_top/README.md) | `rsa_apb_top` (arquivo `amba_3_apb_top.sv`) | Topo geral APB, ainda incompleto. |
-| [`README_rsa_wrapper.md`](README_rsa_wrapper.md) | Wrapper completo | README anterior, preservado como referência detalhada. |
+| `amba_3_apb_control` | [`src/amba_3_apb/amba_3_apb_control.sv`](src/amba_3_apb/amba_3_apb_control.sv) | Controle APB, habilitações de escrita e IRQ. |
+| `amba_3_apb_data_io_top` | [`src/amba_3_apb/amba_3_apb_data_io_top.sv`](src/amba_3_apb/amba_3_apb_data_io_top.sv) | Redução/validação do endereço e caminho de leitura. |
+| `amba_3_apb_data_o_mux` | [`src/amba_3_apb/amba_3_apb_data_o_mux.sv`](src/amba_3_apb/amba_3_apb_data_o_mux.sv) | Multiplexação dos dados de leitura. |
+| `amba_3_apb_regbank` | [`src/amba_3_apb/amba_3_apb_regbank.sv`](src/amba_3_apb/amba_3_apb_regbank.sv) | Registradores de controle, status, operandos e resultado. |
+| `amba_3_apb_reset` | [`src/amba_3_apb/amba_3_apb_reset.sv`](src/amba_3_apb/amba_3_apb_reset.sv) | Sincronização de reset e reset do núcleo. |
+| `amba_3_apb_rsa_wrapper_control` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv) | FSM de controle do wrapper RSA. |
+| `amba_3_apb_rsa_wrapper_data` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv) | Caminho de dados e interface de carregamento do núcleo. |
+| `amba_3_apb_rsa_wrapper_top` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv) | Integração do controle, caminho de dados e núcleo RSA. |
+| `rsa_apb_top` | [`src/amba_3_apb/rsa_apb_top.sv`](src/amba_3_apb/rsa_apb_top.sv) | Topo do periférico APB. |
+| `rsa_core` e auxiliares | [`src/rsa32/rsa_core_32.sv`](src/rsa32/rsa_core_32.sv) | Núcleo RSA e módulos `rsa_core_mult`, `rsa_core_mod` e `rsa_core_ctrl`. |
 
-## 2. Blocos existentes e arquitetura desejada
+O arquivo e o módulo de topo agora compartilham o nome `rsa_apb_top`. O testbench
+correspondente fica em [`testbenchs/rsa_apb_top/testbench.sv`](testbenchs/rsa_apb_top/testbench.sv).
+Os outros testbenches por módulo estão em `testbenchs/<nome_do_modulo>/`.
+Atualmente são estruturais: declaram sinais e instanciam o DUT, mas não contêm
+estímulos nem verificações.
+
+## Diagrama de arquitetura de topo
+
+O diagrama abaixo representa a arquitetura-alvo e a relação entre os blocos:
 
 ```mermaid
 flowchart TD
@@ -49,7 +105,7 @@ flowchart TD
     R -->|"START + operandos"| WT["rsa_wrapper_top"]
     WT --> WC["rsa_wrapper_control"]
     WT --> WD["rsa_wrapper_data"]
-    WT --> CORE["rsa_core externo"]
+    WT --> CORE["rsa_core"]
     WC --> WD
     WD --> CORE
     CORE --> WC
@@ -60,33 +116,46 @@ flowchart TD
     RESET -->|"rsa_rst"| WT
 ```
 
-O diagrama mostra a **arquitetura-alvo**; `rsa_apb_top.sv` ainda não instancia todos esses blocos.
+Este é um diagrama de referência da arquitetura; ele não afirma que todas as
+instâncias e conexões já estejam completas no RTL de `rsa_apb_top`.
 
-## 3. Decisões de projeto documentadas
+Documentação detalhada dos blocos APB:
+[`src/amba_3_apb/`](src/amba_3_apb/).
+A análise do topo APB está em
+[`src/rsa32/README_rsa_apb_top.md`](src/rsa32/README_rsa_apb_top.md).
 
-- Escritura de registradores: um `PWDATA` compartilhado e write enables `we_*`; sem demux no caminho ativo.
-- Leitura: sete fontes legíveis e CTRL lido como zero; `data_io_top` mascara endereços inválidos com zero.
-- Reset: bloco dedicado, dois estágios por padrão, liberação sincronizada e `rsa_rst_o` que também incorpora SRST.
-- Wrapper: `top` centraliza parâmetros e instanciações; `control` implementa sete estados One-Hot e GAP; `data` gera `core_din`, `core_load` e BUSY.
-- RESULT e flags sticky permanecem no regbank, não no wrapper.
-- Comentários e sinais internos alinhados à coluna 1; `logic`, `D_WID`, `'0` e `begin/end` explícitos conforme a convenção do projeto.
+## Organização dos resultados
 
-## 4. Pendências de maior prioridade encontradas nos arquivos
+- Os SDCs estão em `constraints/<nome_do_modulo>.sdc`.
+- Os resultados de síntese são separados em
+  `ps_files/<nome_do_modulo>/{netlist,sdc,db}/`.
+- Os relatórios ficam em `reports/<nome_do_modulo>/`.
+- Os logs são centralizados em `logs/<nome_do_modulo>/{genus,lec,xrun}/`.
+- Formas de onda são armazenadas em `waveforms/`.
 
-| Prioridade | Arquivo | Pendência |
-|---|---|---|
-| Bloqueante | `amba_3_apb_rsa_wrapper_control(1).sv` | O texto `begin (provisional implementation)` em WAIT_DONE é sintaticamente inválido. |
-| Bloqueante | `amba_3_apb_top.sv` | A instância de `data_io_top` utiliza portas antigas que já não existem. |
-| Alta | `amba_3_apb_top.sv` | `ADDR_WIDTH = 11` vs 12 na especificação e `data_io_top`. |
-| Alta | `amba_3_apb_top.sv` | Ainda não instancia controle, regbank, reset e wrapper; saídas APB sem conexões funcionais. |
-| Integração | `amba_3_apb_reset(1).sv` / wrapper | Decidir a política de aceitação de START durante a liberação sincronizada do reset. |
-| Integração | `amba_3_apb_rsa_wrapper_top(1).sv` | A entrada `presetnsync_i` permanece sem uso. |
-| Integração | `amba_3_apb_control(1).sv` | Sem clock/reset na interface; qualificação de WE durante reset requer análise sistêmica. |
+Os arquivos `insira_aqui.txt` mantêm pastas vazias rastreáveis pelo Git até que
+sejam gerados os respectivos resultados.
 
-As pendências são descritas **como observações do RTL atual**, sem alterar ou corrigir os arquivos originais nesta entrega.
+## Melhorias recomendadas
 
-## 5. Como utilizar os READMEs
+1. **Completar e validar a integração de `rsa_apb_top`:** confirmar que as
+   instâncias e conexões usam as interfaces RTL atuais e que todas as saídas APB
+   têm drivers.
+2. **Criar listas de fontes por fluxo/módulo:** os Tcl de síntese referenciam
+   `filelist.f`; manter listas explícitas e versionadas evita depender de
+   arquivos externos ou de diretórios de execução implícitos.
+3. **Parametrizar os scripts compartilhados:** os scripts foram copiados por
+   módulo e repetem lógica. Um fluxo comum com o módulo como argumento reduz
+   divergências de caminhos e opções.
+4. **Adicionar verificação automatizada:** elaborar os testbenches com clock,
+   reset, estímulos e assertions; executar lint, compilação/elaboração e testes
+   em CI antes de considerar o fluxo funcional.
+5. **Alinhar os artefatos aos módulos ativos:** revisar os diretórios SDC,
+   relatórios e resultados que ainda incluem o módulo legado
+   `amba_3_apb_data_i_demux`.
+6. **Documentar e versionar requisitos das ferramentas:** registrar versões de
+   simulador, Genus/LEC, bibliotecas e variáveis de ambiente necessárias para
+   reproduzir os fluxos.
 
-Para consultar um componente isolado, abra seu `README.md` na pasta correspondente. Para compreender a integração geral do wrapper, use `README_rsa_wrapper.md` e os READMEs de control/data. Para iniciar a integração do projeto, use a documentação de `rsa_apb_top` e resolva as pendências marcadas.
-
-**Não foram executados testes, compilação, lint ou síntese nesta tarefa.** As descrições refletem a inspeção do texto-fonte e as decisões documentadas no projeto.
+As sugestões acima são propostas de trabalho; não alteram o comportamento do
+RTL nem afirmam que os fluxos proprietários foram executados.

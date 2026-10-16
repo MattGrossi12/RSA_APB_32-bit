@@ -1,6 +1,6 @@
 # `amba_3_apb_reset` — Sincronização de liberação e reset do RSA
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_reset(1).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_reset.sv`  
 **Estado:** RTL de reset implementado; distribuição e restrições de implementação física pendentes.
 
 ## 1. Objetivo

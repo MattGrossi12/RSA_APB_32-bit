@@ -1,6 +1,6 @@
 # `amba_3_apb_data_io_top` — Endereçamento e caminho de leitura
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_data_io_top(2).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_data_io_top.sv`  
 **Estado:** RTL combinacional implementado; integração de topo ainda pendente.
 
 ## 1. Objetivo e escopo
@@ -113,7 +113,7 @@ O módulo instancia exclusivamente `amba_3_apb_data_o_mux`, com `.DATA_WIDTH(DAT
 
 1. O módulo não produz `PSLVERR`; a sinalização de erro depende do controle APB.
 2. O sinal `PRDATA` é combinacional e não é qualificado diretamente por `PSEL`, `PENABLE` ou `PWRITE` dentro deste módulo.
-3. A instância do `data_io_top` encontrada em `amba_3_apb_top.sv` **ainda usa portas antigas** (`pwdata_i`, `op_ctl_i`, `op_*_o`) e não corresponde ao cabeçalho atual. O topo precisa ser atualizado.
+3. A instância do `data_io_top` encontrada em `rsa_apb_top.sv` **ainda usa portas antigas** (`pwdata_i`, `op_ctl_i`, `op_*_o`) e não corresponde ao cabeçalho atual. O topo precisa ser atualizado.
 4. Não houve simulação ou síntese desta versão nesta etapa.
 
 ## 11. Resumo

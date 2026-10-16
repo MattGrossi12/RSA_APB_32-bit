@@ -1,7 +1,7 @@
 # `rsa_apb_top` — Topo geral da interface APB para o núcleo RSA
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_top.sv`  
-**Nome do módulo declarado no arquivo:** `rsa_apb_top` (não `amba_3_apb_top`).  
+**Projeto:** RSA_APB · **Fonte analisada:** `rsa_apb_top.sv`  
+**Nome do módulo declarado no arquivo:** `rsa_apb_top`, correspondente ao nome do arquivo.  
 **Estado real:** **esqueleto de integração desatualizado e incompleto**; não representa ainda o sistema final.
 
 ## 1. Objetivo arquitetural pretendido
@@ -53,7 +53,6 @@ Não há instanciação de `apb_control`, `regbank`, `reset` ou `rsa_wrapper_top
 | Banco de registradores ausente | `op_*_i_w` não vêm de instância regbank | PRDATA para vários endereços pode ser indefinido. |
 | `addr_valid_w` não declarado explicitamente | Usado na conexão `.addr_valid_o(addr_valid_w)` | Pode provocar erro ou net implícita indesejada conforme o compilador/opções de nettype. |
 | Sinais legados | Pares `op_*_i_w` e `op_*_o_w` sem uso completo | Tornam a integração confusa e podem gerar warnings. |
-| Nome do arquivo ≠ nome do módulo | `amba_3_apb_top.sv` contém `module rsa_apb_top` | Não é erro SV por si só; deve ser padronizado para facilitar busca/build. |
 
 O trecho `/* ... */` com assigns não faz parte do circuito. Assim, **não é correto considerar `PREADY` ou IRQ implementados no topo** com base nesses comentários.
 

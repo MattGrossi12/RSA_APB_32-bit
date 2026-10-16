@@ -1,7 +1,7 @@
 # `amba_3_apb_control` — Controle de transações APB3
 
 **Projeto:** RSA_APB · **Linguagem:** SystemVerilog  
-**Fonte analisada:** `amba_3_apb_control(1).sv` (215 linhas)  
+**Fonte analisada:** `amba_3_apb_control.sv` (215 linhas)  
 **Situação:** RTL combinacional definido; integração e verificação pendentes.
 
 ## 1. Objetivo e fronteira de responsabilidade

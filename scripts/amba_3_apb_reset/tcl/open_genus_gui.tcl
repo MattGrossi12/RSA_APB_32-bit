@@ -1,0 +1,4 @@
+#Read :
+set db_files [glob ../../../ps_files/amba_3_apb_reset/db/*.db]
+read_db [lindex $db_files 0]
+gui_show

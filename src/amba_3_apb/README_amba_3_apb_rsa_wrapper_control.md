@@ -1,6 +1,6 @@
 # `amba_3_apb_rsa_wrapper_control` — FSM e controle dos intervalos GAP
 
-**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_rsa_wrapper_control(1).sv`  
+**Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_rsa_wrapper_control.sv`  
 **Estado:** arquitetura de sete estados definida; **o arquivo recebido contém um erro sintático a corrigir**.
 
 ## 1. Objetivo
@@ -130,16 +130,12 @@ Em IDLE, `start_i` é também qualificado por `!rsa_rst_i`. O caminho de reset e
 - A saída `c_state_o` fornece apenas o **estado registrado** a `rsa_wrapper_data`.
 - `data` decodifica esse estado e produz `core_load`, `core_din` e BUSY; não existe um contador GAP duplicado no `data`.
 
-## 10. Problema sintático encontrado no arquivo recebido
+## 10. Estado sintático
 
-**Atenção — a versão anexada contém uma construção inválida em `WAIT_DONE`:**
-
-```systemverilog
-WAIT_DONE:
-    begin (provisional implementation)
-```
-
-`begin` não admite um texto entre parênteses nesse ponto. O bloco deve usar simplesmente `begin` ou um rótulo válido da forma `begin : nome_do_bloco`. O arquivo de RTL não foi modificado nesta entrega documental. Até corrigir esse trecho, a compilação/elaboração não pode ser considerada viável.
+O arquivo `amba_3_apb_rsa_wrapper_control.sv` atualmente contém um bloco
+`WAIT_DONE` com sintaxe SystemVerilog válida. Referências a
+`begin (provisional implementation)` em documentação anterior descreviam uma
+versão antiga e não se aplicam ao RTL atual.
 
 ## 11. Pontos de atenção e validações futuras
 
