@@ -32,33 +32,38 @@ scripts auxiliares de síntese, LEC e simulação.
 
 ### Sequência de controle do wrapper RSA
 
-![Diagrama de estados do controle do wrapper RSA: START, carregamento de mensagem, expoente e módulo, espera por core_done ou core_err, e retorno por DONE ou ERROR.](images/img1.svg)
-
-*Figura 1 — Estados e transições do controle do wrapper RSA, incluindo reset síncrono e conclusão ou erro do núcleo.*
+<div align="center">
+  <img src="images/img1.svg" alt="Diagrama de estados do controle do wrapper RSA: START, carregamento de mensagem, expoente e módulo, espera por core_done ou core_err, e retorno por DONE ou ERROR.">
+  <p><em>Figura 1 — Estados e transições do controle do wrapper RSA, incluindo reset síncrono e conclusão ou erro do núcleo.</em></p>
+</div>
 
 ### Transferência de dados para o núcleo
 
-![Diagrama temporal dos ciclos C0 a C5 com START, LOAD, BUSY, DONE e DIN para mensagem, expoente e módulo.](images/img2.svg)
-
-*Figura 2 — Sequência temporal de inicialização, carregamento dos operandos e sinalização de ocupado/concluído do núcleo RSA.*
+<div align="center">
+  <img src="images/img2.svg" alt="Diagrama temporal dos ciclos C0 a C5 com START, LOAD, BUSY, DONE e DIN para mensagem, expoente e módulo.">
+  <p><em>Figura 2 — Sequência temporal de inicialização, carregamento dos operandos e sinalização de ocupado/concluído do núcleo RSA.</em></p>
+</div>
 
 ### Máquina de estados do protocolo APB
 
-![Diagrama da máquina APB com os estados IDLE, SETUP e ACCESS, e transições controladas por PSELx, PENABLE e PREADY.](images/img3.png)
-
-*Figura 3 — Fases IDLE, SETUP e ACCESS de uma transferência APB, incluindo espera quando PREADY está baixo.*
+<div align="center">
+  <img src="images/img3.png" alt="Diagrama da máquina APB com os estados IDLE, SETUP e ACCESS, e transições controladas por PSELx, PENABLE e PREADY.">
+  <p><em>Figura 3 — Fases IDLE, SETUP e ACCESS de uma transferência APB, incluindo espera quando PREADY está baixo.</em></p>
+</div>
 
 ### Exemplo de escrita APB
 
-![Diagrama temporal de uma escrita APB para o endereço 0x0C com o dado 0x12345678, passando por SETUP e ACCESS.](images/img4.svg)
-
-*Figura 4 — Exemplo de transferência de escrita APB e captura dos dados na borda final do acesso.*
+<div align="center">
+  <img src="images/img4.svg" alt="Diagrama temporal de uma escrita APB para o endereço 0x0C com o dado 0x12345678, passando por SETUP e ACCESS.">
+  <p><em>Figura 4 — Exemplo de transferência de escrita APB e captura dos dados na borda final do acesso.</em></p>
+</div>
 
 ### Geração da interrupção
 
-![Diagrama lógico da IRQ combinando STATUS.DONE e STATUS.ERROR com IER.DONE_IE e IER.ERR_IE.](images/img5.svg)
-
-*Figura 5 — Lógica de interrupção: flags DONE e ERROR habilitadas pelos bits correspondentes do registrador IER.*
+<div align="center">
+  <img src="images/img5.svg" alt="Diagrama lógico da IRQ combinando STATUS.DONE e STATUS.ERROR com IER.DONE_IE e IER.ERR_IE.">
+  <p><em>Figura 5 — Lógica de interrupção: flags DONE e ERROR habilitadas pelos bits correspondentes do registrador IER.</em></p>
+</div>
 
 ## Diagrama editável
 
@@ -71,18 +76,18 @@ O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
 
 ## Módulos RTL
 
-| Módulo | Arquivo-fonte | Responsabilidade |
-|---|---|---|
-| `amba_3_apb_control` | [`src/amba_3_apb/amba_3_apb_control.sv`](src/amba_3_apb/amba_3_apb_control.sv) | Controle APB, habilitações de escrita e IRQ. |
-| `amba_3_apb_data_io_top` | [`src/amba_3_apb/amba_3_apb_data_io_top.sv`](src/amba_3_apb/amba_3_apb_data_io_top.sv) | Redução/validação do endereço e caminho de leitura. |
-| `amba_3_apb_data_o_mux` | [`src/amba_3_apb/amba_3_apb_data_o_mux.sv`](src/amba_3_apb/amba_3_apb_data_o_mux.sv) | Multiplexação dos dados de leitura. |
-| `amba_3_apb_regbank` | [`src/amba_3_apb/amba_3_apb_regbank.sv`](src/amba_3_apb/amba_3_apb_regbank.sv) | Registradores de controle, status, operandos e resultado. |
-| `amba_3_apb_reset` | [`src/amba_3_apb/amba_3_apb_reset.sv`](src/amba_3_apb/amba_3_apb_reset.sv) | Sincronização de reset e reset do núcleo. |
-| `amba_3_apb_rsa_wrapper_control` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv) | FSM de controle do wrapper RSA. |
-| `amba_3_apb_rsa_wrapper_data` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv) | Caminho de dados e interface de carregamento do núcleo. |
-| `amba_3_apb_rsa_wrapper_top` | [`src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv`](src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv) | Integração do controle, caminho de dados e núcleo RSA. |
-| `rsa_apb_top` | [`src/amba_3_apb/rsa_apb_top.sv`](src/amba_3_apb/rsa_apb_top.sv) | Topo do periférico APB. |
-| `rsa_core` e auxiliares | [`src/rsa32/rsa_core_32.sv`](src/rsa32/rsa_core_32.sv) | Núcleo RSA e módulos `rsa_core_mult`, `rsa_core_mod` e `rsa_core_ctrl`. |
+| Módulo e fonte | Responsabilidade |
+|---|---|
+| `amba_3_apb_control`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_control.sv) | Controle APB e habilitações<br>de escrita e IRQ. |
+| `amba_3_apb_data_io_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_data_io_top.sv) | Redução e validação do endereço;<br>caminho de leitura. |
+| `amba_3_apb_data_o_mux`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_data_o_mux.sv) | Multiplexação combinacional<br>dos dados de leitura. |
+| `amba_3_apb_regbank`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_regbank.sv) | Registradores de controle, status,<br>operandos e resultado. |
+| `amba_3_apb_reset`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_reset.sv) | Sincronização de reset<br>e reset do núcleo. |
+| `amba_3_apb_rsa_wrapper_control`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv) | FSM de controle<br>do wrapper RSA. |
+| `amba_3_apb_rsa_wrapper_data`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv) | Caminho de dados e carregamento<br>dos operandos do núcleo. |
+| `amba_3_apb_rsa_wrapper_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv) | Integração do controle, dados<br>e núcleo RSA. |
+| `rsa_apb_top`<br>[Fonte RTL](src/amba_3_apb/rsa_apb_top.sv) | Topo do periférico<br>com interface APB. |
+| `rsa_core` e auxiliares<br>[Fonte RTL](src/rsa32/rsa_core_32.sv) | Núcleo RSA e módulos<br>`rsa_core_mult`, `rsa_core_mod`, `rsa_core_ctrl`. |
 
 O arquivo e o módulo de topo agora compartilham o nome `rsa_apb_top`. O testbench
 correspondente fica em [`testbenchs/rsa_apb_top/testbench.sv`](testbenchs/rsa_apb_top/testbench.sv).
