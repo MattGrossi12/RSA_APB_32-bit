@@ -1,7 +1,9 @@
 # `amba_3_apb_rsa_wrapper_data` — Caminho de dados do wrapper RSA
 
 **Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_rsa_wrapper_data.sv`  
-**Estado:** descrição combinacional concluída em RTL; integração com o núcleo ainda não validada.
+**RTL de referência:** `amba_3_apb_rsa_wrapper_data(4).sv`  
+**Revisão documental:** 16/10/2026  
+**Estado:** caminho combinacional conectado em `rsa_wrapper_top`; teste com núcleo pendente.
 
 ## 1. Objetivo
 
@@ -62,13 +64,13 @@ A linha de reset tem prioridade sobre qualquer valor de `c_state_i`.
 
 Essa decisão não impede o processamento de operandos cujo valor seja efetivamente zero. Se `op_msg_i = 32'h0000_0000` durante LOAD_MSG, o núcleo captura um zero válido com `core_load = 1`.
 
-## 6. `core_load_o`: três pulsos de carga
+## 6. `core_load_o`: três ciclos de habilitação de carga
 
-É alto somente em LOAD_MSG, LOAD_EXP e LOAD_MOD. Em uma execução normal, cada um desses estados dura um ciclo de `PCLK`; assim, o RSA recebe três bordas de captura com os operandos na sequência exigida.
+É alto somente em LOAD_MSG, LOAD_EXP e LOAD_MOD. Em uma execução normal, cada estado dura um ciclo de `PCLK`; assim, o RSA encontra **três bordas de captura** com os operandos na ordem MSG, EXP e MOD.
 
-Quando `LOAD_GAP = 0`, os pulsos de carga podem permanecer continuamente altos por três ciclos contíguos, enquanto `core_din` muda a cada transição de estado. Isso é compatível com a exigência funcional de três capturas sucessivas, mas deve ser confirmado com a implementação concreta do `rsa_core`.
+**Com `LOAD_GAP = 0`, `core_load_o` permanece em nível alto durante os três ciclos contíguos**: o dado muda a cada transição de estado, mas não há obrigatoriamente três pulsos separados por períodos em nível baixo. O comportamento efetivo da IP `rsa_core` com habilitação contínua deve ser observado nos testbenches, sem antecipar alterações ao RTL.
 
-Se `LOAD_GAP > 0`, os estados intermediários introduzem `core_load_o = 0` entre operandos.
+Se `LOAD_GAP > 0`, os estados intermediários introduzem `core_load_o = 0` durante exatamente `LOAD_GAP` ciclos entre duas cargas. O valor padrão configurado no `wrapper_top` é zero.
 
 ## 7. `rsa_wp_busy_o`: sinalização de ocupação
 
@@ -124,3 +126,16 @@ O `data` não conta ciclos por conta própria; a duração de cada estado é def
 ## 12. Resumo
 
 O `rsa_wrapper_data` implementa o caminho de saída da FSM por decodificação do estado One-Hot: seleciona o operando, habilita a captura e informa BUSY. A sequência temporal é inteiramente determinada pelo `rsa_wrapper_control`.
+
+
+## Estado da revisão (16/10/2026)
+
+| Verificação | Situação |
+|---|---|
+| Conferência textual com `amba_3_apb_rsa_wrapper_data(4).sv` | Concluída para esta atualização documental |
+| Revisão arquitetural e estática | Realizada; não equivale a simulação |
+| Elaboração/lint com todos os fontes, incluindo `rsa_core` | Pendente |
+| Testbench e simulação funcional | Pendente |
+| Síntese, STA e verificações físicas | Pendentes |
+
+**Escopo:** este README descreve o comportamento implementado na revisão de RTL indicada. Não houve alteração do SystemVerilog durante a atualização da documentação.

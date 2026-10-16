@@ -6,7 +6,6 @@ module amba_3_apb_rsa_wrapper_top #(
     // Clock and Reset:
     input  logic             pclk_i,
     input  logic             presetn_i,
-    input  logic             presetnsync_i,
 
     // Register Bank Control:
     input  logic             start_i,

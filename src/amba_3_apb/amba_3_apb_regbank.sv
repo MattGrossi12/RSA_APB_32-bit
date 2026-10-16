@@ -6,6 +6,7 @@ module amba_3_apb_regbank #(
     // Clock and Reset:
     input  logic             pclk_i,
     input  logic             presetn_i,
+    input  logic             rsa_rst_i,
 
     // APB Write Data:
     input  logic [D_WID:0]   pwdata_i,
@@ -231,12 +232,11 @@ always_ff @(posedge pclk_i or negedge presetn_i)
             end
     end
 
-
 // CTRL Register Commands:
+// Reset has priority over START.
 assign srst_o  = we_ctrl_i && pwdata_i[1];
-assign start_o = we_ctrl_i && pwdata_i[0] &&
-                 !pwdata_i[1] && !rsa_wp_busy_i;
 
+assign start_o = (we_ctrl_i && pwdata_i[0] && !pwdata_i[1] && !rsa_wp_busy_i && presetn_i && !rsa_rst_i);
 
 // MSG Register (0x0C):
 assign op_msg_o = msg_reg;

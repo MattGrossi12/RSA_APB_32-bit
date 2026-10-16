@@ -14,24 +14,34 @@ set RUN "${project_name}_${DATE}"
 
 
 ###########################################################################################################################################
-# LIB
+# LIB - GPDK045 (45nm)
 ###########################################################################################################################################
 
-# TSMC28 track PDK
+# GPDK045 LIB search path:
 set_db init_lib_search_path \
-{/home/grossimatheus/PDK/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp30p140_180a}
+{/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/}
 
-# TSMC28 LIB-Adress path:
-#set LIBDIR /home/grossimatheus/PDK/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp30p140_180a
-
-# TSMC28 LIB PDK READ:
+# GPDK045 LIB PDK READ (Typical Corner):
 set LIBFILES [list \
-    /home/grossimatheus/PDK/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp30p140_180a/tcbn28hpcplusbwp30p140tt0p9v25c.lib \
-    /home/grossimatheus/PDK/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp30p140lvt_180a/tcbn28hpcplusbwp30p140lvttt0p9v25c.lib \
+    /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib \
 ]
 
 # Read all LIB files:
 read_libs $LIBFILES
+
+
+###########################################################################################################################################
+# LEF - GPDK045 (45nm)
+###########################################################################################################################################
+
+# GPDK045 Technology LEF and Standard Cell LEF:
+set LEFFILES [list \
+    /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_tech.lef \
+    /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef \
+]
+
+# Load all LEF files:
+set_db lef_library $LEFFILES
 
 #Set our RTL directory:
 set_db init_hdl_search_path {../../RTL}

@@ -105,7 +105,7 @@ always_comb
                 end
 
             WAIT_DONE:
-                begin (provisional implementation)
+                begin
                     if (core_done_i || core_error_i)
                         begin
                             n_state = IDLE;
