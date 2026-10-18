@@ -58,7 +58,6 @@ logic [D_WID:0] op_res_w;
 logic [D_WID:0] op_idr_w;
 
 // Reset Signals:
-logic           presetnsync_w;
 logic           rsa_rst_w;
 
 // RSA Wrapper Signals:
@@ -155,8 +154,6 @@ amba_3_apb_reset #(
     .pclk_i         (pclk_i),
     .presetn_i      (presetn_i),
     .srst_i         (srst_w),
-    .presetp_o      (),
-    .presetnsync_o  (presetnsync_w),
     .rsa_rst_o      (rsa_rst_w)
 );
 

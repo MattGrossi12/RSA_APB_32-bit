@@ -18,6 +18,7 @@ mkdir -p -- "$BUILD_DIR" "$WAVE_DIR"
 RTL_DIR="$PROJECT_ROOT/src/amba_3_apb"
 SOURCES=(
     "$PROJECT_ROOT/src/rsa32/rsa_core_32.sv"
+    "$RTL_DIR/amba_3_apb_adrec.sv"
     "$RTL_DIR/amba_3_apb_data_o_mux.sv"
     "$RTL_DIR/amba_3_apb_data_io_top.sv"
     "$RTL_DIR/amba_3_apb_control.sv"

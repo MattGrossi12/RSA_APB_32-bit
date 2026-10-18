@@ -81,7 +81,6 @@ No corpo do `top`, os `localparam` definem as sete codificações One-Hot e os p
 |---|---|---|---|---|
 | `pclk_i` | Entrada | 1 | Clock do sistema | Clock da FSM e do `rsa_core`. |
 | `presetn_i` | Entrada | 1 | Reset APB global | Reset assíncrono ativo baixo dos registradores da FSM. |
-| `presetnsync_i` | Entrada | 1 | Bloco de reset | **Presente no cabeçalho, mas não utilizado no RTL atual do top**. |
 | `start_i` | Entrada | 1 | `regbank` | Comando para iniciar operação, reconhecido em `IDLE`. |
 | `rsa_rst_i` | Entrada | 1 | `amba_3_apb_reset` | Reset ativo alto do núcleo; aborta sincronamente a FSM e mascara saídas de `data`. |
 | `op_msg_i` | Entrada | `DATA_WIDTH` | `regbank` | Mensagem M. |
@@ -274,7 +273,7 @@ Dessa forma, a lógica de combinação entre reset sincronizado e SRST **permane
 
 O bloco `WAIT_DONE` em `amba_3_apb_rsa_wrapper_control.sv` tem sintaxe válida na versão atual. Descrições de uma construção `begin (provisional implementation)` referem-se a uma versão anterior e estão obsoletas.
 
-1. **`presetnsync_i` não utilizado:** ainda existe como porta externa do `rsa_wrapper_top`, embora `rsa_rst_i` já incorpore a liberação sincronizada. Decidir se será removido na consolidação das interfaces.
+1. **Reset do núcleo:** `rsa_rst_i` já incorpora a liberação sincronizada do reset global. O wrapper não possui uma entrada separada `presetnsync_i`.
 2. **START deve ser pulso válido:** o `control` reconhece `start_i` enquanto em IDLE. Se START permanecer em nível alto até o retorno a IDLE, poderá iniciar outra operação. A integração deve assegurar a duração correta do comando e a aceitação de START somente quando permitido.
 3. **DONE/ERROR são encaminhados diretamente:** o `top` não mascara esses pulsos pelo estado `WAIT_DONE`. O `control` somente transita por eles em `WAIT_DONE`, mas o `regbank` poderá vê-los sempre que o núcleo os emitir. Confirmar pelo RTL do núcleo que esses sinais não aparecem indevidamente durante reset ou carregamento.
 4. **Condição simultânea DONE e ERROR:** qualquer um encerra a FSM; ambos juntos serão encaminhados ao `regbank`. A especificação funcional não detalha sua ocorrência simultânea. A prioridade/validade desse caso deve ser verificada na integração.
