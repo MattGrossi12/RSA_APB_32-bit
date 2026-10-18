@@ -1,0 +1,11 @@
+# Resultados locais das simulações integradas.
+/logs/amba_3_apb_rsa_apb_top/iverilog/
+/logs/amba_3_apb_rsa_apb_top/verilator/
+/reports/amba_3_apb_rsa_apb_top/verilator/
+/waveforms/amba_3_apb_rsa_apb_top/
+
+# Site gerado e ferramentas instaladas pelo workflow Pages.
+/_site/
+/.tools/
+/.verilator-source/
+__pycache__/

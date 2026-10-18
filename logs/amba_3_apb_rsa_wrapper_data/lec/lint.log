@@ -1,0 +1,39 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 965 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_design ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv -systemverilog -golden
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv ...
+// Golden root module is set to 'amba_3_apb_rsa_wrapper_data'
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:2)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:3)
+// Note: Read VERILOG design successfully
+0
+// Command: set_root_module amba_3_apb_rsa_wrapper_data -golden
+// Warning: Golden root module is already at 'amba_3_apb_rsa_wrapper_data'
+0
+// Command: report_rule_check -RTL -status FAIL -verbose
+RTL1.9h: Parameter declaration with no type or range specification
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: amba_3_apb_rsa_wrapper_data:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    2: amba_3_apb_rsa_wrapper_data:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+RTL5.5a: Default case item with non-X assignment(s)
+    Type: Golden      Severity: Note       Occurrence: 3
+    1: amba_3_apb_rsa_wrapper_data
+       on line 92 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    2: amba_3_apb_rsa_wrapper_data
+       on line 93 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    3: amba_3_apb_rsa_wrapper_data
+       on line 94 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+0
+// Command: exit

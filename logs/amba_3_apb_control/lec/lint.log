@@ -1,0 +1,105 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 965 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_design ../../../src/amba_3_apb/amba_3_apb_control.sv -systemverilog -golden
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_control.sv ...
+// Golden root module is set to 'amba_3_apb_control'
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:2)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:1)
+// Note: (RTL5.7) Default case item with inconsistent assignment(s). (occurrence:2)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:30)
+// Note: Read VERILOG design successfully
+0
+// Command: set_root_module amba_3_apb_control -golden
+// Warning: Golden root module is already at 'amba_3_apb_control'
+0
+// Command: report_rule_check -RTL -status FAIL -verbose
+RTL1.9h: Parameter declaration with no type or range specification
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: amba_3_apb_control:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    2: amba_3_apb_control:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 4 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+RTL5.5a: Default case item with non-X assignment(s)
+    Type: Golden      Severity: Note       Occurrence: 1
+    1: amba_3_apb_control
+       on line 201 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+RTL5.7: Default case item with inconsistent assignment(s).
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: amba_3_apb_control: incomplete assignments to: we_ctrl_o we_exp_o we_ier_o we_mod_o we_msg_o we_status_o 
+       on line 122 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    2: amba_3_apb_control: incomplete assignments to: pslverr_o we_ctrl_o we_exp_o we_ier_o we_mod_o we_msg_o we_status_o 
+       on line 95 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+HRC3.10a: An input port is declared, but it is not completely used in the module
+    Type: Golden      Severity: Warning    Occurrence: 30
+    1: amba_3_apb_control:Input pwdata_i[31] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    2: amba_3_apb_control:Input pwdata_i[30] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    3: amba_3_apb_control:Input pwdata_i[29] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    4: amba_3_apb_control:Input pwdata_i[28] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    5: amba_3_apb_control:Input pwdata_i[27] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    6: amba_3_apb_control:Input pwdata_i[26] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    7: amba_3_apb_control:Input pwdata_i[25] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    8: amba_3_apb_control:Input pwdata_i[24] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+    9: amba_3_apb_control:Input pwdata_i[23] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   10: amba_3_apb_control:Input pwdata_i[22] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   11: amba_3_apb_control:Input pwdata_i[21] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   12: amba_3_apb_control:Input pwdata_i[20] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   13: amba_3_apb_control:Input pwdata_i[19] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   14: amba_3_apb_control:Input pwdata_i[18] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   15: amba_3_apb_control:Input pwdata_i[17] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   16: amba_3_apb_control:Input pwdata_i[16] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   17: amba_3_apb_control:Input pwdata_i[15] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   18: amba_3_apb_control:Input pwdata_i[14] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   19: amba_3_apb_control:Input pwdata_i[13] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   20: amba_3_apb_control:Input pwdata_i[12] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   21: amba_3_apb_control:Input pwdata_i[11] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   22: amba_3_apb_control:Input pwdata_i[10] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   23: amba_3_apb_control:Input pwdata_i[9] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   24: amba_3_apb_control:Input pwdata_i[8] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   25: amba_3_apb_control:Input pwdata_i[7] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   26: amba_3_apb_control:Input pwdata_i[6] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   27: amba_3_apb_control:Input pwdata_i[5] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   28: amba_3_apb_control:Input pwdata_i[4] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   29: amba_3_apb_control:Input pwdata_i[3] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+   30: amba_3_apb_control:Input pwdata_i[2] is unused
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_control.sv'
+0
+// Command: exit
