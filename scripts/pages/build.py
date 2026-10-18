@@ -10,6 +10,9 @@ import re
 import shutil
 import subprocess
 
+from documents import build_documents
+from coverage_theme import apply_theme
+
 ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY = "https://github.com/MattGrossi12/RSA_APB_32-bit"
 REPORTS = ROOT / "reports/amba_3_apb_rsa_apb_top/verilator"
@@ -116,14 +119,6 @@ def build(output):
     for folder in ("reference", "artifacts"):
         (output / folder).mkdir(exist_ok=True)
 
-    readme = read_required(ROOT / "README.md")
-    architecture_section = re.search(
-        r"^## Diagrama de arquitetura de topo\s*\n(.*?)(?=^## |\Z)", readme, re.M | re.S)
-    architecture_diagram = re.search(r"```mermaid\s*\n(.*?)```", architecture_section[1], re.S) if architecture_section else None
-    if not architecture_diagram:
-        raise ValueError("README principal sem diagrama Mermaid de arquitetura de topo.")
-    architecture = {"diagram": architecture_diagram[1].strip(), "documentation": "reference/README.md"}
-
     modules = json.loads(read_required(ROOT / "site/modules.json"))
     for module in modules:
         readme = read_required(ROOT / module["readme"])
@@ -133,8 +128,7 @@ def build(output):
             raise ValueError(f"README sem objetivo/diagrama Mermaid: {module['readme']}")
         module["summary"] = module.get("summary") or plain_markdown(introduction[1])
         module["diagrams"] = [diagram.strip() for diagram in diagrams]
-        module["documentation"] = "reference/" + Path(module["readme"]).name
-        shutil.copyfile(ROOT / module["readme"], output / module["documentation"])
+        module["documentation"] = "reference/" + Path(module["readme"]).with_suffix(".html").name
 
     lcov, normalized_lcov = parse_lcov(read_required(REPORTS / "coverage.info"))
     for module in modules:
@@ -153,6 +147,7 @@ def build(output):
     if not (REPORTS / "html/index.html").is_file():
         raise ValueError("Relatório HTML ausente: instale genhtml e execute verilator.sh novamente.")
     shutil.copytree(REPORTS / "html", output / "coverage", dirs_exist_ok=True)
+    apply_theme(output / "coverage")
     # genhtml stores its original command line; keep local machine paths out of the site.
     (output / "coverage/cmd_line").unlink(missing_ok=True)
     for file in (output / "coverage").rglob("*.html"):
@@ -174,12 +169,14 @@ def build(output):
     for source, name in references.items():
         shutil.copyfile(ROOT / source, output / "reference" / name)
 
+    document_count = build_documents(ROOT, output, REPOSITORY, git("rev-parse", "HEAD"), references)
+
     log_path = ROOT / "logs/amba_3_apb_rsa_apb_top/verilator/simulation.log"
     metadata = {"repository": REPOSITORY, "commit": git("rev-parse", "HEAD"),
                 "dirty": bool(git("status", "--porcelain", "--untracked-files=no")),
                 "generatedAt": datetime.now(timezone.utc).isoformat(),
                 "simulatedAt": datetime.fromtimestamp(log_path.stat().st_mtime, timezone.utc).isoformat()}
-    data = {"meta": metadata, "architecture": architecture, "modules": modules, "simulations": simulations,
+    data = {"meta": metadata, "modules": modules, "simulations": simulations,
             "lcov": lcov, "native": native}
     serialized = json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
     (output / "assets/data.js").write_text("window.PROJECT_DATA = " + serialized + ";\n", encoding="utf-8")
@@ -193,7 +190,7 @@ def build(output):
         html = html.replace("{{" + token + "}}", escape(str(value)))
     (output / "index.html").write_text(html, encoding="utf-8")
     (output / ".nojekyll").touch()
-    print(f"Página gerada em {output}; {len(modules)} módulos, {simulations['iverilog']['checks']} comparações, LCOV completo.")
+    print(f"Página gerada em {output}; {len(modules)} módulos, {document_count} documentos formatados, {simulations['iverilog']['checks']} comparações, LCOV completo.")
 
 
 if __name__ == "__main__":

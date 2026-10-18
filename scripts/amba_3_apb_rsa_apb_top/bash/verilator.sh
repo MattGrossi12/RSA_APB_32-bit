@@ -4,9 +4,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
 
-for tool in verilator verilator_coverage make g++; do
+for tool in verilator verilator_coverage make g++ python3; do
     if ! command -v "$tool" >/dev/null 2>&1; then
-        printf 'Erro: %s não encontrado. São necessários Verilator, Make e um compilador C++ com suporte a C++20.\n' "$tool" >&2
+        printf 'Erro: %s não encontrado. São necessários Verilator, Make, Python 3 e um compilador C++ com suporte a C++20.\n' "$tool" >&2
         exit 127
     fi
 done
@@ -82,6 +82,7 @@ if command -v genhtml >/dev/null 2>&1; then
         cat "$LOG_DIR/genhtml.log" >&2
         exit 1
     fi
+    python3 "$PROJECT_ROOT/scripts/pages/coverage_theme.py" "$REPORT_DIR/html"
     printf '\n[COVERAGE] HTML: %s\n' "$REPORT_DIR/html/index.html"
 else
     printf '\n[COVERAGE] genhtml não encontrado; instale LCOV para gerar também o HTML.\n'

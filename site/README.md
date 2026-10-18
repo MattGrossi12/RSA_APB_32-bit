@@ -2,7 +2,7 @@
 
 A página tem cinco seções:
 
-- **RTL:** diagrama do Drive, arquitetura do README, resumos dos onze módulos e seus arquivos.
+- **RTL:** diagrama do Drive, resumos dos onze módulos e seus arquivos.
 - **Testbench:** sequência dos testes e principais tasks da bancada.
 - **Scripts:** comandos de simulação e geração da página.
 - **Docs:** READMEs, plano de teste e PDFs do APB.
@@ -14,6 +14,16 @@ O tema usa fundo azul quase preto (`#050b16`), painéis em azul escuro e
 diagramas Mermaid com a mesma paleta. Os SVGs ilustrativos em `images/`
 têm fundo próprio, para preservar o contraste ao aparecerem no README
 independentemente do tema do GitHub.
+
+O relatório HTML de cobertura usa o mesmo fundo `#050b16`, com tabelas em azul
+escuro e cores distintas para cobertura alta, média, baixa e linhas executadas.
+O tema está em `assets/lcov.css`. O script do Verilator aplica o tema após o
+genhtml, e o build do site também o aplica à cópia em `_site/coverage/`.
+Para atualizar um relatório já existente, execute na raiz:
+
+```bash
+python3 scripts/pages/coverage_theme.py reports/amba_3_apb_rsa_apb_top/verilator/html
+```
 
 ## Diagrama de topo conectado ao Drive
 
@@ -38,48 +48,56 @@ o link **Abrir arquivo original** continua disponível fora dele.
 No README do GitHub há um acesso destacado no início para essa seção do site:
 o GitHub não permite executar o iframe ou scripts do visualizador no Markdown.
 
-## Diagrama do README e módulos novos
+## Leitura dos READMEs
 
-A seção **Arquitetura do RTL** mostra o Mermaid da seção **Diagrama de
-arquitetura de topo** do README principal. O build lê essa definição, e a
-página permite ampliar o desenho, ajustar o zoom e consultar seu código. O
-painel do README tem 1008 pixels de altura, e o desenho abre com 1,8 vez
-a escala ajustada à largura. Os controles **+** e **−** permitem mudar a
-escala. A rolagem dá acesso às demais conexões; o botão
-**Ajustar** volta a encaixar sua largura no painel. As edições nesse
-Mermaid entram no site no próximo build; o diagrama do Drive continua sendo
-consultado diretamente pelo visualizador.
+Os links dos READMEs abrem páginas HTML dentro do site, com o mesmo tema,
+índice de seções, tabelas, blocos de código, imagens e diagramas Mermaid.
+O plano de teste também usa esse formato. A opção **Baixar .md** dá acesso
+ao arquivo original, e **Voltar à documentação** retorna à página principal.
 
-O painel do Drive também tem a altura triplicada: usa
-`clamp(1320px, 195vh, 2340px)` no desktop e 1560 pixels no celular.
+A conversão é feita por `scripts/pages/documents.py` durante o build, usando
+[Python-Markdown](https://python-markdown.github.io/extensions/). Os links entre
+READMEs são convertidos para as páginas locais; as imagens são copiadas para
+os assets do site, e os links de código apontam ao arquivo do repositório.
+O texto e as tabelas ficam disponíveis mesmo com JavaScript desativado. Os
+blocos Mermaid são desenhados pelo navegador; seu código continua disponível
+quando o carregamento do Mermaid não é possível.
 
-O desenho inclui `amba_3_apb_adrec` dentro de `data_io_top` e a saída
-`rsa_rst_o` do bloco de reset. O catálogo tem onze módulos, e a seção
-Testbench inclui a bancada do adrec, com acesso ao arquivo SystemVerilog.
+A página principal apresenta apenas o diagrama de topo do Drive e os diagramas
+dos módulos. O painel do Drive usa `clamp(1320px, 195vh, 2340px)` no desktop
+e 1560 pixels no celular.
 
 ## Gerar localmente
 
-Na raiz, após instalar as dependências dos simuladores e `genhtml`:
+Na raiz, após instalar as dependências dos simuladores e `genhtml`, instale
+as dependências Python em um ambiente virtual:
 
 ```bash
+python3 -m venv /tmp/rsa-apb-pages-env
+/tmp/rsa-apb-pages-env/bin/pip install -r scripts/pages/requirements.txt
 ./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh
 ./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh
-python3 scripts/pages/build.py
+/tmp/rsa-apb-pages-env/bin/python scripts/pages/build.py
 python3 -m http.server 8000 --directory _site
 ```
 
 Abra `http://localhost:8000`. Se os logs e relatórios já estiverem atualizados,
-basta executar o gerador Python e o servidor. O Python usa apenas a biblioteca
-padrão. O diretório `_site/` é gerado e ignorado pelo Git.
+basta executar o gerador Python com esse ambiente e iniciar o servidor. A
+versão de Python-Markdown está fixada em `scripts/pages/requirements.txt`.
+O diretório `_site/` é gerado e ignorado pelo Git.
 
 ## Fontes da página
 
 - `modules.json`: nomes e resumos dos módulos, escritos para a página.
-- `README.md` principal: diagrama Mermaid da arquitetura de topo.
+- `README.md` principal: conteúdo da página de documentação do projeto.
 - Os READMEs listados no catálogo: diagramas Mermaid e documentação completa.
   Se o catálogo não definir um resumo, o gerador usa o parágrafo de Objetivo.
 - `index.html` e `assets/`: interface responsiva sem framework ou bundler.
 - `scripts/pages/build.py`: coleta as evidências e empacota o site completo.
+- `scripts/pages/documents.py` e `document.html`: formatam os documentos,
+  ajustam os links e criam as páginas em `_site/reference/*.html`.
+- `scripts/pages/documents.py` e `document.html`: formatam os documentos,
+  ajustam seus links e criam as páginas em `_site/reference/*.html`.
 - Os dois `simulation.log` do topo: resumos e trechos de reset/regbank/RSA.
 - `coverage.info`: porcentagens LCOV por arquivo e totais, calculadas a partir
   dos registros DA/BRDA. Não se confundem com as métricas nativas.
@@ -108,7 +126,7 @@ visualizador remoto do diagrams.net e seu arquivo público no Drive.
 3. Execute **Actions → Documentação e cobertura — GitHub Pages → Run workflow**
    na branch de publicação, ou envie um commit para `main`/`master`.
 
-O workflow instala Icarus/LCOV, compila o Verilator oficial na versão 5.052
+O workflow instala Icarus/LCOV e as dependências Python, compila o Verilator oficial na versão 5.052
 (com cache), executa as simulações, gera o site e publica o artefato. A versão
 foi fixada porque o script de cobertura utiliza os relatórios por tipo e
 hierarquia dessa versão. A primeira execução inclui a compilação da ferramenta.
@@ -125,14 +143,12 @@ e [Mermaid no navegador](https://mermaid.js.org/config/usage.html).
 
 ## Verificação da página
 
-O build local foi conferido contra os números dos relatórios existentes:
-238 comparações, 645/717 linhas LCOV e 5271/6506 branches LCOV. O diagrama
-do README e os onze diagramas dos módulos renderizaram no Chrome. Foram exercitados busca, ampliação dos
-diagramas, troca de simulador/trecho, ordenação da cobertura e viewport de
-390 pixels sem transbordamento horizontal da página. Os 332 links internos
-do HTML gerado foram conferidos. O workflow foi validado estruturalmente;
-sua execução e publicação remota dependem do envio ao GitHub e da habilitação
-de Pages no repositório.
+O build usa os logs do topo e os relatórios existentes, com 238 comparações.
+A página principal mantém as cinco seções, onze módulos e o diagrama remoto.
+As quinze páginas de documentação foram conferidas no Chrome, incluindo
+navegação entre READMEs, índices, imagens, tabelas, diagramas e a exibição em
+390 pixels sem transbordamento horizontal. A execução e a publicação remota dependem
+do envio ao GitHub e da habilitação de Pages no repositório.
 
 O diagrama remoto também foi validado incorporado à página: o visualizador
 carregou o conteúdo real do XML público do Drive, e os controles de atualização
@@ -142,6 +158,3 @@ edição foi conferida para apontar ao arquivo original.
 Também foram conferidas as cinco seções do menu, os resumos revisados dos
 módulos e os links para testbench, scripts e documentos. A reorganização da
 página mantém os mesmos resultados das 238 comparações da bancada.
-
-O diagrama de topo também foi conferido com os controles de zoom, ajuste de
-largura e rolagem, incluindo a exibição do adrec e a abertura em tamanho maior.

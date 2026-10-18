@@ -16,7 +16,6 @@
   let selectedExcerpt = "reset";
   let sortKind = null;
   let sortDirection = -1;
-  let architectureZoom = 1;
 
   const mermaidReady = import("https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs")
     .then(({ default: mermaid }) => {
@@ -25,43 +24,6 @@
         flowchart: { htmlLabels: false, curve: "basis", padding: 16, nodeSpacing: 25, rankSpacing: 34 } });
       return mermaid;
     }).catch(() => null);
-
-  function zoomTopDiagram(value) {
-    const svg = $("top-diagram").querySelector("svg");
-    if (!svg) return;
-    architectureZoom = Math.min(9, Math.max(0.1, value));
-    svg.style.width = svg.viewBox.baseVal.width * architectureZoom + "px";
-    svg.style.height = svg.viewBox.baseVal.height * architectureZoom + "px";
-    $("top-diagram-zoom").textContent = Math.round(architectureZoom * 100) + "%";
-  }
-
-  function fitTopDiagram() {
-    const frame = $("top-diagram");
-    const svg = frame.querySelector("svg");
-    if (!svg) return;
-    const style = getComputedStyle(frame);
-    zoomTopDiagram(Math.min(1, (frame.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)) / svg.viewBox.baseVal.width));
-    frame.scrollTo(0, 0);
-  }
-
-  async function renderTopDiagram() {
-    $("top-diagram-source").textContent = data.architecture.diagram;
-    const mermaid = await mermaidReady;
-    if (mermaid) {
-      try {
-        const { svg } = await mermaid.render("readme-top-architecture", data.architecture.diagram);
-        $("top-diagram").innerHTML = svg;
-        $("top-diagram").querySelector("svg").setAttribute("aria-label", "Arquitetura de topo do README");
-        fitTopDiagram();
-        zoomTopDiagram(architectureZoom * 1.8);
-        for (const id of ["expand-top-diagram", "fit-top-diagram", "zoom-in-top-diagram", "zoom-out-top-diagram"]) $(id).disabled = false;
-        return;
-      } catch {
-        // Keep the README definition available when rendering fails.
-      }
-    }
-    $("top-diagram").replaceChildren(element("p", "Não foi possível mostrar o diagrama. Consulte o código Mermaid abaixo ou o README."));
-  }
 
   async function renderDiagram(module) {
     const sequence = ++renderSequence;
@@ -226,10 +188,6 @@
     $("diagram-dialog").showModal();
   }
   $("expand-diagram").addEventListener("click", () => openDiagram("diagram", selectedModule.label));
-  $("expand-top-diagram").addEventListener("click", () => openDiagram("top-diagram", "Arquitetura do RTL"));
-  $("zoom-in-top-diagram").addEventListener("click", () => zoomTopDiagram(architectureZoom * 1.25));
-  $("zoom-out-top-diagram").addEventListener("click", () => zoomTopDiagram(architectureZoom / 1.25));
-  $("fit-top-diagram").addEventListener("click", fitTopDiagram);
   $("close-dialog").addEventListener("click", () => $("diagram-dialog").close());
   $("diagram-dialog").addEventListener("click", (event) => { if (event.target === $("diagram-dialog")) $("diagram-dialog").close(); });
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -242,7 +200,6 @@
     return link;
   }));
   $("scripts-folder").href = `${data.meta.repository}/tree/${data.meta.commit}/scripts`;
-  renderTopDiagram();
   renderModules();
   selectModule(selectedModule);
   renderLogs();

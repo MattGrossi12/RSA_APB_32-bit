@@ -1,0 +1,88 @@
+/* RSA_APB palette for the HTML report produced by genhtml. */
+:root {
+  color-scheme: dark;
+  --coverage-bg: #050b16;
+  --coverage-surface: #0a1424;
+  --coverage-header: #112039;
+  --coverage-border: #24344c;
+  --coverage-text: #e9edf2;
+  --coverage-muted: #99a6b7;
+  --coverage-link: #ffa776;
+  --coverage-high-bg: #12362e;
+  --coverage-high: #72d9ad;
+  --coverage-medium-bg: #3b2b16;
+  --coverage-medium: #ffd08a;
+  --coverage-low-bg: #431f2b;
+  --coverage-low: #ffb0a7;
+  --coverage-hit-bg: #112c43;
+  --coverage-hit: #c4defb;
+}
+
+html, body { background-color: var(--coverage-bg); color: var(--coverage-text); }
+body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; line-height: 1.5; }
+a:link, a:visited, a.detail:link, a.detail:visited { color: var(--coverage-link); }
+a:hover, a:active, a.detail:active { color: var(--coverage-high); }
+a:focus-visible { outline: 2px solid var(--coverage-link); outline-offset: 3px; }
+td.title { font-style: normal; font-size: 24px; padding: 10px 0 22px; }
+td.ruler { background-color: var(--coverage-border); }
+td.headerItem, td.headerCovTableHead, td.subTableHeader, pre.sourceHeading { color: var(--coverage-muted); }
+td.headerValue, td.headerValueLeg { color: var(--coverage-text); }
+td.versionInfo, td.footnote { color: var(--coverage-muted); }
+td.tableHead { background-color: var(--coverage-header); color: var(--coverage-text); padding: 9px 12px; font-size: 14px; }
+
+td.headerCovTableEntry, td.coverFile, td.coverDirectory, td.coverBar,
+td.coverNumDflt, td.overallOwner, td.ownerName, td.owner_coverBar, td.ownerTla,
+td.testName, td.testPer, td.testNum, td.testDescription, td.footnote,
+td.coverFn, td.coverFnHi, td.coverFnAlias, td.coverFnAliasHi {
+  background-color: var(--coverage-surface);
+  color: var(--coverage-text);
+}
+td.coverDirectory { background-color: var(--coverage-header); }
+td.coverBarOutline { background-color: var(--coverage-border); }
+td.coverFile, td.coverDirectory, td.coverNumDflt, td.coverBar { padding-top: 8px; padding-bottom: 8px; }
+
+td.headerCovTableEntryHi, td.coverPerHi, td.coverNumHi,
+td.owner_coverPerHi, td.owner_coverNumHi, td.headerValueLegH, span.coverLegendCovHi {
+  background-color: var(--coverage-high-bg);
+  color: var(--coverage-high);
+}
+td.headerCovTableEntryMed, td.coverPerMed, td.coverNumMed,
+td.owner_coverPerMed, td.owner_coverNumMed, td.headerValueLegM, span.coverLegendCovMed {
+  background-color: var(--coverage-medium-bg);
+  color: var(--coverage-medium);
+}
+td.headerCovTableEntryLo, td.coverPerLo, td.coverNumLo,
+td.owner_coverPerLo, td.owner_coverNumLo, td.headerValueLegL, span.coverLegendCovLo,
+td.coverFnLo, td.coverFnAliasLo, span.coverLegendNoCov, span.lineNoCov, span.missBins {
+  background-color: var(--coverage-low-bg);
+  color: var(--coverage-low);
+}
+
+pre.source, pre.sourceHeading { font-size: 13px; line-height: 1.65; }
+span.lineNum { background-color: var(--coverage-header); color: var(--coverage-muted); }
+span.lineNumWithDelete, span.elidedSource { background-color: var(--coverage-surface); color: var(--coverage-muted); }
+span.lineCov, span.coverLegendCov {
+  background-color: var(--coverage-hit-bg);
+  color: var(--coverage-hit);
+}
+
+/* Keep the LCOV categories and branch markers distinct on dark backgrounds. */
+:is(td, span, a)[class$="UNC"], :is(td, span, a)[class$="LBC"],
+:is(td, span, a)[class$="UIC"], :is(td, span, a)[class$="UBC"] {
+  background-color: var(--coverage-low-bg);
+  color: var(--coverage-low);
+}
+:is(td, span, a)[class$="GBC"], :is(td, span, a)[class$="GIC"],
+:is(td, span, a)[class$="GNC"], :is(td, span, a)[class$="CBC"] {
+  background-color: var(--coverage-hit-bg);
+  color: var(--coverage-hit);
+}
+:is(td, span, a)[class$="EUB"], :is(td, span, a)[class$="ECB"],
+:is(td, span, a)[class$="DUB"], :is(td, span, a)[class$="DCB"] {
+  background-color: var(--coverage-surface);
+  color: var(--coverage-muted);
+}
+a.branchTla:link, a.branchTla:visited, a.mcdcTla:link, a.mcdcTla:visited { color: inherit; }
+img[src$="snow.png"] { filter: brightness(.18); }
+img[src$="updown.png"] { filter: brightness(0) invert(.75); }
+@media (max-width: 650px) { body { padding: 12px; } }
