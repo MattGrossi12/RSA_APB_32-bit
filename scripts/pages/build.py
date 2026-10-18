@@ -116,6 +116,14 @@ def build(output):
     for folder in ("reference", "artifacts"):
         (output / folder).mkdir(exist_ok=True)
 
+    readme = read_required(ROOT / "README.md")
+    architecture_section = re.search(
+        r"^## Diagrama de arquitetura de topo\s*\n(.*?)(?=^## |\Z)", readme, re.M | re.S)
+    architecture_diagram = re.search(r"```mermaid\s*\n(.*?)```", architecture_section[1], re.S) if architecture_section else None
+    if not architecture_diagram:
+        raise ValueError("README principal sem diagrama Mermaid de arquitetura de topo.")
+    architecture = {"diagram": architecture_diagram[1].strip(), "documentation": "reference/README.md"}
+
     modules = json.loads(read_required(ROOT / "site/modules.json"))
     for module in modules:
         readme = read_required(ROOT / module["readme"])
@@ -123,7 +131,7 @@ def build(output):
         diagrams = re.findall(r"```mermaid\s*\n(.*?)```", readme, re.S)
         if not introduction or not diagrams:
             raise ValueError(f"README sem objetivo/diagrama Mermaid: {module['readme']}")
-        module["summary"] = plain_markdown(introduction[1])
+        module["summary"] = module.get("summary") or plain_markdown(introduction[1])
         module["diagrams"] = [diagram.strip() for diagram in diagrams]
         module["documentation"] = "reference/" + Path(module["readme"]).name
         shutil.copyfile(ROOT / module["readme"], output / module["documentation"])
@@ -152,19 +160,36 @@ def build(output):
     (output / "artifacts/coverage.info").write_text(normalized_lcov, encoding="utf-8")
     shutil.copyfile(REPORTS / "coverage_summary.txt", output / "artifacts/coverage_summary.txt")
     shutil.copyfile(ROOT / "docs/plano_teste_amba_3_apb_rsa_apb_top.md", output / "reference/plano_teste.md")
+    references = {
+        "README.md": "README.md",
+        "testbenchs/rsa_apb_top/testbench.sv": "testbench.sv",
+        "testbenchs/amba_3_apb_adrec/testbench.sv": "testbench_adrec.sv",
+        "scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh": "iverilog.sh",
+        "scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh": "verilator.sh",
+        "scripts/pages/build.py": "build.py",
+        ".github/workflows/pages.yml": "pages.yml",
+        "docs/apb_protocol.pdf": "apb_protocol.pdf",
+        "docs/apb_integration.pdf": "apb_integration.pdf",
+    }
+    for source, name in references.items():
+        shutil.copyfile(ROOT / source, output / "reference" / name)
 
     log_path = ROOT / "logs/amba_3_apb_rsa_apb_top/verilator/simulation.log"
     metadata = {"repository": REPOSITORY, "commit": git("rev-parse", "HEAD"),
                 "dirty": bool(git("status", "--porcelain", "--untracked-files=no")),
                 "generatedAt": datetime.now(timezone.utc).isoformat(),
                 "simulatedAt": datetime.fromtimestamp(log_path.stat().st_mtime, timezone.utc).isoformat()}
-    data = {"meta": metadata, "modules": modules, "simulations": simulations,
+    data = {"meta": metadata, "architecture": architecture, "modules": modules, "simulations": simulations,
             "lcov": lcov, "native": native}
     serialized = json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
     (output / "assets/data.js").write_text("window.PROJECT_DATA = " + serialized + ";\n", encoding="utf-8")
     html = read_required(ROOT / "site/index.html")
     for token, value in {"CHECKS": simulations["iverilog"]["checks"], "MODULES": len(modules),
-                         "LCOV_LINES": str(lcov["lines"]["percent"]).replace(".", ",")}.items():
+                         "ERRORS": max(simulation["errors"] for simulation in simulations.values()),
+                         "REGISTER_ROUNDS": simulations["iverilog"]["registerRounds"],
+                         "RSA_ROUNDS": simulations["iverilog"]["rsaRounds"],
+                         "LCOV_LINES": str(lcov["lines"]["percent"]).replace(".", ","),
+                         "LCOV_BRANCHES": str(lcov["branches"]["percent"]).replace(".", ",")}.items():
         html = html.replace("{{" + token + "}}", escape(str(value)))
     (output / "index.html").write_text(html, encoding="utf-8")
     (output / ".nojekyll").touch()

@@ -1,11 +1,11 @@
 # `amba_3_apb_data_io_top` — Endereçamento e caminho de leitura
 
 **Projeto:** RSA_APB · **Fonte analisada:** `amba_3_apb_data_io_top.sv`  
-**Estado:** RTL combinacional implementado; integração de topo ainda pendente.
+**Estado:** RTL combinacional integrado em `amba_3_apb_rsa_apb_top`.
 
 ## 1. Objetivo e escopo
 
-Esse módulo concentra a **redução do endereço**, a **validação da janela de oito registradores** e a instanciação do `amba_3_apb_data_o_mux`. Não mantém registradores de dados, não grava valores e **não contém mais o demultiplexador de entrada** (removido para a pasta `legacy`).
+Esse módulo reúne `amba_3_apb_adrec`, que reduz e valida o endereço, e `amba_3_apb_data_o_mux`, que seleciona o dado de leitura. Retorna zero em PRDATA quando o endereço está fora da faixa dos oito registradores.
 
 O caminho de escrita foi simplificado: `PWDATA` vai diretamente ao regbank, enquanto o controle APB entrega os sinais `we_*`.
 
@@ -13,8 +13,9 @@ O caminho de escrita foi simplificado: `PWDATA` vai diretamente ao regbank, enqu
 
 ```mermaid
 flowchart TD
-    PA["PADDR de 12 bits"] --> RED["Redução: PADDR[5:2]"]
-    PA --> VALID["Validação: PADDR[A_WID:5] == 0"]
+    PA["PADDR de 12 bits"] --> ADREC["amba_3_apb_adrec"]
+    ADREC --> RED["oaddr: PADDR[5:2]"]
+    ADREC --> VALID["addr_valid: PADDR[A_WID:5] == 0"]
     RED --> MUX["amba_3_apb_data_o_mux"]
     RB["Regbank: op_sts/ier/msg/exp/mod/res/idr"] --> MUX
     MUX --> GATE["Máscara final de PRDATA"]
@@ -68,11 +69,7 @@ O RTL ignora os bits `paddr_i[1:0]`, correspondendo à regra documental de que a
 
 ## 6. Redução e validação do endereço
 
-```systemverilog
-assign oaddr_w     = paddr_i[5:2];
-assign oaddr_o     = oaddr_w;
-assign addr_valid_o = ~|paddr_i[A_WID:5];
-```
+As duas funções estão em `amba_3_apb_adrec`, instanciado como `adrec_inst` com os parâmetros `ADDR_WIDTH` e `A_WID`. Sua saída `oaddr_o` alimenta `oaddr_w`, usado pelo multiplexador e encaminhado ao controle APB. A saída `addr_valid_o` também controla a máscara de PRDATA.
 
 O operador `~|` é uma redução NOR: produz 1 somente quando **todos** os bits de `paddr_i[A_WID:5]` são zero. Para 12 bits, apenas endereços entre `0x000` e `0x01F` são aceitos.
 
@@ -99,7 +96,7 @@ assign prdata_o = addr_valid_o ? prdata_mux_w : '0;
 
 ## 8. Instanciação interna
 
-O módulo instancia exclusivamente `amba_3_apb_data_o_mux`, com `.DATA_WIDTH(DATA_WIDTH)`, sete entradas `op_*_i`, índice reduzido e saída interna `prdata_mux_w`. Não há clock, reset ou armazenamento nesse caminho combinacional.
+O módulo instancia `amba_3_apb_adrec` para o endereço e `amba_3_apb_data_o_mux` para os dados. O multiplexador recebe `.DATA_WIDTH(DATA_WIDTH)`, sete entradas `op_*_i`, o índice reduzido e produz `prdata_mux_w`. Não há clock, reset ou armazenamento nesse caminho combinacional.
 
 ## 9. Integração
 
@@ -113,8 +110,7 @@ O módulo instancia exclusivamente `amba_3_apb_data_o_mux`, com `.DATA_WIDTH(DAT
 
 1. O módulo não produz `PSLVERR`; a sinalização de erro depende do controle APB.
 2. O sinal `PRDATA` é combinacional e não é qualificado diretamente por `PSEL`, `PENABLE` ou `PWRITE` dentro deste módulo.
-3. A instância do `data_io_top` encontrada em `rsa_apb_top.sv` **ainda usa portas antigas** (`pwdata_i`, `op_ctl_i`, `op_*_o`) e não corresponde ao cabeçalho atual. O topo precisa ser atualizado.
-4. Não houve simulação ou síntese desta versão nesta etapa.
+3. O topo ativo é `amba_3_apb_rsa_apb_top.sv`; sua bancada integrada fica em `testbenchs/rsa_apb_top/testbench.sv`.
 
 ## 11. Resumo
 

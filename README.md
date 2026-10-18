@@ -4,6 +4,21 @@ Periférico RSA com interface AMBA 3 APB (APB3), descrito em SystemVerilog.
 O projeto contém RTL do periférico, um núcleo RSA, testbenches estruturais e
 scripts auxiliares de síntese, LEC e simulação.
 
+## Diagrama de topo da arquitetura
+
+**[Abrir o diagrama interativo conectado ao Drive](https://mattgrossi12.github.io/RSA_APB_32-bit/#arquitetura)**
+
+O visualizador da página consulta o XML original do Google Drive, com
+atualização automática a cada minuto enquanto a aba está visível. As edições
+salvas no diagrams.net aparecem sem exportar imagens ou reconstruir o site.
+
+[Editar no diagrams.net](https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D)
+· [Arquivo original no Drive](https://drive.google.com/file/d/1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri/view)
+
+O README do GitHub não executa o visualizador; a versão interativa está na
+página acima. O arquivo do Drive precisa continuar compartilhado para leitura
+com qualquer pessoa que tenha o link.
+
 ## Estrutura do repositório
 
 ```text
@@ -65,10 +80,7 @@ scripts auxiliares de síntese, LEC e simulação.
   <p><em>Figura 5 — Lógica de interrupção: flags DONE e ERROR habilitadas pelos bits correspondentes do registrador IER.</em></p>
 </div>
 
-## Diagrama editável
-
-O diagrama de topo da arquitetura pode ser editado no diagrams.net:
-[Abrir diagrama de topo](https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D).
+## Artefatos legados
 
 O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
 `src/amba_3_apb/legacy/amba_3_apb_data_i_demux.sv` são artefatos legados;
@@ -79,7 +91,8 @@ O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
 | Módulo e fonte | Responsabilidade |
 |---|---|
 | `amba_3_apb_control`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_control.sv) | Controle APB e habilitações<br>de escrita e IRQ. |
-| `amba_3_apb_data_io_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_data_io_top.sv) | Redução e validação do endereço;<br>caminho de leitura. |
+| `amba_3_apb_data_io_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_data_io_top.sv) | Integração do endereço<br>e do caminho de leitura. |
+| `amba_3_apb_adrec`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_adrec.sv) | Redução do endereço<br>e geração de `addr_valid_o`. |
 | `amba_3_apb_data_o_mux`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_data_o_mux.sv) | Multiplexação combinacional<br>dos dados de leitura. |
 | `amba_3_apb_regbank`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_regbank.sv) | Registradores de controle, status,<br>operandos e resultado. |
 | `amba_3_apb_reset`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_reset.sv) | Sincronização de reset<br>e reset do núcleo. |
@@ -96,8 +109,9 @@ aplica reset físico, envia CTRL.SRST, aguarda cinco ciclos e verifica as
 escritas/leitura dos registradores RW em dez rodadas com scoreboard. Ao final,
 executa dez operações RSA, conferindo STATUS, IRQ, RESULT e preservação de
 MSG/EXP/MOD. A instância usa `LOAD_GAP=1`, conforme o protocolo do núcleo real.
-Os outros testbenches
-por módulo estão em `testbenchs/<nome_do_modulo>/` e são estruturais.
+A bancada de `amba_3_apb_adrec` percorre todos os endereços e verifica o índice
+e a validade. As demais bancadas por módulo estão em
+`testbenchs/<nome_do_modulo>/` e são estruturais.
 
 ### Simulação integrada com Icarus Verilog
 
@@ -134,32 +148,55 @@ Use `VERILATOR_JOBS=4` para alterar o paralelismo de compilação (padrão: 2).
 
 ## Diagrama de arquitetura de topo
 
-O diagrama abaixo representa a arquitetura-alvo e a relação entre os blocos:
+O diagrama abaixo mostra os blocos do topo atual, incluindo o redutor de
+endereço `amba_3_apb_adrec` dentro de `data_io_top`:
 
 ```mermaid
 flowchart TD
-    EXT["APB3 externo"] --> IO["data_io_top / data_o_mux"]
-    EXT --> C["apb_control"]
-    EXT --> R["regbank"]
-    IO -->|"oaddr + addr_valid"| C
-    R -->|"dados de leitura"| IO
-    C -->|"WE"| R
-    R -->|"START + operandos"| WT["rsa_wrapper_top"]
-    WT --> WC["rsa_wrapper_control"]
-    WT --> WD["rsa_wrapper_data"]
-    WT --> CORE["rsa_core"]
-    WC --> WD
-    WD --> CORE
-    CORE --> WC
-    WT -->|"BUSY, DONE, ERROR, DOUT"| R
-    WT -->|"BUSY"| C
-    R -->|"SRST"| RESET["reset"]
-    EXT --> RESET
-    RESET -->|"rsa_rst"| WT
+    APB["Mestre APB3"]
+    subgraph IO["amba_3_apb_data_io_top"]
+        ADREC["amba_3_apb_adrec"]
+        MUX["amba_3_apb_data_o_mux"]
+        READ["Máscara de PRDATA"]
+        ADREC -->|"oaddr"| MUX
+        ADREC -->|"addr_valid"| READ
+        MUX --> READ
+    end
+    CTRL["amba_3_apb_control"]
+    RB["amba_3_apb_regbank"]
+    RST["amba_3_apb_reset"]
+    subgraph WRAPPER["amba_3_apb_rsa_wrapper_top"]
+        FSM["rsa_wrapper_control"]
+        DATA["rsa_wrapper_data"]
+        CORE["rsa_core"]
+        FSM -->|"estado"| DATA
+        DATA -->|"DIN, LOAD"| CORE
+        CORE -->|"DONE, ERROR"| FSM
+    end
+    APB -->|"PADDR"| ADREC
+    APB -->|"PSEL, PENABLE, PWRITE, PWDATA"| CTRL
+    APB -->|"PWDATA"| RB
+    ADREC -->|"oaddr, addr_valid"| CTRL
+    RB -->|"dados dos registradores"| MUX
+    READ -->|"PRDATA"| APB
+    CTRL -->|"WE"| RB
+    CTRL -->|"PREADY, PSLVERR, IRQ"| APB
+    RB -->|"START"| FSM
+    RB -->|"MSG, EXP, MOD"| DATA
+    DATA -->|"BUSY"| CTRL
+    DATA -->|"BUSY"| RB
+    CORE -->|"DONE, ERROR, RESULT"| RB
+    RB -->|"flags STATUS, IER"| CTRL
+    RB -->|"SRST"| RST
+    APB -->|"PRESETn"| RST
+    RST -->|"rsa_rst"| WRAPPER
+    RST -->|"rsa_rst: bloqueio de START"| RB
 ```
 
-Este é um diagrama de referência da arquitetura; ele não afirma que todas as
-instâncias e conexões já estejam completas no RTL de `rsa_apb_top`.
+O bloco `adrec` gera o índice e a validade do endereço. O bloco de reset
+exporta apenas `rsa_rst_o`; o sinal sincronizado permanece interno.
+PCLK e as ligações diretas de PRESETn ao regbank e ao controle do wrapper
+foram omitidos do desenho para facilitar a leitura.
 
 Documentação detalhada dos blocos APB:
 [`src/amba_3_apb/`](src/amba_3_apb/).
@@ -169,7 +206,7 @@ usada pela bancada. A análise em `src/rsa32/README_rsa_apb_top.md` é históric
 
 ## Organização dos resultados
 
-A [página GitHub Pages](site/README.md) reúne os resumos e diagramas dos dez
+A [página GitHub Pages](site/README.md) reúne os resumos e diagramas dos onze
 módulos, trechos dos logs e os resultados LCOV. Para gerar com os artefatos
 locais existentes, execute `python3 scripts/pages/build.py`; a saída fica em
 `_site/`. O workflow `.github/workflows/pages.yml` recria as simulações e

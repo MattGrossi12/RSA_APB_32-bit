@@ -9,6 +9,8 @@ xrun \
     -access +rwc \
     -timescale 1ns/1ns \
     -makelib svlib \
+        $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_adrec.sv \
+        $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_data_o_mux.sv \
         $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_data_io_top.sv \
         $PROJECT_ROOT/testbenchs/amba_3_apb_data_io_top/testbench.sv \
     -endlib \
