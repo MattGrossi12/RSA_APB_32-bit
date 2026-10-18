@@ -16,23 +16,60 @@
   let selectedExcerpt = "reset";
   let sortKind = null;
   let sortDirection = -1;
+  let architectureZoom = 1;
 
   const mermaidReady = import("https://cdn.jsdelivr.net/npm/mermaid@12.2.0/dist/mermaid.esm.min.mjs")
     .then(({ default: mermaid }) => {
       mermaid.initialize({ startOnLoad: false, securityLevel: "strict", theme: "base", fontFamily: "system-ui, sans-serif",
-        themeVariables: { background: "#0e141d", primaryColor: "#1e2c3d", primaryTextColor: "#e9edf2", primaryBorderColor: "#728399", lineColor: "#a4b6cc", secondaryColor: "#2c2926", tertiaryColor: "#16241e", edgeLabelBackground: "#0e141d", fontSize: "12px" },
+        themeVariables: { background: "#050d1b", primaryColor: "#142b48", primaryTextColor: "#e9edf2", primaryBorderColor: "#728fb5", lineColor: "#a4b6cc", secondaryColor: "#10243e", tertiaryColor: "#102c30", edgeLabelBackground: "#050d1b", fontSize: "12px" },
         flowchart: { htmlLabels: false, curve: "basis", padding: 16, nodeSpacing: 25, rankSpacing: 34 } });
       return mermaid;
     }).catch(() => null);
 
+  function zoomTopDiagram(value) {
+    const svg = $("top-diagram").querySelector("svg");
+    if (!svg) return;
+    architectureZoom = Math.min(3, Math.max(0.1, value));
+    svg.style.width = svg.viewBox.baseVal.width * architectureZoom + "px";
+    svg.style.height = svg.viewBox.baseVal.height * architectureZoom + "px";
+    $("top-diagram-zoom").textContent = Math.round(architectureZoom * 100) + "%";
+  }
+
+  function fitTopDiagram() {
+    const frame = $("top-diagram");
+    const svg = frame.querySelector("svg");
+    if (!svg) return;
+    const style = getComputedStyle(frame);
+    zoomTopDiagram(Math.min(1, (frame.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight)) / svg.viewBox.baseVal.width));
+    frame.scrollTo(0, 0);
+  }
+
+  async function renderTopDiagram() {
+    $("top-diagram-source").textContent = data.architecture.diagram;
+    const mermaid = await mermaidReady;
+    if (mermaid) {
+      try {
+        const { svg } = await mermaid.render("readme-top-architecture", data.architecture.diagram);
+        $("top-diagram").innerHTML = svg;
+        $("top-diagram").querySelector("svg").setAttribute("aria-label", "Arquitetura de topo do README");
+        fitTopDiagram();
+        for (const id of ["expand-top-diagram", "fit-top-diagram", "zoom-in-top-diagram", "zoom-out-top-diagram"]) $(id).disabled = false;
+        return;
+      } catch {
+        // Keep the README definition available when rendering fails.
+      }
+    }
+    $("top-diagram").replaceChildren(element("p", "Não foi possível mostrar o diagrama. Consulte o código Mermaid abaixo ou o README."));
+  }
+
   async function renderDiagram(module) {
     const sequence = ++renderSequence;
-    $("diagram").replaceChildren(element("p", "Preparando diagrama…"));
+    $("diagram").replaceChildren(element("p", "Carregando diagrama…"));
     $("expand-diagram").disabled = true;
     const mermaid = await mermaidReady;
     if (sequence !== renderSequence) return;
     if (!mermaid) {
-      $("diagram").replaceChildren(element("p", "Não foi possível carregar o Mermaid. A definição completa continua disponível abaixo e no README."));
+      $("diagram").replaceChildren(element("p", "Não foi possível carregar o diagrama. O código Mermaid está abaixo e no README."));
       return;
     }
     try {
@@ -43,7 +80,7 @@
       $("diagram").querySelector("svg").setAttribute("aria-label", `Diagrama de ${module.name}`);
       $("expand-diagram").disabled = false;
     } catch {
-      if (sequence === renderSequence) $("diagram").replaceChildren(element("p", "Diagrama indisponível. Consulte a definição Mermaid abaixo."));
+      if (sequence === renderSequence) $("diagram").replaceChildren(element("p", "Não foi possível mostrar o diagrama. O código Mermaid está abaixo."));
     }
   }
 
@@ -120,7 +157,7 @@
       const value = element("strong", percent(metric));
       value.append(element("small", "%"));
       heading.append(element("h3", label), value);
-      card.append(heading, progress(metric), element("p", `${metric.covered.toLocaleString("pt-BR")} de ${metric.total.toLocaleString("pt-BR")} pontos atingidos · ${data.lcov.files.length} arquivos RTL`));
+      card.append(heading, progress(metric), element("p", `${metric.covered.toLocaleString("pt-BR")} de ${metric.total.toLocaleString("pt-BR")} cobertos · ${data.lcov.files.length} arquivos RTL`));
       return card;
     }));
     const files = [...data.lcov.files];
@@ -152,11 +189,11 @@
   }
 
   const passed = Object.values(data.simulations).every((simulation) => simulation.status === "PASS" && !simulation.errors);
-  $("simulation-status").textContent = passed ? "PASS / ICARUS + VERILATOR" : "FALHA NA VERIFICAÇÃO";
+  $("simulation-status").textContent = passed ? "PASS · ICARUS E VERILATOR" : "FALHA NA SIMULAÇÃO";
   $("simulation-status").classList.toggle("failure", !passed);
   $("test-status").textContent = passed ? "PASS em Icarus e Verilator" : "Confira os logs de simulação";
   const date = new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short", timeZone: "America/Sao_Paulo" }).format(new Date(data.meta.simulatedAt));
-  $("provenance").textContent = `Evidências: ${date} (Brasília). ${data.meta.dirty ? "Workspace sobre" : "Commit"} ${data.meta.commit.slice(0, 7)}.`;
+  $("provenance").textContent = `Simulação: ${date} (Brasília). Commit ${data.meta.commit.slice(0, 7)}${data.meta.dirty ? " (com alterações locais)" : ""}.`;
   $("module-search").addEventListener("input", renderModules);
   $("simulator").addEventListener("change", renderLogs);
   $("log-tabs").addEventListener("keydown", (event) => {
@@ -180,19 +217,31 @@
     button.closest("th").setAttribute("aria-sort", sortDirection === -1 ? "descending" : "ascending");
     renderCoverage();
   }));
-  $("expand-diagram").addEventListener("click", () => {
-    const svg = $("diagram").querySelector("svg");
+  function openDiagram(container, title) {
+    const svg = $(container).querySelector("svg");
     if (!svg) return;
-    $("dialog-title").textContent = selectedModule.label;
+    $("dialog-title").textContent = title;
     $("dialog-diagram").replaceChildren(svg.cloneNode(true));
     $("diagram-dialog").showModal();
-  });
+  }
+  $("expand-diagram").addEventListener("click", () => openDiagram("diagram", selectedModule.label));
+  $("expand-top-diagram").addEventListener("click", () => openDiagram("top-diagram", "Arquitetura do RTL"));
+  $("zoom-in-top-diagram").addEventListener("click", () => zoomTopDiagram(architectureZoom * 1.25));
+  $("zoom-out-top-diagram").addEventListener("click", () => zoomTopDiagram(architectureZoom / 1.25));
+  $("fit-top-diagram").addEventListener("click", fitTopDiagram);
   $("close-dialog").addEventListener("click", () => $("diagram-dialog").close());
   $("diagram-dialog").addEventListener("click", (event) => { if (event.target === $("diagram-dialog")) $("diagram-dialog").close(); });
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => { if (entry.isIntersecting) document.querySelectorAll(".side-nav a").forEach((link) => link.classList.toggle("active", link.hash === `#${entry.target.id}`)); });
   }, { rootMargin: "-10% 0px -65% 0px" });
   document.querySelectorAll(".section-anchor").forEach((section) => sectionObserver.observe(section));
+  $("module-docs").replaceChildren(...data.modules.map((module) => {
+    const link = element("a", module.name + " ↗");
+    link.href = module.documentation;
+    return link;
+  }));
+  $("scripts-folder").href = `${data.meta.repository}/tree/${data.meta.commit}/scripts`;
+  renderTopDiagram();
   renderModules();
   selectModule(selectedModule);
   renderLogs();

@@ -9,14 +9,13 @@ module amba_3_apb_reset #(
     // Software Reset:
     input  logic srst_i,
 
-    // Reset Outputs:
-    output logic presetp_o,
-    output logic presetnsync_o,
+    // RSA Core Reset:
     output logic rsa_rst_o
 );
 
 // Reset Synchronizer Registers:
 logic [LATENCY-1:0] reset_sync_reg;
+logic presetnsync;
 
 // Reset Synchronizer:
 always_ff @(posedge pclk_i or negedge presetn_i)
@@ -31,11 +30,10 @@ always_ff @(posedge pclk_i or negedge presetn_i)
             end
     end
 
-// Reset Outputs:
-assign presetp_o     = !presetn_i;
-assign presetnsync_o = reset_sync_reg[LATENCY-1];
+// Internal reset with synchronized release:
+assign presetnsync = reset_sync_reg[LATENCY-1];
 
 // RSA Core Reset:
-assign rsa_rst_o = !presetnsync_o || srst_i;
+assign rsa_rst_o = !presetnsync || srst_i;
 
 endmodule: amba_3_apb_reset

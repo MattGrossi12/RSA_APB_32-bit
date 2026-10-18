@@ -33,11 +33,16 @@ logic [3:0]     oaddr_w;
 logic [D_WID:0] prdata_mux_w;
 
 // Address Reduction:
-assign oaddr_w = paddr_i[5:2];
-assign oaddr_o = oaddr_w;
+amba_3_apb_adrec #(
+    .ADDR_WIDTH (ADDR_WIDTH),
+    .A_WID      (A_WID)
+) adrec_inst (
+    .paddr_i      (paddr_i),
+    .oaddr_o      (oaddr_w),
+    .addr_valid_o (addr_valid_o)
+);
 
-// Address Validation:
-assign addr_valid_o = ~|paddr_i[A_WID:5];
+assign oaddr_o = oaddr_w;
 
 // Read Data Validation:
 assign prdata_o = addr_valid_o ? prdata_mux_w : '0;

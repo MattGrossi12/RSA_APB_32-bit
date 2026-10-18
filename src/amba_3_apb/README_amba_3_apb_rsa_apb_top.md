@@ -8,21 +8,44 @@ Integrar a interface AMBA 3 APB, o banco de registradores, o sincronizador de re
 
 ```mermaid
 flowchart TD
-    APB["Mestre APB3"] --> IO["data_io_top\nEndereço e leitura"]
-    APB --> CTL["apb_control\nDecodificação e WE"]
-    APB --> RB["regbank\nOperandos e estado"]
-    IO -->|"índice e validade"| CTL
-    RB -->|"op_*"| IO
-    CTL -->|"we_*"| RB
-    RB -->|"START, MSG, EXP, MOD"| WP["rsa_wrapper_top"]
-    WP -->|"BUSY, DONE, ERROR, RESULT"| RB
-    WP -->|"BUSY"| CTL
-    RB -->|"flags e IER"| CTL
-    RB -->|"SRST"| RST["reset"]
+    APB["Mestre APB3"]
+    subgraph IO["amba_3_apb_data_io_top"]
+        ADREC["amba_3_apb_adrec"]
+        MUX["amba_3_apb_data_o_mux"]
+        READ["Máscara de PRDATA"]
+        ADREC -->|"oaddr"| MUX
+        ADREC -->|"addr_valid"| READ
+        MUX --> READ
+    end
+    CTRL["amba_3_apb_control"]
+    RB["amba_3_apb_regbank"]
+    RST["amba_3_apb_reset"]
+    subgraph WRAPPER["amba_3_apb_rsa_wrapper_top"]
+        FSM["rsa_wrapper_control"]
+        DATA["rsa_wrapper_data"]
+        CORE["rsa_core"]
+        FSM -->|"estado"| DATA
+        DATA -->|"DIN, LOAD"| CORE
+        CORE -->|"DONE, ERROR"| FSM
+    end
+    APB -->|"PADDR"| ADREC
+    APB -->|"PSEL, PENABLE, PWRITE, PWDATA"| CTRL
+    APB -->|"PWDATA"| RB
+    ADREC -->|"oaddr, addr_valid"| CTRL
+    RB -->|"dados dos registradores"| MUX
+    READ -->|"PRDATA"| APB
+    CTRL -->|"WE"| RB
+    CTRL -->|"PREADY, PSLVERR, IRQ"| APB
+    RB -->|"START"| FSM
+    RB -->|"MSG, EXP, MOD"| DATA
+    DATA -->|"BUSY"| CTRL
+    DATA -->|"BUSY"| RB
+    CORE -->|"DONE, ERROR, RESULT"| RB
+    RB -->|"flags STATUS, IER"| CTRL
+    RB -->|"SRST"| RST
     APB -->|"PRESETn"| RST
-    RST -->|"rsa_rst"| WP
-    IO -->|"PRDATA"| APB
-    CTL -->|"PREADY, PSLVERR, IRQ"| APB
+    RST -->|"rsa_rst"| WRAPPER
+    RST -->|"rsa_rst: bloqueio de START"| RB
 ```
 
 ## 3. Interface e parâmetros
