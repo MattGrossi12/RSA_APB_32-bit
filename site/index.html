@@ -27,7 +27,7 @@
     <div class="sidebar-bottom"><span class="status-dot"></span>SystemVerilog / APB3<a href="https://github.com/MattGrossi12/RSA_APB_32-bit">Repositório no GitHub ↗</a></div>
   </aside>
   <main id="conteudo">
-    <header class="topbar"><span class="breadcrumb">RSA_APB / <strong>DOCUMENTAÇÃO</strong></span><a class="subtle-link" href="reference/plano_teste.md">Plano de teste ↗</a></header>
+    <header class="topbar"><span class="breadcrumb">RSA_APB / <strong>DOCUMENTAÇÃO</strong></span><a class="subtle-link" href="reference/plano_teste.html">Plano de teste ↗</a></header>
     <div id="visao-geral" class="project-heading"><p class="eyebrow">SYSTEMVERILOG · AMBA 3 APB</p><h1>RSA_APB</h1><p>Periférico RSA de 32 bits com interface APB3.</p></div>
 
     <section id="rtl" class="content-section section-anchor first-section" aria-labelledby="rtl-title">
@@ -35,13 +35,6 @@
       <div id="arquitetura" class="section-part">
         <div class="part-heading"><div><h3>Diagrama de topo</h3><p>Atualizado a partir do arquivo salvo no Drive.</p></div><a class="button secondary" href="https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D" target="_blank" rel="noopener noreferrer">Editar diagrama ↗</a></div>
         <div class="live-diagram-panel"><div class="live-diagram-toolbar"><span class="live-source"><span class="status-dot"></span>RSA_APB_DIAGRAM · Google Drive</span><div class="live-diagram-controls"><label><input id="diagram-auto-refresh" type="checkbox" checked> Atualizar a cada minuto</label><button id="refresh-live-diagram" class="button secondary" type="button">Atualizar agora ↻</button></div></div><iframe id="live-diagram" title="Diagrama de topo RSA_APB_DIAGRAM no Google Drive" referrerpolicy="no-referrer" allowfullscreen></iframe><div class="live-diagram-footer"><span id="live-diagram-status" role="status">Carregando diagrama…</span><a href="https://drive.google.com/file/d/1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri/view" target="_blank" rel="noopener noreferrer">Abrir no Drive ↗</a></div></div>
-      </div>
-      <div id="arquitetura-rtl" class="section-part">
-        <div class="part-heading"><div><h3>Arquitetura do RTL</h3><p>Diagrama do README, com o <code>adrec</code> dentro de <code>data_io_top</code>.</p></div><a href="reference/README.md" class="subtle-link">README do projeto ↗</a></div>
-        <div class="diagram-header"><span>CONEXÕES ENTRE OS BLOCOS</span><div class="diagram-zoom-controls"><button id="fit-top-diagram" class="text-button" type="button" disabled>Ajustar</button><button id="zoom-out-top-diagram" class="text-button" type="button" aria-label="Diminuir diagrama de topo" disabled>−</button><output id="top-diagram-zoom" aria-live="polite">100%</output><button id="zoom-in-top-diagram" class="text-button" type="button" aria-label="Aumentar diagrama de topo" disabled>+</button><button id="expand-top-diagram" class="text-button" type="button" disabled>Ampliar ↗</button></div></div>
-        <div id="top-diagram" class="diagram-canvas top-diagram" tabindex="0" role="region" aria-label="Diagrama do RTL com zoom e rolagem" aria-live="polite"><p>Carregando diagrama…</p></div>
-        <details class="diagram-source"><summary>Código Mermaid do README</summary><pre><code id="top-diagram-source"></code></pre></details>
-        <p class="section-text">O <code>adrec</code> gera <code>oaddr_o</code> e <code>addr_valid_o</code>. O bloco de reset mantém o sincronizador interno e entrega apenas <code>rsa_rst_o</code> aos demais blocos.</p>
       </div>
       <div id="modulos" class="section-part">
         <div class="part-heading"><div><h3>Módulos</h3><p>Selecione um módulo para ver sua função, o diagrama e os arquivos.</p></div></div>
@@ -57,7 +50,7 @@
       <p class="file-path"><code>testbenchs/rsa_apb_top/testbench.sv</code></p>
       <div class="test-sequence"><div><span>01</span><strong>Reset</strong><p>PRESETn e CTRL.SRST.<br>Espera de 5 clocks.</p></div><div><span>02</span><strong>Registradores · {{REGISTER_ROUNDS}} rodadas</strong><p>Escrita e leitura de IER, MSG, EXP e MOD.<br>Nova leitura para conferir a retenção.</p></div><div><span>03</span><strong>RSA · {{RSA_ROUNDS}} operações</strong><p>Comparação de RESULT com MSG^EXP mod MOD.<br>Checagem de STATUS e IRQ.</p></div></div>
       <div class="reference-table-wrap"><table class="reference-table"><caption>Principais tasks da bancada.</caption><thead><tr><th scope="col">Atividade</th><th scope="col">Tasks</th></tr></thead><tbody><tr><td>Aplicar reset</td><td><code>apply_hardware_reset</code>, <code>apply_software_reset</code></td></tr><tr><td>Acessar o barramento</td><td><code>apb_write</code>, <code>apb_read</code></td></tr><tr><td>Testar registradores</td><td><code>test_register_writes</code>, <code>check_register_retention</code></td></tr><tr><td>Executar RSA</td><td><code>test_rsa_operation</code>, <code>wait_rsa_completion</code></td></tr><tr><td>Comparar valores e mostrar o resultado</td><td><code>scoreboard_check</code>, <code>report_results</code></td></tr></tbody></table></div>
-      <p class="section-text">A scoreboard compara os valores esperados com os lidos pelo APB. Para o cálculo RSA, a referência usa exponenciação modular. O <a href="reference/plano_teste.md">plano de teste</a> descreve os vetores e as verificações.</p>
+      <p class="section-text">A scoreboard compara os valores esperados com os lidos pelo APB. Para o cálculo RSA, a referência usa exponenciação modular. O <a href="reference/plano_teste.html">plano de teste</a> descreve os vetores e as verificações.</p>
       <div class="part-heading docs-heading"><div><h3>Bancada do adrec</h3><p>Percorre os 4096 endereços de 12 bits, confere o índice e a validade e testa cinco casos com X/Z.</p></div><a class="button secondary" href="reference/testbench_adrec.sv">Abrir testbench do adrec ↗</a></div>
       <p class="section-text">As tasks <code>sweep_addresses</code>, <code>check_address</code> e <code>check_unknown_bits</code> verificam o novo bloco. Os bits de byte <code>PADDR[1:0]</code> continuam ignorados; a faixa válida vai de <code>0x000</code> a <code>0x01F</code>.</p>
     </section>
@@ -67,14 +60,14 @@
       <div class="command-list">
         <article class="command-block"><div><h3>Icarus Verilog</h3><a href="reference/iverilog.sh">iverilog.sh ↗</a></div><p>Compila e executa a bancada. Salva o log e o VCD.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh</code></pre></article>
         <article class="command-block"><div><h3>Verilator</h3><a href="reference/verilator.sh">verilator.sh ↗</a></div><p>Executa a mesma bancada e gera os relatórios de cobertura.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh</code></pre></article>
-        <article class="command-block"><div><h3>GitHub Pages</h3><a href="reference/build.py">build.py ↗</a></div><p>Usa os READMEs, logs e relatórios para gerar os arquivos em <code>_site/</code>.</p><pre><code>python3 scripts/pages/build.py</code></pre></article>
+        <article class="command-block"><div><h3>GitHub Pages</h3><a href="reference/build.py">build.py ↗</a></div><p>Usa os READMEs, logs e relatórios para gerar os arquivos em <code>_site/</code>. Veja <a href="reference/README_site.html#gerar-localmente">como instalar as dependências e gerar a página</a>.</p><pre><code>python3 scripts/pages/build.py</code></pre></article>
       </div>
       <p class="section-text">Execute os comandos na raiz do repositório. Os dois simuladores aceitam <code>+DATA=DEADBEEF</code> para mudar o dado usado no teste dos registradores. A publicação usa o <a href="reference/pages.yml">workflow pages.yml</a>.</p>
     </section>
 
     <section id="docs" class="content-section section-anchor" aria-labelledby="docs-title">
       <div class="section-heading"><div><p class="eyebrow">04 / docs/</p><h2 id="docs-title">Docs</h2><p>Documentação do projeto, protocolo APB e plano de teste.</p></div></div>
-      <div class="document-list"><a href="reference/README.md"><strong>README do projeto</strong><span>Pastas, módulos e comandos de execução.</span><span aria-hidden="true">↗</span></a><a href="reference/plano_teste.md"><strong>Plano de teste do topo</strong><span>Sequência, vetores RSA e critérios de aprovação.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_protocol.pdf"><strong>Protocolo APB</strong><span>Especificação do barramento, em PDF.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_integration.pdf"><strong>Integração APB e RSA</strong><span>Interface e funcionamento do periférico, em PDF.</span><span aria-hidden="true">↗</span></a></div>
+      <div class="document-list"><a href="reference/README.html"><strong>README do projeto</strong><span>Pastas, módulos e comandos de execução.</span><span aria-hidden="true">↗</span></a><a href="reference/plano_teste.html"><strong>Plano de teste do topo</strong><span>Sequência, vetores RSA e critérios de aprovação.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_protocol.pdf"><strong>Protocolo APB</strong><span>Especificação do barramento, em PDF.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_integration.pdf"><strong>Integração APB e RSA</strong><span>Interface e funcionamento do periférico, em PDF.</span><span aria-hidden="true">↗</span></a></div>
       <div class="part-heading docs-heading"><h3>READMEs dos módulos</h3></div><div id="module-docs" class="module-docs"></div>
     </section>
 
