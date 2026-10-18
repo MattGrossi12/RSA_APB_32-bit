@@ -21,7 +21,7 @@ scripts auxiliares de síntese, LEC e simulação.
 ├── src/
 │   ├── amba_3_apb/              # RTL APB e wrapper RSA
 │   │   ├── legacy/              # RTL legado, fora do fluxo ativo
-│   │   └── rsa_apb_top.sv
+│   │   └── amba_3_apb_rsa_apb_top.sv
 │   └── rsa32/
 │       └── rsa_core_32.sv       # Declara rsa_core e módulos auxiliares
 ├── testbenchs/<modulo>/testbench.sv
@@ -86,14 +86,51 @@ O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
 | `amba_3_apb_rsa_wrapper_control`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv) | FSM de controle<br>do wrapper RSA. |
 | `amba_3_apb_rsa_wrapper_data`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv) | Caminho de dados e carregamento<br>dos operandos do núcleo. |
 | `amba_3_apb_rsa_wrapper_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv) | Integração do controle, dados<br>e núcleo RSA. |
-| `rsa_apb_top`<br>[Fonte RTL](src/amba_3_apb/rsa_apb_top.sv) | Topo do periférico<br>com interface APB. |
+| `amba_3_apb_rsa_apb_top`<br>[Fonte RTL](src/amba_3_apb/amba_3_apb_rsa_apb_top.sv) | Topo do periférico<br>com interface APB. |
 | `rsa_core` e auxiliares<br>[Fonte RTL](src/rsa32/rsa_core_32.sv) | Núcleo RSA e módulos<br>`rsa_core_mult`, `rsa_core_mod`, `rsa_core_ctrl`. |
 
-O arquivo e o módulo de topo agora compartilham o nome `rsa_apb_top`. O testbench
-correspondente fica em [`testbenchs/rsa_apb_top/testbench.sv`](testbenchs/rsa_apb_top/testbench.sv).
-Os outros testbenches por módulo estão em `testbenchs/<nome_do_modulo>/`.
-Atualmente são estruturais: declaram sinais e instanciam o DUT, mas não contêm
-estímulos nem verificações.
+O topo atual está em `src/amba_3_apb/amba_3_apb_rsa_apb_top.sv` e declara
+`amba_3_apb_rsa_apb_top`. O testbench correspondente fica em
+[`testbenchs/rsa_apb_top/testbench.sv`](testbenchs/rsa_apb_top/testbench.sv):
+aplica reset físico, envia CTRL.SRST, aguarda cinco ciclos e verifica as
+escritas/leitura dos registradores RW em dez rodadas com scoreboard. Ao final,
+executa dez operações RSA, conferindo STATUS, IRQ, RESULT e preservação de
+MSG/EXP/MOD. A instância usa `LOAD_GAP=1`, conforme o protocolo do núcleo real.
+Os outros testbenches
+por módulo estão em `testbenchs/<nome_do_modulo>/` e são estruturais.
+
+### Simulação integrada com Icarus Verilog
+
+Com `iverilog` e `vvp` no `PATH`, execute:
+
+```bash
+./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh
+# Opcional: escolher o valor genérico de 32 bits.
+./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh +DATA=DEADBEEF
+```
+
+O cenário aprovado termina com `TEST PASS: 238 checks, 0 errors`. Logs ficam em
+`logs/amba_3_apb_rsa_apb_top/iverilog/` e o VCD em
+`waveforms/amba_3_apb_rsa_apb_top/testbench.vcd`.
+O [plano de teste](docs/plano_teste_amba_3_apb_rsa_apb_top.md) detalha a
+sequência, as tasks, o mapa de registradores e os critérios de aprovação.
+
+### Simulação e cobertura com Verilator
+
+Com Verilator, `verilator_coverage`, Make e G++ com suporte a C++20 no `PATH`:
+
+```bash
+./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh
+./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh +DATA=DEADBEEF
+```
+
+O script executa a mesma bancada e gera o resumo em
+`reports/amba_3_apb_rsa_apb_top/verilator/coverage_summary.txt`, fontes anotadas
+e `coverage.info` (LCOV). Com `genhtml` instalado (pacote LCOV), também gera
+`reports/amba_3_apb_rsa_apb_top/verilator/html/index.html`.
+Os logs ficam em `logs/amba_3_apb_rsa_apb_top/verilator/` e o VCD em
+`waveforms/amba_3_apb_rsa_apb_top/verilator/testbench.vcd`.
+Use `VERILATOR_JOBS=4` para alterar o paralelismo de compilação (padrão: 2).
 
 ## Diagrama de arquitetura de topo
 
@@ -126,10 +163,17 @@ instâncias e conexões já estejam completas no RTL de `rsa_apb_top`.
 
 Documentação detalhada dos blocos APB:
 [`src/amba_3_apb/`](src/amba_3_apb/).
-A análise do topo APB está em
-[`src/rsa32/README_rsa_apb_top.md`](src/rsa32/README_rsa_apb_top.md).
+O [README do topo atual](src/amba_3_apb/README_amba_3_apb_rsa_apb_top.md) e o
+[README do núcleo RSA](src/rsa32/README_rsa_core.md) descrevem a integração
+usada pela bancada. A análise em `src/rsa32/README_rsa_apb_top.md` é histórica.
 
 ## Organização dos resultados
+
+A [página GitHub Pages](site/README.md) reúne os resumos e diagramas dos dez
+módulos, trechos dos logs e os resultados LCOV. Para gerar com os artefatos
+locais existentes, execute `python3 scripts/pages/build.py`; a saída fica em
+`_site/`. O workflow `.github/workflows/pages.yml` recria as simulações e
+publica a página quando GitHub Pages está configurado para GitHub Actions.
 
 - Os SDCs estão em `constraints/<nome_do_modulo>.sdc`.
 - Os resultados de síntese são separados em

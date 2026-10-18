@@ -91,3 +91,14 @@ Os bits reservados de STATUS e IER também já são forçados a zero pelo `regba
 ## 9. Resumo operacional
 
 O MUX é uma tabela de seleção de leitura entre sete registradores físicos/lógicos e o zero de CTRL. Recebe `paddr_i[3:0]` já reduzido, produz `prdata_o` combinacionalmente e deixa a validação de região/endereço e a sinalização de erro para os blocos externos.
+
+## 10. Diagrama de leitura
+
+```mermaid
+flowchart LR
+    ADDR["Índice paddr_i de 4 bits"] --> MUX["Seleção combinacional"]
+    REGS["STATUS, IER, MSG, EXP\nMOD, RESULT, ID"] --> MUX
+    ZERO["CTRL: zero"] --> MUX
+    INVALID["Índice não mapeado: 0xF"] --> MUX
+    MUX --> DATA["prdata_o"]
+```
