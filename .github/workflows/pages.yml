@@ -1,0 +1,87 @@
+name: Documentação e cobertura — GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Obter o projeto
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Instalar ferramentas de simulação e relatório
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf bison flex g++ make help2man libfl-dev zlib1g-dev ccache iverilog lcov
+
+      - name: Restaurar Verilator 5.052
+        id: verilator-cache
+        uses: actions/cache@v4
+        with:
+          path: .tools/verilator
+          key: ${{ runner.os }}-verilator-5.052-gcc13-v1
+
+      - name: Obter fontes oficiais do Verilator
+        if: steps.verilator-cache.outputs.cache-hit != 'true'
+        uses: actions/checkout@v6
+        with:
+          repository: verilator/verilator
+          ref: v5.052
+          path: .verilator-source
+          persist-credentials: false
+
+      - name: Compilar e instalar Verilator
+        if: steps.verilator-cache.outputs.cache-hit != 'true'
+        working-directory: .verilator-source
+        run: |
+          autoconf
+          ./configure --prefix="$GITHUB_WORKSPACE/.tools/verilator"
+          make -j2
+          make install
+
+      - name: Selecionar Verilator
+        run: echo "$GITHUB_WORKSPACE/.tools/verilator/bin" >> "$GITHUB_PATH"
+
+      - name: Executar a bancada com Icarus
+        run: ./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh
+
+      - name: Executar Verilator e gerar cobertura LCOV
+        run: ./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh
+
+      - name: Gerar a página a partir dos READMEs e das evidências
+        run: python3 scripts/pages/build.py
+
+      - name: Preparar artefato GitHub Pages
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Publicar a página
+        id: deployment
+        uses: actions/deploy-pages@v4
