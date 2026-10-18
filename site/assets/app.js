@@ -53,7 +53,7 @@
         $("top-diagram").innerHTML = svg;
         $("top-diagram").querySelector("svg").setAttribute("aria-label", "Arquitetura de topo do README");
         fitTopDiagram();
-        zoomTopDiagram(architectureZoom * 3);
+        zoomTopDiagram(architectureZoom * 1.8);
         for (const id of ["expand-top-diagram", "fit-top-diagram", "zoom-in-top-diagram", "zoom-out-top-diagram"]) $(id).disabled = false;
         return;
       } catch {

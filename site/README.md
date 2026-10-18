@@ -43,7 +43,7 @@ o GitHub não permite executar o iframe ou scripts do visualizador no Markdown.
 A seção **Arquitetura do RTL** mostra o Mermaid da seção **Diagrama de
 arquitetura de topo** do README principal. O build lê essa definição, e a
 página permite ampliar o desenho, ajustar o zoom e consultar seu código. O
-painel do README tem 1680 pixels de altura, e o desenho abre com três vezes
+painel do README tem 1008 pixels de altura, e o desenho abre com 1,8 vez
 a escala ajustada à largura. Os controles **+** e **−** permitem mudar a
 escala. A rolagem dá acesso às demais conexões; o botão
 **Ajustar** volta a encaixar sua largura no painel. As edições nesse
