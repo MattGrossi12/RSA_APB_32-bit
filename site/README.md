@@ -43,11 +43,15 @@ o GitHub não permite executar o iframe ou scripts do visualizador no Markdown.
 A seção **Arquitetura do RTL** mostra o Mermaid da seção **Diagrama de
 arquitetura de topo** do README principal. O build lê essa definição, e a
 página permite ampliar o desenho, ajustar o zoom e consultar seu código. O
-desenho abre com a largura ajustada ao painel, e os controles **+** e **−**
-permitem mudar a escala. A rolagem dá acesso às demais conexões; o botão
+painel do README tem 1680 pixels de altura, e o desenho abre com três vezes
+a escala ajustada à largura. Os controles **+** e **−** permitem mudar a
+escala. A rolagem dá acesso às demais conexões; o botão
 **Ajustar** volta a encaixar sua largura no painel. As edições nesse
 Mermaid entram no site no próximo build; o diagrama do Drive continua sendo
 consultado diretamente pelo visualizador.
+
+O painel do Drive também tem a altura triplicada: usa
+`clamp(1320px, 195vh, 2340px)` no desktop e 1560 pixels no celular.
 
 O desenho inclui `amba_3_apb_adrec` dentro de `data_io_top` e a saída
 `rsa_rst_o` do bloco de reset. O catálogo tem onze módulos, e a seção

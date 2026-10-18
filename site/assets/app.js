@@ -29,7 +29,7 @@
   function zoomTopDiagram(value) {
     const svg = $("top-diagram").querySelector("svg");
     if (!svg) return;
-    architectureZoom = Math.min(3, Math.max(0.1, value));
+    architectureZoom = Math.min(9, Math.max(0.1, value));
     svg.style.width = svg.viewBox.baseVal.width * architectureZoom + "px";
     svg.style.height = svg.viewBox.baseVal.height * architectureZoom + "px";
     $("top-diagram-zoom").textContent = Math.round(architectureZoom * 100) + "%";
@@ -53,6 +53,7 @@
         $("top-diagram").innerHTML = svg;
         $("top-diagram").querySelector("svg").setAttribute("aria-label", "Arquitetura de topo do README");
         fitTopDiagram();
+        zoomTopDiagram(architectureZoom * 3);
         for (const id of ["expand-top-diagram", "fit-top-diagram", "zoom-in-top-diagram", "zoom-out-top-diagram"]) $(id).disabled = false;
         return;
       } catch {
