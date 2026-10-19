@@ -73,3 +73,4 @@ echo "Simulacao e relatorio de cobertura concluidos."
 echo "Log:       $LOG_DIR/${RUN}.log"
 echo "Cobertura: $COV_RUN"
 echo "Relatorio: $REPORT_FILE"
+
