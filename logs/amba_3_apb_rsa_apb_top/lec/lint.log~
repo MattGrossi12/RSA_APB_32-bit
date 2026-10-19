@@ -1,0 +1,48 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 968 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: set source_dir [file join [pwd] src amba_3_apb]
+/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb
+// Command: set rtl_files [list \
+//              [file join [pwd] src rsa32 rsa_core_32.sv] \
+//              [file join $source_dir amba_3_apb_adrec.sv] \
+//              [file join $source_dir amba_3_apb_data_o_mux.sv] \
+//              [file join $source_dir amba_3_apb_data_io_top.sv] \
+//              [file join $source_dir amba_3_apb_control.sv] \
+//              [file join $source_dir amba_3_apb_regbank.sv] \
+//              [file join $source_dir amba_3_apb_reset.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+//              [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+//          ]
+/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+// Command: foreach rtl_file $rtl_files {
+//              read_design $rtl_file -systemverilog -golden
+//          }
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv ...
+// Golden root module is set to 'rsa_core'
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:10)
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:21)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:3)
+// Note: (RTL5.6) Case statement with no default (occurrence:2)
+// Warning: (RTL7.10a) Comparison with different data sizes (occurrence:2)
+// Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Note: (VLG6.4) Supported system datapath function call (occurrence:1)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:1)
+// Note: Read VERILOG design successfully
+// Error: Golden already exists.
+1
+// 'dofile /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/lint.tcl' is aborted at line 19
+// Command: exitr
+invalid command name "exitr"
+// Command: exit
