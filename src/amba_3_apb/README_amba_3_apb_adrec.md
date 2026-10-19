@@ -62,3 +62,12 @@ iverilog -g2012 -s testbench -o /tmp/amba_3_apb_adrec.vvp \
     testbenchs/amba_3_apb_adrec/testbench.sv
 vvp /tmp/amba_3_apb_adrec.vvp
 ```
+
+## 6. Fluxos Cadence
+
+Os scripts Xcelium, Genus, LEC e lint ficam em `scripts/amba_3_apb_adrec/`.
+Execute `bash/xrun.sh` para simular; execute `bash/genus_nogui.sh` antes de
+`bash/lec.sh` para sintetizar e comparar a netlist. `bash/lint.sh` executa as
+verificações RTL do Conformal LEC. Os scripts Genus e LEC usam as bibliotecas
+de tecnologia configuradas nos arquivos Tcl e pressupõem que os executáveis
+Cadence estejam no `PATH`.

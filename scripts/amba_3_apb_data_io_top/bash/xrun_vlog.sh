@@ -5,7 +5,7 @@ cd "$SCRIPT_DIR"
 xrun \
     -64bit \
     -sv \
-    -timescale 1ns/1ns \
+    -timescale 1ns/1ps \
     -makelib vlib \
         $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_adrec.sv \
         $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_data_o_mux.sv \

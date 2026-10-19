@@ -7,12 +7,54 @@ This program is proprietary and confidential information belonging to
 Cadence Design Systems, Inc., and may be used and disclosed only as authorized
 in a license agreement controlling such use and disclosure.
 
-// Warning: This version is 965 days old. You can download the latest version from http://downloads.cadence.com.
+// Warning: This version is 968 days old. You can download the latest version from http://downloads.cadence.com.
 
 0
-// Command: read_design ../../../src/amba_3_apb/amba_3_apb_data_io_top.sv -systemverilog -golden
+// Command: read_design \
+//              ../../../src/amba_3_apb/amba_3_apb_adrec.sv \
+//              ../../../src/amba_3_apb/amba_3_apb_data_io_top.sv \
+//              ../../../src/amba_3_apb/amba_3_apb_data_o_mux.sv \
+//              -systemverilog -golden
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_adrec.sv ...
 // Parsing file ../../../src/amba_3_apb/amba_3_apb_data_io_top.sv ...
-// Error: ../../../src/amba_3_apb/amba_3_apb_data_io_top.sv:48 Module 'amba_3_apb_data_o_mux' is referenced but not defined.
-1
-// 'dofile /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_data_io_top/bash/../tcl/lint.tcl' is aborted at line 5
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_data_o_mux.sv ...
+// Golden root module is set to 'amba_3_apb_data_io_top'
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:8)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:1)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: set_root_module amba_3_apb_data_io_top -golden
+// Warning: Golden root module is already at 'amba_3_apb_data_io_top'
+0
+// Command: report_rule_check -RTL -status FAIL -verbose
+RTL1.9h: Parameter declaration with no type or range specification
+    Type: Golden      Severity: Note       Occurrence: 8
+    1: amba_3_apb_data_io_top:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_data_io_top.sv'
+    2: amba_3_apb_data_io_top:parameter ADDR_WIDTH, resolved value: '32'd12', resolved type: 'packed[31:0] of reg'
+       on line 4 in file '../../../src/amba_3_apb/amba_3_apb_data_io_top.sv'
+    3: amba_3_apb_data_io_top:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 5 in file '../../../src/amba_3_apb/amba_3_apb_data_io_top.sv'
+    4: amba_3_apb_data_io_top:parameter A_WID, resolved value: '32'd11', resolved type: 'packed[31:0] of reg'
+       on line 6 in file '../../../src/amba_3_apb/amba_3_apb_data_io_top.sv'
+    5: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:parameter ADDR_WIDTH, resolved value: '32'd12', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_adrec.sv'
+    6: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:parameter A_WID, resolved value: '32'd11', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_adrec.sv'
+    7: amba_3_apb_data_o_mux_DATA_WIDTH32:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_data_o_mux.sv'
+    8: amba_3_apb_data_o_mux_DATA_WIDTH32:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 4 in file '../../../src/amba_3_apb/amba_3_apb_data_o_mux.sv'
+RTL5.5a: Default case item with non-X assignment(s)
+    Type: Golden      Severity: Note       Occurrence: 1
+    1: amba_3_apb_data_o_mux_DATA_WIDTH32
+       on line 44 in file '../../../src/amba_3_apb/amba_3_apb_data_o_mux.sv'
+HRC3.10a: An input port is declared, but it is not completely used in the module
+    Type: Golden      Severity: Warning    Occurrence: 2
+    1: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:Input paddr_i[1] is unused
+       on line 1 in file '../../../src/amba_3_apb/amba_3_apb_adrec.sv'
+    2: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:Input paddr_i[0] is unused
+       on line 1 in file '../../../src/amba_3_apb/amba_3_apb_adrec.sv'
+0
 // Command: exit

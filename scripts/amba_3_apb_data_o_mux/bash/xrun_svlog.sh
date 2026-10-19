@@ -7,7 +7,7 @@ xrun \
     -input ../tcl/xrun_svlog_probe.tcl \
     -sv \
     -access +rwc \
-    -timescale 1ns/1ns \
+    -timescale 1ns/1ps \
     -makelib svlib \
         $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_data_o_mux.sv \
         $PROJECT_ROOT/testbenchs/amba_3_apb_data_o_mux/testbench.sv \

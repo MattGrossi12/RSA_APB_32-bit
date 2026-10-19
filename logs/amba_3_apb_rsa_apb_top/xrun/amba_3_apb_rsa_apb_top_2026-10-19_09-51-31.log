@@ -1,0 +1,89 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 19, 2026 at 09:51:31 -03
+xrun
+	-64bit
+	-top testbench
+	-access +rwc
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-19_09-51-31.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-19_09-51-31.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-19_09-51-31.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	module worklib.rsa_core_mult:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core_mod:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core_ctrl:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	module worklib.amba_3_apb_adrec:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	module worklib.amba_3_apb_data_o_mux:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	module worklib.amba_3_apb_data_io_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	module worklib.amba_3_apb_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	module worklib.amba_3_apb_regbank:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	module worklib.amba_3_apb_reset:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	module worklib.amba_3_apb_rsa_wrapper_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	module worklib.amba_3_apb_rsa_wrapper_data:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	module worklib.amba_3_apb_rsa_wrapper_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	module worklib.amba_3_apb_rsa_apb_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	module worklib.testbench:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		testbench
+	Modules w/wo timescales:
+		timescale of worklib.testbench:sv = 1ns/1ps
+		timescale of worklib.rsa_core_mult:sv = NOTSET
+		timescale of worklib.rsa_core_mod:sv = NOTSET
+		timescale of worklib.rsa_core_ctrl:sv = NOTSET
+		timescale of worklib.rsa_core:sv = NOTSET
+		timescale of worklib.amba_3_apb_rsa_wrapper_top:sv = NOTSET
+		timescale of worklib.amba_3_apb_rsa_wrapper_data:sv = NOTSET
+		timescale of worklib.amba_3_apb_rsa_wrapper_control:sv = NOTSET
+		timescale of worklib.amba_3_apb_rsa_apb_top:sv = NOTSET
+		timescale of worklib.amba_3_apb_reset:sv = NOTSET
+		timescale of worklib.amba_3_apb_regbank:sv = NOTSET
+		timescale of worklib.amba_3_apb_data_o_mux:sv = NOTSET
+		timescale of worklib.amba_3_apb_data_io_top:sv = NOTSET
+		timescale of worklib.amba_3_apb_control:sv = NOTSET
+		timescale of worklib.amba_3_apb_adrec:sv = NOTSET
+xmelab: *F,CUMSTS: Timescale directive missing on one or more modules.
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 2), exiting.
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 19, 2026 at 09:51:31 -03  (total: 00:00:00)

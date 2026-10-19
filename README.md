@@ -143,6 +143,19 @@ Os logs ficam em `logs/amba_3_apb_rsa_apb_top/verilator/` e o VCD em
 `waveforms/amba_3_apb_rsa_apb_top/verilator/testbench.vcd`.
 Use `VERILATOR_JOBS=4` para alterar o paralelismo de compilação (padrão: 2).
 
+### Simulação com Xcelium
+
+Com Xcelium no `PATH`, execute a simulação integrada em batch ou abra
+SimVision:
+
+```bash
+./scripts/amba_3_apb_rsa_apb_top/bash/xrun.sh
+./scripts/amba_3_apb_rsa_apb_top/bash/xrun_wgui.sh
+```
+
+Os scripts executam a bancada integrada com Xcelium; o fluxo gráfico também
+abre SimVision e salva as formas de onda.
+
 ## Diagrama de arquitetura de topo
 
 O diagrama abaixo representa a arquitetura-alvo e a relação entre os blocos:

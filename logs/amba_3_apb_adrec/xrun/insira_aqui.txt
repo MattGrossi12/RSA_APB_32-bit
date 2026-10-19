@@ -1,0 +1,1 @@
+Os logs de simulação Xcelium deste módulo serão gravados aqui.

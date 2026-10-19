@@ -1,0 +1,38 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 968 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_design [file join [pwd] src amba_3_apb amba_3_apb_adrec.sv] \
+//              -systemverilog -golden
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv ...
+// Golden root module is set to 'amba_3_apb_adrec'
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:2)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: set_root_module amba_3_apb_adrec -golden
+// Warning: Golden root module is already at 'amba_3_apb_adrec'
+0
+// Command: report_rule_check -RTL -status FAIL -verbose
+RTL1.9h: Parameter declaration with no type or range specification
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: amba_3_apb_adrec:parameter ADDR_WIDTH, resolved value: '32'd12', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
+    2: amba_3_apb_adrec:parameter A_WID, resolved value: '32'd11', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
+HRC3.10a: An input port is declared, but it is not completely used in the module
+    Type: Golden      Severity: Warning    Occurrence: 2
+    1: amba_3_apb_adrec:Input paddr_i[1] is unused
+       on line 1 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
+    2: amba_3_apb_adrec:Input paddr_i[0] is unused
+       on line 1 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
+0
+// Command: exit

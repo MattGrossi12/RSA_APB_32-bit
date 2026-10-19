@@ -1,0 +1,14 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++NoArgsToLog
+-64bit
+-COVERAGE
+all
+-COVOVERWRITE
+-COVWORKDIR
+/home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+-COVTEST
+amba_3_apb_rsa_apb_top_2026-10-19_11-27-20
+-UPDATE
