@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
+COV_SCOPE="$PROJECT_ROOT/coverage/amba_3_apb_rsa_apb_top/scope"
+COV_RUN="${1:-$(find "$COV_SCOPE" -mindepth 1 -maxdepth 1 -type d -name 'amba_3_apb_rsa_apb_top_*' -print | sort -r | head -n 1)}"
+RUN="$(basename -- "$COV_RUN")"
+REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top"
+
+mkdir -p -- "$REPORT_DIR"
+export IMC_COV_RUN="$COV_RUN"
+
+imc -execcmd "source \"$SCRIPT_DIR/imc.tcl\"; report -summary -cumulative on -inst -local off -out \"$REPORT_DIR/${RUN}_coverage.rpt\"; report_metrics -out \"$REPORT_DIR/${RUN}_coverage_html\" -overwrite -detail -metrics all -all"
+#!/usr/bin/env bash
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
+COV_SCOPE="$PROJECT_ROOT/coverage/amba_3_apb_rsa_apb_top/scope"
+COV_RUN="${1:-$(find "$COV_SCOPE" -mindepth 1 -maxdepth 1 -type d -name 'amba_3_apb_rsa_apb_top_*' -print | sort -r | head -n 1)}"
+RUN="$(basename -- "$COV_RUN")"
+REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top"
+
+mkdir -p -- "$REPORT_DIR"
+export IMC_COV_RUN="$COV_RUN"
+
+imc -execcmd "source \"$SCRIPT_DIR/../tcl/imc.tcl\"; report -summary -cumulative on -inst -local off -out \"$REPORT_DIR/${RUN}_coverage.rpt\"; report_metrics -out \"$REPORT_DIR/${RUN}_coverage_html\" -overwrite -detail -metrics all -all"
+
