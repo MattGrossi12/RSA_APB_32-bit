@@ -28,4 +28,4 @@ report_design_data -golden -summary
 report_black_box -golden -detail
 report_rule_check -all -verbose -design -golden
 
-exit -force
+exit

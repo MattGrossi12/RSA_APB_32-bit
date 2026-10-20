@@ -26,7 +26,7 @@ always_ff @(posedge pclk_i or negedge presetn_i)
             end
         else
             begin
-                reset_sync_reg <= (reset_sync_reg << 1) | 1'b1;
+                reset_sync_reg <= (reset_sync_reg << 1) | {{(LATENCY-1){1'b0}}, 1'b1};
             end
     end
 

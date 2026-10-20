@@ -113,8 +113,7 @@ rsa_core #(
     .core_din   (core_din),
     .core_done  (core_done),
     .core_err   (core_error),
-    .core_dout  (core_dout),
-    .core_clk_o ()
+    .core_dout  (core_dout)
 );
 
 endmodule: amba_3_apb_rsa_wrapper_top

@@ -124,18 +124,18 @@ always_comb
                                 // CTRL register:
                                 CTRL_R:
                                     begin
-                                        if (pwdata_i[1])
-                                            begin
-                                                // SRST priority:
-                                                we_ctrl_o = 1'b1;
-                                            end
-                                        else if (pwdata_i[0] && busy_i)
+                                        // Valid APB write to CTRL:
+                                        we_ctrl_o = 1'b1;
+
+                                        // Reject START while BUSY.
+                                        // SRST has priority over START:
+                                        if (pwdata_i[0] && !pwdata_i[1] && busy_i)
                                             begin
                                                 pslverr_o = 1'b1;
                                             end
                                         else
                                             begin
-                                                we_ctrl_o = 1'b1;
+                                                pslverr_o = 1'b0;
                                             end
                                     end
 

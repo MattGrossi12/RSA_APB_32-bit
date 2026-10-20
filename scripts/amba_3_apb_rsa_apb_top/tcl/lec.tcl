@@ -30,4 +30,4 @@ set system mode lec
 add compared points -all
 compare
 report verification
-exit -force
+exit

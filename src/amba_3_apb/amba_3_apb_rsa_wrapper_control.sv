@@ -146,9 +146,10 @@ always_ff @(posedge pclk_i or negedge presetn_i)
                             begin
                                 gap_counter <= '0;
                             end
+
                         else
                             begin
-                                gap_counter <= gap_counter + 1'b1;
+                                gap_counter <= GAP_WIDTH'(gap_counter + 1'b1);
                             end
                     end
                 else
