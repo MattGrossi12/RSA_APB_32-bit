@@ -8,7 +8,7 @@ module amba_3_apb_control #(
     input  logic            penable_i,
     input  logic            pwrite_i,
     input  logic [3:0]      paddr_i,
-    input  logic [D_WID:0]  pwdata_i,
+    input  logic [1:0]      ctrl_pwdata_i,
     input  logic            addr_valid_i,
 
     // Register Bank Status:
@@ -55,8 +55,7 @@ localparam logic [3:0] CTRL_R   = 4'b0000,
 assign pready_o = 1'b1;
 
 // Interrupt Request:
-assign irq_o = (status_done_i && done_ie_i) ||
-               (status_error_i && err_ie_i);
+assign irq_o = (status_done_i && done_ie_i) ||(status_error_i && err_ie_i);
 
 // APB Phase:
 logic [3:0] apb_phase;
@@ -129,7 +128,7 @@ always_comb
 
                                         // Reject START while BUSY.
                                         // SRST has priority over START:
-                                        if (pwdata_i[0] && !pwdata_i[1] && busy_i)
+                                        if (ctrl_pwdata_i == 2'b10 && busy_i)
                                             begin
                                                 pslverr_o = 1'b1;
                                             end

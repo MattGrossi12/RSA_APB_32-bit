@@ -1,0 +1,17 @@
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (G)   219  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/gap_counter_reg
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (G)   222  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[4]
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (G)   224  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[2]
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (G)   429  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_mod_blk/mod_err_ff_reg
+
+4 unmapped points reported
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       4         4       
+================================================================================

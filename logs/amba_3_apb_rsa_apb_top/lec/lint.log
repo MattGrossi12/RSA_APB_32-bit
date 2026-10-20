@@ -7,7 +7,7 @@ This program is proprietary and confidential information belonging to
 Cadence Design Systems, Inc., and may be used and disclosed only as authorized
 in a license agreement controlling such use and disclosure.
 
-// Warning: This version is 968 days old. You can download the latest version from http://downloads.cadence.com.
+// Warning: This version is 969 days old. You can download the latest version from http://downloads.cadence.com.
 
 0
 // Command: set source_dir [file join [pwd] src amba_3_apb]
@@ -47,11 +47,10 @@ in a license agreement controlling such use and disclosure.
 // Note: (RTL5.6) Case statement with no default (occurrence:2)
 // Note: (RTL5.7) Default case item with inconsistent assignment(s). (occurrence:2)
 // Warning: (RTL7.10a) Comparison with different data sizes (occurrence:2)
-// Warning: (RTL7.10c) Bit-wise operation with different data sizes (occurrence:1)
 // Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:1)
 // Note: (VLG6.4) Supported system datapath function call (occurrence:1)
-// Note: (HRC3.5b) Open output port connection is detected (occurrence:2)
-// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:32)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
 0
 // Command: report_design_data -golden -summary
 ============================================
@@ -68,12 +67,12 @@ OUTPUT             35
 AND               2870
 BUF                 22
 DFF                709
-INV                208
-MUX                231
+INV                207
+MUX                230
 NAND                 1
 NOR                 49
 OR                1058
-WIRE               420
+WIRE               421
 XNOR               156
 XOR                257
 ------ word-level --------------------------
@@ -84,7 +83,7 @@ WMUX                35
 WOR                  1
 WSEL                43
 --------------------------------------------
-Total             5981
+Total             5980
 
 Largest Counter = 64 bits
 
@@ -96,7 +95,7 @@ RTL1.5b: Potential loss of RHS msb or carry-out bit
     Type: Golden      Severity: Warning    Occurrence: 11
     1: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:
 gap_counter LHS:1 RHS:2
-       on line 151 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
+       on line 152 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
     2: rsa_core_mult_DATA_WIDTH32_RESET1_START1:p_reg LHS:64 RHS:65
        on line 91 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
     3: rsa_core_mult_DATA_WIDTH32_RESET1_START1:a_cnt LHS:6 RHS:7
@@ -220,7 +219,7 @@ RTL5.5a: Default case item with non-X assignment(s)
     1: amba_3_apb_data_o_mux_DATA_WIDTH32
        on line 44 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv'
     2: amba_3_apb_control_DATA_WIDTH32_D_WID31
-       on line 201 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
+       on line 200 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
     3: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
        on line 121 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
     4: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
@@ -244,19 +243,15 @@ RTL5.6: Case statement with no default
 RTL5.7: Default case item with inconsistent assignment(s).
     Type: Golden      Severity: Note       Occurrence: 2
     1: amba_3_apb_control_DATA_WIDTH32_D_WID31: incomplete assignments to: we_ctrl_o we_exp_o we_ier_o we_mod_o we_msg_o we_status_o 
-       on line 122 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
+       on line 121 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
     2: amba_3_apb_control_DATA_WIDTH32_D_WID31: incomplete assignments to: pslverr_o we_ctrl_o we_exp_o we_ier_o we_mod_o we_msg_o we_status_o 
-       on line 95 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
+       on line 94 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
 RTL7.10a: Comparison with different data sizes
     Type: Golden      Severity: Warning    Occurrence: 2
     1: rsa_core_mult_DATA_WIDTH32_RESET1_START1:sizes are 6-bit at col 17 vs. 32-bit at col 37
        on line 57 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
     2: rsa_core_mult_DATA_WIDTH32_RESET1_START1:sizes are 6-bit at col 17 vs. 32-bit at col 37
        on line 64 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
-RTL7.10c: Bit-wise operation with different data sizes
-    Type: Golden      Severity: Warning    Occurrence: 1
-    1: amba_3_apb_reset_LATENCY2:sizes are 2-bit at line 29 col 51 vs. 1-bit at line 29 col 59
-       on line 29 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv'
 RTL7.10d: Comparison with positive constant of different signedness
     Type: Golden      Severity: Warning    Occurrence: 6
     1: rsa_core_mod_DATA_WIDTH32_RESET1_START1: expression '(a_cnt != 0)'
@@ -271,86 +266,19 @@ RTL7.10d: Comparison with positive constant of different signedness
        on line 341 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
     6: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1: expression '(e_reg == 0)'
        on line 355 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
+RTL14: Signal has input but it has no output
+    Type: Golden      Severity: Warning    Occurrence: 1
+    1: rsa_core_DATA_WIDTH32_RESET1_LOAD1:Floating signal mod_err_unused in module rsa_core_DATA_WIDTH32_RESET1_LOAD1 is detected
+       on line 464 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
 VLG6.4: Supported system datapath function call
     Type: Golden      Severity: Note       Occurrence: 1
     1: rsa_core_mult_DATA_WIDTH32_RESET1_START1/$log2
        on line 35 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
-HRC3.5b: Open output port connection is detected
-    Type: Golden      Severity: Note       Occurrence: 2
-    1: rsa_core_DATA_WIDTH32_RESET1_LOAD1:On instance rsa_core_mod_blk: mod_err
-       on line 483 in file '/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv'
-    2: amba_3_apb_rsa_wrapper_top_DATA_WIDTH32_D_WID31_LOAD_GAP0:On instance rsa_core_inst: core_clk_o
-       on line 109 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv'
 HRC3.10a: An input port is declared, but it is not completely used in the module
-    Type: Golden      Severity: Warning    Occurrence: 32
+    Type: Golden      Severity: Warning    Occurrence: 2
     1: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:Input paddr_i[1] is unused
        on line 1 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
     2: amba_3_apb_adrec_ADDR_WIDTH12_A_WID11:Input paddr_i[0] is unused
        on line 1 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv'
-    3: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[31] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    4: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[30] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    5: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[29] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    6: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[28] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    7: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[27] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    8: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[26] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-    9: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[25] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   10: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[24] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   11: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[23] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   12: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[22] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   13: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[21] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   14: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[20] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   15: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[19] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   16: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[18] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   17: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[17] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   18: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[16] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   19: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[15] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   20: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[14] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   21: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[13] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   22: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[12] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   23: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[11] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   24: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[10] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   25: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[9] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   26: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[8] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   27: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[7] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   28: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[6] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   29: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[5] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   30: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[4] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   31: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[3] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
-   32: amba_3_apb_control_DATA_WIDTH32_D_WID31:Input pwdata_i[2] is unused
-       on line 2 in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv'
 0
-// Command: exit -force
-expected integer but got "-force"
-    while executing
-"exit -force"
-// 'dofile /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/lint.tcl' is aborted at line 31
-// Warning: Error exit from dofile '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/lint.tcl' due to 'set dofile abort exit' command
+// Command: exit

@@ -1,0 +1,140 @@
+[10/20 10:10:11      0s] 
+[10/20 10:10:11      0s] Cadence Innovus(TM) Implementation System.
+[10/20 10:10:11      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/20 10:10:11      0s] 
+[10/20 10:10:11      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/20 10:10:11      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+[10/20 10:10:11      0s] Date:		Tue Oct 20 10:10:11 2026
+[10/20 10:10:11      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/20 10:10:11      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/20 10:10:11      0s] 
+[10/20 10:10:11      0s] License:
+[10/20 10:10:11      0s] 		[10:10:11.047906] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/20 10:10:11      0s] 
+[10/20 10:10:11      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/20 10:10:11      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/20 10:10:21      7s] *** sockopt - 113
+[10/20 10:10:21      7s] Memory management switch to non-aggressive memory release mode.
+[10/20 10:10:21      7s] 
+[10/20 10:10:21      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/20 10:10:21      7s] 
+[10/20 10:10:21      7s] 
+[10/20 10:10:21      7s] 
+[10/20 10:10:24     10s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:10:26     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/20 10:10:26     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:10:26     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/20 10:10:26     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/20 10:10:26     11s] @(#)CDS: CPE v22.18-s071
+[10/20 10:10:26     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:10:26     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/20 10:10:26     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/20 10:10:26     11s] @(#)CDS: RCDB 11.15.0
+[10/20 10:10:26     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/20 10:10:26     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/20 10:10:26     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_30059_94a9369e-fc33-494c-91bc-9388bcdbab4d_rock8_aluno_K0kw4E.
+
+[10/20 10:10:26     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_30059_94a9369e-fc33-494c-91bc-9388bcdbab4d_rock8_aluno_K0kw4E.
+[10/20 10:10:26     11s] 
+[10/20 10:10:26     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/20 10:10:26     12s] 
+[10/20 10:10:26     12s] **INFO:  MMMC transition support version v31-84 
+[10/20 10:10:26     12s] 
+[10/20 10:10:26     12s] #@ Processing -files option
+[10/20 10:10:26     12s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:10:26     12s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:10:26     12s] @file 1: # ============================================================
+[10/20 10:10:26     12s] @file 2: # Innovus 22.18 - RSA_APB design initialization
+[10/20 10:10:26     12s] @file 3: # Technology: GSCLib045
+[10/20 10:10:26     12s] @file 4: # ============================================================
+[10/20 10:10:26     12s] @file 5:
+[10/20 10:10:26     12s] @file 6: set project_name "amba_3_apb_rsa_apb_top"
+[10/20 10:10:26     12s] @file 7: set project_root $::env(PROJECT_ROOT)
+[10/20 10:10:26     12s] @file 8: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+[10/20 10:10:26     12s] @file 9: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+[10/20 10:10:26     12s] @file 10:
+[10/20 10:10:26     12s] @file 11: file mkdir $output_dir
+[10/20 10:10:26     12s] @file 12:
+[10/20 10:10:26     12s] @@file 13: set_db init_power_nets {VDD}
+[10/20 10:10:26     12s] @@file 14: set_db init_ground_nets {VSS}
+[10/20 10:10:26     12s] @file 15:
+[10/20 10:10:26     12s] @@file 16: read_mmmc $::env(MMMC_FILE)
+[10/20 10:10:26     12s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+[10/20 10:10:26     12s] @file 1: # ============================================================
+[10/20 10:10:26     12s] @file 2: # Innovus 22.18 - RSA_APB timing views
+[10/20 10:10:26     12s] @file 3: # Technology: GSCLib045
+[10/20 10:10:26     12s] @file 4: # ============================================================
+[10/20 10:10:26     12s] @file 5:
+[10/20 10:10:26     12s] @file 6: set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+[10/20 10:10:26     12s] @file 7:
+[10/20 10:10:26     12s] @@file 8: create_library_set \
+[10/20 10:10:26     12s]     -name lib_typical \
+[10/20 10:10:26     12s]     -timing [list $lib_file]
+[10/20 10:10:26     12s] @file 11:
+[10/20 10:10:26     12s] @@file 12: create_rc_corner \
+[10/20 10:10:26     12s]     -name rc_typical \
+[10/20 10:10:26     12s]     -temperature 25 \
+[10/20 10:10:26     12s]     -pre_route_res 1.0 \
+[10/20 10:10:26     12s]     -pre_route_cap 1.0 \
+[10/20 10:10:26     12s]     -post_route_res {1.0 1.0 1.0} \
+[10/20 10:10:26     12s]     -post_route_cap {1.0 1.0 1.0}
+[10/20 10:10:26     12s] @file 19:
+[10/20 10:10:26     12s] @@file 20: create_timing_condition \
+[10/20 10:10:26     12s]     -name tc_typical \
+[10/20 10:10:26     12s]     -library_sets [list lib_typical]
+[10/20 10:10:26     12s] @file 23:
+[10/20 10:10:26     12s] @@file 24: create_delay_corner \
+[10/20 10:10:26     12s]     -name dc_typical \
+[10/20 10:10:26     12s]     -timing_condition tc_typical \
+[10/20 10:10:26     12s]     -rc_corner rc_typical
+[10/20 10:10:26     12s] @file 28:
+[10/20 10:10:26     12s] @@file 29: create_constraint_mode \
+[10/20 10:10:26     12s]     -name mode_functional \
+[10/20 10:10:26     12s]     -sdc_files [list $::env(SDC_FILE)]
+[10/20 10:10:26     12s] @file 32:
+[10/20 10:10:26     12s] @@file 33: create_analysis_view \
+[10/20 10:10:26     12s]     -name view_typical \
+[10/20 10:10:26     12s]     -constraint_mode mode_functional \
+[10/20 10:10:26     12s]     -delay_corner dc_typical
+[10/20 10:10:26     12s] @file 37:
+[10/20 10:10:26     12s] @@file 38: set_analysis_view \
+[10/20 10:10:26     12s]     -setup view_typical \
+[10/20 10:10:26     12s]     -hold view_typical
+[10/20 10:10:26     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+[10/20 10:10:26     12s] Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+[10/20 10:10:27     12s] Read 478 cells in library 'typical' 
+[10/20 10:10:27     12s] Ending "PreSetAnalysisView" (total cpu=0:00:00.3, real=0:00:01.0, peak res=1502.5M, current mem=1456.3M)
+[10/20 10:10:27     12s] @@file 18: read_physical -lef [list \
+[10/20 10:10:27     12s]     [file join $lef_dir gsclib045_tech.lef] \
+[10/20 10:10:27     12s]     [file join $lef_dir gsclib045_macro.lef]]
+[10/20 10:10:27     12s] 
+[10/20 10:10:27     12s] Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_tech.lef ...
+[10/20 10:10:27     12s] Set DBUPerIGU to M2 pitch 400.
+[10/20 10:10:27     12s] 
+[10/20 10:10:27     12s] Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef ...
+[10/20 10:10:27     12s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/20 10:10:27     12s] Type 'man IMPLF-200' for more detail.
+[10/20 10:10:27     12s] 
+[10/20 10:10:27     12s] ##  Check design process and node:  
+[10/20 10:10:27     12s] ##  Both design process and tech node are not set.
+[10/20 10:10:27     12s] 
+[10/20 10:10:27     12s] @file 21:
+[10/20 10:10:27     12s] @file 22: read_netlist -top $project_name $::env(NETLIST_FILE)
+[10/20 10:10:27     12s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' line 22: can't read "::env(NETLIST_FILE)": no such element in array.
+[10/20 10:10:27     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:10:27     12s] **ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' then restart.
+[10/20 10:10:27     12s] **ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl: can't read "::env(NETLIST_FILE)": no such element in array.
+[10/20 10:10:27     12s] @innovus 2> exit
+
+[10/20 10:11:43     12s] 
+[10/20 10:11:43     12s] *** Memory Usage v#2 (Current mem = 1494.191M, initial mem = 661.535M) ***
+[10/20 10:11:43     12s] 
+[10/20 10:11:43     12s] *** Summary of all messages that are not suppressed in this session:
+[10/20 10:11:43     12s] Severity  ID               Count  Summary                                  
+[10/20 10:11:43     12s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[10/20 10:11:43     12s] ERROR     IMPSE-110            1  File '%s' line %s: %s.                   
+[10/20 10:11:43     12s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[10/20 10:11:43     12s] ERROR     IMPSYT-6693          1  Error message: %s: %s.                   
+[10/20 10:11:43     12s] *** Message Summary: 1 warning(s), 3 error(s)
+[10/20 10:11:43     12s] 
+[10/20 10:11:43     12s] --- Ending "Innovus" (totcpu=0:00:12.6, real=0:01:32, mem=1494.2M) ---

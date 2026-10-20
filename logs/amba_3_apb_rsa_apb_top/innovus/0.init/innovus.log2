@@ -1,0 +1,114 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+Date:		Tue Oct 20 10:10:11 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:10:11.047906] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_30059_94a9369e-fc33-494c-91bc-9388bcdbab4d_rock8_aluno_K0kw4E.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB design initialization
+@file 3: # Technology: GSCLib045
+@file 4: # ============================================================
+@file 5:
+@file 6: set project_name "amba_3_apb_rsa_apb_top"
+@file 7: set project_root $::env(PROJECT_ROOT)
+@file 8: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+@file 9: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 10:
+@file 11: file mkdir $output_dir
+@file 12:
+@@file 13: set_db init_power_nets {VDD}
+@@file 14: set_db init_ground_nets {VSS}
+@file 15:
+@@file 16: read_mmmc $::env(MMMC_FILE)
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB timing views
+@file 3: # Technology: GSCLib045
+@file 4: # ============================================================
+@file 5:
+@file 6: set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+@file 7:
+@@file 8: create_library_set \
+    -name lib_typical \
+    -timing [list $lib_file]
+@file 11:
+@@file 12: create_rc_corner \
+    -name rc_typical \
+    -temperature 25 \
+    -pre_route_res 1.0 \
+    -pre_route_cap 1.0 \
+    -post_route_res {1.0 1.0 1.0} \
+    -post_route_cap {1.0 1.0 1.0}
+@file 19:
+@@file 20: create_timing_condition \
+    -name tc_typical \
+    -library_sets [list lib_typical]
+@file 23:
+@@file 24: create_delay_corner \
+    -name dc_typical \
+    -timing_condition tc_typical \
+    -rc_corner rc_typical
+@file 28:
+@@file 29: create_constraint_mode \
+    -name mode_functional \
+    -sdc_files [list $::env(SDC_FILE)]
+@file 32:
+@@file 33: create_analysis_view \
+    -name view_typical \
+    -constraint_mode mode_functional \
+    -delay_corner dc_typical
+@file 37:
+@@file 38: set_analysis_view \
+    -setup view_typical \
+    -hold view_typical
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+Read 478 cells in library 'typical' 
+@@file 18: read_physical -lef [list \
+    [file join $lef_dir gsclib045_tech.lef] \
+    [file join $lef_dir gsclib045_macro.lef]]
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_tech.lef ...
+Set DBUPerIGU to M2 pitch 400.
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef ...
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+@file 21:
+@file 22: read_netlist -top $project_name $::env(NETLIST_FILE)
+**ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' line 22: can't read "::env(NETLIST_FILE)": no such element in array.
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+**ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' then restart.
+**ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl: can't read "::env(NETLIST_FILE)": no such element in array.
+@innovus 2> exit
+
+
+*** Memory Usage v#2 (Current mem = 1494.191M, initial mem = 661.535M) ***
+*** Message Summary: 1 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:12.6, real=0:01:32, mem=1494.2M) ---

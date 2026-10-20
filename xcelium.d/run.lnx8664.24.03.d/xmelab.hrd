@@ -8,3 +8,5 @@
 testbench
 -ACCESS
 +rwc
+-COVERAGE
+all

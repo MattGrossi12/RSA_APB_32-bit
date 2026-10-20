@@ -1,15 +1,19 @@
-# Signal routing and preliminary RC extraction (no QRC techfile).
+
+# Project:
+set project_name "amba_3_apb_rsa_apb_top"
 set project_root $::env(PROJECT_ROOT)
-set db_dir [file join $project_root ps_files rsa_apb_top innovus]
-set report_dir [file join $project_root reports amba_3_apb_rsa_apb_top innovus route]
-file mkdir $report_dir
-read_db [file join $db_dir cts_amba_3_apb_rsa_apb_top]
+set output_dir [file join $project_root ps_files rsa_apb_top innovus]
 
+# Automatic Via Generation:
+set_db add_route_vias_auto true
+
+# Restore CTS Database:
+read_db [file join $output_dir cts_${project_name}]
+
+# Routing:
 route_design
-set_db extract_rc_engine post_route
-set_db extract_rc_effort_level low
-extract_rc
-time_design -post_route -report_dir [file join $report_dir post_route]
 
-write_db [file join $db_dir route_amba_3_apb_rsa_apb_top]
+# Save Routed Database:
+write_db [file join $output_dir route_${project_name}]
+
 exit
