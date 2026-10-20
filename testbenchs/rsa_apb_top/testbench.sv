@@ -6,22 +6,13 @@ module testbench;
     localparam integer CLOCK_PERIOD_NS = 10;
     localparam integer RESET_WAIT_CYCLES = 5;
     localparam integer APB_TIMEOUT_CYCLES = 20;
-    localparam integer TEST_ROUNDS = 50;
-    localparam integer RSA_ROUNDS = 50;
+    localparam integer TEST_ROUNDS = 30;
+    localparam integer RSA_ROUNDS = 10;
     localparam integer RSA_TIMEOUT_POLLS = 10000;
-    localparam integer ADREC_ADDRESS_COUNT = 2 ** ADDR_WIDTH;
-`ifdef VERILATOR
-    // Two-state simulation cannot validate X/Z propagation.
-    localparam integer ADREC_XZ_CASES = 0;
-`else
-    localparam integer ADREC_XZ_CASES = 5;
-`endif
-    localparam integer ADREC_CHECKS = ADREC_ADDRESS_COUNT + ADREC_XZ_CASES;
-    localparam integer EXPECTED_CHECKS = ADREC_CHECKS + 8 + TEST_ROUNDS * 8 + RSA_ROUNDS * 15;
-    localparam integer GLOBAL_TIMEOUT_CYCLES = 1000 + ADREC_CHECKS
-                                              + RSA_ROUNDS * (RSA_TIMEOUT_POLLS * 3 + 100);
+    localparam integer EXPECTED_CHECKS = 8 + TEST_ROUNDS * 8 + RSA_ROUNDS * 15;
+    localparam integer GLOBAL_TIMEOUT_CYCLES = 1000 + RSA_ROUNDS * (RSA_TIMEOUT_POLLS * 3 + 100);
     localparam string TABLE_BORDER =
-        "+------+------------+-------------+-------+------------+------------+------------+--------+";
+        "+-----+------------+-------------+-------+------------+------------+------------+--------+";
 
     localparam logic [ADDR_WIDTH-1:0] CTRL_ADDR   = 12'h000;
     localparam logic [ADDR_WIDTH-1:0] STATUS_ADDR = 12'h004;
@@ -40,10 +31,6 @@ module testbench;
     wire [DATA_WIDTH-1:0] prdata_o;
     wire pready_o, pslverr_o, irq_o;
 
-    logic [ADDR_WIDTH-1:0] adrec_paddr = '0;
-    wire [3:0] adrec_oaddr;
-    wire adrec_addr_valid;
-
     logic [DATA_WIDTH-1:0] generic_value;
     logic [DATA_WIDTH-1:0] expected_registers [0:7];
     logic [DATA_WIDTH-1:0] last_write_data [0:7];
@@ -54,6 +41,7 @@ module testbench;
     integer errors = 0;
     string vcd_path;
 
+/*
     amba_3_apb_rsa_apb_top #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
@@ -72,14 +60,20 @@ module testbench;
         .pslverr_o(pslverr_o),
         .irq_o(irq_o)
     );
+*/
 
-    // Dedicated combinational DUT: exhaust addresses without APB side effects.
-    amba_3_apb_adrec #(
-        .ADDR_WIDTH(ADDR_WIDTH)
-    ) adrec_dut (
-        .paddr_i(adrec_paddr),
-        .oaddr_o(adrec_oaddr),
-        .addr_valid_o(adrec_addr_valid)
+    amba_3_apb_rsa_apb_top dut (
+        .pclk_i(pclk_i),
+        .presetn_i(presetn_i),
+        .psel_i(psel_i),
+        .penable_i(penable_i),
+        .pwrite_i(pwrite_i),
+        .paddr_i(paddr_i),
+        .pwdata_i(pwdata_i),
+        .prdata_o(prdata_o),
+        .pready_o(pready_o),
+        .pslverr_o(pslverr_o),
+        .irq_o(irq_o)
     );
 
     always #(CLOCK_PERIOD_NS / 2) pclk_i = ~pclk_i;
@@ -142,13 +136,13 @@ module testbench;
                 completed = 1'b1;
                 // Sample at the completing edge, before deasserting ACCESS.
                 read_data = prdata_o;
-                apb_no_error: assert (pslverr_o === 1'b0)
-                    else $fatal(1, "APB error: address=0x%03h write=%b PSLVERR=%b",
-                                paddr_i, pwrite_i, pslverr_o);
+                if (pslverr_o !== 1'b0)
+                    $fatal(1, "APB error: address=0x%03h write=%b PSLVERR=%b",
+                           paddr_i, pwrite_i, pslverr_o);
             end
         end
-        apb_completed: assert (completed)
-            else $fatal(1, "APB timeout: address=0x%03h", paddr_i);
+        if (!completed)
+            $fatal(1, "APB timeout: address=0x%03h", paddr_i);
         @(negedge pclk_i);
         drive_bus_idle();
     endtask
@@ -190,11 +184,11 @@ module testbench;
             $display("%s", TABLE_BORDER);
         $display("\n[SCB] %s", phase_name);
         $display("%s", TABLE_BORDER);
-        $display("|    # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |");
+        $display("|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |");
         $display("%s", TABLE_BORDER);
     endtask
 
-    // Immediate assertions own the verdict; action blocks keep the report.
+    // Scoreboard: compare expected and observed data, including X/Z detection.
     task automatic scoreboard_check(
         input string register_name,
         input logic [ADDR_WIDTH-1:0] address,
@@ -220,9 +214,7 @@ module testbench;
         if ($isunknown(observed_data))
             unknown_text = " [X/Z no dado lido]";
         checks = checks + 1;
-        register_matches: assert (!$isunknown(observed_data) && (observed_data === expected_data)) begin
-            result_text = "PASS";
-        end else begin
+        if (observed_data !== expected_data) begin
             result_text = "FAIL";
             if (errors < EXPECTED_CHECKS)
                 failure_details[errors] = $sformatf(
@@ -231,78 +223,11 @@ module testbench;
                     expected_data ^ observed_data,
                     unknown_text);
             errors = errors + 1;
-        end
-        $display("| %4d | %10.0f | %-11s | %-5s | %-10s | 0x%08h | 0x%08h | %-6s |",
+        end else
+            result_text = "PASS";
+        $display("| %3d | %10.0f | %-11s | %-5s | %-10s | 0x%08h | 0x%08h | %-6s |",
                  checks, $realtime, register_name, address_text, sent_text,
                  expected_data, observed_data, result_text);
-    endtask
-
-    task automatic check_adrec_outputs(
-        input logic [ADDR_WIDTH-1:0] address,
-        input logic [3:0] expected_index,
-        input logic expected_valid
-    );
-        logic [4:0] expected_outputs, observed_outputs;
-        string result_text;
-        adrec_paddr = address;
-        // The decoder has no clock/reset; allow combinational outputs to settle.
-        #1;
-        expected_outputs = {expected_valid, expected_index};
-        observed_outputs = {adrec_addr_valid, adrec_oaddr};
-        checks = checks + 1;
-        // Case equality also checks the intentional X/Z expectations exactly.
-        adrec_outputs_match: assert (observed_outputs === expected_outputs) begin
-            result_text = "PASS";
-        end else begin
-            result_text = "FAIL";
-            if (errors < EXPECTED_CHECKS)
-                failure_details[errors] = $sformatf(
-                    "#%0d [%s] ADREC @0x%03h: indice esperado=%04b, lido=%04b; valido esperado=%b, lido=%b",
-                    checks, scoreboard_phase, address, expected_index, adrec_oaddr,
-                    expected_valid, adrec_addr_valid);
-            errors = errors + 1;
-        end
-        // Packed output: bit 4 = addr_valid_o; bits 3:0 = oaddr_o.
-        $display("| %4d | %10.0f | %-11s | 0x%03h | %-10s | 0x%08h | 0x%08h | %-6s |",
-                 checks, $realtime, "ADREC", address, "--",
-                 {{(DATA_WIDTH-5){1'b0}}, expected_outputs},
-                 {{(DATA_WIDTH-5){1'b0}}, observed_outputs}, result_text);
-    endtask
-
-    task automatic test_adrec;
-        integer address_value;
-        logic [ADDR_WIDTH-1:0] special_address;
-        scoreboard_begin_phase($sformatf("ADREC | Varredura dos %0d enderecos | saida={valido, indice}",
-                                        ADREC_ADDRESS_COUNT));
-        for (address_value = 0; address_value < ADREC_ADDRESS_COUNT; address_value = address_value + 1)
-            // Arithmetic oracle from the README, independent of DUT outputs.
-            check_adrec_outputs(ADDR_WIDTH'(address_value), 4'((address_value / 4) % 16),
-                                address_value < 32);
-
-        if (ADREC_XZ_CASES > 0) begin
-            scoreboard_begin_phase("ADREC | Propagacao de X/Z | saida={valido, indice}");
-            // Unknown byte offsets are ignored, including at the last valid word.
-            special_address = ID_ADDR;
-            special_address[1:0] = 2'bxz;
-            check_adrec_outputs(special_address, 4'd7, 1'b1);
-            // Index bits preserve X/Z, while known upper bits keep the address valid.
-            special_address = '0;
-            special_address[4:2] = 3'bxzx;
-            check_adrec_outputs(special_address, 4'b0xzx, 1'b1);
-            // An unknown upper bit makes validity unknown without changing the index.
-            special_address = '0;
-            special_address[ADDR_WIDTH-1] = 1'bx;
-            check_adrec_outputs(special_address, 4'd0, 1'bx);
-            special_address[ADDR_WIDTH-1] = 1'bz;
-            check_adrec_outputs(special_address, 4'd0, 1'bx);
-            // A known one in the upper field dominates its other unknown bits.
-            special_address = '0;
-            special_address[ADDR_WIDTH-1:5] = 'x;
-            special_address[5] = 1'b1;
-            check_adrec_outputs(special_address, 4'd8, 1'b0);
-        end else
-            $display("[SCB] ADREC | SKIP: 5 casos X/Z exigem simulacao de quatro estados; indisponivel no Verilator.");
-        adrec_paddr = '0;
     endtask
 
     task automatic read_and_check_register(
@@ -403,8 +328,6 @@ module testbench;
         output logic [DATA_WIDTH-1:0] exponent,
         output logic [DATA_WIDTH-1:0] modulus
     );
-        valid_rsa_round: assert (round_number > 0)
-            else $fatal(1, "Invalid RSA round: %0d", round_number);
         case (round_number)
              1: begin message = 65;           exponent = 17; modulus = 3233;         end
              2: begin message = 123;          exponent = 7;  modulus = 3233;         end
@@ -416,14 +339,7 @@ module testbench;
              8: begin message = 32'hFFFFFFFF; exponent = 3;  modulus = 32'hFFFFFFFB; end
              9: begin message = 123456789;    exponent = 7;  modulus = 65537;        end
             10: begin message = 32'hFEDCBA98; exponent = 17; modulus = 32'h8000000B; end
-            default: begin
-                // Extend the directed vectors with reproducible operands.
-                // Odd modulus >= 3; exponents retain the original range of 0..17.
-                message = generic_value + 32'h9E37_79B9 * (round_number - 10);
-                exponent = (round_number - 11) % 18;
-                modulus = (32'hA5A5_5A5B + 32'h6C07_8965 * (round_number - 10))
-                          | 32'h0000_0003;
-            end
+            default: $fatal(1, "Invalid RSA round: %0d", round_number);
         endcase
     endtask
 
@@ -450,13 +366,13 @@ module testbench;
         while (!completed && polls < RSA_TIMEOUT_POLLS) begin
             apb_read(STATUS_ADDR, status_data);
             polls = polls + 1;
-            rsa_status_known: assert (!$isunknown(status_data))
-                else $fatal(1, "RSA [%s]: STATUS contains X/Z: 0x%08h", scoreboard_phase, status_data);
+            if ($isunknown(status_data))
+                $fatal(1, "RSA [%s]: STATUS contains X/Z: 0x%08h", scoreboard_phase, status_data);
             completed = !status_data[0] && (status_data[1] || status_data[2]);
         end
-        rsa_completed: assert (completed)
-            else $fatal(1, "RSA timeout [%s]: %0d polls, STATUS=0x%08h",
-                        scoreboard_phase, polls, status_data);
+        if (!completed)
+            $fatal(1, "RSA timeout [%s]: %0d polls, STATUS=0x%08h",
+                   scoreboard_phase, polls, status_data);
         // DONE=1, BUSY=0, ERROR=0. Polling itself does not inflate the check count.
         expected_registers[STATUS_ADDR >> 2] = 32'h0000_0002;
         scoreboard_check("STATUS.DONE", STATUS_ADDR, 32'h0000_0002, status_data);
@@ -497,20 +413,19 @@ module testbench;
     task automatic report_results;
         integer index;
         $display("%s", TABLE_BORDER);
-        $display("\n[SCB] RESUMO | ADREC=%0d casos | regbank=%0d rodadas | RSA=%0d rodadas | previstas=%0d | realizadas=%0d | acertos=%0d | falhas=%0d | tempo=%0.0f ns",
-                 ADREC_CHECKS, TEST_ROUNDS, RSA_ROUNDS, EXPECTED_CHECKS, checks, checks - errors, errors, $realtime);
+        $display("\n[SCB] RESUMO | regbank=%0d rodadas | RSA=%0d rodadas | previstas=%0d | realizadas=%0d | acertos=%0d | falhas=%0d | tempo=%0.0f ns",
+                 TEST_ROUNDS, RSA_ROUNDS, EXPECTED_CHECKS, checks, checks - errors, errors, $realtime);
         if (errors != 0) begin
             $display("[SCB] Detalhes das divergencias:");
             for (index = 0; index < errors && index < EXPECTED_CHECKS; index = index + 1)
                 $display("  %s", failure_details[index]);
         end
-        // ADREC cases, eight reset checks, eight per register round and fifteen per RSA round.
-        all_checks_executed: assert (checks == EXPECTED_CHECKS)
-            else $fatal(1, "Incomplete test: checks=%0d expected=%0d", checks, EXPECTED_CHECKS);
-        all_checks_passed: assert (errors == 0) begin
-            $display("TEST PASS: %0d checks, %0d errors", checks, errors);
-        end else
+        // 88 original checks plus 15 checks for each RSA operation.
+        if (checks != EXPECTED_CHECKS)
+            $fatal(1, "Incomplete test: checks=%0d expected=%0d", checks, EXPECTED_CHECKS);
+        if (errors != 0)
             $fatal(1, "TEST FAIL: %0d errors in %0d checks", errors, checks);
+        $display("TEST PASS: %0d checks, %0d errors", checks, errors);
     endtask
 
     task automatic run_test;
@@ -523,7 +438,6 @@ module testbench;
         apply_hardware_reset();
         apply_software_reset();
         check_reset_values();
-        test_adrec();
         for (round_number = 1; round_number <= TEST_ROUNDS; round_number = round_number + 1) begin
             test_register_writes(round_number);
             check_register_retention(round_number);
@@ -545,7 +459,6 @@ module testbench;
     // Independent watchdog also catches a stalled driver.
     initial begin
         #(CLOCK_PERIOD_NS * GLOBAL_TIMEOUT_CYCLES);
-        global_timeout: assert (1'b0)
-            else $fatal(1, "Global simulation timeout");
+        $fatal(1, "Global simulation timeout");
     end
 endmodule

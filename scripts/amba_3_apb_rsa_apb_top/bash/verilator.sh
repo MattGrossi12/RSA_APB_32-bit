@@ -21,6 +21,8 @@ LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/verilator"
 REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top/verilator"
 WAVE_DIR="$PROJECT_ROOT/waveforms/amba_3_apb_rsa_apb_top/verilator"
 mkdir -p -- "$LOG_DIR/obj_dir" "$REPORT_DIR" "$WAVE_DIR"
+# Keep compiler and runtime artifacts local when invoked from another directory.
+cd -- "$LOG_DIR"
 
 RTL_DIR="$PROJECT_ROOT/src/amba_3_apb"
 SOURCES=(
@@ -54,8 +56,6 @@ if ! verilator --binary --timing --assert --coverage --trace \
     exit 1
 fi
 
-# Keep default runtime artifacts local even when invoked from another directory.
-cd -- "$LOG_DIR"
 "$LOG_DIR/obj_dir/simulation" \
     "+VCD=$WAVE_DIR/testbench.vcd" \
     "+verilator+coverage+file+$LOG_DIR/coverage.dat" "$@" \

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
+export PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
 RUN="amba_3_apb_rsa_apb_top_$(date '+%Y-%m-%d_%H-%M-%S')"
 DB_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top/db"
 LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/genus"
@@ -23,6 +23,6 @@ if [[ -z "$DB_FILE" ]]; then
 fi
 
 export DB_FILE
-cd -- "$PROJECT_ROOT"
+cd -- "$LOG_DIR"
 exec genus -gui -files "$SCRIPT_DIR/../tcl/open_genus_gui.tcl" \
     -log "$LOG_DIR/${RUN}.log"

@@ -2,14 +2,14 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
+export PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
 RUN="amba_3_apb_rsa_apb_top_$(date '+%Y-%m-%d_%H-%M-%S')"
 OUTPUT_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top"
 LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/genus"
 REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top/genus"
 
 mkdir -p -- "$OUTPUT_DIR"/{db,netlist,sdc} "$LOG_DIR" "$REPORT_DIR"
-cd -- "$PROJECT_ROOT"
+cd -- "$LOG_DIR"
 
 export RUN OUTPUT_DIR REPORT_DIR
 exec genus -files "$SCRIPT_DIR/../tcl/run_genus.tcl" \

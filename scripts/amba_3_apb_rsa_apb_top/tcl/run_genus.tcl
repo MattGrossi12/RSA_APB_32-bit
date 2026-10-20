@@ -1,14 +1,15 @@
 
 set project_name "amba_3_apb_rsa_apb_top"
+set project_root $::env(PROJECT_ROOT)
 set run_id $::env(RUN)
 set output_dir $::env(OUTPUT_DIR)
 set report_dir $::env(REPORT_DIR)
-set source_dir [file join [pwd] src amba_3_apb]
-set sdc_file [file join [pwd] constraints amba_3_apb_rsa_apb_top.sdc]
+set source_dir [file join $project_root src amba_3_apb]
+set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
 set_db / .use_scan_seqs_for_non_dft false
 
 set rtl_files [list \
-    [file join [pwd] src rsa32 rsa_core_32.sv] \
+    [file join $project_root src rsa32 rsa_core_32.sv] \
     [file join $source_dir amba_3_apb_adrec.sv] \
     [file join $source_dir amba_3_apb_data_o_mux.sv] \
     [file join $source_dir amba_3_apb_data_io_top.sv] \
@@ -33,7 +34,7 @@ set_db lef_library [list \
     /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef \
 ]
 
-set_db init_hdl_search_path [list [file join [pwd] src rsa32] $source_dir]
+set_db init_hdl_search_path [list [file join $project_root src rsa32] $source_dir]
 
 
 foreach rtl_file $rtl_files {

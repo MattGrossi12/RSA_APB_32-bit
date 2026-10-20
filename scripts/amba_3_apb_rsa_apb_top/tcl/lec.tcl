@@ -7,10 +7,11 @@ read_library -liberty -replace -both \
     /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib
 
 # RTL Files:
-set source_dir [file join [pwd] src amba_3_apb]
+set project_root $::env(PROJECT_ROOT)
+set source_dir [file join $project_root src amba_3_apb]
 
 set rtl_files [list \
-    [file join [pwd] src rsa32 rsa_core_32.sv] \
+    [file join $project_root src rsa32 rsa_core_32.sv] \
     [file join $source_dir amba_3_apb_adrec.sv] \
     [file join $source_dir amba_3_apb_data_o_mux.sv] \
     [file join $source_dir amba_3_apb_data_io_top.sv] \
@@ -28,7 +29,7 @@ read_design -systemverilog -golden \
     -root amba_3_apb_rsa_apb_top {*}$rtl_files
 
 # Revised Netlist:
-set netlist_dir [file join [pwd] ps_files rsa_apb_top netlist]
+set netlist_dir [file join $project_root ps_files rsa_apb_top netlist]
 set netlists [glob -directory $netlist_dir synth_*.v]
 
 set netlist_times {}
@@ -63,7 +64,7 @@ add_compared_points -all
 compare
 
 # LEC Reports:
-set report_dir "/home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top/lec"
+set report_dir [file join $project_root reports amba_3_apb_rsa_apb_top lec]
 file mkdir $report_dir
 
 report_compare_data -class nonequivalent > [file join $report_dir lec_nonequivalent.rpt]

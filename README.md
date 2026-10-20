@@ -25,7 +25,7 @@ salvas no diagrams.net aparecem sem exportar imagens ou reconstruir o site.
 ├── constraints/                 # SDCs por módulo
 ├── docs/                        # Especificações e material de referência
 ├── images/                      # Diagramas e imagens do projeto
-├── logs/<modulo>/{genus,lec,xrun}/
+├── logs/<modulo>/{genus,lec,xrun,imc,innovus,iverilog,verilator}/
 ├── ps_files/<modulo>/{db,netlist,sdc}/
 ├── reports/<modulo>/
 ├── scripts/<modulo>/
@@ -156,6 +156,26 @@ SimVision:
 Os scripts executam a bancada integrada com Xcelium; o fluxo gráfico também
 abre SimVision e salva as formas de onda.
 
+Os scripts do topo podem ser chamados de qualquer diretório. Cada ferramenta
+executa em sua pasta de logs, incluindo os arquivos auxiliares que ela gera
+no diretório atual:
+
+| Ferramenta | Diretório em `logs/amba_3_apb_rsa_apb_top/` |
+| --- | --- |
+| Genus, batch e GUI | `genus/` |
+| Conformal LEC e lint | `lec/` |
+| Xcelium e SimVision | `xrun/` |
+| IMC, standalone ou chamado pelo Xcelium | `imc/` |
+| Innovus, etapas 0 a 9 | `innovus/0.init/` a `innovus/9.export/` |
+| Innovus GUI | `innovus/gui/` |
+| Icarus Verilog | `iverilog/` |
+| Verilator | `verilator/` |
+
+Assim, `imc.log`, `imc.key`, `mdv.log`, `innovus.log`, `innovus.cmd` e
+`xcelium.d/` ficam nos diretórios das ferramentas. Relatórios, bancos,
+netlists, cobertura e formas de onda com caminhos explícitos continuam em
+`reports/`, `ps_files/`, `coverage/` e `waveforms/`.
+
 ## Diagrama de arquitetura de topo
 
 O diagrama abaixo representa a arquitetura-alvo e a relação entre os blocos:
@@ -203,7 +223,7 @@ publica a página quando GitHub Pages está configurado para GitHub Actions.
 - Os resultados de síntese são separados em
   `ps_files/<nome_do_modulo>/{netlist,sdc,db}/`.
 - Os relatórios ficam em `reports/<nome_do_modulo>/`.
-- Os logs são centralizados em `logs/<nome_do_modulo>/{genus,lec,xrun}/`.
+- Os logs são centralizados em `logs/<nome_do_modulo>/<ferramenta>/`.
 - Formas de onda são armazenadas em `waveforms/`.
 
 Os arquivos `insira_aqui.txt` mantêm pastas vazias rastreáveis pelo Git até que

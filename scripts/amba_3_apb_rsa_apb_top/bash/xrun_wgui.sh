@@ -10,7 +10,7 @@ RTL_DIR="$PROJECT_ROOT/src/amba_3_apb"
 
 mkdir -p -- "$LOG_DIR" "$WAVE_DIR"
 export RUN WAVE_FILE="$WAVE_DIR/${RUN}.shm"
-cd -- "$PROJECT_ROOT"
+cd -- "$LOG_DIR"
 
 xrun -64bit -gui \
     -timescale 1ns/1ps \

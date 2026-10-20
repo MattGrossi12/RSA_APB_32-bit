@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -8,8 +7,10 @@ PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
 INNOVUS="/home/cadence/DDI221/INNOVUS221"
 
 DB_PATH="$PROJECT_ROOT/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top"
+LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/innovus/gui"
 
-cd -- "$PROJECT_ROOT"
+mkdir -p -- "$LOG_DIR"
+cd -- "$LOG_DIR"
 
 exec "$INNOVUS/bin/innovus" \
     -stylus \
