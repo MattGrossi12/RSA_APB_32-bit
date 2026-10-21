@@ -1,0 +1,113 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 11:53:42 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top apb_rsa_tb
+	-access +rwc
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_11-53-42
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_11-53-42.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-53-42.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-53-42.vcd
+
+Recompiling... reason: file '/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv' is newer than expected.
+	expected: Tue Oct 20 11:51:54 2026
+	actual:   Tue Oct 20 11:52:50 2026
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+        compare_results(read_data, expected_result);
+                      |
+xmvlog: *W,FAAOP1 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,199|22): task or function call does not specify all formal output arguments [10.2.2][10.3(IEEE)].
+        output logic error
+                         |
+xmvlog: *W,FAAOP2 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,146|25): Formal output argument 'error' is absent in the task or function call identified by the previous error message [10.2.2][10.3(IEEE)].
+	module worklib.apb_rsa_tb:sv
+		errors: 0, warnings: 2
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		apb_rsa_tb
+
+	Extracting FSMs for coverage:
+		worklib.amba_3_apb_adrec
+		worklib.amba_3_apb_data_o_mux
+		worklib.amba_3_apb_data_io_top
+		worklib.amba_3_apb_control
+		worklib.amba_3_apb_regbank
+		worklib.amba_3_apb_reset
+		worklib.amba_3_apb_rsa_wrapper_control
+			FSM extracted for state register c_state
+		worklib.amba_3_apb_rsa_wrapper_data
+		worklib.rsa_core_mult
+			FSM extracted for state register state_reg
+		worklib.rsa_core_mod
+			FSM extracted for state register state_reg
+		worklib.rsa_core_ctrl
+			FSM extracted for state register state_reg
+		worklib.rsa_core
+		worklib.amba_3_apb_rsa_wrapper_top
+		worklib.amba_3_apb_rsa_apb_top
+		worklib.apb_rsa_tb
+	Total FSMs extracted = 4
+	Building instance overlay tables: .............
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+....... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.apb_rsa_tb:sv <0x3e2de079>
+			streams:  18, words: 25405
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                15      15
+		Registers:             143     143
+		Scalar wires:          109       -
+		Vectored wires:         68       -
+		Always blocks:          17      17
+		Initial blocks:          1       1
+		Cont. assignments:      28      45
+		Pseudo assignments:     86       -
+		Process Clocks:          7       2
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.apb_rsa_tb:sv
+Loading snapshot worklib.apb_rsa_tb:sv .................... Done
+xcelium> source /home/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> run
+----------------------
+Test Result
+----------------------
+PASS!!
+----------------------
+Simulation complete via $finish(1) at time 2645 NS + 0
+/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv:238     $finish;
+xcelium> exit
+
+coverage setup:
+  workdir  :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+  dutinst  :  apb_rsa_tb(apb_rsa_tb)
+  scope    :  scope
+  testname :  amba_3_apb_rsa_apb_top_2026-10-20_11-53-42
+
+coverage files:
+  model(design data) :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/scope/icc_0c2a57cf_00000000.ucm (reused)
+  data               :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/scope/amba_3_apb_rsa_apb_top_2026-10-20_11-53-42/icc_0c2a57cf_00000000.ucd
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 11:53:42 -03  (total: 00:00:00)

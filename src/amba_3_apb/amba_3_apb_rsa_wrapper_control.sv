@@ -28,7 +28,7 @@ module amba_3_apb_rsa_wrapper_control #(
 logic [6:0] c_state, n_state;
 
 // GAP Counter:
-logic [GAP_WIDTH-1:0] gap_counter;
+logic gap_counter;
 
 // FSM State Output:
 assign c_state_o = c_state;
@@ -146,9 +146,10 @@ always_ff @(posedge pclk_i or negedge presetn_i)
                             begin
                                 gap_counter <= '0;
                             end
+
                         else
                             begin
-                                gap_counter <= gap_counter + 1'b1;
+                                gap_counter <= GAP_WIDTH'(gap_counter + 1'b1);
                             end
                     end
                 else

@@ -85,7 +85,15 @@ cinco clocks de espera, dez rodadas de escrita/leitura e dez operações RSA.
 São 238 comparações de dados, STATUS e IRQ. O resultado matemático é calculado
 por uma referência independente de exponenciação modular.
 
-Os fluxos Icarus e Verilator estão em `scripts/amba_3_apb_rsa_apb_top/bash/`.
+Os fluxos Icarus, Verilator e Xcelium estão em
+`scripts/amba_3_apb_rsa_apb_top/bash/`. Os fluxos Genus, LEC e lint também
+estão nessa pasta: execute `genus_nogui.sh` para sintetizar, `genus_gui.sh`
+para abrir no Genus o banco mais recente, e `lec.sh` para comparar a netlist
+integrada; `lint.sh` executa as verificações RTL do Conformal LEC. Os scripts
+Genus e LEC usam as bibliotecas de tecnologia configuradas nos arquivos Tcl e
+pressupõem que os executáveis Cadence estejam no `PATH`. `xrun.sh` e
+`xrun_wgui.sh` executam a bancada integrada; o fluxo gráfico abre SimVision e
+captura as formas de onda.
 O plano completo está em `docs/plano_teste_amba_3_apb_rsa_apb_top.md`.
 A documentação `src/rsa32/README_rsa_apb_top.md` é histórica e descreve o
 esqueleto anterior à integração atual.

@@ -1,0 +1,48 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+Date:		Tue Oct 20 10:23:25 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:23:25.047978] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_35794_aa33b8a3-0f0d-4076-97a1-d5bf29b1861a_rock8_aluno_UpVwyE.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+@file 1: # Project:
+@file 2: set project_name "amba_3_apb_rsa_apb_top"
+@file 3: set project_root $::env(PROJECT_ROOT)
+@file 4: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+@file 5: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 6:
+@file 7: file mkdir $output_dir
+@file 8:
+@file 9: # Automatic Via Generation:
+@file 10: setGenerateViaMode -auto true
+**ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' line 10: invalid command name "setGenerateViaMode".
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+**ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' then restart.
+**ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl: invalid command name "setGenerateViaMode".
+@innovus 2> exit
+
+
+*** Memory Usage v#2 (Current mem = 1430.703M, initial mem = 661.535M) ***
+*** Message Summary: 0 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:12.0, real=0:03:09, mem=1430.7M) ---

@@ -1,0 +1,94 @@
+
+Functional test vector for mapped points:
+  (G) + 81   PO   /prdata_o[0]
+  (R) + 81   PO   /prdata_o[0]
+
+// Warning: Key point has no mapping
+  (G)   222  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[4]
+// Warning: Key point has no mapping
+  (G)   224  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[2]
+
+  (G) + 3    PI  /psel_i = 0
+  (R) + 3    PI  /psel_i = 0
+
+  (G) + 4    PI  /penable_i = 0
+  (R) + 4    PI  /penable_i = 0
+
+  (G) + 5    PI  /pwrite_i = 0
+  (R) + 5    PI  /pwrite_i = 0
+
+  (G) + 6    PI  /paddr_i[11] = 0
+  (R) + 6    PI  /paddr_i[11] = 0
+
+  (G) + 7    PI  /paddr_i[10] = 0
+  (R) + 7    PI  /paddr_i[10] = 0
+
+  (G) + 8    PI  /paddr_i[9] = 0
+  (R) + 8    PI  /paddr_i[9] = 0
+
+  (G) + 9    PI  /paddr_i[8] = 0
+  (R) + 9    PI  /paddr_i[8] = 0
+
+  (G) + 10   PI  /paddr_i[7] = 0
+  (R) + 10   PI  /paddr_i[7] = 0
+
+  (G) + 11   PI  /paddr_i[6] = 0
+  (R) + 11   PI  /paddr_i[6] = 0
+
+  (G) + 12   PI  /paddr_i[5] = 0
+  (R) + 12   PI  /paddr_i[5] = 0
+
+  (G) + 13   PI  /paddr_i[4] = 0
+  (R) + 13   PI  /paddr_i[4] = 0
+
+  (G) + 14   PI  /paddr_i[3] = 0
+  (R) + 14   PI  /paddr_i[3] = 0
+
+  (G) + 15   PI  /paddr_i[2] = 1
+  (R) + 15   PI  /paddr_i[2] = 1
+
+  (G) + 48   PI  /pwdata_i[1] = 0
+  (R) + 48   PI  /pwdata_i[1] = 0
+
+  (G) + 116  DFF /regbank_inst/result_reg_reg[0] = 1
+  (R) + 184  DFF /regbank_inst_result_reg_reg[0]/U$1 = 1
+
+  (G) + 148  DFF /regbank_inst/mod_reg_reg[0] = 1
+  (R) + 120  DFF /regbank_inst_mod_reg_reg[0]/U$1 = 1
+
+  (G) + 180  DFF /regbank_inst/exp_reg_reg[0] = 0
+  (R) + 782  DFF /regbank_inst_exp_reg_reg[0]/U$1 = 0
+
+  (G) + 212  DFF /regbank_inst/msg_reg_reg[0] = 1
+  (R) + 152  DFF /regbank_inst_msg_reg_reg[0]/U$1 = 1
+
+  (G) + 213  DFF /regbank_inst/ier_done_ie_reg_reg = 1
+  (R) + 118  DFF /regbank_inst_ier_done_ie_reg_reg/U$1 = 1
+
+  (G) + 217  DFF /reset_inst/reset_sync_reg_reg[1] = 1
+  (R) + 86   DFF /reset_inst_reset_sync_reg_reg[1]/U$1 = 1
+
+  (G) + 220  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[6] = 0
+  (R) + 780  DFF /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[6]/U$1 = 0
+
+  (G) + 221  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[5] = 0
+  (R) + 723  DFF /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[5]/U$1 = 0
+
+  (G) + 222  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[4] = 0
+
+  (G) + 223  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[3] = 0
+  (R) + 722  DFF /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[3]/U$1 = 0
+
+  (G) + 224  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[2] = 1
+
+  (G) + 225  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[1] = 1
+  (R) + 721  DFF /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[1]/U$1 = 1
+
+  (G) + 226  DFF /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[0] = 0
+  (R) + 779  DFF /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[0]/U$1 = 0
+
+
+Simulation result:
+  (G) + 81   PO  /prdata_o[0] = 0
+  (R) + 81   PO  /prdata_o[0] = 1
+

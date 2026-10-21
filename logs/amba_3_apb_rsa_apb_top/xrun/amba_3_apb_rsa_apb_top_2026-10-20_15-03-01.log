@@ -1,0 +1,155 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 15:03:01 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top testbench
+	-access +rwc
+	-sdf_cmd_file /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-03-01.sdf.cmd
+	-sdf_verbose
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_15-03-01
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-03-01.log
+	-v /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+	/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/export/amba_3_apb_rsa_apb_top.v
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-03-01.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-03-01.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	module worklib.testbench:sv
+		errors: 0, warnings: 0
+file: /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+	module typical.AND3X1:v
+		errors: 0, warnings: 0
+	module typical.AND3XL:v
+		errors: 0, warnings: 0
+	module typical.AO21X1:v
+		errors: 0, warnings: 0
+	module typical.AO22X1:v
+		errors: 0, warnings: 0
+	module typical.AOI21X1:v
+		errors: 0, warnings: 0
+	module typical.BUFX2:v
+		errors: 0, warnings: 0
+	module typical.CLKBUFX16:v
+		errors: 0, warnings: 0
+	module typical.CLKBUFX20:v
+		errors: 0, warnings: 0
+	module typical.CLKXOR2X1:v
+		errors: 0, warnings: 0
+	module typical.DFFHQX1:v
+		errors: 0, warnings: 0
+	module typical.DFFRX1:v
+		errors: 0, warnings: 0
+	module typical.DFFX1:v
+		errors: 0, warnings: 0
+	module typical.INVX1:v
+		errors: 0, warnings: 0
+	module typical.MX2X1:v
+		errors: 0, warnings: 0
+	module typical.MXI2XL:v
+		errors: 0, warnings: 0
+	module typical.NAND2BX1:v
+		errors: 0, warnings: 0
+	module typical.NAND2BXL:v
+		errors: 0, warnings: 0
+	module typical.NAND3BXL:v
+		errors: 0, warnings: 0
+	module typical.NAND3X1:v
+		errors: 0, warnings: 0
+	module typical.NOR2BX1:v
+		errors: 0, warnings: 0
+	module typical.NOR2X1:v
+		errors: 0, warnings: 0
+	module typical.NOR3BX1:v
+		errors: 0, warnings: 0
+	module typical.NOR3X1:v
+		errors: 0, warnings: 0
+	module typical.OA21X1:v
+		errors: 0, warnings: 0
+	module typical.OA22X1:v
+		errors: 0, warnings: 0
+	module typical.OAI22X1:v
+		errors: 0, warnings: 0
+	module typical.XNOR2X1:v
+		errors: 0, warnings: 0
+	module typical.ADDHX1:v
+		errors: 0, warnings: 0
+	module typical.AOI221X1:v
+		errors: 0, warnings: 0
+	module typical.AOI2BB2X1:v
+		errors: 0, warnings: 0
+	module typical.AOI31X1:v
+		errors: 0, warnings: 0
+	module typical.AOI32X1:v
+		errors: 0, warnings: 0
+	module typical.DFFRHQX1:v
+		errors: 0, warnings: 0
+	module typical.EDFFHQX1:v
+		errors: 0, warnings: 0
+	module typical.EDFFX2:v
+		errors: 0, warnings: 0
+	module typical.MDFFHQX1:v
+		errors: 0, warnings: 0
+	module typical.OAI21X1:v
+		errors: 0, warnings: 0
+	module typical.OAI222X1:v
+		errors: 0, warnings: 0
+	module typical.OAI2BB1X1:v
+		errors: 0, warnings: 0
+	module typical.OR3X1:v
+		errors: 0, warnings: 0
+	module typical.AND2X1:v
+		errors: 0, warnings: 0
+	module typical.AOI222X1:v
+		errors: 0, warnings: 0
+	module typical.AOI2BB1X1:v
+		errors: 0, warnings: 0
+	module typical.AOI33XL:v
+		errors: 0, warnings: 0
+	module typical.DFFSX1:v
+		errors: 0, warnings: 0
+	module typical.NOR4X1:v
+		errors: 0, warnings: 0
+	module typical.OAI221X1:v
+		errors: 0, warnings: 0
+	module typical.OR4X1:v
+		errors: 0, warnings: 0
+	module typical.ADDFX1:v
+		errors: 0, warnings: 0
+	module typical.AOI211XL:v
+		errors: 0, warnings: 0
+	module typical.AOI22X1:v
+		errors: 0, warnings: 0
+	module typical.NAND2X1:v
+		errors: 0, warnings: 0
+	module typical.NOR4BX1:v
+		errors: 0, warnings: 0
+	module typical.OAI211X1:v
+		errors: 0, warnings: 0
+	module typical.OAI31X1:v
+		errors: 0, warnings: 0
+	module typical.OAI32X1:v
+		errors: 0, warnings: 0
+	module typical.OR2X1:v
+		errors: 0, warnings: 0
+	module typical.NAND4BX1:v
+		errors: 0, warnings: 0
+	primitive typical.udp_dff:v
+		errors: 0, warnings: 0
+	primitive typical.udp_mux2:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+        .DATA_WIDTH(DATA_WIDTH),
+                             |
+xmelab: *E,CUTMIP (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv,58|29): Too many module instance parameter assignments (definition in file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/export/amba_3_apb_rsa_apb_top.v, line 10).
+		Caching library 'worklib' ....... Done
+		Caching library 'typical' ....... Done
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 1), exiting.
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 15:03:01 -03  (total: 00:00:00)

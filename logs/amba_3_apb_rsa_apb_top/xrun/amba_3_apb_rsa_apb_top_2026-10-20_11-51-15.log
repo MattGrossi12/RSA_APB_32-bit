@@ -1,0 +1,37 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 11:51:15 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top apb_rsa_tb
+	-access +rwc
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_11-51-15
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_11-51-15.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-51-15.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-51-15.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+    #(CLOCK_PERIOD_NS / 2) pclk = ~pclk;
+                    |
+xmvlog: *E,UNDIDN (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,77|20): 'CLOCK_PERIOD_NS': undeclared identifier [12.5(IEEE)].
+	module worklib.apb_rsa_tb:sv
+		errors: 1, warnings: 0
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 11:51:15 -03  (total: 00:00:00)

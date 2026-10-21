@@ -3,89 +3,247 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RSA_APB: RTL, testbench, scripts, documentação e resultados de simulação com Icarus e Verilator.">
+  <meta name="description" content="Documentação do periférico RSA_APB de 32 bits com interface APB3: arquitetura, síntese, cobertura de código e simulação.">
   <meta name="theme-color" content="#050b16">
-  <title>RSA_APB — Documentação do projeto</title>
+  <title>RSA_APB — Projeto de hardware digital</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/landing.css">
   <script defer src="assets/data.js"></script>
   <script defer src="assets/app.js"></script>
   <script defer src="assets/live-diagram.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <section id="inicio" class="landing" aria-labelledby="landing-title">
+    <div class="landing-art" aria-hidden="true">
+      <img src="assets/images/img5.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img7.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img9.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img11.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img13.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img16.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img19.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img14.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+      <img src="assets/images/img12.png" alt="" width="1920" height="1080" loading="eager" decoding="async" fetchpriority="low">
+    </div>
+    <header class="landing-header">
+      <a class="landing-brand" href="#inicio" aria-label="RSA_APB — apresentação do projeto"><span class="landing-brand-mark" aria-hidden="true">R<span>↗</span></span><span>RSA_APB<small>PROJETO DE HARDWARE DIGITAL</small></span></a>
+      <a class="landing-repository" href="https://github.com/MattGrossi12/RSA_APB_32-bit" target="_blank" rel="noopener noreferrer">Repositório no GitHub ↗</a>
+    </header>
+    <div class="landing-content">
+      <div class="landing-intro">
+        <p class="eyebrow">MICROARQUITETURA E IMPLEMENTAÇÃO DIGITAL</p>
+        <h1 id="landing-title">RSA<span>_APB</span></h1>
+        <p class="landing-description">Periférico de exponenciação modular de 32 bits com interface AMBA 3 APB, desenvolvido em SystemVerilog. O projeto reúne microarquitetura RTL, síntese lógica, implementação física e verificação funcional.</p>
+        <ul class="landing-technologies" aria-label="Tecnologias e interface"><li>SystemVerilog</li><li>AMBA 3 APB</li><li>32 bits</li></ul>
+        <a class="button primary landing-cta" href="#rtl">Explorar o projeto <span aria-hidden="true">↓</span></a>
+      </div>
+      <nav class="landing-index" aria-labelledby="landing-index-title">
+        <div class="landing-index-heading"><p class="eyebrow">CONTEÚDO DO PROJETO</p><h2 id="landing-index-title">Índice do projeto</h2></div>
+        <ol>
+          <li><a href="#rtl"><span class="landing-number" aria-hidden="true">01</span><span>Arquitetura do periférico</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#sintese"><span class="landing-number" aria-hidden="true">02</span><span>Síntese lógica e implementação física</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#representacoes"><span class="landing-number" aria-hidden="true">03</span><span>Representações do circuito</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#cobertura"><span class="landing-number" aria-hidden="true">04</span><span>Cobertura de código</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#resultados-simulacao"><span class="landing-number" aria-hidden="true">05</span><span>Simulação RTL e pós-síntese</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#testbench"><span class="landing-number" aria-hidden="true">06</span><span>Testbench</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#scripts"><span class="landing-number" aria-hidden="true">07</span><span>Scripts</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#docs"><span class="landing-number" aria-hidden="true">08</span><span>Documentação</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+          <li><a href="#modulos"><span class="landing-number" aria-hidden="true">09</span><span>Diagramas e descrição dos módulos</span><span class="landing-arrow" aria-hidden="true">↘</span></a></li>
+        </ol>
+      </nav>
+    </div>
+    <footer class="landing-footer"><span>RTL · SÍNTESE · IMPLEMENTAÇÃO FÍSICA · VERIFICAÇÃO</span><a href="#conteudo">Documentação técnica <span aria-hidden="true">↓</span></a></footer>
+  </section>
+  <div class="documentation-shell">
   <aside class="sidebar" aria-label="Navegação principal">
-    <a class="brand" href="#rtl"><span class="brand-mark" aria-hidden="true">R<span>↗</span></span><span>RSA<span class="brand-sub">_APB / 32-bit</span></span></a>
+    <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">R<span>↗</span></span><span>RSA<span class="brand-sub">_APB / 32-bit</span></span></a>
     <div class="sidebar-label">PROJETO</div>
     <nav class="side-nav">
-      <a href="#rtl" class="active"><span class="nav-number">01</span>RTL</a>
-      <a href="#testbench"><span class="nav-number">02</span>Testbench</a>
-      <a href="#scripts"><span class="nav-number">03</span>Scripts</a>
-      <a href="#docs"><span class="nav-number">04</span>Docs</a>
-      <a href="#resultados-simulacao"><span class="nav-number">05</span>Resultados de simulação</a>
+      <a href="#rtl" class="active"><span class="nav-number">01</span>Arquitetura</a>
+      <a href="#sintese"><span class="nav-number">02</span>Síntese</a>
+      <a href="#representacoes"><span class="nav-number">03</span>Circuito</a>
+      <a href="#cobertura"><span class="nav-number">04</span>Cobertura</a>
+      <a href="#resultados-simulacao"><span class="nav-number">05</span>Simulações</a>
+      <a href="#testbench"><span class="nav-number">06</span>Testbench</a>
+      <a href="#scripts"><span class="nav-number">07</span>Scripts</a>
+      <a href="#docs"><span class="nav-number">08</span>Documentação</a>
+      <a href="#modulos"><span class="nav-number">09</span>Diagramas e blocos</a>
     </nav>
     <div class="sidebar-bottom"><span class="status-dot"></span>SystemVerilog / APB3<a href="https://github.com/MattGrossi12/RSA_APB_32-bit">Repositório no GitHub ↗</a></div>
   </aside>
   <main id="conteudo">
     <header class="topbar"><span class="breadcrumb">RSA_APB / <strong>DOCUMENTAÇÃO</strong></span><a class="subtle-link" href="reference/plano_teste.html">Plano de teste ↗</a></header>
-    <div id="visao-geral" class="project-heading"><p class="eyebrow">SYSTEMVERILOG · AMBA 3 APB</p><h1>RSA_APB</h1><p>Periférico RSA de 32 bits com interface APB3.</p></div>
+    <div id="visao-geral" class="project-heading"><p class="eyebrow">SYSTEMVERILOG · AMBA 3 APB</p><h2 class="project-title">RSA_APB</h2><p>Periférico RSA de 32 bits com interface AMBA 3 APB.</p></div>
 
     <section id="rtl" class="content-section section-anchor first-section" aria-labelledby="rtl-title">
-      <div class="section-heading"><div><p class="eyebrow">01 / src/</p><h2 id="rtl-title">RTL</h2><p>Módulos da interface APB, banco de registradores e núcleo RSA.</p></div><span class="section-tag">{{MODULES}} MÓDULOS</span></div>
+      <div class="section-heading"><div><p class="eyebrow">01 / ARQUITETURA</p><h2 id="rtl-title">Arquitetura do periférico</h2><p>O RSA_APB integra um núcleo de exponenciação modular de 32 bits a uma interface AMBA 3 APB, com configuração e leitura de resultados por registradores mapeados em memória. A microarquitetura separa o tratamento das transações, o armazenamento dos operandos e o sequenciamento do núcleo, com sinais de estado e interrupção para acompanhamento da operação.</p></div><span class="section-tag">{{MODULES}} MÓDULOS</span></div>
       <div id="arquitetura" class="section-part">
-        <div class="part-heading"><div><h3>Diagrama de topo</h3><p>Atualizado a partir do arquivo salvo no Drive.</p></div><a class="button secondary" href="https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D" target="_blank" rel="noopener noreferrer">Editar diagrama ↗</a></div>
-        <div class="live-diagram-panel"><div class="live-diagram-toolbar"><span class="live-source"><span class="status-dot"></span>RSA_APB_DIAGRAM · Google Drive</span><div class="live-diagram-controls"><label><input id="diagram-auto-refresh" type="checkbox" checked> Atualizar a cada minuto</label><button id="refresh-live-diagram" class="button secondary" type="button">Atualizar agora ↻</button></div></div><iframe id="live-diagram" title="Diagrama de topo RSA_APB_DIAGRAM no Google Drive" referrerpolicy="no-referrer" allowfullscreen></iframe><div class="live-diagram-footer"><span id="live-diagram-status" role="status">Carregando diagrama…</span><a href="https://drive.google.com/file/d/1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri/view" target="_blank" rel="noopener noreferrer">Abrir no Drive ↗</a></div></div>
-      </div>
-      <div id="modulos" class="section-part">
-        <div class="part-heading"><div><h3>Módulos</h3><p>Selecione um módulo para ver sua função, o diagrama e os arquivos.</p></div></div>
-        <div class="module-browser">
-          <div class="module-navigation"><label class="search-label" for="module-search">Buscar módulo</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="module-search" type="search" placeholder="Nome ou função…" autocomplete="off"></div><div id="module-list" class="module-list" aria-label="Selecionar módulo"></div><p id="module-count" class="muted small" aria-live="polite"></p></div>
-          <article class="module-detail" aria-labelledby="module-title"><div class="module-meta"><span id="module-group" class="pill"></span><a id="module-readme" class="subtle-link" href="#">README ↗</a></div><h3 id="module-title"></h3><code id="module-name" class="module-code"></code><p id="module-summary"></p><ul id="module-highlights" class="highlights"></ul><div class="diagram-header"><span>DIAGRAMA</span><button id="expand-diagram" class="text-button" type="button">Ampliar ↗</button></div><div id="diagram" class="diagram-canvas" aria-live="polite"></div><details class="diagram-source"><summary>Código Mermaid</summary><pre><code id="diagram-source"></code></pre></details><a id="module-source" class="subtle-link source-link" href="#">Arquivo SystemVerilog ↗</a></article>
-        </div>
+        <div class="part-heading"><div><h3>Diagrama de topo</h3><p>O caminho de dados conecta os registradores de operandos ao wrapper RSA e retorna o resultado ao barramento. O caminho de controle coordena os comandos de início e reset, o estado de execução e a interrupção.</p></div><a class="button secondary" href="https://app.diagrams.net/#G1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri#%7B%22pageId%22%3A%22MEHrRE8WjDQsoYR0GH0S%22%7D" target="_blank" rel="noopener noreferrer">Editar diagrama ↗</a></div>
+        <div class="live-diagram-panel"><div class="live-diagram-toolbar"><span class="live-source"><span class="status-dot"></span>RSA_APB_DIAGRAM · Google Drive</span></div><iframe id="live-diagram" title="Diagrama de topo RSA_APB_DIAGRAM no Google Drive" referrerpolicy="no-referrer" allowfullscreen></iframe><div class="live-diagram-footer"><span id="live-diagram-status" role="status">Carregando diagrama…</span><a href="https://drive.google.com/file/d/1pJmIWxV6VePdHCURcpEqT6SSo5kHxkri/view" target="_blank" rel="noopener noreferrer">Abrir no Drive ↗</a></div></div>
       </div>
     </section>
 
-    <section id="testbench" class="content-section section-anchor" aria-labelledby="testbench-title">
-      <div class="section-heading"><div><p class="eyebrow">02 / testbenchs/</p><h2 id="testbench-title">Testbench</h2><p>A bancada do topo faz o reset, testa os registradores e executa os cálculos RSA.</p></div><a class="button secondary" href="reference/testbench.sv">Abrir testbench.sv ↗</a></div>
-      <p class="file-path"><code>testbenchs/rsa_apb_top/testbench.sv</code></p>
-      <div class="test-sequence"><div><span>01</span><strong>Reset</strong><p>PRESETn e CTRL.SRST.<br>Espera de 5 clocks.</p></div><div><span>02</span><strong>Registradores · {{REGISTER_ROUNDS}} rodadas</strong><p>Escrita e leitura de IER, MSG, EXP e MOD.<br>Nova leitura para conferir a retenção.</p></div><div><span>03</span><strong>RSA · {{RSA_ROUNDS}} operações</strong><p>Comparação de RESULT com MSG^EXP mod MOD.<br>Checagem de STATUS e IRQ.</p></div></div>
-      <div class="reference-table-wrap"><table class="reference-table"><caption>Principais tasks da bancada.</caption><thead><tr><th scope="col">Atividade</th><th scope="col">Tasks</th></tr></thead><tbody><tr><td>Aplicar reset</td><td><code>apply_hardware_reset</code>, <code>apply_software_reset</code></td></tr><tr><td>Acessar o barramento</td><td><code>apb_write</code>, <code>apb_read</code></td></tr><tr><td>Testar registradores</td><td><code>test_register_writes</code>, <code>check_register_retention</code></td></tr><tr><td>Executar RSA</td><td><code>test_rsa_operation</code>, <code>wait_rsa_completion</code></td></tr><tr><td>Comparar valores e mostrar o resultado</td><td><code>scoreboard_check</code>, <code>report_results</code></td></tr></tbody></table></div>
-      <p class="section-text">A scoreboard compara os valores esperados com os lidos pelo APB. Para o cálculo RSA, a referência usa exponenciação modular. O <a href="reference/plano_teste.html">plano de teste</a> descreve os vetores e as verificações.</p>
-      <div class="part-heading docs-heading"><div><h3>Bancada do adrec</h3><p>Percorre os 4096 endereços de 12 bits, confere o índice e a validade e testa cinco casos com X/Z.</p></div><a class="button secondary" href="reference/testbench_adrec.sv">Abrir testbench do adrec ↗</a></div>
-      <p class="section-text">As tasks <code>sweep_addresses</code>, <code>check_address</code> e <code>check_unknown_bits</code> verificam o novo bloco. Os bits de byte <code>PADDR[1:0]</code> continuam ignorados; a faixa válida vai de <code>0x000</code> a <code>0x01F</code>.</p>
+    <section id="sintese" class="content-section section-anchor" aria-labelledby="synthesis-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / SÍNTESE</p><h2 id="synthesis-title">Síntese lógica e implementação física</h2><p>O RTL do RSA_APB foi sintetizado e mapeado em células padrão no Genus, com posicionamento e roteamento realizados no Innovus. A netlist e os atrasos exportados em SDF foram incorporados à simulação estrutural para análise do comportamento temporal da implementação.</p></div><span class="section-tag">RTL → NETLIST → LAYOUT</span></div>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img5.png" data-image-title="Vista de topo do circuito integrado" aria-label="Ampliar: Vista de topo do circuito integrado"><img src="assets/images/img5.png" alt="Vista de topo do circuito integrado" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 05</span><strong>Vista de topo do circuito integrado</strong><p>Resultado do posicionamento e roteamento do periférico no Innovus, com a distribuição das células e das conexões nas camadas de metal.</p></figcaption>
+        </figure>
     </section>
 
-    <section id="scripts" class="content-section section-anchor" aria-labelledby="scripts-title">
-      <div class="section-heading"><div><p class="eyebrow">03 / scripts/</p><h2 id="scripts-title">Scripts</h2><p>Comandos para simular o topo, gerar a cobertura e montar esta página.</p></div><a id="scripts-folder" class="subtle-link" href="https://github.com/MattGrossi12/RSA_APB_32-bit/tree/main/scripts">Pasta scripts no GitHub ↗</a></div>
-      <div class="command-list">
-        <article class="command-block"><div><h3>Icarus Verilog</h3><a href="reference/iverilog.sh">iverilog.sh ↗</a></div><p>Compila e executa a bancada. Salva o log e o VCD.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh</code></pre></article>
-        <article class="command-block"><div><h3>Verilator</h3><a href="reference/verilator.sh">verilator.sh ↗</a></div><p>Executa a mesma bancada e gera os relatórios de cobertura.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh</code></pre></article>
-        <article class="command-block"><div><h3>GitHub Pages</h3><a href="reference/build.py">build.py ↗</a></div><p>Usa os READMEs, logs e relatórios para gerar os arquivos em <code>_site/</code>. Veja <a href="reference/README_site.html#gerar-localmente">como instalar as dependências e gerar a página</a>.</p><pre><code>python3 scripts/pages/build.py</code></pre></article>
+    <section id="representacoes" class="content-section section-anchor" aria-labelledby="representations-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / REPRESENTAÇÕES</p><h2 id="representations-title">Representações do circuito</h2><p>A decomposição hierárquica distingue a interface de software, o controle de execução e o processamento aritmético. As representações RTL e sintetizada registram essa organização em diferentes etapas do fluxo, do particionamento funcional à rede de células mapeadas.</p></div><span class="section-tag">XRUN · GENUS · CONFORMAL</span></div>
+      <div class="part-heading"><div><h3>Hierarquia e esquemáticos</h3><p>O topo concentra os sinais APB e IRQ; internamente, o caminho de leitura e a sequência de carga do núcleo são implementados em blocos distintos. A representação no Genus registra a estrutura obtida após o mapeamento lógico.</p></div></div>
+      <div class="image-gallery">
+        <figure class="project-figure figure-wide">
+          <a class="project-image-link" href="assets/images/img6.png" data-image-title="Interface do periférico · SimVision" aria-label="Ampliar: Interface do periférico · SimVision"><img src="assets/images/img6.png" alt="Interface do periférico · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 06</span><strong>Interface do periférico · SimVision</strong><p>Interface externa consolidada no topo, com acesso aos registradores pelo barramento APB e sinalização de eventos por IRQ.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img7.png" data-image-title="Hierarquia do periférico · SimVision" aria-label="Ampliar: Hierarquia do periférico · SimVision"><img src="assets/images/img7.png" alt="Hierarquia do periférico · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 07</span><strong>Hierarquia do periférico · SimVision</strong><p>Particionamento da integração em controle APB, banco de registradores, reset e wrapper RSA, com caminhos de dados e controle definidos entre as instâncias.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img8.png" data-image-title="Hierarquia expandida · SimVision" aria-label="Ampliar: Hierarquia expandida · SimVision"><img src="assets/images/img8.png" alt="Hierarquia expandida · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 08</span><strong>Hierarquia expandida · SimVision</strong><p>Decomposição da hierarquia RTL em instâncias internas, preservando as conexões entre o processamento RSA e a interface do periférico.</p></figcaption>
+        </figure>
+        <figure class="project-figure figure-wide">
+          <a class="project-image-link" href="assets/images/img13.png" data-image-title="Netlist sintetizada · Genus" aria-label="Ampliar: Netlist sintetizada · Genus"><img src="assets/images/img13.png" alt="Netlist sintetizada · Genus" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 13</span><strong>Netlist sintetizada · Genus</strong><p>Realização da microarquitetura nas células da biblioteca tecnológica, após síntese e mapeamento lógico no Genus.</p></figcaption>
+        </figure>
       </div>
-      <p class="section-text">Execute os comandos na raiz do repositório. Os dois simuladores aceitam <code>+DATA=DEADBEEF</code> para mudar o dado usado no teste dos registradores. A publicação usa o <a href="reference/pages.yml">workflow pages.yml</a>.</p>
+      <div class="part-heading docs-heading"><div><h3>Representação de referência no Conformal</h3><p>A análise no Conformal estabelece a comparação entre as descrições RTL e estrutural. As vistas Golden preservam a hierarquia de referência e a identificação dos blocos considerados na análise de equivalência.</p></div></div>
+      <div class="image-gallery">
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img16.png" data-image-title="Hierarquia do periférico · Conformal" aria-label="Ampliar: Hierarquia do periférico · Conformal"><img src="assets/images/img16.png" alt="Hierarquia do periférico · Conformal" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 16</span><strong>Hierarquia do periférico · Conformal</strong><p>Hierarquia Golden de referência, com a organização dos blocos funcionais no ambiente de análise de equivalência.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img17.png" data-image-title="Circuito de reset · Conformal" aria-label="Ampliar: Circuito de reset · Conformal"><img src="assets/images/img17.png" alt="Circuito de reset · Conformal" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 17</span><strong>Circuito de reset · Conformal</strong><p>Tratamento dos resets externo e por software, com cadeia de sincronização para a liberação do núcleo no domínio de PCLK.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img18.png" data-image-title="Wrapper RSA · Conformal" aria-label="Ampliar: Wrapper RSA · Conformal"><img src="assets/images/img18.png" alt="Wrapper RSA · Conformal" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 18</span><strong>Wrapper RSA · Conformal</strong><p>Integração do controle sequencial, do seletor de operandos e do núcleo aritmético no wrapper RSA.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img19.png" data-image-title="Controle APB · Conformal" aria-label="Ampliar: Controle APB · Conformal"><img src="assets/images/img19.png" alt="Controle APB · Conformal" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 19</span><strong>Controle APB · Conformal</strong><p>Lógica combinacional responsável pela decodificação dos acessos, pelas habilitações de escrita e pela sinalização de erro e interrupção.</p></figcaption>
+        </figure>
+        <figure class="project-figure figure-wide">
+          <a class="project-image-link" href="assets/images/img20.png" data-image-title="Interface de leitura · Conformal" aria-label="Ampliar: Interface de leitura · Conformal"><img src="assets/images/img20.png" alt="Interface de leitura · Conformal" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 20</span><strong>Interface de leitura · Conformal</strong><p>Caminho combinacional de leitura, com validação do endereço e seleção do registrador que fornece PRDATA.</p></figcaption>
+        </figure>
+      </div>
     </section>
 
-    <section id="docs" class="content-section section-anchor" aria-labelledby="docs-title">
-      <div class="section-heading"><div><p class="eyebrow">04 / docs/</p><h2 id="docs-title">Docs</h2><p>Documentação do projeto, protocolo APB e plano de teste.</p></div></div>
-      <div class="document-list"><a href="reference/README.html"><strong>README do projeto</strong><span>Pastas, módulos e comandos de execução.</span><span aria-hidden="true">↗</span></a><a href="reference/plano_teste.html"><strong>Plano de teste do topo</strong><span>Sequência, vetores RSA e critérios de aprovação.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_protocol.pdf"><strong>Protocolo APB</strong><span>Especificação do barramento, em PDF.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_integration.pdf"><strong>Integração APB e RSA</strong><span>Interface e funcionamento do periférico, em PDF.</span><span aria-hidden="true">↗</span></a></div>
-      <div class="part-heading docs-heading"><h3>READMEs dos módulos</h3></div><div id="module-docs" class="module-docs"></div>
+    <section id="cobertura" class="content-section section-anchor" aria-labelledby="coverage-title">
+      <div class="section-heading"><div><p class="eyebrow">04 / COBERTURA</p><h2 id="coverage-title">Cobertura de código</h2><p>A análise de cobertura examinou a abrangência dos cenários de teste sobre o controle APB, o banco de registradores e o núcleo RSA. Os resultados obtidos com Incisive/IMC e Verilator/LCOV complementam a verificação funcional ao identificar as regiões do RTL exercitadas durante a simulação.</p></div><a class="button secondary" href="coverage/index.html">Abrir relatório do Verilator ↗</a></div>
+      <div class="image-gallery">
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img11.png" data-image-title="Relatório de cobertura · Incisive/IMC" aria-label="Ampliar: Relatório de cobertura · Incisive/IMC"><img src="assets/images/img11.png" alt="Relatório de cobertura · Incisive/IMC" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 11</span><strong>Relatório de cobertura · Incisive/IMC</strong><p>Resultados de cobertura do fluxo Incisive/IMC, discriminados por instância e categoria de instrumentação.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img12.png" data-image-title="Comparativo de cobertura · IMC × LCOV/Verilator" aria-label="Ampliar: Comparativo de cobertura · IMC × LCOV/Verilator"><img src="assets/images/img12.png" alt="Comparativo de cobertura · IMC × LCOV/Verilator" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 12</span><strong>Comparativo de cobertura · IMC × LCOV/Verilator</strong><p>Cobertura obtida nos fluxos IMC e LCOV/Verilator, cujos percentuais refletem critérios próprios de instrumentação e contagem.</p></figcaption>
+        </figure>
+      </div>
+      <div class="part-heading docs-heading"><div><h3>Cobertura por arquivo RTL</h3><p>A cobertura é consolidada por arquivo para distinguir a atividade no controle APB, no banco de registradores e no núcleo aritmético. A associação com o código anotado identifica os pontos executados e os pontos não exercitados pela simulação.</p></div></div>
+        <div id="coverage-metrics" class="coverage-metrics"></div>
+        <div class="coverage-table-wrap"><table class="coverage-table"><caption>Métricas de linhas e branches do RTL, extraídas do arquivo coverage.info.</caption><thead><tr><th scope="col">Arquivo RTL</th><th scope="col"><button data-sort="lines" type="button">Linhas ↕</button></th><th scope="col"><button data-sort="branches" type="button">Branches ↕</button></th><th scope="col">Cobertos / total</th></tr></thead><tbody id="coverage-rows"></tbody></table></div>
+        <div class="coverage-note"><span class="note-mark">i</span><p>Os percentuais LCOV e os indicadores nativos do Verilator correspondem a conjuntos de pontos e critérios de contagem distintos. A instrumentação deste fluxo exclui o testbench e considera o RTL do periférico.</p></div>
+        <details class="native-coverage"><summary>Resumo do Verilator</summary><div id="native-metrics" class="native-metrics"></div><a href="artifacts/coverage_summary.txt">Abrir resumo por tipo e módulo ↗</a></details>
+        <div class="artifact-links"><a href="artifacts/coverage.info" download>Baixar coverage.info ↓</a><a href="artifacts/coverage_summary.txt" download>Baixar resumo do Verilator ↓</a></div>
+      <div class="coverage-embed">
+        <div class="coverage-embed-toolbar"><div><h3>Relatório LCOV completo</h3><p>O relatório associa as contagens de execução às linhas e aos branches do RTL, mantendo a rastreabilidade entre os indicadores consolidados e suas fontes.</p></div><a class="button secondary" href="coverage/index.html" target="_blank" rel="noopener noreferrer">Abrir em outra aba ↗</a></div>
+        <iframe id="coverage-report" src="coverage/index.html" title="Relatório interativo de cobertura LCOV gerado pelo Verilator" loading="lazy"></iframe>
+      </div>
     </section>
 
     <section id="resultados-simulacao" class="content-section section-anchor" aria-labelledby="results-title">
-      <div class="section-heading"><div><p class="eyebrow">05 / logs/ e reports/</p><h2 id="results-title">Resultados de simulação</h2><p>Resultados da bancada executada com Icarus Verilog e Verilator.</p></div><span id="simulation-status" class="pill success">Carregando resultados</span></div>
+      <div class="section-heading"><div><p class="eyebrow">05 / SIMULAÇÕES</p><h2 id="results-title">Simulação RTL e pós-síntese</h2><p>O periférico foi analisado em RTL e em simulação estrutural com anotação SDF. As formas de onda registram as transações APB, a carga dos operandos e a sinalização de estado nas duas representações.</p></div></div>
+      <div class="image-gallery">
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img9.png" data-image-title="Simulação RTL 01 · SimVision" aria-label="Ampliar: Simulação RTL 01 · SimVision"><img src="assets/images/img9.png" alt="Simulação RTL 01 · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 09</span><strong>Simulação RTL 01 · SimVision</strong><p>Transações APB e evolução dos indicadores da scoreboard durante a execução da bancada integrada.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img10.png" data-image-title="Simulação RTL 02 · SimVision" aria-label="Ampliar: Simulação RTL 02 · SimVision"><img src="assets/images/img10.png" alt="Simulação RTL 02 · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 10</span><strong>Simulação RTL 02 · SimVision</strong><p>Resposta do barramento de leitura PRDATA em relação às fases de acesso e aos sinais de controle APB.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img14.png" data-image-title="Netlist pós-síntese + SDF · SimVision" aria-label="Ampliar: Netlist pós-síntese + SDF · SimVision"><img src="assets/images/img14.png" alt="Netlist pós-síntese + SDF · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 14</span><strong>Netlist pós-síntese + SDF · SimVision</strong><p>Comportamento temporal da netlist com atrasos anotados em SDF, sob os estímulos da bancada do periférico.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img15.png" data-image-title="Comparativo RTL × estrutural · SimVision" aria-label="Ampliar: Comparativo RTL × estrutural · SimVision"><img src="assets/images/img15.png" alt="Comparativo RTL × estrutural · SimVision" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 15</span><strong>Comparativo RTL × estrutural · SimVision</strong><p>Análise comparativa dos estímulos e das respostas nas simulações RTL e estrutural.</p></figcaption>
+        </figure>
+      </div>
+      <div class="part-heading docs-heading"><div><h3>Resultados das bancadas Icarus e Verilator</h3><p>A scoreboard avalia os dados lidos pelo APB, os estados de execução e a interrupção. Os logs registram os valores esperados e observados em cada comparação e os totais de acertos e falhas.</p></div><span id="simulation-status" class="pill success">Carregando resultados</span></div>
       <div class="metrics-strip results-metrics" aria-label="Resumo da simulação"><div><span class="metric-value">{{CHECKS}}<small>comparações</small></span><span id="test-status">Resultado da scoreboard</span></div><div><span class="metric-value">{{ERRORS}}<small>erros</small></span><span>Resultado dos dois simuladores</span></div><div><span class="metric-value">{{LCOV_LINES}}<small>% linhas LCOV</small></span><span>Cobertura dos arquivos RTL</span></div><div><span class="metric-value">{{LCOV_BRANCHES}}<small>% branches LCOV</small></span><span>Cobertura dos arquivos RTL</span></div></div>
-      <div id="simulacao" class="section-part"><div class="part-heading"><div><h3>Logs</h3><p>Selecione o simulador e a parte do teste que deseja ver.</p></div></div><div class="terminal"><div class="terminal-toolbar"><div class="terminal-title"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>simulation.log</span></div><div class="simulator-select"><label for="simulator">Simulador</label><select id="simulator"><option value="iverilog">Icarus Verilog</option><option value="verilator">Verilator</option></select></div></div><div id="log-tabs" class="log-tabs" role="tablist" aria-label="Trechos de simulação"></div><pre id="log-panel" role="tabpanel" tabindex="0"><code id="log-content"></code></pre><div class="terminal-footer"><span id="log-result"></span><div><button id="copy-log" class="text-button" type="button">Copiar trecho</button><a id="download-log" href="artifacts/iverilog.log" download>Log completo ↓</a></div></div></div><p id="copy-status" class="small muted" role="status"></p></div>
-      <div id="cobertura" class="section-part"><div class="part-heading"><div><h3>Cobertura LCOV</h3><p>Valores calculados a partir do arquivo <code>coverage.info</code> do Verilator.</p></div><a class="button secondary" href="coverage/index.html">Abrir relatório LCOV ↗</a></div>
-        <div id="coverage-metrics" class="coverage-metrics"></div>
-        <div class="coverage-table-wrap"><table class="coverage-table"><caption>Abra um arquivo para ver o relatório com as linhas executadas.</caption><thead><tr><th scope="col">Arquivo RTL</th><th scope="col"><button data-sort="lines" type="button">Linhas ↕</button></th><th scope="col"><button data-sort="branches" type="button">Branches ↕</button></th><th scope="col">Cobertos / total</th></tr></thead><tbody id="coverage-rows"></tbody></table></div>
-        <div class="coverage-note"><span class="note-mark">i</span><p>Os valores acima são do LCOV. O resumo do Verilator usa outra contagem e pode mostrar percentuais diferentes. O testbench não entra no cálculo da cobertura.</p></div>
-        <details class="native-coverage"><summary>Resumo do Verilator</summary><div id="native-metrics" class="native-metrics"></div><a href="artifacts/coverage_summary.txt">Abrir resumo por tipo e módulo ↗</a></details>
-        <div class="artifact-links"><a href="artifacts/coverage.info" download>Baixar coverage.info ↓</a><a href="artifacts/coverage_summary.txt" download>Baixar resumo do Verilator ↓</a></div>
+      <div id="simulacao" class="section-part"><div class="part-heading"><div><h3>Logs</h3><p>Registros de verificação dos resets, da retenção dos registradores e das operações de exponenciação modular.</p></div></div><div class="terminal"><div class="terminal-toolbar"><div class="terminal-title"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>simulation.log</span></div><div class="simulator-select"><label for="simulator">Simulador</label><select id="simulator"><option value="iverilog">Icarus Verilog</option><option value="verilator">Verilator</option></select></div></div><div id="log-tabs" class="log-tabs" role="tablist" aria-label="Trechos de simulação"></div><pre id="log-panel" role="tabpanel" tabindex="0"><code id="log-content"></code></pre><div class="terminal-footer"><span id="log-result"></span><div><button id="copy-log" class="text-button" type="button">Copiar trecho</button><a id="download-log" href="artifacts/iverilog.log" download>Log completo ↓</a></div></div></div><p id="copy-status" class="small muted" role="status"></p></div>
+    </section>
+    <section id="testbench" class="content-section section-anchor" aria-labelledby="testbench-title">
+      <div class="section-heading"><div><p class="eyebrow">06 / testbenchs/</p><h2 id="testbench-title">Testbench</h2><p>A bancada desenvolvida para o RSA_APB verifica a integração entre barramento, registradores e núcleo aritmético exclusivamente pelas interfaces externas do periférico. A checagem automática combina um modelo independente de exponenciação modular com cenários de reset, retenção dos operandos e acompanhamento dos estados de execução e da interrupção.</p></div><a class="button secondary" href="reference/testbench.sv">Abrir testbench.sv ↗</a></div>
+      <p class="file-path"><code>testbenchs/rsa_apb_top/testbench.sv</code></p>
+      <div class="test-sequence"><div><span>01</span><strong>Reset</strong><p>Reset externo e comando CTRL.SRST.<br>Estabilização por 5 ciclos de clock.</p></div><div><span>02</span><strong>Registradores · {{REGISTER_ROUNDS}} rodadas</strong><p>Integridade de IER, MSG, EXP e MOD.<br>Retenção dos valores após as transações de escrita.</p></div><div><span>03</span><strong>RSA · {{RSA_ROUNDS}} operações</strong><p>Comparação de RESULT com a referência MSG^EXP mod MOD.<br>Coerência dos indicadores STATUS e IRQ.</p></div></div>
+      <div class="reference-table-wrap"><table class="reference-table"><caption>Principais tasks da bancada.</caption><thead><tr><th scope="col">Atividade</th><th scope="col">Tasks</th></tr></thead><tbody><tr><td>Reset de hardware e software</td><td><code>apply_hardware_reset</code>, <code>apply_software_reset</code></td></tr><tr><td>Transações de leitura e escrita APB</td><td><code>apb_write</code>, <code>apb_read</code></td></tr><tr><td>Integridade e retenção dos registradores</td><td><code>test_register_writes</code>, <code>check_register_retention</code></td></tr><tr><td>Operação e conclusão do núcleo RSA</td><td><code>test_rsa_operation</code>, <code>wait_rsa_completion</code></td></tr><tr><td>Comparação e consolidação dos resultados</td><td><code>scoreboard_check</code>, <code>report_results</code></td></tr></tbody></table></div>
+      <p class="section-text">O modelo de referência calcula MSG^EXP mod MOD por exponenciação binária; o núcleo RTL emprega multiplicações modulares sucessivas. A checagem utiliza as interfaces externas do periférico e inclui a preservação dos operandos e a limpeza das flags. O <a href="reference/plano_teste.html">plano de teste</a> formaliza os cenários e os critérios de aceitação.</p>
+      <div class="part-heading docs-heading"><div><h3>Bancada do adrec</h3><p>A verificação do decodificador abrange os 4096 endereços de 12 bits e cinco vetores com bits X/Z. O escopo contempla a extração do índice, a delimitação da faixa implementada e a resposta a valores indeterminados.</p></div><a class="button secondary" href="reference/testbench_adrec.sv">Abrir testbench do adrec ↗</a></div>
+      <p class="section-text">As tasks <code>sweep_addresses</code>, <code>check_address</code> e <code>check_unknown_bits</code> consolidam a varredura do espaço de endereçamento e a análise de validade. A seleção dos registradores independe dos bits de byte <code>PADDR[1:0]</code>, com faixa implementada de <code>0x000</code> a <code>0x01F</code>.</p>
+    </section>
+
+    <section id="scripts" class="content-section section-anchor" aria-labelledby="scripts-title">
+      <div class="section-heading"><div><p class="eyebrow">07 / scripts/</p><h2 id="scripts-title">Scripts</h2><p>O fluxo de automação reúne compilação, simulação, extração de cobertura e geração da documentação. A organização por ferramenta mantém explícitas as entradas e os artefatos produzidos em cada etapa do desenvolvimento.</p></div><a id="scripts-folder" class="subtle-link" href="https://github.com/MattGrossi12/RSA_APB_32-bit/tree/main/scripts">Pasta scripts no GitHub ↗</a></div>
+      <div class="command-list">
+        <article class="command-block"><div><h3>Icarus Verilog</h3><a href="reference/iverilog.sh">iverilog.sh ↗</a></div><p>Fluxo de execução do RTL em simulador orientado a eventos, com registro da scoreboard e das formas de onda em VCD.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh</code></pre></article>
+        <article class="command-block"><div><h3>Verilator</h3><a href="reference/verilator.sh">verilator.sh ↗</a></div><p>Fluxo de simulação compilada com instrumentação de cobertura, relatórios nativos e exportação LCOV. A bancada funcional é compartilhada com o fluxo Icarus.</p><pre><code>./scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh</code></pre></article>
+        <article class="command-block"><div><h3>GitHub Pages</h3><a href="reference/build.py">build.py ↗</a></div><p>O site consolida fontes, documentação e artefatos de verificação em uma publicação estática vinculada ao repositório. As <a href="reference/README_site.html#gerar-localmente">instruções de geração local</a> registram as dependências e a estrutura do processo.</p><pre><code>python3 scripts/pages/build.py</code></pre></article>
+      </div>
+      <p class="section-text">A bancada compartilhada pelos fluxos Icarus e Verilator admite a variação dos padrões de teste por meio do argumento <code>+DATA=&lt;hexadecimal&gt;</code>. A geração e a publicação da documentação são integradas ao <a href="reference/pages.yml">workflow pages.yml</a>.</p>
+    </section>
+
+    <section id="docs" class="content-section section-anchor" aria-labelledby="docs-title">
+      <div class="section-heading"><div><p class="eyebrow">08 / docs/</p><h2 id="docs-title">Documentação</h2><p>A documentação registra as interfaces, os requisitos de integração e os critérios de verificação. Os documentos de protocolo e de integração estabelecem as referências para o desenvolvimento do periférico.</p></div></div>
+      <div class="document-list"><a href="reference/README.html"><strong>README do projeto</strong><span>Arquitetura, organização dos fontes e estrutura dos fluxos de desenvolvimento.</span><span aria-hidden="true">↗</span></a><a href="reference/plano_teste.html"><strong>Plano de teste do topo</strong><span>Cenários de teste, modelo de referência e critérios de aceitação.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_protocol.pdf"><strong>Protocolo APB</strong><span>Referência para os sinais e as fases de transferência do barramento APB.</span><span aria-hidden="true">↗</span></a><a href="reference/apb_integration.pdf"><strong>Integração APB e RSA</strong><span>Requisitos de interface, controle e comunicação entre APB e núcleo RSA.</span><span aria-hidden="true">↗</span></a></div>
+      <div class="part-heading docs-heading"><h3>READMEs dos módulos</h3></div><div id="module-docs" class="module-docs"></div>
+    </section>
+
+    <section id="modulos" class="content-section section-anchor" aria-labelledby="modules-title">
+      <div class="section-heading"><div><p class="eyebrow">09 / DIAGRAMAS E BLOCOS</p><h2 id="modules-title">Diagramas e descrição dos módulos</h2><p>A microarquitetura distribui as responsabilidades entre controle do barramento, armazenamento, sincronização e processamento aritmético. Os diagramas de cada módulo relacionam essa divisão funcional às interfaces e aos estados implementados no RTL.</p></div><span class="section-tag">{{MODULES}} MÓDULOS RTL</span></div>
+      <div class="part-heading"><div><h3>Estados e transações</h3><p>O sequenciamento da carga do núcleo é coordenado com as transferências de software e a sinalização de conclusão. As representações de controle registram os estados do wrapper e a relação temporal entre endereço, dados e habilitações APB.</p></div></div>
+      <div class="image-gallery supporting-diagrams">
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img1.svg" data-image-title="Estados da FSM do wrapper RSA" aria-label="Ampliar: Estados da FSM do wrapper RSA"><img src="assets/images/img1.svg" alt="Estados da FSM do wrapper RSA" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 01</span><strong>Estados da FSM do wrapper RSA</strong><p>Controle sequencial da operação RSA, com envio ordenado de mensagem, expoente e módulo e espera pelos eventos de término do núcleo.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img2.svg" data-image-title="Sequência de controle APB → RSA" aria-label="Ampliar: Sequência de controle APB → RSA"><img src="assets/images/img2.svg" alt="Sequência de controle APB → RSA" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 02</span><strong>Sequência de controle APB → RSA</strong><p>Temporização da interface de carga compartilhada, com a relação entre seleção dos operandos, sinal LOAD, ocupação e conclusão da operação.</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img3.png" data-image-title="Fases de uma transferência APB" aria-label="Ampliar: Fases de uma transferência APB"><img src="assets/images/img3.png" alt="Fases de uma transferência APB" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 03</span><strong>Fases de uma transferência APB</strong><p>Sequenciamento do protocolo APB em IDLE, SETUP e ACCESS. A implementação do periférico utiliza decodificação combinacional das fases e resposta sem estados de espera (PREADY=1).</p></figcaption>
+        </figure>
+        <figure class="project-figure">
+          <a class="project-image-link" href="assets/images/img4.svg" data-image-title="Transferência de escrita APB" aria-label="Ampliar: Transferência de escrita APB"><img src="assets/images/img4.svg" alt="Transferência de escrita APB" loading="lazy" decoding="async"><span class="image-expand" aria-hidden="true">Ampliar ↗</span></a>
+          <figcaption><span class="figure-number">IMG 04</span><strong>Transferência de escrita APB</strong><p>Endereço e dado mantidos estáveis entre SETUP e ACCESS, com efetivação da escrita na fase de acesso.</p></figcaption>
+        </figure>
+      </div>
+      <div class="part-heading docs-heading"><div><h3>Diagramas Mermaid e documentação dos blocos</h3><p>A documentação por módulo preserva a associação entre responsabilidade arquitetural, interface e implementação. Os diagramas em Mermaid acompanham os fontes e detalham os caminhos de dados e controle do periférico.</p></div></div>
+      <div class="module-browser">
+        <div class="module-navigation"><label class="search-label" for="module-search">Buscar bloco ou diagrama</label><div class="search-box"><span aria-hidden="true">⌕</span><input id="module-search" type="search" placeholder="Nome ou função…" autocomplete="off"></div><div id="module-list" class="module-list" aria-label="Índice dos blocos"></div><p id="module-count" class="muted small" aria-live="polite"></p></div>
+        <div id="module-diagrams" class="module-diagrams"></div>
       </div>
     </section>
     <footer class="footer"><div><strong>RSA_APB</strong><span>SystemVerilog · AMBA 3 APB · 32 bits</span></div><p id="provenance"></p><a href="https://github.com/MattGrossi12/RSA_APB_32-bit">Ver projeto no GitHub ↗</a></footer>
-    <noscript><p>Ative JavaScript para usar a busca e os diagramas. O <a href="coverage/index.html">relatório LCOV</a> e o <a href="artifacts/iverilog.log">log completo</a> também podem ser abertos diretamente.</p></noscript>
+    <noscript><p>Ative JavaScript para ver os diagramas Mermaid, os detalhes dos blocos e a busca. Os <a href="#docs">READMEs dos blocos</a> estão disponíveis na documentação. O <a href="coverage/index.html">relatório LCOV</a> e o <a href="artifacts/iverilog.log">log completo</a> também podem ser abertos diretamente.</p></noscript>
   </main>
-  <dialog id="diagram-dialog"><div class="dialog-toolbar"><h2 id="dialog-title">Diagrama do módulo</h2><button id="close-dialog" class="button secondary" type="button">Fechar ×</button></div><div id="dialog-diagram" class="dialog-diagram"></div></dialog>
+  </div>
+  <dialog id="diagram-dialog" aria-labelledby="dialog-title"><div class="dialog-toolbar"><h2 id="dialog-title">Diagrama do módulo</h2><button id="close-dialog" class="button secondary" type="button">Fechar ×</button></div><div id="dialog-diagram" class="dialog-diagram"></div></dialog>
 </body>
 </html>

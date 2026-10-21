@@ -1,0 +1,169 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 969 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_library -liberty -replace -both \
+//              /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib
+// Parsing file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib ...
+// Warning: (RTL9.17) Cell doesn't have any output pins or all output pins are undriven (blackboxed) (occurrence:1)
+// Note: (RTL9.26) Liberty pin with internal_node use default input_map (occurrence:16)
+// Note: Read Liberty library successfully
+0
+// Command: set source_dir [file join [pwd] src amba_3_apb]
+/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb
+// Command: set rtl_files [list \
+//              [file join [pwd] src rsa32 rsa_core_32.sv] \
+//              [file join $source_dir amba_3_apb_adrec.sv] \
+//              [file join $source_dir amba_3_apb_data_o_mux.sv] \
+//              [file join $source_dir amba_3_apb_data_io_top.sv] \
+//              [file join $source_dir amba_3_apb_control.sv] \
+//              [file join $source_dir amba_3_apb_regbank.sv] \
+//              [file join $source_dir amba_3_apb_reset.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+//              [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+//          ]
+/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+// Command: read_design -systemverilog -golden \
+//              -root amba_3_apb_rsa_apb_top {*}$rtl_files
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv ...
+// Golden root module is set to 'amba_3_apb_rsa_apb_top'
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:11)
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:47)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:9)
+// Note: (RTL5.6) Case statement with no default (occurrence:2)
+// Note: (RTL5.7) Default case item with inconsistent assignment(s). (occurrence:2)
+// Warning: (RTL7.10a) Comparison with different data sizes (occurrence:2)
+// Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:1)
+// Note: (VLG6.4) Supported system datapath function call (occurrence:1)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: set netlist_dir [file join [pwd] ps_files rsa_apb_top netlist]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist
+// Command: set netlists [glob -directory $netlist_dir synth_*.v]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-19_15-35-15.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-13-45.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-18-56.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_08-40-35.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-10-32.v
+// Command: set netlist_times {}
+// Command: foreach f $netlists {
+//              lappend netlist_times [list [file mtime $f] $f]
+//          }
+// Command: set netlist [lindex [lindex \
+//              [lsort -integer -decreasing -index 0 $netlist_times] 0] 1]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v
+// Command: read_design -verilog -revised \
+//              -root amba_3_apb_rsa_apb_top $netlist
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v ...
+// Revised root module is set to 'amba_3_apb_rsa_apb_top'
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:11)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: report_design_data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules        15               1
+Library-cells         87            2200
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT               49                   49
+OUTPUT              35                   35
+--------------------------------------------
+AND        *      2870                 2459
+BUF        *        22                    0
+DFF        *       709                  705
+INV        *       207                 1241
+MUX        *       230                    0
+NAND       *         1                  371
+NOR        *        49                  382
+OR         *      1058                 1297
+WIRE       *       421                    0
+XNOR       *       156                    4
+XOR        *       257                  163
+------ word-level --------------------------
+ADD        *         4                    0
+GE         *         1                    0
+SUBTRACT   *         4                    0
+WMUX       *        35                    0
+WOR        *         1                    0
+WSEL       *        43                    0
+--------------------------------------------
+Total             5980                 6622
+
+0
+// Command: report_black_box -detail
+0
+// Command: set_system_mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 793
+// Revised key points = 789
+// Mapping key points ...
+// Warning: Golden has 3 unmapped key points
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            49     35     705       789     
+--------------------------------------------------------------------------------
+Revised           49     35     705       789     
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       1         1       
+Not-mapped        3         3       
+================================================================================
+// Warning: Key point mapping is incomplete
+0
+// Command: add_compared_points -all
+// Warning: Golden has 3 unmapped key points which will not be compared
+// 740 compared points added to compare list
+0
+// Command: compare
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           33     470       503     
+--------------------------------------------------------------------------------
+Non-equivalent       2      235       237     
+================================================================================
+0
+// Command: set report_dir "/home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top/lec"
+/home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top/lec
+// Command: file mkdir $report_dir
+// Command: report_compare_data -class nonequivalent > [file join $report_dir lec_nonequivalent.rpt]
+0
+// Command: report_unmapped_points > [file join $report_dir lec_unmapped.rpt]
+0
+// Command: report_verification > [file join $report_dir lec_verification.rpt]
+non-equivalence
+// Command: exit

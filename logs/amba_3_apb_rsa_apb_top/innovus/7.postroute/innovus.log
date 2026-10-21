@@ -1,0 +1,455 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl 
+Date:		Tue Oct 20 10:35:07 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:35:08.048010] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/7.postroute/innovus_temp_38793_9de97754-9257-4f4d-8781-fbba86d492c4_rock8_aluno_z8tpxA.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl
+@file 1: # Post-route timing optimization.
+@file 2: set project_root $::env(PROJECT_ROOT)
+@file 3: set db_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 4: set report_dir [file join $project_root reports amba_3_apb_rsa_apb_top innovus postroute]
+@file 5: file mkdir $report_dir
+@@file 6: read_db [file join $db_dir route_amba_3_apb_rsa_apb_top]
+#% Begin load design ... (date=10/20 10:35:23, mem=1453.6M)
+**WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+Loading design 'amba_3_apb_rsa_apb_top' saved by 'Innovus' '22.18-s118_1' on 'Tue Oct 20 10:33:33 2026'.
+Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+Read 478 cells in library 'typical' 
+tc_typical
+rc_typical
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/libs/lef/gsclib045_tech.lef ...
+Set DBUPerIGU to M2 pitch 400.
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/libs/lef/gsclib045_macro.lef ...
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/viewDefinition.tcl
+% Begin Load netlist data ... (date=10/20 10:35:24, mem=1477.7M)
+*** Begin netlist parsing (mem=1502.6M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 478 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin'
+
+*** Memory Usage v#2 (Current mem = 1502.598M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1502.6M) ***
+% End Load netlist data ... (date=10/20 10:35:24, total cpu=0:00:00.0, real=0:00:00.0, peak res=1488.2M, current mem=1488.2M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 478 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 489 modules.
+** info: there are 2212 stdCell insts.
+** info: there are 2212 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1538.098M, initial mem = 661.535M) ***
+*info: set bottom ioPad orient R0
+Horizontal Layer M1 offset = 190 (guessed)
+Vertical Layer M2 offset = 200 (derived)
+Suggestion: specify LAYER OFFSET in LEF file
+Reason: hard to extract LAYER OFFSET from standard cells
+Start create_tracks
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.4 in M10 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M10 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.2 in M9 is different from 0.33 defined in technology file in unpreferred direction.
+Generated pitch 0.4 in M9 is different from 0.33 defined in technology file in preferred direction.
+Generated pitch 0.19 in M2 is different from 0.2 defined in technology file in unpreferred direction.
+Generated pitch 0.2 in M1 is different from 0.19 defined in technology file in unpreferred direction.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+Effort level <high> specified for tdgp_reg2reg_default path_group
+Slack adjustment of -0 applied on tdgp_reg2reg_default path_group
+Change floorplan default-technical-site to 'CoreSite'.
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 317
+Total number of sequential cells: 151
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX4 CLKBUFX6 CLKBUFX8 BUFX8 CLKBUFX3 BUFX6
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 INVX1 CLKINVX4 CLKINVX6 INVX12 INVX2 INVX3 CLKINVX8 INVX20 INVX4 INVX6 INVX16 INVXL INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X4 DLY2X4 DLY3X4 DLY1X1 DLY4X1 DLY2X1 DLY3X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.gz (mem = 1798.8M).
+% Begin Load floorplan data ... (date=10/20 10:35:24, mem=1794.0M)
+*info: reset 2492 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 280800 279680)
+Horizontal Layer M1 offset = 190 (guessed)
+Vertical Layer M2 offset = 200 (derived)
+Suggestion: specify LAYER OFFSET in LEF file
+Reason: hard to extract LAYER OFFSET from standard cells
+Start create_tracks
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.4 in M10 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M10 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.2 in M9 is different from 0.33 defined in technology file in unpreferred direction.
+Generated pitch 0.4 in M9 is different from 0.33 defined in technology file in preferred direction.
+Generated pitch 0.19 in M2 is different from 0.2 defined in technology file in unpreferred direction.
+Generated pitch 0.2 in M1 is different from 0.19 defined in technology file in unpreferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.spr.gz (Created by Innovus v22.18-s118_1 on Tue Oct 20 10:33:32 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1795.8M, current mem=1795.8M)
+There are 9 nets with weight being set
+There are 9 nets with bottomPreferredRoutingLayer being set
+There are 9 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Delete all existing relative floorplan constraints.
+% End Load floorplan data ... (date=10/20 10:35:24, total cpu=0:00:00.0, real=0:00:01.0, peak res=1796.3M, current mem=1796.3M)
+Reading congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=10/20 10:35:25, mem=1796.3M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=10/20 10:35:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1797.6M, current mem=1797.6M)
+Loading place ...
+% Begin Load placement data ... (date=10/20 10:35:25, mem=1797.6M)
+Reading placement file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v22.18-s118_1 on Tue Oct 20 10:33:33 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1798.8M) ***
+Total net length = 2.733e+04 (1.566e+04 1.167e+04) (ext = 5.798e+03)
+% End Load placement data ... (date=10/20 10:35:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1798.7M, current mem=1798.7M)
+Reading PG file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.pg.gz, version#2, (Created by Innovus v22.18-s118_1 on       Tue Oct 20 10:33:32 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1798.8M) ***
+% Begin Load routing data ... (date=10/20 10:35:25, mem=1798.5M)
+Reading routing file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.gz.
+Reading Innovus routing data (Created by Innovus v22.18-s118_1 on Tue Oct 20 10:33:33 2026 Format: 20.1) ...
+*** Total 2490 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1798.8M) ***
+% End Load routing data ... (date=10/20 10:35:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1803.6M, current mem=1802.7M)
+Loading Drc markers ...
+... 1 markers are loaded ...
+... 1 geometry drc markers are loaded ...
+... 0 antenna drc markers are loaded ...
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1798.8M) ***
+Reading dirtyarea snapshot file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.db.da.gz (Create by Innovus v22.18-s118_1 on Tue Oct 20 10:33:33 2026, version: 7).
+Change floorplan default-technical-site to 'CoreSite'.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M6 and M7 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M7 and M8 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M8 and M9 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M9 and M10 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M10 and M11 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.18 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M8 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M9 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M10 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M11 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Start generating vias ...
+Generating vias for default rule ...
+Total 72 vias inserted to default rule.
+Via generation for default rule completed.
+Generating vias for nondefault rule VLMDefaultSetup ...
+Total 74 vias added to nondefault rule VLMDefaultSetup
+Via generation for nondefault rule VLMDefaultSetup completed.
+Via generation completed successfully.
+% Begin Load power constraints ... (date=10/20 10:35:25, mem=1808.1M)
+source /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_power_constraints.tcl
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=10/20 10:35:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1814.0M, current mem=1814.0M)
+dc_typical
+% Begin load AAE data ... (date=10/20 10:35:25, mem=1827.4M)
+**WARN: (IMPESI-3505):	set_db delaycal_eng_enablePrePlacedFlow false (default=false) will be obsoleted along with its sgs2set equivalent.  This parameter will continue to be supported in the current release, but will be removed in the next major release of the software.
+AAE DB initialization (MEM=1857.4 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=10/20 10:35:25, total cpu=0:00:00.4, real=0:00:00.0, peak res=1838.0M, current mem=1838.0M)
+Restoring CCOpt config...
+  Extracting original clock gating for pclk_i...
+    clock_tree pclk_i contains 705 sinks and 0 clock gates.
+  Extracting original clock gating for pclk_i done.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 317
+Total number of sequential cells: 151
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX4 CLKBUFX6 CLKBUFX8 BUFX8 CLKBUFX3 BUFX6
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 INVX1 CLKINVX4 CLKINVX6 INVX12 INVX2 INVX3 CLKINVX8 INVX20 INVX4 INVX6 INVX16 INVXL INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X4 DLY2X4 DLY3X4 DLY1X1 DLY4X1 DLY2X1 DLY3X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version (null). They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=10/20 10:35:25, total cpu=0:00:01.8, real=0:00:02.0, peak res=1857.9M, current mem=1847.9M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+WARNING   IMPEXT-2766         11  The sheet resistance for layer %s is not...
+WARNING   IMPEXT-2773         11  The via resistance between layers %s and...
+WARNING   IMPVL-159          956  Pin '%s' of cell '%s' is defined in LEF ...
+WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+*** Message Summary: 982 warning(s), 0 error(s)
+
+@file 7:
+@@file 8: opt_design -post_route -setup
+**opt_design ... cpu = 0:00:00, real = 0:00:00, mem = 1847.9M, totSessionCpu=0:00:14 **
+*** opt_design #1 [begin] () : totSession cpu/real = 0:00:14.3/0:00:17.3 (0.8), mem = 1863.4M
+GigaOpt running with 1 threads.
+*** InitOpt #1 [begin] (opt_design #1) : totSession cpu/real = 0:00:14.3/0:00:17.3 (0.8), mem = 1863.4M
+**INFO: User settings:
+delaycal_enable_high_fanout                                                         true
+delaycal_eng_enablepreplacedflow                                                    false
+delaycal_ignore_net_load                                                            false
+delaycal_socv_accuracy_mode                                                         low
+setAnalysisMode -skew                                                               true
+setDelayCalMode -engine                                                             aae
+extract_rc_engine                                                                   pre_route
+extract_rc_shrink_factor                                                            1.0
+opt_drv                                                                             true
+opt_drv_margin                                                                      0.0
+opt_preserve_all_sequential                                                         false
+opt_resize_flip_flops                                                               true
+opt_setup_target_slack                                                              0.0
+opt_skew_eco_route                                                                  false
+opt_view_pruning_setup_views_active_list                                            { view_typical }
+opt_view_pruning_setup_views_persistent_list                                        { view_typical}
+opt_view_pruning_tdgr_setup_views_persistent_list                                   { view_typical}
+route_extract_third_party_compatible                                                false
+route_global_exp_timing_driven_std_delay                                            12.7
+route_global_exp_timing_driven_use_tif_timing_engine_for_import_design              false
+setActiveLogicViewMode -keepHighFanoutCriticalInsts                                 false
+getAnalysisMode -skew                                                               true
+getDelayCalMode -engine                                                             aae
+getIlmMode -keepHighFanoutCriticalInsts                                             false
+getImportMode -config                                                               true
+get_power_analysis_mode -honor_net_activity_for_tcf                                 false
+get_power_analysis_mode -honor_sublevel_activity                                    true
+getAnalysisMode -skew                                                               true
+**INFO: set_db design_flow_effort standard -> setting 'set_db opt_all_end_points true' for the duration of this command.
+Disable merging buffers from different footprints for postRoute code for non-MSV designs
+Need call spDPlaceInit before registerPrioInstLoc.
+Switching SI Aware to true by default in postroute mode   
+AAE_INFO: switching -siAware from false to true ...
+AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+**Info: (IMPSP-307): Design contains fractional 3 cells.
+Estimated cell power/ground rail width = 0.160 um
+**WARN: (IMPOPT-7320):	Glitch fixing has been disabled since glitch reporting is disabled. Glitch reporting can be enabled using command set_db si_glitch_enable_report true
+Info: Using Genus executable '/home/cadence/DDI221/GENUS221/bin/genus'.
+      Genus workers will not check out additional licenses.
+**opt_design ... cpu = 0:00:01, real = 0:00:07, mem = 1975.4M, totSessionCpu=0:00:15 **
+Existing Dirty Nets : 0
+New Signature Flow (optDesignCheckOptions) ....
+#Taking db snapshot
+#Taking db snapshot ... done
+**Info: (IMPSP-307): Design contains fractional 3 cells.
+Begin checking placement ... (start mem=2138.4M, init mem=2139.4M)
+*info: Placed = 2212          
+*info: Unplaced = 0           
+Placement Density:60.37%(8701/14411)
+Placement Density (including fixed std cells):60.37%(8701/14411)
+Finished check_place (total: cpu=0:00:00.0, real=0:00:00.0; vio checks: cpu=0:00:00.0, real=0:00:00.0; mem=2140.4M)
+#optDebug: { P: 90 W: 5201 FE: standard PE: none LDR: 1}
+
+**ERROR: (IMPOPT-6080):	AAE-SI Optimization can only be turned on when the timing analysis mode is set to OCV.
+
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   final
+UM: Running design category ...
+      flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:          15.11             25                                      opt_design_postroute
+Info: final physical memory for 2 CRR processes is 843.43MB.
+Info: Summary of CRR changes:
+      - Timing transform commits:       0
+Info: Destroy the CCOpt slew target map.
+*** InitOpt #1 [finish] (opt_design #1) : cpu/real = 0:00:00.9/0:00:14.3 (0.1), totSession cpu/real = 0:00:15.2/0:00:31.7 (0.5), mem = 2141.4M
+*** opt_design #1 [finish] () : cpu/real = 0:00:00.9/0:00:14.3 (0.1), totSession cpu/real = 0:00:15.2/0:00:31.7 (0.5), mem = 2141.4M
+**ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl' line 8: errors out.
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl
+**ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl' then restart.
+Error info: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl: 
+    while executing
+"opt_design -post_route -setup"
+    (file "/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl" line 8)
+    invoked from within
+"::se_source_orig /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    invoked from within
+"if { !$encrypted && !$no_encoding && $encodingName != ""  } {
+                  set st [uplevel [concat ::se_source_orig " -encoding " $encodingName "..."
+    invoked from within
+"if {[::SE::source_verbose_file_state $file_name] == 1} {
+              ::SE::source_verbose_start $file_name
+              if { !$encrypted && !$no_en..."
+    invoked from within
+"if {$useTclVerbose} {
+          # use tcl internal method
+          set st ""
+          if {[::SE::source_verbose_file_state $file_name] == 1} {
+     ..."
+    invoked from within
+"if {$largeFile == 1} {
+    if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+      $putCmd "Sourcing $file_name"
+    }
+    set st [uplevel [concat..."
+    (procedure "source" line 185)
+    invoked from within
+"source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl"
+    invoked from within
+"::se::run_command_from_console "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute.tcl""
+    invoked from within
+"eval_novus {::se::run_command_from_console "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/7.innovus_postroute..."
+    (in namespace inscope "::" script line 1)
+    invoked from within
+"namespace inscope :: eval_novus "::se::run_command_from_console \"source $fileName\""".
+@innovus 2> exit
+
+
+*** Memory Usage v#2 (Current mem = 2141.391M, initial mem = 661.535M) ***
+*** Message Summary: 983 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:15.4, real=0:07:49, mem=2141.4M) ---

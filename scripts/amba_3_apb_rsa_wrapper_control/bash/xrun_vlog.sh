@@ -5,7 +5,7 @@ cd "$SCRIPT_DIR"
 xrun \
     -64bit \
     -sv \
-    -timescale 1ns/1ns \
+    -timescale 1ns/1ps \
     -makelib vlib \
         $PROJECT_ROOT/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv \
         $PROJECT_ROOT/testbenchs/amba_3_apb_rsa_wrapper_control/testbench.sv \

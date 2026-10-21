@@ -33,7 +33,11 @@ class DocumentLinks(HTMLParser):
         if not target.is_relative_to(self.root):
             raise ValueError(f"Link fora do repositório em {self.source.name}: {value}")
         relative = target.relative_to(self.root).as_posix()
-        if relative in self.documents:
+        if relative in {"images/img1.svg", "images/img2.svg", "images/img4.svg"} and not target.is_file():
+            # The README uses the SVG suffix, while the repository stores these
+            # SVG sources under .png names; build.py publishes the corrected names.
+            path = "../assets/" + relative
+        elif relative in self.documents:
             path = self.documents[relative]
         elif relative in self.references:
             path = self.references[relative]
@@ -48,6 +52,15 @@ class DocumentLinks(HTMLParser):
         return urlunsplit(("", "", quote(path, safe="/:@"), url.query, url.fragment))
 
     def start_tag(self, tag, attrs, closing):
+        if (tag == "img" and self.source == self.root / "README.md"
+                and dict(attrs).get("src") == "images/img5.svg"
+                and not (self.root / "images/img5.svg").is_file()):
+            # img5.png now shows the chip. Keep the IRQ explanation without
+            # substituting an unrelated image for the old, unavailable SVG.
+            self.parts.append('<span>IRQ combina as flags DONE/ERROR com suas habilitações no IER. '
+                              '<a href="README_amba_3_apb_control.html#8-interrupcao-e-latencia">'
+                              'Veja os detalhes no controle APB.</a></span>')
+            return
         if tag == "table":
             self.parts.append('<div class="table-scroll">')
         attributes = []

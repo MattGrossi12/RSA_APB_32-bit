@@ -1,0 +1,380 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+Date:		Tue Oct 20 10:11:48 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:11:48.047994] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_30398_765b2177-7629-46ae-9608-8846d60e7ab2_rock8_aluno_hiv1Ht.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB design initialization
+@file 3: # Technology: GSCLib045
+@file 4: # ============================================================
+@file 5:
+@file 6: set project_name "amba_3_apb_rsa_apb_top"
+@file 7: set project_root $::env(PROJECT_ROOT)
+@file 8: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+@file 9: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 10:
+@file 11: file mkdir $output_dir
+@file 12:
+@@file 13: set_db init_power_nets {VDD}
+@@file 14: set_db init_ground_nets {VSS}
+@file 15:
+@@file 16: read_mmmc $::env(MMMC_FILE)
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB timing views
+@file 3: # Technology: GSCLib045
+@file 4: # ============================================================
+@file 5:
+@file 6: set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+@file 7:
+@@file 8: create_library_set \
+    -name lib_typical \
+    -timing [list $lib_file]
+@file 11:
+@@file 12: create_rc_corner \
+    -name rc_typical \
+    -temperature 25 \
+    -pre_route_res 1.0 \
+    -pre_route_cap 1.0 \
+    -post_route_res {1.0 1.0 1.0} \
+    -post_route_cap {1.0 1.0 1.0}
+@file 19:
+@@file 20: create_timing_condition \
+    -name tc_typical \
+    -library_sets [list lib_typical]
+@file 23:
+@@file 24: create_delay_corner \
+    -name dc_typical \
+    -timing_condition tc_typical \
+    -rc_corner rc_typical
+@file 28:
+@@file 29: create_constraint_mode \
+    -name mode_functional \
+    -sdc_files [list $::env(SDC_FILE)]
+@file 32:
+@@file 33: create_analysis_view \
+    -name view_typical \
+    -constraint_mode mode_functional \
+    -delay_corner dc_typical
+@file 37:
+@@file 38: set_analysis_view \
+    -setup view_typical \
+    -hold view_typical
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+Read 478 cells in library 'typical' 
+@@file 18: read_physical -lef [list \
+    [file join $lef_dir gsclib045_tech.lef] \
+    [file join $lef_dir gsclib045_macro.lef]]
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_tech.lef ...
+Set DBUPerIGU to M2 pitch 400.
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef ...
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+@file 21:
+@@file 22: read_netlist -top $project_name $::env(NETLIST_FILE)
+#% Begin Load netlist data ... (date=10/20 10:12:04, mem=1462.1M)
+*** Begin netlist parsing (mem=1494.4M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 478 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.v'
+
+*** Memory Usage v#2 (Current mem = 1494.402M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1494.4M) ***
+#% End Load netlist data ... (date=10/20 10:12:04, total cpu=0:00:00.0, real=0:00:00.0, peak res=1473.2M, current mem=1473.2M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 478 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 489 modules.
+** info: there are 2200 stdCell insts.
+** info: there are 2200 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1529.902M, initial mem = 661.535M) ***
+@file 23:
+@@file 24: init_design
+Horizontal Layer M1 offset = 190 (guessed)
+Vertical Layer M2 offset = 200 (derived)
+Suggestion: specify LAYER OFFSET in LEF file
+Reason: hard to extract LAYER OFFSET from standard cells
+Start create_tracks
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.4 in M10 is different from 0.48 defined in technology file in unpreferred direction.
+Generated pitch 0.5 in M10 is different from 0.48 defined in technology file in preferred direction.
+Generated pitch 0.2 in M9 is different from 0.33 defined in technology file in unpreferred direction.
+Generated pitch 0.4 in M9 is different from 0.33 defined in technology file in preferred direction.
+Generated pitch 0.19 in M2 is different from 0.2 defined in technology file in unpreferred direction.
+Generated pitch 0.2 in M1 is different from 0.19 defined in technology file in unpreferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M6 and M7 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M7 and M8 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M8 and M9 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M9 and M10 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M10 and M11 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.18 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M8 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M9 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M10 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M11 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc' ...
+Current (total cpu=0:00:13.0, real=0:00:16.0, peak res=1881.2M, current mem=1881.2M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc, Line 9).
+
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc, Line 10).
+
+amba_3_apb_rsa_apb_top
+INFO (CTE): Reading of timing constraints file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc completed, with 2 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:01.0, peak res=1895.5M, current mem=1895.5M)
+Current (total cpu=0:00:13.0, real=0:00:17.0, peak res=1895.5M, current mem=1895.5M)
+Total number of combinational cells: 317
+Total number of sequential cells: 151
+Total number of tristate cells: 10
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX4 CLKBUFX6 CLKBUFX8 BUFX8 CLKBUFX3 BUFX6
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 INVX1 CLKINVX4 CLKINVX6 INVX12 INVX2 INVX3 CLKINVX8 INVX20 INVX4 INVX6 INVX16 INVXL INVX8
+Total number of usable inverters: 19
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X4 DLY2X4 DLY3X4 DLY1X1 DLY4X1 DLY2X1 DLY3X1 DLY4X4
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@file 25:
+@@file 26: report_analysis_views
+view_typical
+###############################################################
+#  Generated by:      Cadence Innovus 22.18-s118_1
+#  OS:                Linux x86_64(Host ID rock8)
+#  Generated on:      Tue Oct 20 10:12:05 2026
+#  Design:            amba_3_apb_rsa_apb_top
+#  Command:           report_analysis_views
+###############################################################
+
+
+
+
+Multi-Mode Analysis View Report
+_______________________________
+
++ ALL Views
+   |
+   + Analysis View:  view_typical
+     |
+     + Delay Calc Corner: dc_typical
+     |   |
+     |   + timing_condition: tc_typical
+     |   |    |
+     |   |    + library_sets: lib_typical
+     |   |        |
+     |   |        + timing: /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib
+     |   |
+     |   |
+     |   |
+     |   + rc_corner: rc_typical
+     |   |    |
+     |   |    + T: 25
+     |   |    |
+     |   |    + preRoute_res: 1
+     |   |    |
+     |   |    + postRoute_res: 1 1 1
+     |   |    |
+     |   |    + preRoute_cap: 1
+     |   |    |
+     |   |    + postRoute_cap: 1 1 1
+     |   |    |
+     |   |    + postRoute_xcap: 1 1 1
+     |   |    |
+     |   |    + preRoute_clkcap: 0
+     |   |    |
+     |   |    + postRoute_clkcap: 0 0 0
+     |   |    |
+     |   |    + preRoute_clkres: 0
+     |   |    |
+     |   |    + postRoute_clkres: 0 0 0
+     |   |
+     |   + si_enabled: true
+     |
+     + Constraint Mode: mode_functional
+     |   |
+     |   + SDC Constraint Files: /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc
+   |
+@file 27:
+@@file 28: write_db [file join $output_dir "init_${project_name}"]
+#% Begin save design ... (date=10/20 10:12:05, mem=1920.8M)
+% Begin Save ccopt configuration ... (date=10/20 10:12:05, mem=1920.8M)
+% End Save ccopt configuration ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1922.6M, current mem=1922.6M)
+% Begin Save netlist data ... (date=10/20 10:12:05, mem=1922.6M)
+Writing Binary DB to /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1926.9M, current mem=1922.8M)
+Saving symbol-table file ...
+Saving congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Save AAE data ... (date=10/20 10:12:05, mem=1923.5M)
+Saving AAE Data ...
+% End Save AAE data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1938.7M, current mem=1923.6M)
+Saving mode setting ...
+Saving root attributes to be loaded post write_db ...
+Saving global file ...
+Saving root attributes to be loaded previous write_db ...
+% Begin Save floorplan data ... (date=10/20 10:12:05, mem=1931.9M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1934.0M, current mem=1934.0M)
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=10/20 10:12:05, mem=1934.0M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1934.7M, current mem=1934.7M)
+% Begin Save routing data ... (date=10/20 10:12:05, mem=1934.7M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1976.5M) ***
+% End Save routing data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1935.0M, current mem=1935.0M)
+Saving property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1976.5M) ***
+% Begin Save power constraints data ... (date=10/20 10:12:05, mem=1936.9M)
+% End Save power constraints data ... (date=10/20 10:12:05, total cpu=0:00:00.0, real=0:00:00.0, peak res=1936.9M, current mem=1936.9M)
+rc_typical
+Generated self-contained design init_amba_3_apb_rsa_apb_top
+lib_typical
+rc_typical
+mode_functional
+#% End save design ... (date=10/20 10:12:05, total cpu=0:00:00.7, real=0:00:00.0, peak res=1993.5M, current mem=1967.2M)
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-20_10-00-44.sdc
+*** Message Summary: 0 warning(s), 0 error(s)
+
+@file 29:
+@file 30: exit
+
+*** Memory Usage v#2 (Current mem = 1976.480M, initial mem = 661.535M) ***
+*** Message Summary: 981 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:13.8, real=0:00:17.0, mem=1976.5M) ---

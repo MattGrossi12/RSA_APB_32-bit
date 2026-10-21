@@ -1,0 +1,38 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 19, 2026 at 10:37:25 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-coverage all
+	-covoverwrite
+	-covtest amba_3_apb_rsa_apb_top_2026-10-19_10-37-25
+	-covdut dut
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top/xcelium/cov_work
+	-top testbench
+	-access +rwc
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-19_10-37-25.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-19_10-37-25.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-19_10-37-25.vcd
+
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		testbench
+xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
+xmelab: *E,C58DUT: "-COVDUT dut", specified on command line, module "dut" not found in the design.
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 1), exiting.
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 19, 2026 at 10:37:25 -03  (total: 00:00:00)

@@ -1,0 +1,186 @@
+[10/20 10:03:58      0s] 
+[10/20 10:03:58      0s] Cadence Innovus(TM) Implementation System.
+[10/20 10:03:58      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/20 10:03:58      0s] 
+[10/20 10:03:58      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/20 10:03:58      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+[10/20 10:03:58      0s] Date:		Tue Oct 20 10:03:58 2026
+[10/20 10:03:58      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/20 10:03:58      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/20 10:03:58      0s] 
+[10/20 10:03:58      0s] License:
+[10/20 10:03:58      0s] 		[10:03:58.048010] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/20 10:03:58      0s] 
+[10/20 10:03:58      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/20 10:03:58      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/20 10:04:08      7s] *** sockopt - 113
+[10/20 10:04:08      7s] Memory management switch to non-aggressive memory release mode.
+[10/20 10:04:08      7s] 
+[10/20 10:04:08      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/20 10:04:08      7s] 
+[10/20 10:04:08      7s] 
+[10/20 10:04:08      7s] 
+[10/20 10:04:11     10s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:04:12     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/20 10:04:12     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:04:12     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/20 10:04:12     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/20 10:04:12     11s] @(#)CDS: CPE v22.18-s071
+[10/20 10:04:12     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:04:12     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/20 10:04:12     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/20 10:04:12     11s] @(#)CDS: RCDB 11.15.0
+[10/20 10:04:12     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/20 10:04:12     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/20 10:04:12     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_29483_8a7058a0-033b-4036-9cf7-2820296809c8_rock8_aluno_vh0ygt.
+
+[10/20 10:04:12     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_29483_8a7058a0-033b-4036-9cf7-2820296809c8_rock8_aluno_vh0ygt.
+[10/20 10:04:12     11s] 
+[10/20 10:04:12     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/20 10:04:13     12s] 
+[10/20 10:04:13     12s] **INFO:  MMMC transition support version v31-84 
+[10/20 10:04:13     12s] 
+[10/20 10:04:13     12s] #@ Processing -files option
+[10/20 10:04:13     12s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:04:13     12s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:04:13     12s] @file 1: # ============================================================
+[10/20 10:04:13     12s] @file 2: # Innovus 22.18 - RSA_APB design initialization
+[10/20 10:04:13     12s] @file 3: # Technology: GSCLib045
+[10/20 10:04:13     12s] @file 4: # ============================================================
+[10/20 10:04:13     12s] @file 5:
+[10/20 10:04:13     12s] @file 6: set project_name "amba_3_apb_rsa_apb_top"
+[10/20 10:04:13     12s] @file 7: set project_root $::env(PROJECT_ROOT)
+[10/20 10:04:13     12s] @file 8: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+[10/20 10:04:13     12s] @file 9: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+[10/20 10:04:13     12s] @file 10:
+[10/20 10:04:13     12s] @file 11: file mkdir $output_dir
+[10/20 10:04:13     12s] @file 12:
+[10/20 10:04:13     12s] @@file 13: set_db init_power_nets {VDD}
+[10/20 10:04:13     12s] @@file 14: set_db init_ground_nets {VSS}
+[10/20 10:04:13     12s] @file 15:
+[10/20 10:04:13     12s] @@file 16: read_mmmc $::env(MMMC_FILE)
+[10/20 10:04:13     12s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+[10/20 10:04:13     12s] @file 1: # ============================================================
+[10/20 10:04:13     12s] @file 2: # Innovus 22.18 - RSA_APB timing views
+[10/20 10:04:13     12s] @file 3: # Technology: GSCLib045
+[10/20 10:04:13     12s] @file 4: # ============================================================
+[10/20 10:04:13     12s] @file 5:
+[10/20 10:04:13     12s] @file 6: set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+[10/20 10:04:13     12s] @file 7:
+[10/20 10:04:13     12s] @@file 8: create_library_set \
+[10/20 10:04:13     12s]     -name lib_typical \
+[10/20 10:04:13     12s]     -timing [list $lib_file]
+[10/20 10:04:13     12s] @file 11:
+[10/20 10:04:13     12s] @@file 12: create_rc_corner \
+[10/20 10:04:13     12s]     -name rc_typical \
+[10/20 10:04:13     12s]     -temperature 25 \
+[10/20 10:04:13     12s]     -pre_route_res 1.0 \
+[10/20 10:04:13     12s]     -pre_route_cap 1.0 \
+[10/20 10:04:13     12s]     -post_route_res {1.0 1.0 1.0} \
+[10/20 10:04:13     12s]     -post_route_cap {1.0 1.0 1.0}
+[10/20 10:04:13     12s] @file 19:
+[10/20 10:04:13     12s] @@file 20: create_timing_condition \
+[10/20 10:04:13     12s]     -name tc_typical \
+[10/20 10:04:13     12s]     -library_sets [list lib_typical]
+[10/20 10:04:13     12s] @file 23:
+[10/20 10:04:13     12s] @@file 24: create_delay_corner \
+[10/20 10:04:13     12s]     -name dc_typical \
+[10/20 10:04:13     12s]     -timing_condition tc_typical \
+[10/20 10:04:13     12s]     -rc_corner rc_typical
+[10/20 10:04:13     12s] @file 28:
+[10/20 10:04:13     12s] @@file 29: create_constraint_mode \
+[10/20 10:04:13     12s]     -name mode_functional \
+[10/20 10:04:13     12s]     -sdc_files [list $::env(SDC_FILE)]
+[10/20 10:04:13     12s] **ERROR: (TCLCMD-989):	cannot open SDC file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-19_14-05-16.sdc' for mode 'mode_functional'
+[10/20 10:04:13     12s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl' line 29: errors out.
+[10/20 10:04:13     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+[10/20 10:04:13     12s] 
+[10/20 10:04:13     12s]     while executing
+[10/20 10:04:13     12s] "create_constraint_mode \
+[10/20 10:04:13     12s]     -name mode_functional \
+[10/20 10:04:13     12s]     -sdc_files [list $::env(SDC_FILE)]"
+[10/20 10:04:13     12s]     (file "/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl" line 29)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "::se_source_orig /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+[10/20 10:04:13     12s]     ("uplevel" body line 1)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "uplevel [concat ::se_source_orig $args]"
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if { !$encrypted && !$no_encoding && $encodingName != ""  } {
+[10/20 10:04:13     12s]                   set st [uplevel [concat ::se_source_orig " -encoding " $encodingName "..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/20 10:04:13     12s]               ::SE::source_verbose_start $file_name
+[10/20 10:04:13     12s]               if { !$encrypted && !$no_en..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {$useTclVerbose} {
+[10/20 10:04:13     12s]           # use tcl internal method
+[10/20 10:04:13     12s]           set st ""
+[10/20 10:04:13     12s]           if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/20 10:04:13     12s]      ..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {$largeFile == 1} {
+[10/20 10:04:13     12s]     if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+[10/20 10:04:13     12s]       $putCmd "Sourcing $file_name"
+[10/20 10:04:13     12s]     }
+[10/20 10:04:13     12s]     set st [uplevel [concat..."
+[10/20 10:04:13     12s]     (procedure "source" line 185)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+[10/20 10:04:13     12s]     ("uplevel" body line 1)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "uplevel #0 {source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl}"
+[10/20 10:04:13     12s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' line 16: errors out.
+[10/20 10:04:13     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/20 10:04:13     12s] **ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl' then restart.
+[10/20 10:04:13     12s] Error info: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl: 
+[10/20 10:04:13     12s]     while executing
+[10/20 10:04:13     12s] "read_mmmc $::env(MMMC_FILE)"
+[10/20 10:04:13     12s]     (file "/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl" line 16)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "::se_source_orig /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl"
+[10/20 10:04:13     12s]     ("uplevel" body line 1)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "uplevel [concat ::se_source_orig $args]"
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if { !$encrypted && !$no_encoding && $encodingName != ""  } {
+[10/20 10:04:13     12s]                   set st [uplevel [concat ::se_source_orig " -encoding " $encodingName "..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/20 10:04:13     12s]               ::SE::source_verbose_start $file_name
+[10/20 10:04:13     12s]               if { !$encrypted && !$no_en..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {$useTclVerbose} {
+[10/20 10:04:13     12s]           # use tcl internal method
+[10/20 10:04:13     12s]           set st ""
+[10/20 10:04:13     12s]           if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/20 10:04:13     12s]      ..."
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "if {$largeFile == 1} {
+[10/20 10:04:13     12s]     if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+[10/20 10:04:13     12s]       $putCmd "Sourcing $file_name"
+[10/20 10:04:13     12s]     }
+[10/20 10:04:13     12s]     set st [uplevel [concat..."
+[10/20 10:04:13     12s]     (procedure "source" line 185)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl"
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "::se::run_command_from_console "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl""
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "eval_novus {::se::run_command_from_console "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl"}"
+[10/20 10:04:13     12s]     (in namespace inscope "::" script line 1)
+[10/20 10:04:13     12s]     invoked from within
+[10/20 10:04:13     12s] "namespace inscope :: eval_novus "::se::run_command_from_console \"source $fileName\""".
+[10/20 10:04:13     12s] @innovus 2> exit
+
+[10/20 10:10:07     12s] 
+[10/20 10:10:07     12s] *** Memory Usage v#2 (Current mem = 1431.070M, initial mem = 661.535M) ***
+[10/20 10:10:07     12s] 
+[10/20 10:10:07     12s] *** Summary of all messages that are not suppressed in this session:
+[10/20 10:10:07     12s] Severity  ID               Count  Summary                                  
+[10/20 10:10:07     12s] ERROR     IMPSE-110            2  File '%s' line %s: %s.                   
+[10/20 10:10:07     12s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[10/20 10:10:07     12s] ERROR     TCLCMD-989           1  cannot open SDC file '%s' for mode '%s'  
+[10/20 10:10:07     12s] *** Message Summary: 0 warning(s), 4 error(s)
+[10/20 10:10:07     12s] 
+[10/20 10:10:07     12s] --- Ending "Innovus" (totcpu=0:00:12.2, real=0:06:09, mem=1431.1M) ---

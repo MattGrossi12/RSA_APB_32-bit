@@ -1,0 +1,85 @@
+[10/20 10:28:03      0s] 
+[10/20 10:28:03      0s] Cadence Innovus(TM) Implementation System.
+[10/20 10:28:03      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/20 10:28:03      0s] 
+[10/20 10:28:03      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/20 10:28:03      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+[10/20 10:28:03      0s] Date:		Tue Oct 20 10:28:03 2026
+[10/20 10:28:03      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/20 10:28:03      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/20 10:28:03      0s] 
+[10/20 10:28:03      0s] License:
+[10/20 10:28:03      0s] 		[10:28:03.047986] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/20 10:28:03      0s] 
+[10/20 10:28:03      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/20 10:28:03      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/20 10:28:13      7s] *** sockopt - 113
+[10/20 10:28:13      7s] Memory management switch to non-aggressive memory release mode.
+[10/20 10:28:13      7s] 
+[10/20 10:28:13      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/20 10:28:13      7s] 
+[10/20 10:28:13      7s] 
+[10/20 10:28:13      7s] 
+[10/20 10:28:16     10s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:28:17     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/20 10:28:17     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:28:17     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/20 10:28:17     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/20 10:28:17     11s] @(#)CDS: CPE v22.18-s071
+[10/20 10:28:17     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:28:17     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/20 10:28:17     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/20 10:28:17     11s] @(#)CDS: RCDB 11.15.0
+[10/20 10:28:17     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/20 10:28:17     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/20 10:28:17     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_36937_afaf8dab-4d24-4a6c-b8a6-c556f27ae250_rock8_aluno_jhFtFb.
+
+[10/20 10:28:17     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_36937_afaf8dab-4d24-4a6c-b8a6-c556f27ae250_rock8_aluno_jhFtFb.
+[10/20 10:28:17     11s] 
+[10/20 10:28:17     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/20 10:28:18     12s] 
+[10/20 10:28:18     12s] **INFO:  MMMC transition support version v31-84 
+[10/20 10:28:18     12s] 
+[10/20 10:28:18     12s] #@ Processing -files option
+[10/20 10:28:18     12s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:28:18     12s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:28:18     12s] @file 1: # Project:
+[10/20 10:28:18     12s] @file 2: set project_name "amba_3_apb_rsa_apb_top"
+[10/20 10:28:18     12s] @file 3: set project_root $::env(PROJECT_ROOT)
+[10/20 10:28:18     12s] @file 4: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+[10/20 10:28:18     12s] @file 5: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+[10/20 10:28:18     12s] @file 6:
+[10/20 10:28:18     12s] @file 7: file mkdir $output_dir
+[10/20 10:28:18     12s] @file 8:
+[10/20 10:28:18     12s] @file 9: # Automatic Via Generation:
+[10/20 10:28:18     12s] @@file 10: get_common_ui_map setGenerateViaMode
+[10/20 10:28:18     12s] setGenerateViaMode             set_db
+[10/20 10:28:18     12s] -auto                          add_route_vias_auto
+[10/20 10:28:18     12s] -ndr_only                      add_route_vias_ndr_only
+[10/20 10:28:18     12s] -reset                         reset_db -category add_route_vias
+[10/20 10:28:18     12s] @file 11:
+[10/20 10:28:18     12s] @file 12: # Automatic Via Generation:
+[10/20 10:28:18     12s] @@file 13: set_db add_route_vias_auto true
+[10/20 10:28:18     12s] @file 14:
+[10/20 10:28:18     12s] @file 15: # Power and Ground:
+[10/20 10:28:18     12s] @@file 16: set_db init_power_nets {VDD}
+[10/20 10:28:18     12s] @@file 17: set_db init_ground_nets {VSS}
+[10/20 10:28:18     12s] @file 18:
+[10/20 10:28:18     12s] @file 19: # MMMC:
+[10/20 10:28:18     12s] @file 20: read_mmmc $::env(MMMC_FILE)
+[10/20 10:28:18     12s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' line 20: can't read "::env(MMMC_FILE)": no such element in array.
+[10/20 10:28:18     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:28:18     12s] **ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' then restart.
+[10/20 10:28:18     12s] **ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl: can't read "::env(MMMC_FILE)": no such element in array.
+[10/20 10:28:18     12s] @innovus 2> exit
+
+[10/20 10:31:19     12s] *** Memory Usage v#2 (Current mem = 1431.133M, initial mem = 661.535M) ***
+[10/20 10:31:19     12s] 
+[10/20 10:31:19     12s] *** Summary of all messages that are not suppressed in this session:
+[10/20 10:31:19     12s] Severity  ID               Count  Summary                                  
+[10/20 10:31:19     12s] ERROR     IMPSE-110            1  File '%s' line %s: %s.                   
+[10/20 10:31:19     12s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[10/20 10:31:19     12s] ERROR     IMPSYT-6693          1  Error message: %s: %s.                   
+[10/20 10:31:19     12s] *** Message Summary: 0 warning(s), 3 error(s)
+[10/20 10:31:19     12s] 
+[10/20 10:31:19     12s] --- Ending "Innovus" (totcpu=0:00:12.4, real=0:03:16, mem=1431.1M) ---

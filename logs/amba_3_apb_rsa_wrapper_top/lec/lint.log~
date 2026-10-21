@@ -1,0 +1,176 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 965 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_design \
+//              ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv \
+//              ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv \
+//              ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv \
+//              ../../../src/rsa32/rsa_core_32.sv \
+//              -systemverilog -golden
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv ...
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv ...
+// Parsing file ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv ...
+// Parsing file ../../../src/rsa32/rsa_core_32.sv ...
+// Golden root module is set to 'amba_3_apb_rsa_wrapper_top'
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:11)
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:28)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:7)
+// Note: (RTL5.6) Case statement with no default (occurrence:2)
+// Warning: (RTL7.10a) Comparison with different data sizes (occurrence:2)
+// Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Note: (VLG6.4) Supported system datapath function call (occurrence:1)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: set_root_module amba_3_apb_rsa_wrapper_top -golden
+// Warning: Golden root module is already at 'amba_3_apb_rsa_wrapper_top'
+0
+// Command: report_rule_check -RTL -status FAIL -verbose
+RTL1.5b: Potential loss of RHS msb or carry-out bit
+    Type: Golden      Severity: Warning    Occurrence: 11
+    1: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:e_reg LHS:32 RHS:33
+       on line 415 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:e_reg LHS:32 RHS:33
+       on line 419 in file '../../../src/rsa32/rsa_core_32.sv'
+    3: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:e_reg LHS:32 RHS:33
+       on line 423 in file '../../../src/rsa32/rsa_core_32.sv'
+    4: rsa_core_mod_DATA_WIDTH32_RESET1_START1:a_cnt LHS:33 RHS:34
+       on line 221 in file '../../../src/rsa32/rsa_core_32.sv'
+    5: rsa_core_mod_DATA_WIDTH32_RESET1_START1:t_reg LHS:64 RHS:65
+       on line 228 in file '../../../src/rsa32/rsa_core_32.sv'
+    6: rsa_core_mod_DATA_WIDTH32_RESET1_START1:a_cnt LHS:33 RHS:34
+       on line 230 in file '../../../src/rsa32/rsa_core_32.sv'
+    7: rsa_core_mod_DATA_WIDTH32_RESET1_START1:a_cnt LHS:33 RHS:34
+       on line 234 in file '../../../src/rsa32/rsa_core_32.sv'
+    8: rsa_core_mult_DATA_WIDTH32_RESET1_START1:p_reg LHS:64 RHS:65
+       on line 91 in file '../../../src/rsa32/rsa_core_32.sv'
+    9: rsa_core_mult_DATA_WIDTH32_RESET1_START1:a_cnt LHS:6 RHS:7
+       on line 92 in file '../../../src/rsa32/rsa_core_32.sv'
+   10: rsa_core_mult_DATA_WIDTH32_RESET1_START1:a_cnt LHS:6 RHS:7
+       on line 97 in file '../../../src/rsa32/rsa_core_32.sv'
+   11: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:
+gap_counter LHS:1 RHS:2
+       on line 151 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
+RTL1.9h: Parameter declaration with no type or range specification
+    Type: Golden      Severity: Note       Occurrence: 28
+    1: amba_3_apb_rsa_wrapper_top:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv'
+    2: amba_3_apb_rsa_wrapper_top:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv'
+    3: amba_3_apb_rsa_wrapper_top:parameter LOAD_GAP, resolved value: '32'd0', resolved type: 'packed[31:0] of reg'
+       on line 4 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv'
+    4: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:
+parameter LOAD_GAP, resolved value: '32'd0', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
+    5: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:
+parameter GAP_WIDTH, resolved value: '32'd1', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
+    6: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 2 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    7: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64:parameter D_WID, resolved value: '32'd31', resolved type: 'packed[31:0] of reg'
+       on line 3 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    8: rsa_core_DATA_WIDTH32_RESET1_LOAD1:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 435 in file '../../../src/rsa32/rsa_core_32.sv'
+    9: rsa_core_DATA_WIDTH32_RESET1_LOAD1:parameter RESET, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 436 in file '../../../src/rsa32/rsa_core_32.sv'
+   10: rsa_core_DATA_WIDTH32_RESET1_LOAD1:parameter LOAD, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 437 in file '../../../src/rsa32/rsa_core_32.sv'
+   11: rsa_core_mult_DATA_WIDTH32_RESET1_START1:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 14 in file '../../../src/rsa32/rsa_core_32.sv'
+   12: rsa_core_mult_DATA_WIDTH32_RESET1_START1:parameter RESET, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 15 in file '../../../src/rsa32/rsa_core_32.sv'
+   13: rsa_core_mult_DATA_WIDTH32_RESET1_START1:parameter START, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 16 in file '../../../src/rsa32/rsa_core_32.sv'
+   14: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 119 in file '../../../src/rsa32/rsa_core_32.sv'
+   15: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter RESET, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 120 in file '../../../src/rsa32/rsa_core_32.sv'
+   16: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter START, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 121 in file '../../../src/rsa32/rsa_core_32.sv'
+   17: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter INIT, resolved value: '3'd0', resolved type: 'packed[2:0] of reg'
+       on line 134 in file '../../../src/rsa32/rsa_core_32.sv'
+   18: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter CHECK, resolved value: '3'd1', resolved type: 'packed[2:0] of reg'
+       on line 135 in file '../../../src/rsa32/rsa_core_32.sv'
+   19: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter PREPARE, resolved value: '3'd2', resolved type: 'packed[2:0] of reg'
+       on line 136 in file '../../../src/rsa32/rsa_core_32.sv'
+   20: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter COMPARE, resolved value: '3'd3', resolved type: 'packed[2:0] of reg'
+       on line 137 in file '../../../src/rsa32/rsa_core_32.sv'
+   21: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter SUBTRACT, resolved value: '3'd4', resolved type: 'packed[2:0] of reg'
+       on line 138 in file '../../../src/rsa32/rsa_core_32.sv'
+   22: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter SHIFT, resolved value: '3'd5', resolved type: 'packed[2:0] of reg'
+       on line 139 in file '../../../src/rsa32/rsa_core_32.sv'
+   23: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter DONE, resolved value: '3'd6', resolved type: 'packed[2:0] of reg'
+       on line 140 in file '../../../src/rsa32/rsa_core_32.sv'
+   24: rsa_core_mod_DATA_WIDTH32_RESET1_START1:parameter ERROR, resolved value: '3'd7', resolved type: 'packed[2:0] of reg'
+       on line 141 in file '../../../src/rsa32/rsa_core_32.sv'
+   25: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:parameter DATA_WIDTH, resolved value: '32'd32', resolved type: 'packed[31:0] of reg'
+       on line 259 in file '../../../src/rsa32/rsa_core_32.sv'
+   26: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:parameter RESET, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 260 in file '../../../src/rsa32/rsa_core_32.sv'
+   27: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:parameter LOAD, resolved value: '1'd1', resolved type: 'packed[0:0] of reg'
+       on line 261 in file '../../../src/rsa32/rsa_core_32.sv'
+   28: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1:parameter ONE, resolved value: '8'd1', resolved type: 'packed[7:0] of reg'
+       on line 278 in file '../../../src/rsa32/rsa_core_32.sv'
+RTL5.5a: Default case item with non-X assignment(s)
+    Type: Golden      Severity: Note       Occurrence: 7
+    1: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1
+       on line 369 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: rsa_core_mod_DATA_WIDTH32_RESET1_START1
+       on line 202 in file '../../../src/rsa32/rsa_core_32.sv'
+    3: rsa_core_mult_DATA_WIDTH32_RESET1_START1
+       on line 73 in file '../../../src/rsa32/rsa_core_32.sv'
+    4: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
+       on line 92 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    5: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
+       on line 93 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    6: amba_3_apb_rsa_wrapper_data_DATA_WIDTH32_D_WID31_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
+       on line 94 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv'
+    7: amba_3_apb_rsa_wrapper_control_LOAD_GAP0_GAP_WIDTH1_GAP_LAST0_IDLE1_LOAD_MSG2_GAP_MSG_EXP4_LOAD_EXP8_GAP_EXP_MOD16_LOAD_MOD32_WAIT_DONE64
+       on line 121 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv'
+RTL5.6: Case statement with no default
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: rsa_core_mult_DATA_WIDTH32_RESET1_START1
+       on line 79 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1
+       on line 374 in file '../../../src/rsa32/rsa_core_32.sv'
+RTL7.10a: Comparison with different data sizes
+    Type: Golden      Severity: Warning    Occurrence: 2
+    1: rsa_core_mult_DATA_WIDTH32_RESET1_START1:sizes are 6-bit at col 17 vs. 32-bit at col 37
+       on line 57 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: rsa_core_mult_DATA_WIDTH32_RESET1_START1:sizes are 6-bit at col 17 vs. 32-bit at col 37
+       on line 64 in file '../../../src/rsa32/rsa_core_32.sv'
+RTL7.10d: Comparison with positive constant of different signedness
+    Type: Golden      Severity: Warning    Occurrence: 6
+    1: rsa_core_mod_DATA_WIDTH32_RESET1_START1: expression '(a_cnt != 0)'
+       on line 187 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: rsa_core_mod_DATA_WIDTH32_RESET1_START1: expression '(a_cnt != 0)'
+       on line 193 in file '../../../src/rsa32/rsa_core_32.sv'
+    3: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1: expression '(n_reg == 0)'
+       on line 337 in file '../../../src/rsa32/rsa_core_32.sv'
+    4: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1: expression '(e_reg == 0)'
+       on line 339 in file '../../../src/rsa32/rsa_core_32.sv'
+    5: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1: expression '(e_reg == 1)'
+       on line 341 in file '../../../src/rsa32/rsa_core_32.sv'
+    6: rsa_core_ctrl_DATA_WIDTH32_RESET1_LOAD1: expression '(e_reg == 0)'
+       on line 355 in file '../../../src/rsa32/rsa_core_32.sv'
+VLG6.4: Supported system datapath function call
+    Type: Golden      Severity: Note       Occurrence: 1
+    1: rsa_core_mult_DATA_WIDTH32_RESET1_START1/$log2
+       on line 35 in file '../../../src/rsa32/rsa_core_32.sv'
+HRC3.5b: Open output port connection is detected
+    Type: Golden      Severity: Note       Occurrence: 2
+    1: rsa_core_DATA_WIDTH32_RESET1_LOAD1:On instance rsa_core_mod_blk: mod_err
+       on line 483 in file '../../../src/rsa32/rsa_core_32.sv'
+    2: amba_3_apb_rsa_wrapper_top:On instance rsa_core_inst: core_clk_o
+       on line 109 in file '../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv'
+0
+// Command: exit

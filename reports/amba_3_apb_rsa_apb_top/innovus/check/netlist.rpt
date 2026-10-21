@@ -1,0 +1,56 @@
+Creating directory checkNetlist.
+############################################################################
+# Innovus Netlist Design Rule Check
+# Tue Oct 20 10:12:35 2026
+############################################################################
+Design: amba_3_apb_rsa_apb_top
+
+------ Design Summary:
+Total Standard Cell Number   (cells) : 2200
+Total Block Cell Number      (cells) : 0
+Total I/O Pad Cell Number    (cells) : 0
+Total Standard Cell Area     ( um^2) : 8635.50
+Total Block Cell Area        ( um^2) : 0.00
+Total I/O Pad Cell Area      ( um^2) : 0.00
+
+------ Design Statistics:
+
+Number of Instances            : 2200
+Number of Non-uniquified Insts : 2189
+Number of Nets                 : 2480
+Average number of Pins per Net : 3.68
+Maximum number of Pins in Net  : 706
+
+------ I/O Port summary
+
+Number of Primary I/O Ports    : 84
+Number of Input Ports          : 49
+Number of Output Ports         : 35
+Number of Bidirectional Ports  : 0
+Number of Power/Ground Ports   : 0
+Number of Floating Ports                     *: 3
+Number of Ports Connected to Multiple Pads   *: 0
+Number of Ports Connected to Core Instances   : 81
+**WARN: (IMPREPO-200):	There are 3 Floating Ports in the top design.
+**WARN: (IMPREPO-202):	There are 81 Ports connected to core instances.
+
+------ Design Rule Checking:
+
+Number of Output Pins connect to Power/Ground *: 0
+Number of Insts with Input Pins tied together ?: 1
+Number of TieHi/Lo term nets not connected to instance's PG terms ?: 0
+**WARN: (IMPDB-2136):	Input term 'D' of  instance 'reset_inst_reset_sync_reg_reg[0]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+Number of Input/InOut Floating Pins            : 1
+Number of Output Floating Pins                 : 0
+Number of Output Term Marked TieHi/Lo         *: 0
+
+**WARN: (IMPREPO-216):	There are 1 Instances with input pins tied together.
+**WARN: (IMPREPO-218):	There are 1 Floating Instance terminals.
+Number of nets with tri-state drivers          : 0
+Number of nets with parallel drivers           : 0
+Number of nets with multiple drivers           : 0
+Number of nets with no driver (No FanIn)       : 1
+Number of Output Floating nets (No FanOut)     : 15
+Number of High Fanout nets (>50)               : 13
+**WARN: (IMPREPO-227):	There are 13 High Fanout nets (>50).
+Report saved in file checkNetlist/amba_3_apb_rsa_apb_top.main.htm.ascii

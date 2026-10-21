@@ -11,7 +11,7 @@
 // Module: rsa_core_mult
 // ============================================================
 module rsa_core_mult #(
-  parameter DATA_WIDTH = 4,
+  parameter DATA_WIDTH = 32,
   parameter RESET      = 1,
   parameter START      = 1
 ) (
@@ -116,7 +116,7 @@ endmodule
 //   START       : N�vel ativo do sinal de in�cio (default 1)
 
 module rsa_core_mod #(
-    parameter DATA_WIDTH = 4,
+    parameter DATA_WIDTH = 32,
     parameter RESET      = 1,   // N�vel de reset ativo
     parameter START      = 1    // N�vel ativo para mod_start
 )(
@@ -256,7 +256,7 @@ endmodule
 // Module: rsa_core_ctrl
 // ============================================================
 module rsa_core_ctrl #(
-    parameter DATA_WIDTH = 4,
+    parameter DATA_WIDTH = 32,
     parameter RESET = 1'b1,
     parameter LOAD = 1'b1
 )(
@@ -443,11 +443,11 @@ module rsa_core #(
     input   wire [DATA_WIDTH-1:0] core_din,
     output  wire core_done,
     output  wire core_err,
-    output  wire [DATA_WIDTH-1:0] core_dout,
-    output  wire core_clk_o
+    output  wire [DATA_WIDTH-1:0] core_dout
+    //output  wire core_clk_o
 );
 
-    assign core_clk_o = core_clk;
+    //assign core_clk_o = core_clk;
 
     // Internal signals
     wire ctrl_start_sig;
@@ -460,6 +460,8 @@ module rsa_core #(
 
     wire mod_done_sig;
     wire [DATA_WIDTH-1:0] mod_c_sig;
+
+    wire mod_err_unused;
 
     // Component instantiations
     rsa_core_mult #(
@@ -487,7 +489,7 @@ module rsa_core #(
         .mod_a(mult_c_sig),
         .mod_b(ctrl_n_sig),
         .mod_done(mod_done_sig),
-        .mod_err(), // Deixe isso desconectado apenas se for realmente necessário
+        .mod_err(mod_err_unused), // Deixe isso desconectado apenas se for realmente necessário
         .mod_c(mod_c_sig)
     );
 

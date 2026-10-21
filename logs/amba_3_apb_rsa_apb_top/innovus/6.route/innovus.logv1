@@ -1,0 +1,72 @@
+[10/20 10:23:25      0s] 
+[10/20 10:23:25      0s] Cadence Innovus(TM) Implementation System.
+[10/20 10:23:25      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/20 10:23:25      0s] 
+[10/20 10:23:25      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/20 10:23:25      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+[10/20 10:23:25      0s] Date:		Tue Oct 20 10:23:25 2026
+[10/20 10:23:25      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/20 10:23:25      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/20 10:23:25      0s] 
+[10/20 10:23:25      0s] License:
+[10/20 10:23:25      0s] 		[10:23:25.047978] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/20 10:23:25      0s] 
+[10/20 10:23:25      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/20 10:23:25      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/20 10:23:35      7s] *** sockopt - 113
+[10/20 10:23:36      7s] Memory management switch to non-aggressive memory release mode.
+[10/20 10:23:36      7s] 
+[10/20 10:23:36      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/20 10:23:36      7s] 
+[10/20 10:23:36      7s] 
+[10/20 10:23:36      7s] 
+[10/20 10:23:38      9s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:23:40     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/20 10:23:40     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:23:40     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/20 10:23:40     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/20 10:23:40     11s] @(#)CDS: CPE v22.18-s071
+[10/20 10:23:40     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/20 10:23:40     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/20 10:23:40     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/20 10:23:40     11s] @(#)CDS: RCDB 11.15.0
+[10/20 10:23:40     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/20 10:23:40     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/20 10:23:40     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_35794_aa33b8a3-0f0d-4076-97a1-d5bf29b1861a_rock8_aluno_UpVwyE.
+
+[10/20 10:23:40     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_35794_aa33b8a3-0f0d-4076-97a1-d5bf29b1861a_rock8_aluno_UpVwyE.
+[10/20 10:23:40     11s] 
+[10/20 10:23:40     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/20 10:23:40     11s] 
+[10/20 10:23:40     11s] **INFO:  MMMC transition support version v31-84 
+[10/20 10:23:40     11s] 
+[10/20 10:23:40     11s] #@ Processing -files option
+[10/20 10:23:40     11s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:23:40     11s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:23:40     11s] @file 1: # Project:
+[10/20 10:23:40     11s] @file 2: set project_name "amba_3_apb_rsa_apb_top"
+[10/20 10:23:40     11s] @file 3: set project_root $::env(PROJECT_ROOT)
+[10/20 10:23:40     11s] @file 4: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+[10/20 10:23:40     11s] @file 5: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+[10/20 10:23:40     11s] @file 6:
+[10/20 10:23:40     11s] @file 7: file mkdir $output_dir
+[10/20 10:23:40     11s] @file 8:
+[10/20 10:23:40     11s] @file 9: # Automatic Via Generation:
+[10/20 10:23:40     11s] @file 10: setGenerateViaMode -auto true
+[10/20 10:23:40     11s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' line 10: invalid command name "setGenerateViaMode".
+[10/20 10:23:40     11s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/20 10:23:40     11s] **ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' then restart.
+[10/20 10:23:40     11s] **ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl: invalid command name "setGenerateViaMode".
+[10/20 10:23:40     11s] @innovus 2> exit
+
+[10/20 10:26:34     11s] 
+[10/20 10:26:34     11s] *** Memory Usage v#2 (Current mem = 1430.703M, initial mem = 661.535M) ***
+[10/20 10:26:34     11s] 
+[10/20 10:26:34     11s] *** Summary of all messages that are not suppressed in this session:
+[10/20 10:26:34     11s] Severity  ID               Count  Summary                                  
+[10/20 10:26:34     11s] ERROR     IMPSE-110            1  File '%s' line %s: %s.                   
+[10/20 10:26:34     11s] ERROR     IMPSYT-6692          1  Invalid return code while executing '%s'...
+[10/20 10:26:34     11s] ERROR     IMPSYT-6693          1  Error message: %s: %s.                   
+[10/20 10:26:34     11s] *** Message Summary: 0 warning(s), 3 error(s)
+[10/20 10:26:34     11s] 
+[10/20 10:26:34     11s] --- Ending "Innovus" (totcpu=0:00:12.0, real=0:03:09, mem=1430.7M) ---
