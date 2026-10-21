@@ -41,7 +41,6 @@ module testbench;
     integer errors = 0;
     string vcd_path;
 
-/*
     amba_3_apb_rsa_apb_top #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
@@ -60,22 +59,6 @@ module testbench;
         .pslverr_o(pslverr_o),
         .irq_o(irq_o)
     );
-*/
-
-    amba_3_apb_rsa_apb_top dut (
-        .pclk_i(pclk_i),
-        .presetn_i(presetn_i),
-        .psel_i(psel_i),
-        .penable_i(penable_i),
-        .pwrite_i(pwrite_i),
-        .paddr_i(paddr_i),
-        .pwdata_i(pwdata_i),
-        .prdata_o(prdata_o),
-        .pready_o(pready_o),
-        .pslverr_o(pslverr_o),
-        .irq_o(irq_o)
-    );
-
     always #(CLOCK_PERIOD_NS / 2) pclk_i = ~pclk_i;
 
     // Driver: change APB inputs on falling edges, away from DUT sampling.
