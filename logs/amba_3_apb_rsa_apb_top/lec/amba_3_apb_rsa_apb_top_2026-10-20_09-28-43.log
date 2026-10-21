@@ -1,0 +1,2101 @@
+                          CONFORMAL (R)
+                   Version 23.20-s200 (23-Feb-2024) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 969 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: read_library -liberty -replace -both \
+//              /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib
+// Parsing file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib ...
+// Warning: (RTL9.17) Cell doesn't have any output pins or all output pins are undriven (blackboxed) (occurrence:1)
+// Note: (RTL9.26) Liberty pin with internal_node use default input_map (occurrence:16)
+// Note: Read Liberty library successfully
+0
+// Command: set source_dir [file join [pwd] src amba_3_apb]
+/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb
+// Command: set rtl_files [list \
+//              [file join [pwd] src rsa32 rsa_core_32.sv] \
+//              [file join $source_dir amba_3_apb_adrec.sv] \
+//              [file join $source_dir amba_3_apb_data_o_mux.sv] \
+//              [file join $source_dir amba_3_apb_data_io_top.sv] \
+//              [file join $source_dir amba_3_apb_control.sv] \
+//              [file join $source_dir amba_3_apb_regbank.sv] \
+//              [file join $source_dir amba_3_apb_reset.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+//              [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+//              [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+//          ]
+/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+// Command: read_design -systemverilog -golden \
+//              -root amba_3_apb_rsa_apb_top {*}$rtl_files
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv ...
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv ...
+// Golden root module is set to 'amba_3_apb_rsa_apb_top'
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:11)
+// Note: (RTL1.9h) Parameter declaration with no type or range specification (occurrence:47)
+// Note: (RTL5.5a) Default case item with non-X assignment(s) (occurrence:9)
+// Note: (RTL5.6) Case statement with no default (occurrence:2)
+// Note: (RTL5.7) Default case item with inconsistent assignment(s). (occurrence:2)
+// Warning: (RTL7.10a) Comparison with different data sizes (occurrence:2)
+// Warning: (RTL7.10d) Comparison with positive constant of different signedness (occurrence:6)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:1)
+// Note: (VLG6.4) Supported system datapath function call (occurrence:1)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: set netlist_dir [file join [pwd] ps_files rsa_apb_top netlist]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist
+// Command: set netlists [glob -directory $netlist_dir synth_*.v]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-19_15-35-15.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-13-45.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-18-56.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_08-40-35.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-10-32.v
+// Command: set netlist_times {}
+// Command: foreach f $netlists {
+//              lappend netlist_times [list [file mtime $f] $f]
+//          }
+// Command: set netlist [lindex [lindex \
+//              [lsort -integer -decreasing -index 0 $netlist_times] 0] 1]
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v
+// Command: read_design -verilog -revised \
+//              -root amba_3_apb_rsa_apb_top $netlist
+// Parsing file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-20_09-21-51.v ...
+// Revised root module is set to 'amba_3_apb_rsa_apb_top'
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:11)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:2)
+// Note: Read VERILOG design successfully
+0
+// Command: report_design_data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules        15               1
+Library-cells         87            2200
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT               49                   49
+OUTPUT              35                   35
+--------------------------------------------
+AND        *      2870                 2459
+BUF        *        22                    0
+DFF        *       709                  705
+INV        *       207                 1241
+MUX        *       230                    0
+NAND       *         1                  371
+NOR        *        49                  382
+OR         *      1058                 1297
+WIRE       *       421                    0
+XNOR       *       156                    4
+XOR        *       257                  163
+------ word-level --------------------------
+ADD        *         4                    0
+GE         *         1                    0
+SUBTRACT   *         4                    0
+WMUX       *        35                    0
+WOR        *         1                    0
+WSEL       *        43                    0
+--------------------------------------------
+Total             5980                 6622
+
+0
+// Command: report_black_box -detail
+0
+// Command: set_system_mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 793
+// Revised key points = 789
+// Mapping key points ...
+// Warning: Golden has 3 unmapped key points
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            49     35     705       789     
+--------------------------------------------------------------------------------
+Revised           49     35     705       789     
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       1         1       
+Not-mapped        3         3       
+================================================================================
+// Warning: Key point mapping is incomplete
+0
+// Command: add_compared_points -all
+// Warning: Golden has 3 unmapped key points which will not be compared
+// 740 compared points added to compare list
+0
+// Command: compare
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           33     470       503     
+--------------------------------------------------------------------------------
+Non-equivalent       2      235       237     
+================================================================================
+0
+// Command: report_verification
+================================================================================
+                            Verification Report
+--------------------------------------------------------------------------------
+Category                                                                  Count
+--------------------------------------------------------------------------------
+1. Non-standard modeling options used:                                      0
+--------------------------------------------------------------------------------
+2. Incomplete verification:                                                 1
+     Not-mapped DFF/DLAT is detected:                          yes
+--------------------------------------------------------------------------------
+3. User modification to design:                                             0
+--------------------------------------------------------------------------------
+4. Conformal Constraint Designer clock domain crossing checks recommended:  0
+--------------------------------------------------------------------------------
+5. Design ambiguity:                                                        0
+--------------------------------------------------------------------------------
+6. Compare Results:                                                  FAIL:NONEQ
+================================================================================
+non-equivalence
+// Command: report_compare_data -class nonequivalent > [file join [pwd] /reports/lec/lec_nonequivalent.rpt]
+// Warning: Cannot open output file /reports/lec/lec_nonequivalent.rpt to write
+Compared points are: Non-equivalent (reachable)
+  (G) + 81   PO   /prdata_o[0]
+  (R) + 81   PO   /prdata_o[0]
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 83   PO   /pslverr_o
+  (R) + 83   PO   /pslverr_o
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 117  DFF  /regbank_inst/mod_reg_reg[31]
+  (R) + 151  DFF  /regbank_inst_mod_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3046 MUX  /regbank_inst/U$4/U$32
+  (R) + 6255 OR   /g35480__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 118  DFF  /regbank_inst/mod_reg_reg[30]
+  (R) + 150  DFF  /regbank_inst_mod_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3045 MUX  /regbank_inst/U$4/U$31
+  (R) + 6259 OR   /g35481__4319/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 119  DFF  /regbank_inst/mod_reg_reg[29]
+  (R) + 149  DFF  /regbank_inst_mod_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3044 MUX  /regbank_inst/U$4/U$30
+  (R) + 6267 OR   /g35483__5526/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 120  DFF  /regbank_inst/mod_reg_reg[28]
+  (R) + 148  DFF  /regbank_inst_mod_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3043 MUX  /regbank_inst/U$4/U$29
+  (R) + 6271 OR   /g35484__6783/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 121  DFF  /regbank_inst/mod_reg_reg[27]
+  (R) + 147  DFF  /regbank_inst_mod_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3042 MUX  /regbank_inst/U$4/U$28
+  (R) + 6263 OR   /g35482__8428/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 122  DFF  /regbank_inst/mod_reg_reg[26]
+  (R) + 146  DFF  /regbank_inst_mod_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3041 MUX  /regbank_inst/U$4/U$27
+  (R) + 6275 OR   /g35485__3680/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 123  DFF  /regbank_inst/mod_reg_reg[25]
+  (R) + 145  DFF  /regbank_inst_mod_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3040 MUX  /regbank_inst/U$4/U$26
+  (R) + 6279 OR   /g35486__1617/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 124  DFF  /regbank_inst/mod_reg_reg[24]
+  (R) + 144  DFF  /regbank_inst_mod_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3039 MUX  /regbank_inst/U$4/U$25
+  (R) + 6283 OR   /g35487__2802/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 125  DFF  /regbank_inst/mod_reg_reg[23]
+  (R) + 143  DFF  /regbank_inst_mod_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3038 MUX  /regbank_inst/U$4/U$24
+  (R) + 6287 OR   /g35488__1705/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 126  DFF  /regbank_inst/mod_reg_reg[22]
+  (R) + 142  DFF  /regbank_inst_mod_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3037 MUX  /regbank_inst/U$4/U$23
+  (R) + 6291 OR   /g35489__5122/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 127  DFF  /regbank_inst/mod_reg_reg[21]
+  (R) + 141  DFF  /regbank_inst_mod_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3036 MUX  /regbank_inst/U$4/U$22
+  (R) + 6295 OR   /g35490__8246/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 128  DFF  /regbank_inst/mod_reg_reg[20]
+  (R) + 140  DFF  /regbank_inst_mod_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3035 MUX  /regbank_inst/U$4/U$21
+  (R) + 6299 OR   /g35491__7098/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 129  DFF  /regbank_inst/mod_reg_reg[19]
+  (R) + 139  DFF  /regbank_inst_mod_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3034 MUX  /regbank_inst/U$4/U$20
+  (R) + 6303 OR   /g35492__6131/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 130  DFF  /regbank_inst/mod_reg_reg[18]
+  (R) + 138  DFF  /regbank_inst_mod_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3033 MUX  /regbank_inst/U$4/U$19
+  (R) + 6307 OR   /g35493__1881/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 131  DFF  /regbank_inst/mod_reg_reg[17]
+  (R) + 137  DFF  /regbank_inst_mod_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3032 MUX  /regbank_inst/U$4/U$18
+  (R) + 6311 OR   /g35494__5115/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 132  DFF  /regbank_inst/mod_reg_reg[16]
+  (R) + 136  DFF  /regbank_inst_mod_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3031 MUX  /regbank_inst/U$4/U$17
+  (R) + 6319 OR   /g35496__4733/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 133  DFF  /regbank_inst/mod_reg_reg[15]
+  (R) + 135  DFF  /regbank_inst_mod_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3030 MUX  /regbank_inst/U$4/U$16
+  (R) + 6315 OR   /g35495__7482/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 134  DFF  /regbank_inst/mod_reg_reg[14]
+  (R) + 134  DFF  /regbank_inst_mod_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3029 MUX  /regbank_inst/U$4/U$15
+  (R) + 6323 OR   /g35497__6161/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 135  DFF  /regbank_inst/mod_reg_reg[13]
+  (R) + 133  DFF  /regbank_inst_mod_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3028 MUX  /regbank_inst/U$4/U$14
+  (R) + 6331 OR   /g35499__9945/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 136  DFF  /regbank_inst/mod_reg_reg[12]
+  (R) + 132  DFF  /regbank_inst_mod_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3027 MUX  /regbank_inst/U$4/U$13
+  (R) + 6327 OR   /g35498__9315/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 137  DFF  /regbank_inst/mod_reg_reg[11]
+  (R) + 131  DFF  /regbank_inst_mod_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3026 MUX  /regbank_inst/U$4/U$12
+  (R) + 6335 OR   /g35500__2883/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 138  DFF  /regbank_inst/mod_reg_reg[10]
+  (R) + 130  DFF  /regbank_inst_mod_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3025 MUX  /regbank_inst/U$4/U$11
+  (R) + 6339 OR   /g35501__2346/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 139  DFF  /regbank_inst/mod_reg_reg[9]
+  (R) + 129  DFF  /regbank_inst_mod_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3024 MUX  /regbank_inst/U$4/U$10
+  (R) + 6343 OR   /g35502__1666/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 140  DFF  /regbank_inst/mod_reg_reg[8]
+  (R) + 128  DFF  /regbank_inst_mod_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3023 MUX  /regbank_inst/U$4/U$9
+  (R) + 6347 OR   /g35503__7410/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 141  DFF  /regbank_inst/mod_reg_reg[7]
+  (R) + 127  DFF  /regbank_inst_mod_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3022 MUX  /regbank_inst/U$4/U$8
+  (R) + 6351 OR   /g35504__6417/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 142  DFF  /regbank_inst/mod_reg_reg[6]
+  (R) + 126  DFF  /regbank_inst_mod_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3021 MUX  /regbank_inst/U$4/U$7
+  (R) + 6355 OR   /g35505__5477/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 143  DFF  /regbank_inst/mod_reg_reg[5]
+  (R) + 125  DFF  /regbank_inst_mod_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3020 MUX  /regbank_inst/U$4/U$6
+  (R) + 6359 OR   /g35506__2398/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 144  DFF  /regbank_inst/mod_reg_reg[4]
+  (R) + 124  DFF  /regbank_inst_mod_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3019 MUX  /regbank_inst/U$4/U$5
+  (R) + 6363 OR   /g35507__5107/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 145  DFF  /regbank_inst/mod_reg_reg[3]
+  (R) + 123  DFF  /regbank_inst_mod_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3018 MUX  /regbank_inst/U$4/U$4
+  (R) + 6367 OR   /g35508__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 146  DFF  /regbank_inst/mod_reg_reg[2]
+  (R) + 122  DFF  /regbank_inst_mod_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3017 MUX  /regbank_inst/U$4/U$3
+  (R) + 6371 OR   /g35509__4319/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 147  DFF  /regbank_inst/mod_reg_reg[1]
+  (R) + 121  DFF  /regbank_inst_mod_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3016 MUX  /regbank_inst/U$4/U$2
+  (R) + 6379 OR   /g35511__5526/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 148  DFF  /regbank_inst/mod_reg_reg[0]
+  (R) + 120  DFF  /regbank_inst_mod_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3015 MUX  /regbank_inst/U$4/U$1
+  (R) + 6375 OR   /g35510__8428/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 149  DFF  /regbank_inst/exp_reg_reg[31]
+  (R) + 117  DFF  /regbank_inst_exp_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3078 MUX  /regbank_inst/U$5/U$32
+  (R) + 6388 OR   /g35513__3680/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 150  DFF  /regbank_inst/exp_reg_reg[30]
+  (R) + 116  DFF  /regbank_inst_exp_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3077 MUX  /regbank_inst/U$5/U$31
+  (R) + 6384 OR   /g35512__6783/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 151  DFF  /regbank_inst/exp_reg_reg[29]
+  (R) + 115  DFF  /regbank_inst_exp_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3076 MUX  /regbank_inst/U$5/U$30
+  (R) + 6392 OR   /g35514__1617/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 152  DFF  /regbank_inst/exp_reg_reg[28]
+  (R) + 114  DFF  /regbank_inst_exp_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3075 MUX  /regbank_inst/U$5/U$29
+  (R) + 6396 OR   /g35515__2802/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 153  DFF  /regbank_inst/exp_reg_reg[27]
+  (R) + 113  DFF  /regbank_inst_exp_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3074 MUX  /regbank_inst/U$5/U$28
+  (R) + 6404 OR   /g35517__5122/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 154  DFF  /regbank_inst/exp_reg_reg[26]
+  (R) + 112  DFF  /regbank_inst_exp_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3073 MUX  /regbank_inst/U$5/U$27
+  (R) + 6400 OR   /g35516__1705/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 155  DFF  /regbank_inst/exp_reg_reg[25]
+  (R) + 111  DFF  /regbank_inst_exp_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3072 MUX  /regbank_inst/U$5/U$26
+  (R) + 6408 OR   /g35518__8246/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 156  DFF  /regbank_inst/exp_reg_reg[24]
+  (R) + 110  DFF  /regbank_inst_exp_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3071 MUX  /regbank_inst/U$5/U$25
+  (R) + 6412 OR   /g35519__7098/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 157  DFF  /regbank_inst/exp_reg_reg[23]
+  (R) + 109  DFF  /regbank_inst_exp_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3070 MUX  /regbank_inst/U$5/U$24
+  (R) + 6416 OR   /g35520__6131/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 158  DFF  /regbank_inst/exp_reg_reg[22]
+  (R) + 108  DFF  /regbank_inst_exp_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3069 MUX  /regbank_inst/U$5/U$23
+  (R) + 6420 OR   /g35521__1881/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 159  DFF  /regbank_inst/exp_reg_reg[21]
+  (R) + 107  DFF  /regbank_inst_exp_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3068 MUX  /regbank_inst/U$5/U$22
+  (R) + 6424 OR   /g35522__5115/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 160  DFF  /regbank_inst/exp_reg_reg[20]
+  (R) + 106  DFF  /regbank_inst_exp_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3067 MUX  /regbank_inst/U$5/U$21
+  (R) + 6602 OR   /g35553__6161/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 161  DFF  /regbank_inst/exp_reg_reg[19]
+  (R) + 105  DFF  /regbank_inst_exp_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3066 MUX  /regbank_inst/U$5/U$20
+  (R) + 6763 OR   /g35583__9945/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 162  DFF  /regbank_inst/exp_reg_reg[18]
+  (R) + 104  DFF  /regbank_inst_exp_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3065 MUX  /regbank_inst/U$5/U$19
+  (R) + 6759 OR   /g35582__9315/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 163  DFF  /regbank_inst/exp_reg_reg[17]
+  (R) + 103  DFF  /regbank_inst_exp_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3064 MUX  /regbank_inst/U$5/U$18
+  (R) + 6755 OR   /g35581__6161/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 164  DFF  /regbank_inst/exp_reg_reg[16]
+  (R) + 102  DFF  /regbank_inst_exp_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3063 MUX  /regbank_inst/U$5/U$17
+  (R) + 6751 OR   /g35580__4733/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 165  DFF  /regbank_inst/exp_reg_reg[15]
+  (R) + 101  DFF  /regbank_inst_exp_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3062 MUX  /regbank_inst/U$5/U$16
+  (R) + 6747 OR   /g35579__7482/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 166  DFF  /regbank_inst/exp_reg_reg[14]
+  (R) + 100  DFF  /regbank_inst_exp_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3061 MUX  /regbank_inst/U$5/U$15
+  (R) + 6743 OR   /g35578__5115/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 167  DFF  /regbank_inst/exp_reg_reg[13]
+  (R) + 99   DFF  /regbank_inst_exp_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3060 MUX  /regbank_inst/U$5/U$14
+  (R) + 6739 OR   /g35577__1881/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 168  DFF  /regbank_inst/exp_reg_reg[12]
+  (R) + 98   DFF  /regbank_inst_exp_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3059 MUX  /regbank_inst/U$5/U$13
+  (R) + 6735 OR   /g35576__6131/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 169  DFF  /regbank_inst/exp_reg_reg[11]
+  (R) + 97   DFF  /regbank_inst_exp_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3058 MUX  /regbank_inst/U$5/U$12
+  (R) + 6731 OR   /g35575__7098/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 170  DFF  /regbank_inst/exp_reg_reg[10]
+  (R) + 96   DFF  /regbank_inst_exp_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3057 MUX  /regbank_inst/U$5/U$11
+  (R) + 6727 OR   /g35574__8246/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 171  DFF  /regbank_inst/exp_reg_reg[9]
+  (R) + 95   DFF  /regbank_inst_exp_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3056 MUX  /regbank_inst/U$5/U$10
+  (R) + 6723 OR   /g35573__5122/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 172  DFF  /regbank_inst/exp_reg_reg[8]
+  (R) + 94   DFF  /regbank_inst_exp_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3055 MUX  /regbank_inst/U$5/U$9
+  (R) + 6719 OR   /g35572__1705/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 173  DFF  /regbank_inst/exp_reg_reg[7]
+  (R) + 93   DFF  /regbank_inst_exp_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3054 MUX  /regbank_inst/U$5/U$8
+  (R) + 6715 OR   /g35571__2802/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 174  DFF  /regbank_inst/exp_reg_reg[6]
+  (R) + 92   DFF  /regbank_inst_exp_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3053 MUX  /regbank_inst/U$5/U$7
+  (R) + 6711 OR   /g35570__1617/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 175  DFF  /regbank_inst/exp_reg_reg[5]
+  (R) + 91   DFF  /regbank_inst_exp_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3052 MUX  /regbank_inst/U$5/U$6
+  (R) + 6707 OR   /g35569__3680/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 176  DFF  /regbank_inst/exp_reg_reg[4]
+  (R) + 90   DFF  /regbank_inst_exp_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3051 MUX  /regbank_inst/U$5/U$5
+  (R) + 6699 OR   /g35567__5526/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 177  DFF  /regbank_inst/exp_reg_reg[3]
+  (R) + 89   DFF  /regbank_inst_exp_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3050 MUX  /regbank_inst/U$5/U$4
+  (R) + 6691 OR   /g35565__4319/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 178  DFF  /regbank_inst/exp_reg_reg[2]
+  (R) + 88   DFF  /regbank_inst_exp_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3049 MUX  /regbank_inst/U$5/U$3
+  (R) + 6703 OR   /g35568__6783/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 179  DFF  /regbank_inst/exp_reg_reg[1]
+  (R) + 87   DFF  /regbank_inst_exp_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3048 MUX  /regbank_inst/U$5/U$2
+  (R) + 6695 OR   /g35566__8428/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 180  DFF  /regbank_inst/exp_reg_reg[0]
+  (R) + 782  DFF  /regbank_inst_exp_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3047 MUX  /regbank_inst/U$5/U$1
+  (R) + 6687 OR   /g35564__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 181  DFF  /regbank_inst/msg_reg_reg[31]
+  (R) + 183  DFF  /regbank_inst_msg_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3110 MUX  /regbank_inst/U$6/U$32
+  (R) + 6813 OR   /g35718__6783/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 182  DFF  /regbank_inst/msg_reg_reg[30]
+  (R) + 182  DFF  /regbank_inst_msg_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3109 MUX  /regbank_inst/U$6/U$31
+  (R) + 6817 OR   /g35719__3680/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 183  DFF  /regbank_inst/msg_reg_reg[29]
+  (R) + 181  DFF  /regbank_inst_msg_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3108 MUX  /regbank_inst/U$6/U$30
+  (R) + 6825 OR   /g35721__2802/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 184  DFF  /regbank_inst/msg_reg_reg[28]
+  (R) + 180  DFF  /regbank_inst_msg_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3107 MUX  /regbank_inst/U$6/U$29
+  (R) + 6829 OR   /g35722__1705/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 185  DFF  /regbank_inst/msg_reg_reg[27]
+  (R) + 179  DFF  /regbank_inst_msg_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3106 MUX  /regbank_inst/U$6/U$28
+  (R) + 6821 OR   /g35720__1617/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 186  DFF  /regbank_inst/msg_reg_reg[26]
+  (R) + 178  DFF  /regbank_inst_msg_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3105 MUX  /regbank_inst/U$6/U$27
+  (R) + 6833 OR   /g35723__5122/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 187  DFF  /regbank_inst/msg_reg_reg[25]
+  (R) + 177  DFF  /regbank_inst_msg_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3104 MUX  /regbank_inst/U$6/U$26
+  (R) + 6837 OR   /g35724__8246/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 188  DFF  /regbank_inst/msg_reg_reg[24]
+  (R) + 176  DFF  /regbank_inst_msg_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3103 MUX  /regbank_inst/U$6/U$25
+  (R) + 6841 OR   /g35725__7098/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 189  DFF  /regbank_inst/msg_reg_reg[23]
+  (R) + 175  DFF  /regbank_inst_msg_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3102 MUX  /regbank_inst/U$6/U$24
+  (R) + 6845 OR   /g35726__6131/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 190  DFF  /regbank_inst/msg_reg_reg[22]
+  (R) + 174  DFF  /regbank_inst_msg_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3101 MUX  /regbank_inst/U$6/U$23
+  (R) + 6849 OR   /g35727__1881/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 191  DFF  /regbank_inst/msg_reg_reg[21]
+  (R) + 173  DFF  /regbank_inst_msg_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3100 MUX  /regbank_inst/U$6/U$22
+  (R) + 6853 OR   /g35728__5115/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 192  DFF  /regbank_inst/msg_reg_reg[20]
+  (R) + 172  DFF  /regbank_inst_msg_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3099 MUX  /regbank_inst/U$6/U$21
+  (R) + 6857 OR   /g35729__7482/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 193  DFF  /regbank_inst/msg_reg_reg[19]
+  (R) + 171  DFF  /regbank_inst_msg_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3098 MUX  /regbank_inst/U$6/U$20
+  (R) + 6861 OR   /g35730__4733/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 194  DFF  /regbank_inst/msg_reg_reg[18]
+  (R) + 170  DFF  /regbank_inst_msg_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3097 MUX  /regbank_inst/U$6/U$19
+  (R) + 6865 OR   /g35731__6161/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 195  DFF  /regbank_inst/msg_reg_reg[17]
+  (R) + 169  DFF  /regbank_inst_msg_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3096 MUX  /regbank_inst/U$6/U$18
+  (R) + 6869 OR   /g35732__9315/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 196  DFF  /regbank_inst/msg_reg_reg[16]
+  (R) + 168  DFF  /regbank_inst_msg_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3095 MUX  /regbank_inst/U$6/U$17
+  (R) + 6873 OR   /g35733__9945/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 197  DFF  /regbank_inst/msg_reg_reg[15]
+  (R) + 167  DFF  /regbank_inst_msg_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3094 MUX  /regbank_inst/U$6/U$16
+  (R) + 6877 OR   /g35734__2883/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 198  DFF  /regbank_inst/msg_reg_reg[14]
+  (R) + 166  DFF  /regbank_inst_msg_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3093 MUX  /regbank_inst/U$6/U$15
+  (R) + 6881 OR   /g35735__2346/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 199  DFF  /regbank_inst/msg_reg_reg[13]
+  (R) + 165  DFF  /regbank_inst_msg_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3092 MUX  /regbank_inst/U$6/U$14
+  (R) + 6885 OR   /g35736__1666/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 200  DFF  /regbank_inst/msg_reg_reg[12]
+  (R) + 164  DFF  /regbank_inst_msg_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3091 MUX  /regbank_inst/U$6/U$13
+  (R) + 6889 OR   /g35738__6417/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 201  DFF  /regbank_inst/msg_reg_reg[11]
+  (R) + 163  DFF  /regbank_inst_msg_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3090 MUX  /regbank_inst/U$6/U$12
+  (R) + 6893 OR   /g35739__5477/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 202  DFF  /regbank_inst/msg_reg_reg[10]
+  (R) + 162  DFF  /regbank_inst_msg_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3089 MUX  /regbank_inst/U$6/U$11
+  (R) + 6769 OR   /g35707__2346/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 203  DFF  /regbank_inst/msg_reg_reg[9]
+  (R) + 161  DFF  /regbank_inst_msg_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3088 MUX  /regbank_inst/U$6/U$10
+  (R) + 6773 OR   /g35708__1666/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 204  DFF  /regbank_inst/msg_reg_reg[8]
+  (R) + 160  DFF  /regbank_inst_msg_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3087 MUX  /regbank_inst/U$6/U$9
+  (R) + 6777 OR   /g35709__7410/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 205  DFF  /regbank_inst/msg_reg_reg[7]
+  (R) + 159  DFF  /regbank_inst_msg_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3086 MUX  /regbank_inst/U$6/U$8
+  (R) + 6781 OR   /g35710__6417/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 206  DFF  /regbank_inst/msg_reg_reg[6]
+  (R) + 158  DFF  /regbank_inst_msg_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3085 MUX  /regbank_inst/U$6/U$7
+  (R) + 6785 OR   /g35711__5477/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 207  DFF  /regbank_inst/msg_reg_reg[5]
+  (R) + 157  DFF  /regbank_inst_msg_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3084 MUX  /regbank_inst/U$6/U$6
+  (R) + 6789 OR   /g35712__2398/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 208  DFF  /regbank_inst/msg_reg_reg[4]
+  (R) + 156  DFF  /regbank_inst_msg_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3083 MUX  /regbank_inst/U$6/U$5
+  (R) + 6793 OR   /g35713__5107/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 209  DFF  /regbank_inst/msg_reg_reg[3]
+  (R) + 155  DFF  /regbank_inst_msg_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3082 MUX  /regbank_inst/U$6/U$4
+  (R) + 6797 OR   /g35714__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 210  DFF  /regbank_inst/msg_reg_reg[2]
+  (R) + 154  DFF  /regbank_inst_msg_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3081 MUX  /regbank_inst/U$6/U$3
+  (R) + 6801 OR   /g35715__4319/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 211  DFF  /regbank_inst/msg_reg_reg[1]
+  (R) + 153  DFF  /regbank_inst_msg_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3080 MUX  /regbank_inst/U$6/U$2
+  (R) + 6805 OR   /g35716__8428/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 212  DFF  /regbank_inst/msg_reg_reg[0]
+  (R) + 152  DFF  /regbank_inst_msg_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3079 MUX  /regbank_inst/U$6/U$1
+  (R) + 6809 OR   /g35717__5526/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 215  DFF  /regbank_inst/status_done_reg_reg
+  (R) + 215  DFF  /regbank_inst_status_done_reg_reg/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7758 DC   /regbank_inst/status_done_reg_reg
+  (R) + 8575 DC   /regbank_inst_status_done_reg_reg/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 216  DFF  /regbank_inst/status_error_reg_reg
+  (R) + 216  DFF  /regbank_inst_status_error_reg_reg/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7759 DC   /regbank_inst/status_error_reg_reg
+  (R) + 8576 DC   /regbank_inst_status_error_reg_reg/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 220  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[6]
+  (R) + 780  DFF  /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3199 MUX  /rsa_wrapper_inst/rsa_wrapper_control_inst/U$32/U$7
+  (R) + 6902 NOR  /g35742__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 221  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[5]
+  (R) + 723  DFF  /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3198 MUX  /rsa_wrapper_inst/rsa_wrapper_control_inst/U$32/U$6
+  (R) + 2659 AND  /g35783__6131/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 223  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[3]
+  (R) + 722  DFF  /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 3196 MUX  /rsa_wrapper_inst/rsa_wrapper_control_inst/U$32/U$4
+  (R) + 2664 AND  /g35782__7098/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 225  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[1]
+  (R) + 721  DFF  /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7760 DC   /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[1]
+  (R) + 8577 DC   /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[1]/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 226  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[0]
+  (R) + 779  DFF  /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7761 DC   /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[0]
+  (R) + 8578 DC   /rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[0]/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 662  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[31]
+  (R) + 382  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7065 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$156
+  (R) + 3818 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[31]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 663  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[30]
+  (R) + 381  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7061 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$151
+  (R) + 3811 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[30]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 664  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[29]
+  (R) + 380  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7057 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$146
+  (R) + 3804 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[29]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 665  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[28]
+  (R) + 379  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7053 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$141
+  (R) + 3797 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[28]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 666  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[27]
+  (R) + 378  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7049 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$136
+  (R) + 3790 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[27]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 667  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[26]
+  (R) + 377  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7045 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$131
+  (R) + 3783 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[26]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 668  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[25]
+  (R) + 376  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7041 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$126
+  (R) + 3776 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[25]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 669  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[24]
+  (R) + 375  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7037 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$121
+  (R) + 3769 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[24]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 670  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[23]
+  (R) + 374  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7033 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$116
+  (R) + 3762 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[23]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 671  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[22]
+  (R) + 373  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7029 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$111
+  (R) + 3755 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[22]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 672  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[21]
+  (R) + 372  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7025 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$106
+  (R) + 3748 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[21]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 673  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[20]
+  (R) + 371  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7021 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$101
+  (R) + 3741 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[20]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 674  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[19]
+  (R) + 370  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7017 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$96
+  (R) + 3734 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[19]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 675  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[18]
+  (R) + 369  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7013 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$91
+  (R) + 3727 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[18]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 676  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[17]
+  (R) + 368  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7009 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$86
+  (R) + 3720 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[17]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 677  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[16]
+  (R) + 367  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7005 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$81
+  (R) + 3713 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[16]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 678  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[15]
+  (R) + 366  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7001 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$76
+  (R) + 3706 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[15]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 679  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[14]
+  (R) + 365  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6997 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$71
+  (R) + 3699 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[14]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 680  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[13]
+  (R) + 364  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6993 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$66
+  (R) + 3692 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[13]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 681  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[12]
+  (R) + 363  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6989 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$61
+  (R) + 3685 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[12]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 682  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[11]
+  (R) + 362  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6985 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$56
+  (R) + 3678 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[11]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 683  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[10]
+  (R) + 361  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6981 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$51
+  (R) + 3671 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[10]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 684  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[9]
+  (R) + 360  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6977 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$46
+  (R) + 3664 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[9]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 685  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[8]
+  (R) + 359  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6973 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$41
+  (R) + 3657 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[8]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 686  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[7]
+  (R) + 358  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6969 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$36
+  (R) + 3650 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[7]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 687  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[6]
+  (R) + 357  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6965 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$31
+  (R) + 3643 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[6]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 688  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[5]
+  (R) + 356  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6961 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$26
+  (R) + 3636 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[5]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 689  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[4]
+  (R) + 355  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6957 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$21
+  (R) + 3629 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[4]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 690  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[3]
+  (R) + 354  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6953 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$16
+  (R) + 3622 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[3]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 691  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[2]
+  (R) + 353  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6949 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$11
+  (R) + 3615 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[2]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 692  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[1]
+  (R) + 352  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6945 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$6
+  (R) + 3608 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[1]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 693  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/x_reg_reg[0]
+  (R) + 351  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 6941 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$38/U$1
+  (R) + 3601 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_x_reg_reg[0]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 694  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[31]
+  (R) + 313  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7168 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$125
+  (R) + 3424 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[31]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 695  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[30]
+  (R) + 312  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7165 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$121
+  (R) + 3418 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[30]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 696  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[29]
+  (R) + 311  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7162 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$117
+  (R) + 3412 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[29]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 697  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[28]
+  (R) + 310  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7159 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$113
+  (R) + 3406 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[28]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 698  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[27]
+  (R) + 309  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7156 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$109
+  (R) + 3400 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[27]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 699  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[26]
+  (R) + 308  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7153 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$105
+  (R) + 3394 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[26]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 700  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[25]
+  (R) + 307  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7150 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$101
+  (R) + 3388 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[25]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 701  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[24]
+  (R) + 306  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7147 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$97
+  (R) + 3382 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[24]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 702  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[23]
+  (R) + 305  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7144 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$93
+  (R) + 3376 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[23]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 703  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[22]
+  (R) + 304  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7141 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$89
+  (R) + 3370 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[22]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 704  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[21]
+  (R) + 303  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7138 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$85
+  (R) + 3364 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[21]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 705  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[20]
+  (R) + 302  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7135 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$81
+  (R) + 3358 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[20]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 706  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[19]
+  (R) + 301  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7132 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$77
+  (R) + 3352 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[19]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 707  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[18]
+  (R) + 300  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7129 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$73
+  (R) + 3346 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[18]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 708  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[17]
+  (R) + 299  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7126 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$69
+  (R) + 3340 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[17]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 709  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[16]
+  (R) + 298  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7123 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$65
+  (R) + 3334 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[16]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 710  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[15]
+  (R) + 297  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7120 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$61
+  (R) + 3328 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[15]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 711  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[14]
+  (R) + 296  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7117 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$57
+  (R) + 3322 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[14]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 712  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[13]
+  (R) + 295  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7114 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$53
+  (R) + 3316 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[13]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 713  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[12]
+  (R) + 294  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7111 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$49
+  (R) + 3310 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[12]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 714  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[11]
+  (R) + 293  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7108 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$45
+  (R) + 3304 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[11]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 715  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[10]
+  (R) + 292  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7105 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$41
+  (R) + 3298 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[10]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 716  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[9]
+  (R) + 291  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7102 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$37
+  (R) + 3292 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[9]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 717  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[8]
+  (R) + 290  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7099 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$33
+  (R) + 3286 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[8]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 718  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[7]
+  (R) + 289  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7096 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$29
+  (R) + 3280 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[7]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 719  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[6]
+  (R) + 288  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7093 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$25
+  (R) + 3274 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[6]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 720  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[5]
+  (R) + 287  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7090 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$21
+  (R) + 3268 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[5]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 721  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[4]
+  (R) + 286  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7087 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$17
+  (R) + 3262 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[4]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 722  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[3]
+  (R) + 285  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7084 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$13
+  (R) + 3256 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[3]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 723  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[2]
+  (R) + 284  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7081 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$9
+  (R) + 3250 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[2]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 724  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[1]
+  (R) + 283  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7078 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$5
+  (R) + 3244 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[1]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 725  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/m_reg_reg[0]
+  (R) + 282  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7075 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$43/U$1
+  (R) + 3238 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_m_reg_reg[0]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 726  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[31]
+  (R) + 280  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7587 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$156
+  (R) + 3219 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[31]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 727  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[30]
+  (R) + 279  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7574 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$151
+  (R) + 3205 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[30]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 728  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[29]
+  (R) + 278  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7561 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$146
+  (R) + 3187 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[29]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 729  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[28]
+  (R) + 277  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7548 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$141
+  (R) + 3169 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[28]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 730  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[27]
+  (R) + 276  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7535 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$136
+  (R) + 3151 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[27]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 731  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[26]
+  (R) + 275  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7522 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$131
+  (R) + 3133 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[26]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 732  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[25]
+  (R) + 274  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7509 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$126
+  (R) + 3115 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[25]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 733  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[24]
+  (R) + 273  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7496 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$121
+  (R) + 3097 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[24]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 734  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[23]
+  (R) + 272  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7483 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$116
+  (R) + 3079 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[23]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 735  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[22]
+  (R) + 271  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7470 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$111
+  (R) + 3061 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[22]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 736  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[21]
+  (R) + 270  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7457 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$106
+  (R) + 3043 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[21]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 737  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[20]
+  (R) + 269  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7444 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$101
+  (R) + 3025 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[20]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 738  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[19]
+  (R) + 268  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7431 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$96
+  (R) + 3007 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[19]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 739  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[18]
+  (R) + 267  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7418 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$91
+  (R) + 2989 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[18]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 740  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[17]
+  (R) + 266  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7405 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$86
+  (R) + 2971 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[17]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 741  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[16]
+  (R) + 265  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7392 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$81
+  (R) + 2953 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[16]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 742  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[15]
+  (R) + 264  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7379 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$76
+  (R) + 2935 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[15]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 743  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[14]
+  (R) + 263  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7366 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$71
+  (R) + 2917 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[14]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 744  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[13]
+  (R) + 262  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7353 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$66
+  (R) + 2899 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[13]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 745  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[12]
+  (R) + 261  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7340 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$61
+  (R) + 2881 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[12]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 746  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[11]
+  (R) + 260  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7327 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$56
+  (R) + 2863 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[11]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 747  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[10]
+  (R) + 259  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7314 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$51
+  (R) + 2845 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[10]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 748  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[9]
+  (R) + 258  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7301 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$46
+  (R) + 2827 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[9]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 749  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[8]
+  (R) + 257  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7288 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$41
+  (R) + 2809 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[8]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 750  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[7]
+  (R) + 256  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7275 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$36
+  (R) + 2791 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[7]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 751  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[6]
+  (R) + 255  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7262 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$31
+  (R) + 2773 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[6]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 752  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[5]
+  (R) + 254  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7249 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$26
+  (R) + 2755 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[5]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 753  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[4]
+  (R) + 253  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7236 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$21
+  (R) + 2737 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[4]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 754  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[3]
+  (R) + 252  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7223 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$16
+  (R) + 2719 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[3]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 755  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[2]
+  (R) + 251  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7210 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$11
+  (R) + 2701 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[2]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 756  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[1]
+  (R) + 250  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7198 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$6
+  (R) + 2679 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[1]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 757  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/e_reg_reg[0]
+  (R) + 724  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7187 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$55/U$1
+  (R) + 8427 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[0]/U$4
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 758  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[31]
+  (R) + 345  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[31]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7691 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$94
+  (R) + 3587 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[31]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 759  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[30]
+  (R) + 344  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[30]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7688 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$91
+  (R) + 3582 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[30]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 760  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[29]
+  (R) + 343  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[29]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7685 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$88
+  (R) + 3577 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[29]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 761  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[28]
+  (R) + 342  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[28]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7682 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$85
+  (R) + 3572 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[28]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 762  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[27]
+  (R) + 341  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[27]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7679 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$82
+  (R) + 3567 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[27]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 763  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[26]
+  (R) + 340  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[26]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7676 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$79
+  (R) + 3562 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[26]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 764  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[25]
+  (R) + 339  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[25]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7673 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$76
+  (R) + 3557 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[25]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 765  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[24]
+  (R) + 338  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[24]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7670 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$73
+  (R) + 3552 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[24]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 766  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[23]
+  (R) + 337  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[23]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7667 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$70
+  (R) + 3547 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[23]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 767  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[22]
+  (R) + 336  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[22]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7664 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$67
+  (R) + 3542 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[22]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 768  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[21]
+  (R) + 335  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[21]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7661 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$64
+  (R) + 3537 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[21]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 769  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[20]
+  (R) + 334  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[20]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7658 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$61
+  (R) + 3532 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[20]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 770  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[19]
+  (R) + 333  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[19]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7655 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$58
+  (R) + 3527 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[19]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 771  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[18]
+  (R) + 332  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[18]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7652 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$55
+  (R) + 3522 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[18]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 772  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[17]
+  (R) + 331  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[17]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7649 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$52
+  (R) + 3517 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[17]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 773  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[16]
+  (R) + 330  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[16]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7646 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$49
+  (R) + 3512 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[16]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 774  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[15]
+  (R) + 329  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[15]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7643 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$46
+  (R) + 3507 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[15]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 775  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[14]
+  (R) + 328  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[14]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7640 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$43
+  (R) + 3502 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[14]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 776  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[13]
+  (R) + 327  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[13]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7637 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$40
+  (R) + 3497 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[13]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 777  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[12]
+  (R) + 326  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[12]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7634 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$37
+  (R) + 3492 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[12]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 778  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[11]
+  (R) + 325  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[11]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7631 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$34
+  (R) + 3487 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[11]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 779  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[10]
+  (R) + 324  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[10]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7628 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$31
+  (R) + 3482 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[10]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 780  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[9]
+  (R) + 323  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[9]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7625 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$28
+  (R) + 3477 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[9]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 781  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[8]
+  (R) + 322  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[8]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7622 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$25
+  (R) + 3472 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[8]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 782  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[7]
+  (R) + 321  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[7]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7619 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$22
+  (R) + 3467 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[7]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 783  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[6]
+  (R) + 320  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[6]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7616 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$19
+  (R) + 3462 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[6]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 784  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[5]
+  (R) + 319  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[5]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7613 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$16
+  (R) + 3457 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[5]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 785  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[4]
+  (R) + 318  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[4]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7610 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$13
+  (R) + 3452 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[4]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 786  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[3]
+  (R) + 317  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7607 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$10
+  (R) + 3447 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[3]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 787  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[2]
+  (R) + 316  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7604 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$7
+  (R) + 3442 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[2]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 788  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[1]
+  (R) + 315  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7601 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$4
+  (R) + 3437 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[1]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 789  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/n_reg_reg[0]
+  (R) + 314  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7598 OR   /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$64/U$1
+  (R) + 3432 OR   /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_n_reg_reg[0]/U$3
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 790  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/state_reg_reg[3]
+  (R) + 350  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_state_reg_reg[3]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7756 MUX  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$78/U$4
+  (R) + 6189 NOR  /g34839__6783/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 791  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/state_reg_reg[2]
+  (R) + 349  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_state_reg_reg[2]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7749 MUX  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$78/U$3
+  (R) + 6171 NOR  /g34830__2398/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 792  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/state_reg_reg[1]
+  (R) + 348  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_state_reg_reg[1]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7736 MUX  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$78/U$2
+  (R) + 6182 NOR  /g34833__6260/U$1
+
+Compared points are: Non-equivalent (reachable)
+  (G) + 793  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/state_reg_reg[0]
+  (R) + 347  DFF  /rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_state_reg_reg[0]/U$1
+Due to these Non-equivalent points:
+[DATA]
+  (G) + 7720 MUX  /rsa_wrapper_inst/rsa_core_inst/rsa_core_ctrl_blk/U$78/U$1
+  (R) + 6160 NOR  /g34825__7410/U$1
+
+237 Non-equivalent point(s) reported
+237 compared point(s) reported
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           33     470       503     
+--------------------------------------------------------------------------------
+Non-equivalent       2      235       237     
+================================================================================
+0
+// Command: report_unmapped_points > [file join [pwd] /reports/lec/lec_unmapped.rpt]
+// Warning: Cannot open output file /reports/lec/lec_unmapped.rpt to write
+Unmapped point (not-mapped):
+  (G)   219  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/gap_counter_reg[0]
+Unmapped point (not-mapped):
+  (G)   222  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[4]
+Unmapped point (not-mapped):
+  (G)   224  DFF  /rsa_wrapper_inst/rsa_wrapper_control_inst/c_state_reg[2]
+Unmapped point (unreachable: all paths to outputs are blocked):
+  (G)   429  DFF  /rsa_wrapper_inst/rsa_core_inst/rsa_core_mod_blk/mod_err_ff_reg
+
+4 unmapped points reported
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF       Total   
+--------------------------------------------------------------------------------
+Unreachable       1         1       
+Not-mapped        3         3       
+================================================================================
+0
+// Command: exit

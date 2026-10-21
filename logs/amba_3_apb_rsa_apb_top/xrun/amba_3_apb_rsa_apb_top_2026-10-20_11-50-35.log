@@ -1,0 +1,79 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 11:50:35 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top apb_rsa_tb
+	-access +rwc
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_11-50-35
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_11-50-35.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-50-35.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_11-50-35.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/rsa_core_32.sv
+	module worklib.rsa_core_mult:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core_mod:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core_ctrl:sv
+		errors: 0, warnings: 0
+	module worklib.rsa_core:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	module worklib.amba_3_apb_adrec:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	module worklib.amba_3_apb_data_o_mux:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	module worklib.amba_3_apb_data_io_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	module worklib.amba_3_apb_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	module worklib.amba_3_apb_regbank:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	module worklib.amba_3_apb_reset:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	module worklib.amba_3_apb_rsa_wrapper_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	module worklib.amba_3_apb_rsa_wrapper_data:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	module worklib.amba_3_apb_rsa_wrapper_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	module worklib.amba_3_apb_rsa_apb_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+        end
+          |
+xmvlog: *E,EXPSMC (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,152|10): expecting a semicolon (';') [10.2.2][14(IEEE)].
+end
+   |
+xmvlog: *E,EOFMOD (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,238|3): EOF (end of file) found while parsing module 'apb_rsa_tb'.
+	module worklib.apb_rsa_tb:sv
+		errors: 2, warnings: 0
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 11:50:35 -03  (total: 00:00:00)

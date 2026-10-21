@@ -1,0 +1,33 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 15:25:54 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top testbench
+	-access +rwc
+	-sdf_cmd_file /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-25-54.sdf.cmd
+	-sdf_verbose
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_15-25-54
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-25-54.log
+	-v /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+	/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/export/amba_3_apb_rsa_apb_top.v
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-25-54.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-25-54.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+    logic pclk;
+        |
+xmvlog: *E,ILLPRI (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,32|8): illegal expression primary [4.2(IEEE)].
+	module worklib.testbench:sv
+		errors: 1, warnings: 0
+xmvlog: *W,LIBNOU: Library "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v" given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 15:25:54 -03  (total: 00:00:00)

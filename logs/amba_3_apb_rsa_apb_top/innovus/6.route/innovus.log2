@@ -1,0 +1,61 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+Date:		Tue Oct 20 10:26:39 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:26:39.048042] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/6.route/innovus_temp_36567_954e0105-ded6-49de-8938-d02a4e729f73_rock8_aluno_8sdZrc.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+@file 1: # Project:
+@file 2: set project_name "amba_3_apb_rsa_apb_top"
+@file 3: set project_root $::env(PROJECT_ROOT)
+@file 4: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+@file 5: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 6:
+@file 7: file mkdir $output_dir
+@file 8:
+@file 9: # Automatic Via Generation:
+@@file 10: get_common_ui_map setGenerateViaMode
+setGenerateViaMode             set_db
+-auto                          add_route_vias_auto
+-ndr_only                      add_route_vias_ndr_only
+-reset                         reset_db -category add_route_vias
+@file 11:
+@file 12: # Power and Ground:
+@@file 13: set_db init_power_nets {VDD}
+@@file 14: set_db init_ground_nets {VSS}
+@file 15:
+@file 16: # MMMC:
+@file 17: read_mmmc $::env(MMMC_FILE)
+**ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' line 17: can't read "::env(MMMC_FILE)": no such element in array.
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+**ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' was returned and script processing was stopped. Review the following error in '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl' then restart.
+**ERROR: (IMPSYT-6693):	Error message: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl: can't read "::env(MMMC_FILE)": no such element in array.
+@innovus 2> clear
+
+[3J[H[2J@innovus 3> exit
+
+
+*** Memory Usage v#2 (Current mem = 1431.125M, initial mem = 661.535M) ***
+*** Message Summary: 0 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:12.0, real=0:01:22, mem=1431.1M) ---

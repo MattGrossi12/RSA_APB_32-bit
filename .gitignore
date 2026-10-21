@@ -4,6 +4,19 @@
 /reports/amba_3_apb_rsa_apb_top/verilator/
 /waveforms/amba_3_apb_rsa_apb_top/
 
+# Arquivos gerados pelas ferramentas de síntese e pós-síntese.
+*.lib
+*.var
+*.history
+*.history.*
+*.cmd
+*.cmd[0-9]*
+*.ucm
+*.pak
+*.args
+*.ts
+*.do
+
 # Site gerado e ferramentas instaladas pelo workflow Pages.
 /_site/
 /.tools/

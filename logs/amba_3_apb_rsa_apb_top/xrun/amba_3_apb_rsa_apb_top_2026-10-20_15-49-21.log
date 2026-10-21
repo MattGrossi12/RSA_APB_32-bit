@@ -1,0 +1,41 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 20, 2026 at 15:49:21 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top testbench
+	-access +rwc
+	-sdf_cmd_file /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-49-21.sdf.cmd
+	-sdf_verbose
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-20_15-49-21
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-49-21.log
+	-v /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+	/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/export/amba_3_apb_rsa_apb_top.v
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-49-21.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-20_15-49-21.vcd
+
+Recompiling... reason: dependent module worklib.testbench:sv (VST) is newer than expected.
+	expected: Tue Oct 20 15:34:50 2026
+	actual:   Tue Oct 20 15:47:08 2026
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+        compare_results(read_data, expected_result);
+                      |
+xmvlog: *W,FAAOP1 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,195|22): task or function call does not specify all formal output arguments [10.2.2][10.3(IEEE)].
+        output logic error
+                         |
+xmvlog: *W,FAAOP2 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,143|25): Formal output argument 'error' is absent in the task or function call identified by the previous error message [10.2.2][10.3(IEEE)].
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+        .DATA_WIDTH(DATA_WIDTH),
+                             |
+xmelab: *E,CUTMIP (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,53|29): Too many module instance parameter assignments (definition in file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/export/amba_3_apb_rsa_apb_top.v, line 10).
+		Caching library 'worklib' ....... Done
+		Caching library 'typical' ....... Done
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 1), exiting.
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 20, 2026 at 15:49:21 -03  (total: 00:00:00)

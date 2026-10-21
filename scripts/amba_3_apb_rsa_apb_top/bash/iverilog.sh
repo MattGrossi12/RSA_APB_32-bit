@@ -14,6 +14,7 @@ done
 BUILD_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/iverilog"
 WAVE_DIR="$PROJECT_ROOT/waveforms/amba_3_apb_rsa_apb_top"
 mkdir -p -- "$BUILD_DIR" "$WAVE_DIR"
+cd -- "$BUILD_DIR"
 
 RTL_DIR="$PROJECT_ROOT/src/amba_3_apb"
 SOURCES=(

@@ -6,7 +6,7 @@ module testbench;
     localparam integer CLOCK_PERIOD_NS = 10;
     localparam integer RESET_WAIT_CYCLES = 5;
     localparam integer APB_TIMEOUT_CYCLES = 20;
-    localparam integer TEST_ROUNDS = 10;
+    localparam integer TEST_ROUNDS = 30;
     localparam integer RSA_ROUNDS = 10;
     localparam integer RSA_TIMEOUT_POLLS = 10000;
     localparam integer EXPECTED_CHECKS = 8 + TEST_ROUNDS * 8 + RSA_ROUNDS * 15;
@@ -41,12 +41,28 @@ module testbench;
     integer errors = 0;
     string vcd_path;
 
+/*
     amba_3_apb_rsa_apb_top #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
         // rsa_core_ctrl waits for LOAD to fall between MSG, EXP and MOD.
         .LOAD_GAP(1)
     ) dut (
+        .pclk_i(pclk_i),
+        .presetn_i(presetn_i),
+        .psel_i(psel_i),
+        .penable_i(penable_i),
+        .pwrite_i(pwrite_i),
+        .paddr_i(paddr_i),
+        .pwdata_i(pwdata_i),
+        .prdata_o(prdata_o),
+        .pready_o(pready_o),
+        .pslverr_o(pslverr_o),
+        .irq_o(irq_o)
+    );
+*/
+
+    amba_3_apb_rsa_apb_top dut (
         .pclk_i(pclk_i),
         .presetn_i(presetn_i),
         .psel_i(psel_i),

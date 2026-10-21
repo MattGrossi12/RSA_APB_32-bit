@@ -11,8 +11,7 @@
     return node;
   };
   const normalize = (text) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-  let selectedModule = data.modules[0];
-  let renderSequence = 0;
+  const moduleDocuments = [...data.modules, ...(data.supplementalDiagrams || [])];
   let selectedExcerpt = "reset";
   let sortKind = null;
   let sortDirection = -1;
@@ -25,56 +24,106 @@
       return mermaid;
     }).catch(() => null);
 
-  async function renderDiagram(module) {
-    const sequence = ++renderSequence;
-    $("diagram").replaceChildren(element("p", "Carregando diagrama…"));
-    $("expand-diagram").disabled = true;
-    const mermaid = await mermaidReady;
-    if (sequence !== renderSequence) return;
-    if (!mermaid) {
-      $("diagram").replaceChildren(element("p", "Não foi possível carregar o diagrama. O código Mermaid está abaixo e no README."));
-      return;
-    }
-    try {
-      const { svg } = await mermaid.render(`architecture-${sequence}`, module.diagrams[0]);
-      if (sequence !== renderSequence) return;
-      // Mermaid renders checked project definitions under securityLevel=strict.
-      $("diagram").innerHTML = svg;
-      $("diagram").querySelector("svg").setAttribute("aria-label", `Diagrama de ${module.name}`);
-      $("expand-diagram").disabled = false;
-    } catch {
-      if (sequence === renderSequence) $("diagram").replaceChildren(element("p", "Não foi possível mostrar o diagrama. O código Mermaid está abaixo."));
-    }
+  function createDiagrams(module) {
+    return module.diagrams.map((source, index) => {
+      const title = module.diagrams.length > 1 ? `${module.label} · diagrama ${index + 1}` : module.label;
+      const article = element("article", undefined, "module-diagram");
+      const header = element("div", undefined, "diagram-header");
+      const heading = element("h4", module.diagrams.length > 1 ? `Diagrama ${index + 1}` : "Diagrama");
+      const expand = element("button", "Ampliar ↗", "text-button expand-diagram");
+      expand.type = "button";
+      expand.disabled = true;
+      expand.setAttribute("aria-label", `Ampliar ${title}`);
+      const canvas = element("div", undefined, "diagram-canvas");
+      canvas.setAttribute("aria-live", "polite");
+      canvas.replaceChildren(element("p", "Carregando diagrama…"));
+      const details = element("details", undefined, "diagram-source");
+      const code = element("code", source);
+      const pre = element("pre");
+      pre.append(code);
+      details.append(element("summary", "Código Mermaid"), pre);
+      header.append(heading, expand);
+      article.append(header, canvas, details);
+      expand.addEventListener("click", () => {
+        const svg = canvas.querySelector("svg");
+        if (svg) openViewer(title, svg.cloneNode(true), expand);
+      });
+      return { article, canvas, expand, details, source, title };
+    });
   }
 
-  function selectModule(module) {
-    selectedModule = module;
-    $("module-group").textContent = module.group;
-    $("module-title").textContent = module.label;
-    $("module-name").textContent = module.name;
-    $("module-summary").textContent = module.summary;
-    $("module-highlights").replaceChildren(...module.highlights.map((text) => element("li", text)));
-    $("module-readme").href = module.documentation;
-    $("module-source").href = `${data.meta.repository}/blob/${data.meta.commit}/${module.source}`;
-    $("diagram-source").textContent = module.diagrams[0];
-    document.querySelectorAll(".module-item").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.module === module.id)));
-    renderDiagram(module);
+  async function renderDocumentation() {
+    const diagrams = [];
+    $("module-diagrams").replaceChildren(...moduleDocuments.map((module) => {
+      const article = element("article", undefined, "module-detail module-card");
+      article.id = `module-${module.id}`;
+      article.setAttribute("aria-labelledby", `${article.id}-title`);
+      const meta = element("div", undefined, "module-meta");
+      meta.append(element("span", module.group || "Visão geral", "pill"));
+      const readme = element("a", "README ↗", "subtle-link");
+      readme.href = module.documentation;
+      meta.append(readme);
+      const heading = element("h3", module.label);
+      heading.id = `${article.id}-title`;
+      article.append(meta, heading);
+      if (module.name) article.append(element("code", module.name, "module-code"));
+      if (module.summary) article.append(element("p", module.summary));
+      if (module.highlights?.length) {
+        const highlights = element("ul", undefined, "highlights");
+        highlights.append(...module.highlights.map((text) => element("li", text)));
+        article.append(highlights);
+      }
+      const moduleDiagrams = createDiagrams(module);
+      const diagramList = element("div", undefined, "module-diagram-list");
+      diagramList.append(...moduleDiagrams.map(({ article: diagram }) => diagram));
+      diagrams.push(...moduleDiagrams);
+      article.append(diagramList);
+      if (module.source) {
+        const source = element("a", "Arquivo SystemVerilog ↗", "subtle-link source-link");
+        source.href = `${data.meta.repository}/blob/${data.meta.commit}/${module.source}`;
+        article.append(source);
+      }
+      return article;
+    }));
+    const mermaid = await mermaidReady;
+    if (!mermaid) {
+      diagrams.forEach(({ canvas, details }) => {
+        canvas.replaceChildren(element("p", "Não foi possível carregar a biblioteca de diagramas. A definição Mermaid está disponível abaixo e no README do módulo."));
+        details.open = true;
+      });
+      return;
+    }
+    for (const [index, diagram] of diagrams.entries()) {
+      try {
+        const { svg } = await mermaid.render(`architecture-${index}`, diagram.source);
+        // Mermaid renders checked project definitions under securityLevel=strict.
+        diagram.canvas.innerHTML = svg;
+        const rendered = diagram.canvas.querySelector("svg");
+        rendered.setAttribute("role", "img");
+        rendered.setAttribute("aria-label", `Diagrama de ${diagram.title}`);
+        diagram.expand.disabled = false;
+      } catch {
+        diagram.canvas.replaceChildren(element("p", "Não foi possível renderizar o diagrama. A definição Mermaid está disponível abaixo."));
+        diagram.details.open = true;
+      }
+    }
   }
 
   function renderModules() {
     const query = normalize($("module-search").value);
-    const visible = data.modules.filter((module) => normalize(`${module.name} ${module.label} ${module.group} ${module.summary}`).includes(query));
+    const visible = moduleDocuments.filter((module) => normalize([module.name, module.label, module.group, module.summary, ...(module.highlights || [])].filter(Boolean).join(" ")).includes(query));
+    moduleDocuments.forEach((module) => {
+      const article = $(`module-${module.id}`);
+      if (article) article.hidden = !visible.includes(module);
+    });
     $("module-list").replaceChildren(...visible.map((module) => {
-      const button = element("button", undefined, "module-item");
-      button.type = "button";
-      button.dataset.module = module.id;
-      button.setAttribute("aria-pressed", String(module.id === selectedModule.id));
-      button.append(element("span", String(data.modules.indexOf(module) + 1).padStart(2, "0"), "module-index"), element("span", module.label));
-      button.addEventListener("click", () => selectModule(module));
-      return button;
+      const link = element("a", undefined, "module-item");
+      link.href = `#module-${module.id}`;
+      link.append(element("span", String(moduleDocuments.indexOf(module) + 1).padStart(2, "0"), "module-index"), element("span", module.label));
+      return link;
     }));
     if (!visible.length) $("module-list").append(element("p", "Nenhum módulo encontrado.", "no-results"));
-    $("module-count").textContent = `${visible.length} de ${data.modules.length} módulos`;
+    $("module-count").textContent = `${visible.length} de ${moduleDocuments.length} blocos e visões gerais`;
   }
 
   function renderLogs() {
@@ -180,16 +229,40 @@
     button.closest("th").setAttribute("aria-sort", sortDirection === -1 ? "descending" : "ascending");
     renderCoverage();
   }));
-  function openDiagram(container, title) {
-    const svg = $(container).querySelector("svg");
-    if (!svg) return;
+  let viewerTrigger = null;
+  function openViewer(title, content, trigger, image = false) {
+    viewerTrigger = trigger || document.activeElement;
     $("dialog-title").textContent = title;
-    $("dialog-diagram").replaceChildren(svg.cloneNode(true));
+    $("dialog-diagram").replaceChildren(content);
+    $("diagram-dialog").classList.toggle("image-viewer", image);
     $("diagram-dialog").showModal();
+    $("close-dialog").focus({ preventScroll: true });
   }
-  $("expand-diagram").addEventListener("click", () => openDiagram("diagram", selectedModule.label));
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a.project-image-link");
+    if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    if (typeof $("diagram-dialog").showModal !== "function") return;
+    event.preventDefault();
+    const thumbnail = link.querySelector("img");
+    const title = link.dataset.imageTitle || thumbnail?.alt || "Imagem do projeto";
+    const content = element("div", undefined, "dialog-image-content");
+    const image = element("img", undefined, "dialog-image");
+    image.src = link.href;
+    image.alt = thumbnail?.alt || title;
+    image.decoding = "async";
+    const original = element("a", "Abrir imagem original ↗", "dialog-original-link");
+    original.href = link.href;
+    original.target = "_blank";
+    original.rel = "noopener noreferrer";
+    content.append(image, original);
+    openViewer(title, content, link, true);
+  });
   $("close-dialog").addEventListener("click", () => $("diagram-dialog").close());
   $("diagram-dialog").addEventListener("click", (event) => { if (event.target === $("diagram-dialog")) $("diagram-dialog").close(); });
+  $("diagram-dialog").addEventListener("close", () => {
+    if (viewerTrigger?.isConnected) viewerTrigger.focus({ preventScroll: true });
+    viewerTrigger = null;
+  });
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => { if (entry.isIntersecting) document.querySelectorAll(".side-nav a").forEach((link) => link.classList.toggle("active", link.hash === `#${entry.target.id}`)); });
   }, { rootMargin: "-10% 0px -65% 0px" });
@@ -200,8 +273,8 @@
     return link;
   }));
   $("scripts-folder").href = `${data.meta.repository}/tree/${data.meta.commit}/scripts`;
+  renderDocumentation();
   renderModules();
-  selectModule(selectedModule);
   renderLogs();
   renderCoverage();
 })();

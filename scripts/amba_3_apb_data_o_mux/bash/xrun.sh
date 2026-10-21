@@ -9,6 +9,7 @@ xrun -gui -files ../tcl/legacy/run.tcl -log ../../../logs/amba_3_apb_data_o_mux/
 
 \
 -64bit \
+    -timescale 1ns/1ps \
 -gui \
 -l ../../../logs/amba_3_apb_data_o_mux/xrun/${RUN}.log \
 

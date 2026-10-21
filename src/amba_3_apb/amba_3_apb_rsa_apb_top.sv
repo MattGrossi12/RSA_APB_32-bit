@@ -26,6 +26,10 @@ module amba_3_apb_rsa_apb_top #(
     output logic             irq_o
 );
 
+logic [1:0] ctrl_pwdata_w;
+
+assign ctrl_pwdata_w = pwdata_i[1:0];
+
 // Reduced Address and Validation:
 logic [3:0]     oaddr_w;
 logic           addr_valid_w;
@@ -95,7 +99,7 @@ amba_3_apb_control #(
     .penable_i       (penable_i),
     .pwrite_i        (pwrite_i),
     .paddr_i         (oaddr_w),
-    .pwdata_i        (pwdata_i),
+    .ctrl_pwdata_i   (ctrl_pwdata_w),
     .addr_valid_i    (addr_valid_w),
     .status_done_i   (status_done_w),
     .status_error_i  (status_error_w),
