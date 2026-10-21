@@ -114,8 +114,20 @@ def git(*args):
 
 
 def build(output):
+    images = [ROOT / f"images/img{number}.png" for number in range(1, 21)]
+    missing_images = [path.relative_to(ROOT).as_posix() for path in images if not path.is_file()]
+    if missing_images:
+        raise ValueError("Imagens da página ausentes: " + ", ".join(missing_images)
+                         + ". Confira os arquivos images/img1.png até images/img20.png antes do build.")
     output.mkdir(parents=True, exist_ok=True)
     shutil.copytree(ROOT / "site/assets", output / "assets", dirs_exist_ok=True)
+    image_output = output / "assets/images"
+    image_output.mkdir(parents=True, exist_ok=True)
+    for path in images:
+        # Some source files have a .png name but contain SVG. Serve them with
+        # the proper extension so GitHub Pages sends an image/svg+xml MIME type.
+        suffix = ".svg" if b"<svg" in path.read_bytes()[:2048].lower() else path.suffix
+        shutil.copyfile(path, image_output / path.with_suffix(suffix).name)
     for folder in ("reference", "artifacts"):
         (output / folder).mkdir(exist_ok=True)
 
@@ -129,6 +141,20 @@ def build(output):
         module["summary"] = module.get("summary") or plain_markdown(introduction[1])
         module["diagrams"] = [diagram.strip() for diagram in diagrams]
         module["documentation"] = "reference/" + Path(module["readme"]).with_suffix(".html").name
+
+    supplemental_diagrams = []
+    for identifier, label, source in (
+        ("project-overview", "Visão geral do projeto", "README.md"),
+        ("rsa-integration", "Integração do núcleo RSA", "src/rsa32/README_rsa_apb_top.md"),
+    ):
+        diagrams = re.findall(r"```mermaid\s*\n(.*?)```", read_required(ROOT / source), re.S)
+        if not diagrams:
+            raise ValueError(f"README sem diagrama Mermaid: {source}")
+        supplemental_diagrams.append({
+            "id": identifier, "label": label,
+            "documentation": "reference/" + Path(source).with_suffix(".html").name,
+            "diagrams": [diagram.strip() for diagram in diagrams],
+        })
 
     lcov, normalized_lcov = parse_lcov(read_required(REPORTS / "coverage.info"))
     for module in modules:
@@ -147,6 +173,11 @@ def build(output):
     if not (REPORTS / "html/index.html").is_file():
         raise ValueError("Relatório HTML ausente: instale genhtml e execute verilator.sh novamente.")
     shutil.copytree(REPORTS / "html", output / "coverage", dirs_exist_ok=True)
+    missing_reports = [file["report"] for file in lcov["files"]
+                       if not (output / file["report"]).is_file()]
+    if missing_reports:
+        raise ValueError("Relatório LCOV sem páginas anotadas: " + ", ".join(missing_reports)
+                         + ". Execute verilator.sh novamente para gerar o relatório completo.")
     apply_theme(output / "coverage")
     # genhtml stores its original command line; keep local machine paths out of the site.
     (output / "coverage/cmd_line").unlink(missing_ok=True)
@@ -176,7 +207,8 @@ def build(output):
                 "dirty": bool(git("status", "--porcelain", "--untracked-files=no")),
                 "generatedAt": datetime.now(timezone.utc).isoformat(),
                 "simulatedAt": datetime.fromtimestamp(log_path.stat().st_mtime, timezone.utc).isoformat()}
-    data = {"meta": metadata, "modules": modules, "simulations": simulations,
+    data = {"meta": metadata, "modules": modules, "supplementalDiagrams": supplemental_diagrams,
+            "simulations": simulations,
             "lcov": lcov, "native": native}
     serialized = json.dumps(data, ensure_ascii=False, indent=2).replace("<", "\\u003c")
     (output / "assets/data.js").write_text("window.PROJECT_DATA = " + serialized + ";\n", encoding="utf-8")

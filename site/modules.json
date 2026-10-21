@@ -7,10 +7,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_rsa_apb_top.md",
     "source": "src/amba_3_apb/amba_3_apb_rsa_apb_top.sv",
     "highlights": [
-      "Dados de 32 bits e endereços de 12 bits.",
-      "A bancada usa LOAD_GAP=1 para separar a carga dos operandos."
+      "Barramento APB de 32 bits, com endereçamento de 12 bits e oito registradores.",
+      "Clock comum à interface e ao núcleo, com reset interno de liberação sincronizada."
     ],
-    "summary": "Liga o barramento APB aos registradores e ao núcleo RSA. Reúne os blocos de leitura, escrita, reset e execução."
+    "summary": "O topo reúne a interface APB, o banco de registradores e o núcleo RSA em um periférico síncrono, configurado por registradores mapeados em memória. A execução aritmética é desacoplada dos acessos ao barramento, com acompanhamento por status e sinalização de interrupção."
   },
   {
     "id": "control",
@@ -20,10 +20,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_control.md",
     "source": "src/amba_3_apb/amba_3_apb_control.sv",
     "highlights": [
-      "PREADY fica em 1: os acessos não têm ciclos de espera.",
-      "Escritas em MSG, EXP e MOD são bloqueadas durante BUSY."
+      "PREADY constante em nível alto, sem ciclos de espera nos acessos APB.",
+      "Interrupção por nível, condicionada às flags DONE e ERROR e às respectivas máscaras em IER."
     ],
-    "summary": "Analisa cada acesso APB e habilita a escrita no registrador selecionado. Também gera PREADY, PSLVERR e IRQ."
+    "summary": "A validação dos acessos e a habilitação das escritas são realizadas por lógica combinacional, com atualização dos registradores restrita à fase ACCESS. O bloqueio de escritas nos operandos durante BUSY preserva os dados da operação em curso."
   },
   {
     "id": "data-io",
@@ -33,10 +33,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_data_io_top.md",
     "source": "src/amba_3_apb/amba_3_apb_data_io_top.sv",
     "highlights": [
-      "Instancia adrec para reduzir e validar o endereço.",
-      "Instancia data_o_mux e retorna zero nos endereços inválidos."
+      "Índice de registrador compartilhado pelo multiplexador de leitura e pelo controle APB.",
+      "Decodificação de endereço e multiplexação organizadas em módulos independentes."
     ],
-    "summary": "Reúne o redutor de endereço adrec e o multiplexador de leitura. Encaminha o índice ao controle APB e o dado do registrador a PRDATA."
+    "summary": "O caminho de leitura associa a decodificação do endereço à seleção dos registradores, sem estágios adicionais de armazenamento. A validação da faixa de endereços também condiciona PRDATA, que retorna zero para acessos fora do mapa implementado."
   },
   {
     "id": "adrec",
@@ -46,10 +46,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_adrec.md",
     "source": "src/amba_3_apb/amba_3_apb_adrec.sv",
     "highlights": [
-      "PADDR[5:2] gera o índice do registrador.",
-      "addr_valid_o aceita a faixa de 0x000 a 0x01F."
+      "Seleção de registrador definida por PADDR[5:2].",
+      "Faixa válida de 0x000 a 0x01F, verificada pelos bits superiores do endereço."
     ],
-    "summary": "Reduz o endereço APB e indica se ele está na faixa dos oito registradores. Fica dentro de data_io_top."
+    "summary": "A decodificação reduz o endereço APB ao índice de palavra dos oito registradores e verifica a faixa de 32 bytes ocupada pelo periférico. Os dois bits menos significativos não participam da seleção, de modo que os quatro endereços de cada palavra referenciam o mesmo registrador."
   },
   {
     "id": "read-mux",
@@ -59,10 +59,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_data_o_mux.md",
     "source": "src/amba_3_apb/amba_3_apb_data_o_mux.sv",
     "highlights": [
-      "Recebe o endereço reduzido e os dados dos registradores.",
-      "É combinacional: não usa clock nem guarda dados."
+      "Leitura dos operandos, do resultado, do status, das máscaras de interrupção e da identificação.",
+      "Ausência de registradores no caminho entre as entradas do multiplexador e sua saída."
     ],
-    "summary": "Escolhe qual valor do banco de registradores vai para PRDATA. A leitura de CTRL retorna zero."
+    "summary": "O multiplexador concentra os valores do banco de registradores no barramento de leitura APB por seleção combinacional. O acesso a CTRL retorna zero, coerente com a implementação de START e SRST como comandos sem armazenamento."
   },
   {
     "id": "regbank",
@@ -72,10 +72,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_regbank.md",
     "source": "src/amba_3_apb/amba_3_apb_regbank.sv",
     "highlights": [
-      "DONE e ERROR são limpos por escrita de 1, usando W1C.",
-      "SRST mantém os operandos, IER e RESULT."
+      "DONE e ERROR com limpeza por escrita de 1 (W1C), START ou SRST.",
+      "SRST tem prioridade sobre START e preserva operandos, máscaras de interrupção e resultado."
     ],
-    "summary": "Guarda MSG, EXP, MOD, RESULT e IER. Recebe os comandos START e SRST e mantém as flags DONE e ERROR."
+    "summary": "O banco de registradores concentra a configuração da operação e a retenção do resultado e dos eventos de conclusão e erro. As flags persistentes permitem o reconhecimento por software após o evento, enquanto BUSY acompanha diretamente o estado de execução do wrapper."
   },
   {
     "id": "reset",
@@ -85,10 +85,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_reset.md",
     "source": "src/amba_3_apb/amba_3_apb_reset.sv",
     "highlights": [
-      "LATENCY vale 2 por padrão.",
-      "A única saída é rsa_rst_o; o sinal sincronizado é interno."
+      "Latência de liberação configurável por LATENCY, com dois estágios na configuração padrão.",
+      "Reset interno ativo alto, mantido enquanto a sincronização não estiver concluída ou SRST estiver ativo."
     ],
-    "summary": "Gera o reset do núcleo a partir de PRESETn e do comando SRST. Após liberar PRESETn, espera os clocks do sincronizador antes de liberar o RSA."
+    "summary": "O circuito de reset combina a ativação assíncrona por PRESETn com a liberação sincronizada ao clock do periférico. O comando SRST atua diretamente sobre o reset interno do RSA, sem reinicializar a cadeia de sincronização do reset externo."
   },
   {
     "id": "wrapper",
@@ -98,10 +98,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_rsa_wrapper_top.md",
     "source": "src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv",
     "highlights": [
-      "Reúne a FSM, a seleção de dados e o núcleo.",
-      "LOAD_GAP define o intervalo entre as cargas."
+      "Carregamento na ordem MSG, EXP e MOD, com intervalos definidos por LOAD_GAP.",
+      "Resultado, conclusão e erro encaminhados diretamente do núcleo ao banco de registradores."
     ],
-    "summary": "Carrega MSG, EXP e MOD no núcleo RSA, nessa ordem. Depois espera a conclusão ou um erro e devolve os sinais ao banco de registradores."
+    "summary": "O wrapper adapta os três operandos armazenados na interface APB ao barramento de entrada compartilhado do núcleo RSA. A separação entre controle e caminho de dados concentra o sequenciamento das cargas na FSM e a seleção dos operandos em lógica combinacional."
   },
   {
     "id": "wrapper-control",
@@ -111,10 +111,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_rsa_wrapper_control.md",
     "source": "src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv",
     "highlights": [
-      "A FSM tem sete estados com codificação One-Hot.",
-      "O estado atual é enviado ao bloco de dados do wrapper."
+      "Sete estados com codificação One-Hot, incluindo dois estados de intervalo.",
+      "Retorno a IDLE por reset e recuperação para IDLE em codificações de estado não previstas."
     ],
-    "summary": "Controla a ordem de carga dos três operandos e o intervalo entre eles. Após a última carga, espera DONE ou ERROR para voltar a IDLE."
+    "summary": "A FSM estabelece a ordem de carregamento dos operandos e mantém o wrapper em espera durante a execução do núcleo. Os estados de intervalo permitem desativar a carga entre operandos quando LOAD_GAP está habilitado; em WAIT_DONE, a conclusão ou o erro provocam o retorno a IDLE."
   },
   {
     "id": "wrapper-data",
@@ -124,10 +124,10 @@
     "readme": "src/amba_3_apb/README_amba_3_apb_rsa_wrapper_data.md",
     "source": "src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv",
     "highlights": [
-      "Saídas: core_din, core_load e rsa_wp_busy.",
-      "Durante o reset, essas três saídas ficam em zero."
+      "Barramento compartilhado de entrada com seleção entre MSG, EXP e MOD.",
+      "Reset interno força a zero os dados, a habilitação de carga e a indicação BUSY."
     ],
-    "summary": "Escolhe o operando enviado ao núcleo de acordo com o estado da FSM. Também gera os sinais de carga e de ocupado."
+    "summary": "O caminho de dados converte o estado da FSM na seleção do operando e na habilitação de carga do núcleo, sem registrar uma cópia dos valores. BUSY permanece ativo durante as cargas, os intervalos e a espera pelo resultado, abrangendo toda a sequência comandada pelo wrapper."
   },
   {
     "id": "core",
@@ -137,9 +137,9 @@
     "readme": "src/rsa32/README_rsa_core.md",
     "source": "src/rsa32/rsa_core_32.sv",
     "highlights": [
-      "O multiplicador gera produtos de 64 bits.",
-      "A interface recebe os três operandos pelo mesmo barramento."
+      "Multiplicação por deslocamentos e somas, com produto intermediário de 64 bits.",
+      "Redução modular por comparação, subtração e deslocamento, com detecção de módulo nulo."
     ],
-    "summary": "Calcula MSG elevado a EXP, módulo MOD. Usa um bloco de controle, um multiplicador e um redutor modular."
+    "summary": "O núcleo realiza a exponenciação modular com uma arquitetura iterativa que encadeia multiplicação e redução modular sob controle de uma FSM. Os operandos de 32 bits compartilham a interface de entrada, cujo protocolo exige a desativação de core_load entre as cargas de mensagem, expoente e módulo."
   }
 ]
