@@ -1,24 +1,35 @@
 ////////////////////////////////////////////////
 // Curso de Verificação de Circuitos Digitais
 // Outubro 2026
-// Description: UVM env
+// Description: UVM Testbench
 // DUT: RSA_APB
 ////////////////////////////////////////////////
 
-class env_config extend uvm_env_config;
 
-    `uvm_component_utils(env_config #(cfg))
+class env_config #(parameter config_t cfg)  extend uvm_object;
+
+    `uvm_object_param_utils(env_config #(cfg))
 
 ////////////////////////////////////////////////
 // Attributes
 ////////////////////////////////////////////////
-    bit 
+    bit has_scoreboard = 1;
+
 
 ////////////////////////////////////////////////
 // Methods
 ////////////////////////////////////////////////
     // New
-    extern function new(string name = "env_config");
+    extern function new(string name="env_config");
 
-endclass: env_config
+endclass : env_config
 
+
+////////////////////////////////////////////////
+// New
+////////////////////////////////////////////////
+function env_config::new(string name, uvm_component parent);
+    
+    super.new(name);
+
+endfunction
