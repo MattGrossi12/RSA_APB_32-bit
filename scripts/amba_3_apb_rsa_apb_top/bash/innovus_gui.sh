@@ -2,16 +2,22 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/../../.." && pwd)"
+source "$SCRIPT_DIR/innovus_common.sh"
 
-INNOVUS="/home/cadence/DDI221/INNOVUS221"
+# Open the final physical database unless another stage is explicitly selected.
+INNOVUS_DB_STAGE="${INNOVUS_DB_STAGE:-postroute}"
+if [[ $# -gt 0 && "$1" != -* ]]; then
+    INNOVUS_DB_STAGE="$1"
+    shift
+fi
+case "$INNOVUS_DB_STAGE" in
+    postroute|route|cts|place|power|floorplan|init|auto) ;;
+    *)
+        echo "Erro: etapa invalida: $INNOVUS_DB_STAGE. Use postroute, route, cts, place, power, floorplan, init ou auto." >&2
+        exit 2
+        ;;
+esac
+export INNOVUS_DB_STAGE
 
-DB_PATH="$PROJECT_ROOT/ps_files/rsa_apb_top/innovus/route_amba_3_apb_rsa_apb_top"
-LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/innovus/gui"
-
-mkdir -p -- "$LOG_DIR"
-cd -- "$LOG_DIR"
-
-exec "$INNOVUS/bin/innovus" \
-    -stylus \
-    -execute "read_db {$DB_PATH}; gui_show"
+innovus_setup gui
+innovus_run "$SCRIPT_DIR/../tcl/innovus_gui.tcl" gui "$@"

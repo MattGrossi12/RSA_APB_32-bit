@@ -11,7 +11,11 @@ set project_root $::env(PROJECT_ROOT)
 set source_dir [file join $project_root src amba_3_apb]
 
 set rtl_files [list \
-    [file join $project_root src rsa32 rsa_core_32.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
     [file join $source_dir amba_3_apb_adrec.sv] \
     [file join $source_dir amba_3_apb_data_o_mux.sv] \
     [file join $source_dir amba_3_apb_data_io_top.sv] \

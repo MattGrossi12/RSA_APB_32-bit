@@ -1,12 +1,14 @@
-# Clock tree synthesis and post-CTS optimization.
-set project_root $::env(PROJECT_ROOT)
-set db_dir [file join $project_root ps_files rsa_apb_top innovus]
-set report_dir [file join $project_root reports amba_3_apb_rsa_apb_top innovus cts]
-file mkdir $report_dir
-read_db [file join $db_dir place_amba_3_apb_rsa_apb_top]
+source [file join [file dirname [info script]] innovus_common.tcl]
 
-ccopt_design
-time_design -post_cts -report_dir [file join $report_dir post_cts]
+innovus_stage {
+    # Clock tree synthesis and post-CTS optimization.
+    set report_dir [file join $report_root cts]
+    file mkdir $report_dir
+    innovus_read_stage place
 
-write_db [file join $db_dir cts_amba_3_apb_rsa_apb_top]
-exit
+    ccopt_design
+    time_design -post_cts -report_dir [file join $report_dir post_cts]
+
+    write_db [file join $db_dir cts_amba_3_apb_rsa_apb_top]
+    exit
+}

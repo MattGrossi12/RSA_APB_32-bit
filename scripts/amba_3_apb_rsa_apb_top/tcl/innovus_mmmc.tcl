@@ -3,7 +3,12 @@
 # Technology: GSCLib045
 # ============================================================
 
-set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+set lib_file [file join $::env(INNOVUS_TECH_DIR) LIB typical.lib]
+foreach input [list $lib_file $::env(SDC_FILE)] {
+    if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+    }
+}
 
 create_library_set \
     -name lib_typical \

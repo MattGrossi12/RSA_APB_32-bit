@@ -35,7 +35,11 @@ xrun -64bit \
     -covworkdir "$COV_DIR" \
     -covtest "$RUN" \
     -l "$LOG_DIR/${RUN}.log" \
-    "$PROJECT_ROOT/src/rsa32/rsa_core_32.sv" \
+    "$PROJECT_ROOT/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv" \
+    "$PROJECT_ROOT/src/rsa32/v2/rsa32_core_mult.sv" \
+    "$PROJECT_ROOT/src/rsa32/v2/rsa32_core_mod.sv" \
+    "$PROJECT_ROOT/src/rsa32/v2/rsa32_core_ctrl.sv" \
+    "$PROJECT_ROOT/src/rsa32/v2/rsa32_core_top.sv" \
     "$RTL_DIR/amba_3_apb_adrec.sv" \
     "$RTL_DIR/amba_3_apb_data_o_mux.sv" \
     "$RTL_DIR/amba_3_apb_data_io_top.sv" \

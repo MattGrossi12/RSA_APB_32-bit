@@ -8,7 +8,5 @@
 testbench
 -ACCESS
 +rwc
--SDF_CMD_FILE
-/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-20_15-55-49.sdf.cmd
 -COVERAGE
 all

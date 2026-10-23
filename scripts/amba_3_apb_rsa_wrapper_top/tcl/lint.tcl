@@ -6,7 +6,11 @@ read_design \
     ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv \
     ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv \
     ../../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv \
-    ../../../src/rsa32/rsa_core_32.sv \
+    ../../../src/rsa32/v2/rsa32_core_kogge_stone_adder.sv \
+    ../../../src/rsa32/v2/rsa32_core_mult.sv \
+    ../../../src/rsa32/v2/rsa32_core_mod.sv \
+    ../../../src/rsa32/v2/rsa32_core_ctrl.sv \
+    ../../../src/rsa32/v2/rsa32_core_top.sv \
     -systemverilog -golden
 
 // Define the top-level module

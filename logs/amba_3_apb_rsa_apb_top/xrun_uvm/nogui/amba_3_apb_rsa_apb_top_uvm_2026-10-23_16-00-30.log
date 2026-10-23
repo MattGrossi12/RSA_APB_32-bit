@@ -1,0 +1,124 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 23, 2026 at 16:00:30 -03
+xrun
+	-64bit
+	-sv
+	-uvm
+	-uvmhome CDNS-1.2
+	-timescale 1ns/1ps
+	-input /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/xrun_uvm_nogui.tcl
+	-top top_tb
+	-access +rwc
+	-incdir /home/aluno/Documents/RSA_APB_32-bit/UVM
+	-coverage all
+	-covoverwrite
+	-covdut top_tb.th.dut
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/uvm
+	-covtest amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-00-30
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun_uvm/nogui/amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-00-30.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/UVM/testbench.svh
+	+UVM_TESTNAME=test_rsa_operation
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	module worklib.kogge_stone_adder:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	module worklib.rsa_core_mult:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	module worklib.rsa_core_mod:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	module worklib.rsa_core_ctrl:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	module worklib.rsa_core:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	module worklib.amba_3_apb_adrec:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	module worklib.amba_3_apb_data_o_mux:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	module worklib.amba_3_apb_data_io_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	module worklib.amba_3_apb_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	module worklib.amba_3_apb_regbank:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	module worklib.amba_3_apb_reset:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	module worklib.amba_3_apb_rsa_wrapper_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	module worklib.amba_3_apb_rsa_wrapper_data:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	module worklib.amba_3_apb_rsa_wrapper_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	module worklib.amba_3_apb_rsa_apb_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/UVM/testbench.svh
+	interface worklib.apb_rsa_if:svh
+		errors: 0, warnings: 0
+	package worklib.sequence_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.agent_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.env_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_seq_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_test_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_tb_pkg:svh
+		errors: 0, warnings: 0
+	module worklib.top_th:svh
+		errors: 0, warnings: 0
+	module worklib.top_tb:svh
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		$unit_0x7477448d
+		top_tb_pkg
+		sequence_pkg
+		agent_pkg
+		env_pkg
+		top_seq_pkg
+		top_test_pkg
+		top_tb
+xmelab: *W,ICTNDU: No design unit selected for FSM extraction.
+xmelab: *E,C58DUT: "-COVDUT top_tb.th.dut", specified on command line, module "top_tb.th.dut" not found in the design.
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 1), exiting.
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 23, 2026 at 16:00:30 -03  (total: 00:00:00)

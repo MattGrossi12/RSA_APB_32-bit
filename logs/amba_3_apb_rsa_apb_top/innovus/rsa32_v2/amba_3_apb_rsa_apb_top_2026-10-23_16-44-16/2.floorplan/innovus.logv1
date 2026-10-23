@@ -1,0 +1,625 @@
+[10/23 17:01:46      0s] 
+[10/23 17:01:46      0s] Cadence Innovus(TM) Implementation System.
+[10/23 17:01:46      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/23 17:01:46      0s] 
+[10/23 17:01:46      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/23 17:01:46      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/2.innovus_floorplan.tcl 
+[10/23 17:01:46      0s] Date:		Fri Oct 23 17:01:46 2026
+[10/23 17:01:46      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/23 17:01:46      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/23 17:01:46      0s] 
+[10/23 17:01:46      0s] License:
+[10/23 17:01:46      0s] 		[17:01:46.048026] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/23 17:01:46      0s] 
+[10/23 17:01:46      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/23 17:01:46      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/23 17:01:53      7s] *** sockopt - 113
+[10/23 17:01:53      7s] Memory management switch to non-aggressive memory release mode.
+[10/23 17:01:53      7s] 
+[10/23 17:01:53      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/23 17:01:53      7s] 
+[10/23 17:01:53      7s] 
+[10/23 17:01:53      7s] 
+[10/23 17:01:57     10s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/23 17:01:58     12s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/23 17:01:58     12s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/23 17:01:58     12s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/23 17:01:58     12s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/23 17:01:58     12s] @(#)CDS: CPE v22.18-s071
+[10/23 17:01:58     12s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/23 17:01:58     12s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/23 17:01:58     12s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/23 17:01:58     12s] @(#)CDS: RCDB 11.15.0
+[10/23 17:01:58     12s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/23 17:01:58     12s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/23 17:01:58     12s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/2.floorplan/innovus_temp_205690_d920564f-2c63-48a3-b858-13120924527b_rock8_aluno_rVUkQa.
+
+[10/23 17:01:58     12s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/2.floorplan/innovus_temp_205690_d920564f-2c63-48a3-b858-13120924527b_rock8_aluno_rVUkQa.
+[10/23 17:01:58     12s] 
+[10/23 17:01:58     12s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/23 17:01:59     12s] 
+[10/23 17:01:59     12s] **INFO:  MMMC transition support version v31-84 
+[10/23 17:01:59     12s] 
+[10/23 17:01:59     12s] #@ Processing -files option
+[10/23 17:01:59     12s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/2.innovus_floorplan.tcl
+[10/23 17:01:59     12s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/2.innovus_floorplan.tcl
+[10/23 17:01:59     12s] @file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+[10/23 17:01:59     12s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+[10/23 17:01:59     12s] @file 1: # Context shared by every stage of the RSA32 v2 flow.
+[10/23 17:01:59     12s] @file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+[10/23 17:01:59     12s]     if {![info exists ::env($required)] || $::env($required) eq ""} {
+[10/23 17:01:59     12s]         puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+[10/23 17:01:59     12s]         exit 1
+[10/23 17:01:59     12s]     }
+[10/23 17:01:59     12s] }
+[10/23 17:01:59     12s] @file 8:
+[10/23 17:01:59     12s] @file 9: set project_name "amba_3_apb_rsa_apb_top"
+[10/23 17:01:59     12s] @file 10: set project_root $::env(PROJECT_ROOT)
+[10/23 17:01:59     12s] @file 11: set db_dir $::env(INNOVUS_DB_DIR)
+[10/23 17:01:59     12s] @file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+[10/23 17:01:59     12s] @file 13: set tech_dir $::env(INNOVUS_TECH_DIR)
+[10/23 17:01:59     12s] @file 14:
+[10/23 17:01:59     12s] @file 15: proc innovus_stage {body} {
+[10/23 17:01:59     12s]     if {[catch {uplevel 1 $body} result]} {
+[10/23 17:01:59     12s]         puts stderr "Erro no fluxo Innovus: $result"
+[10/23 17:01:59     12s]         exit 1
+[10/23 17:01:59     12s]     }
+[10/23 17:01:59     12s] }
+[10/23 17:01:59     12s] @file 21:
+[10/23 17:01:59     12s] @file 22: proc innovus_read_stage {stage} {
+[10/23 17:01:59     12s]     global db_dir project_name
+[10/23 17:01:59     12s]     set path [file join $db_dir ${stage}_${project_name}]
+[10/23 17:01:59     12s]     if {![file exists $path]} {
+[10/23 17:01:59     12s]         error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+[10/23 17:01:59     12s]     }
+[10/23 17:01:59     12s]     read_db $path
+[10/23 17:01:59     12s] }
+[10/23 17:01:59     12s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+[10/23 17:01:59     12s] @file 2:
+[10/23 17:01:59     12s] @file 3: innovus_stage {
+[10/23 17:01:59     12s]     # Preliminary floorplan for GSCLib045; aspect=1, utilization=60%.
+[10/23 17:01:59     12s]     innovus_read_stage init
+[10/23 17:01:59     12s] 
+[10/23 17:01:59     12s]     create_floorplan -site CoreSite -core_density_size {1.0 0.60 10 10 10 10}
+[10/23 17:01:59     12s] 
+[10/23 17:01:59     12s]     # Block-level I/O pins on M3. Review their assignment in the GUI.
+[10/23 17:01:59     12s]     edit_pin -side Left -layer M3 -spread_type center -spacing 0.6 \
+[10/23 17:01:59     12s]         -pin [get_db [get_db ports -if {.direction == in}] .name]
+[10/23 17:01:59     12s]     edit_pin -side Right -layer M3 -spread_type center -spacing 0.6 \
+[10/23 17:01:59     12s]         -pin [get_db [get_db ports -if {.direction == out}] .name]
+[10/23 17:01:59     12s] 
+[10/23 17:01:59     12s]     write_db [file join $db_dir floorplan_amba_3_apb_rsa_apb_top]
+[10/23 17:01:59     12s]     exit
+[10/23 17:01:59     12s] }
+[10/23 17:01:59     12s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/23 17:01:59     12s] #% Begin load design ... (date=10/23 17:01:59, mem=1427.1M)
+[10/23 17:01:59     13s] ##  Process: 45            (User Set)               
+[10/23 17:01:59     13s] ##     Node: (not set)                           
+[10/23 17:01:59     13s] 
+[10/23 17:01:59     13s] ##  Check design process and node:  
+[10/23 17:01:59     13s] ##  Design tech node is not set.
+[10/23 17:01:59     13s] 
+[10/23 17:01:59     13s] Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+[10/23 17:01:59     13s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/23 17:01:59     13s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/23 17:01:59     13s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'high'.
+[10/23 17:01:59     13s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+[10/23 17:01:59     13s] Loading design 'amba_3_apb_rsa_apb_top' saved by 'Innovus' '22.18-s118_1' on 'Fri Oct 23 16:58:18 2026'.
+[10/23 17:01:59     13s] Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+[10/23 17:02:00     13s] Read 478 cells in library 'typical' 
+[10/23 17:02:00     13s] Ending "PreSetAnalysisView" (total cpu=0:00:00.4, real=0:00:01.0, peak res=1484.9M, current mem=1441.3M)
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/libs/lef/gsclib045_tech.lef ...
+[10/23 17:02:00     13s] Set DBUPerIGU to M2 pitch 400.
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/libs/lef/gsclib045_macro.lef ...
+[10/23 17:02:00     13s] **WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/23 17:02:00     13s] Type 'man IMPLF-200' for more detail.
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] ##  Check design process and node:  
+[10/23 17:02:00     13s] ##  Design tech node is not set.
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] Loading view definition file from /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/viewDefinition.tcl
+[10/23 17:02:00     13s] % Begin Load netlist data ... (date=10/23 17:02:00, mem=1451.1M)
+[10/23 17:02:00     13s] *** Begin netlist parsing (mem=1503.3M) ***
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'OA22XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'OA22XL' is defined in LEF but not in the timing library.
+[10/23 17:02:00     13s] Type 'man IMPVL-159' for more detail.
+[10/23 17:02:00     13s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[10/23 17:02:00     13s] To increase the message display limit, refer to the product command reference manual.
+[10/23 17:02:00     13s] Created 478 new cells from 1 timing libraries.
+[10/23 17:02:00     13s] Reading netlist ...
+[10/23 17:02:00     13s] Backslashed names will retain backslash and a trailing blank character.
+[10/23 17:02:00     13s] Reading verilogBinary netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin'
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] *** Memory Usage v#2 (Current mem = 1503.262M, initial mem = 661.535M) ***
+[10/23 17:02:00     13s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1503.3M) ***
+[10/23 17:02:00     13s] % End Load netlist data ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1461.2M, current mem=1461.2M)
+[10/23 17:02:00     13s] Set top cell to amba_3_apb_rsa_apb_top.
+[10/23 17:02:00     13s] Hooked 478 DB cells to tlib cells.
+[10/23 17:02:00     13s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1465.7M, current mem=1465.7M)
+[10/23 17:02:00     13s] Starting recursive module instantiation check.
+[10/23 17:02:00     13s] No recursion found.
+[10/23 17:02:00     13s] Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+[10/23 17:02:00     13s] ***** UseNewTieNetMode *****.
+[10/23 17:02:00     13s] *** Netlist is unique.
+[10/23 17:02:00     13s] Setting Std. cell height to 3420 DBU (smallest netlist inst).
+[10/23 17:02:00     13s] ** info: there are 489 modules.
+[10/23 17:02:00     13s] ** info: there are 2501 stdCell insts.
+[10/23 17:02:00     13s] ** info: there are 2501 stdCell insts with at least one signal pin.
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] *** Memory Usage v#2 (Current mem = 1538.762M, initial mem = 661.535M) ***
+[10/23 17:02:00     13s] *info: set bottom ioPad orient R0
+[10/23 17:02:00     13s] Horizontal Layer M1 offset = 190 (guessed)
+[10/23 17:02:00     13s] Vertical Layer M2 offset = 200 (derived)
+[10/23 17:02:00     13s] Suggestion: specify LAYER OFFSET in LEF file
+[10/23 17:02:00     13s] Reason: hard to extract LAYER OFFSET from standard cells
+[10/23 17:02:00     13s] Start create_tracks
+[10/23 17:02:00     13s] Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in unpreferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in preferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.4 in M10 is different from 0.48 defined in technology file in unpreferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.5 in M10 is different from 0.48 defined in technology file in preferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.2 in M9 is different from 0.33 defined in technology file in unpreferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.4 in M9 is different from 0.33 defined in technology file in preferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.19 in M2 is different from 0.2 defined in technology file in unpreferred direction.
+[10/23 17:02:00     13s] Generated pitch 0.2 in M1 is different from 0.19 defined in technology file in unpreferred direction.
+[10/23 17:02:00     13s] ##  Process: 45            (User Set)               
+[10/23 17:02:00     13s] ##     Node: (not set)                           
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] ##  Check design process and node:  
+[10/23 17:02:00     13s] ##  Design tech node is not set.
+[10/23 17:02:00     13s] 
+[10/23 17:02:00     13s] Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+[10/23 17:02:00     13s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/23 17:02:00     13s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/23 17:02:00     13s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'high'.
+[10/23 17:02:00     13s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+[10/23 17:02:00     14s] Extraction setup Delayed 
+[10/23 17:02:00     14s] *Info: initialize multi-corner CTS.
+[10/23 17:02:00     14s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1746.0M, current mem=1505.0M)
+[10/23 17:02:00     14s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: TLATNTSCAX2_clone complicate code: 9
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[10/23 17:02:00     14s] Summary for sequential cells identification: 
+[10/23 17:02:00     14s]   Identified SBFF number: 102
+[10/23 17:02:00     14s]   Identified MBFF number: 0
+[10/23 17:02:00     14s]   Identified SB Latch number: 0
+[10/23 17:02:00     14s]   Identified MB Latch number: 0
+[10/23 17:02:00     14s]   Not identified SBFF number: 17
+[10/23 17:02:00     14s]   Not identified MBFF number: 0
+[10/23 17:02:00     14s]   Not identified SB Latch number: 0
+[10/23 17:02:00     14s]   Not identified MB Latch number: 0
+[10/23 17:02:00     14s]   Number of sequential cells which are not FFs: 32
+[10/23 17:02:00     14s] Total number of combinational cells: 317
+[10/23 17:02:00     14s] Total number of sequential cells: 151
+[10/23 17:02:00     14s] Total number of tristate cells: 10
+[10/23 17:02:00     14s] Total number of level shifter cells: 0
+[10/23 17:02:00     14s] Total number of power gating cells: 0
+[10/23 17:02:00     14s] Total number of isolation cells: 0
+[10/23 17:02:00     14s] Total number of power switch cells: 0
+[10/23 17:02:00     14s] Total number of pulse generator cells: 0
+[10/23 17:02:00     14s] Total number of always on buffers: 0
+[10/23 17:02:00     14s] Total number of retention cells: 0
+[10/23 17:02:00     14s] Total number of physical cells: 0
+[10/23 17:02:00     14s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX4 CLKBUFX6 CLKBUFX8 BUFX8 CLKBUFX3 BUFX6
+[10/23 17:02:00     14s] Total number of usable buffers: 16
+[10/23 17:02:00     14s] List of unusable buffers:[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+
+[10/23 17:02:00     14s] Total number of unusable buffers: 0
+[10/23 17:02:00     14s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 INVX1 CLKINVX4 CLKINVX6 INVX12 INVX2 INVX3 CLKINVX8 INVX20 INVX4 INVX6 INVX16 INVXL INVX8
+[10/23 17:02:00     14s] Total number of usable inverters: 19
+[10/23 17:02:00     14s] List of unusable inverters:
+[10/23 17:02:00     14s] Total number of unusable inverters: 0
+[10/23 17:02:00     14s] List of identified usable delay cells: DLY1X4 DLY2X4 DLY3X4 DLY1X1 DLY4X1 DLY2X1 DLY3X1 DLY4X4
+[10/23 17:02:00     14s] Total number of identified usable delay cells: 8
+[10/23 17:02:00     14s] List of identified unusable delay cells:
+[10/23 17:02:00     14s] Total number of identified unusable delay cells: 0
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Deleting Cell Server Begin ...
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Deleting Cell Server End ...
+[10/23 17:02:00     14s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1761.4M, current mem=1761.4M)
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: TLATNTSCAX2_clone complicate code: 9
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[10/23 17:02:00     14s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[10/23 17:02:00     14s] Summary for sequential cells identification: 
+[10/23 17:02:00     14s]   Identified SBFF number: 102
+[10/23 17:02:00     14s]   Identified MBFF number: 0
+[10/23 17:02:00     14s]   Identified SB Latch number: 0
+[10/23 17:02:00     14s]   Identified MB Latch number: 0
+[10/23 17:02:00     14s]   Not identified SBFF number: 17
+[10/23 17:02:00     14s]   Not identified MBFF number: 0
+[10/23 17:02:00     14s]   Not identified SB Latch number: 0
+[10/23 17:02:00     14s]   Not identified MB Latch number: 0
+[10/23 17:02:00     14s]   Number of sequential cells which are not FFs: 32
+[10/23 17:02:00     14s]  Visiting view : view_typical
+[10/23 17:02:00     14s]    : PowerDomain = none : Weighted F : unweighted  = 12.70 (1.000) with rcCorner = 0
+[10/23 17:02:00     14s]    : PowerDomain = none : Weighted F : unweighted  = 9.40 (1.000) with rcCorner = -1
+[10/23 17:02:00     14s]  Visiting view : view_typical
+[10/23 17:02:00     14s]    : PowerDomain = none : Weighted F : unweighted  = 12.70 (1.000) with rcCorner = 0
+[10/23 17:02:00     14s]    : PowerDomain = none : Weighted F : unweighted  = 9.40 (1.000) with rcCorner = -1
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Deleting Cell Server Begin ...
+[10/23 17:02:00     14s] 
+[10/23 17:02:00     14s] TimeStamp Deleting Cell Server End ...
+[10/23 17:02:00     14s] Reading floorplan file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.gz (mem = 1791.4M).
+[10/23 17:02:00     14s] % Begin Load floorplan data ... (date=10/23 17:02:00, mem=1763.9M)
+[10/23 17:02:00     14s] *info: reset 2689 existing net BottomPreferredLayer and AvoidDetour
+[10/23 17:02:00     14s] Deleting old partition specification.
+[10/23 17:02:00     14s]  ... processed partition successfully.
+[10/23 17:02:00     14s] Reading binary special route file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.spr.gz (Created by Innovus v22.18-s118_1 on Fri Oct 23 16:58:18 2026, version: 1)
+[10/23 17:02:00     14s] Convert 0 swires and 0 svias from compressed groups
+[10/23 17:02:00     14s] 0 swires and 0 svias were compressed
+[10/23 17:02:00     14s] 0 swires and 0 svias were decompressed from small or sparse groups
+[10/23 17:02:00     14s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1766.0M, current mem=1766.0M)
+[10/23 17:02:00     14s] Extracting standard cell pins and blockage ...... 
+[10/23 17:02:00     14s] Pin and blockage extraction finished
+[10/23 17:02:00     14s] Delete all existing relative floorplan constraints.
+[10/23 17:02:00     14s] % End Load floorplan data ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1766.6M, current mem=1766.6M)
+[10/23 17:02:00     14s] Reading congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+[10/23 17:02:00     14s] % Begin Load SymbolTable ... (date=10/23 17:02:00, mem=1766.6M)
+[10/23 17:02:00     14s] % End Load SymbolTable ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1767.9M, current mem=1767.9M)
+[10/23 17:02:00     14s] Loading place ...
+[10/23 17:02:00     14s] % Begin Load placement data ... (date=10/23 17:02:00, mem=1767.9M)
+[10/23 17:02:00     14s] Reading placement file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.place.gz.
+[10/23 17:02:00     14s] ** Reading stdCellPlacement_binary (Created by Innovus v22.18-s118_1 on Fri Oct 23 16:58:18 2026, version# 2) ...
+[10/23 17:02:00     14s] Read Views for adaptive view pruning ...
+[10/23 17:02:00     14s] Read 0 views from Binary DB for adaptive view pruning
+[10/23 17:02:00     14s] *** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1791.4M) ***
+[10/23 17:02:00     14s] Total net length = 2.682e+00 (1.341e+00 1.341e+00) (ext = 8.100e-02)
+[10/23 17:02:00     14s] % End Load placement data ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1768.2M, current mem=1768.2M)
+[10/23 17:02:00     14s] % Begin Load routing data ... (date=10/23 17:02:00, mem=1767.8M)
+[10/23 17:02:00     14s] Reading routing file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.gz.
+[10/23 17:02:00     14s] Reading Innovus routing data (Created by Innovus v22.18-s118_1 on Fri Oct 23 16:58:18 2026 Format: 20.1) ...
+[10/23 17:02:00     14s] *** Total 2687 nets are successfully restored.
+[10/23 17:02:00     14s] *** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1791.4M) ***
+[10/23 17:02:00     14s] % End Load routing data ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1769.0M, current mem=1768.2M)
+[10/23 17:02:00     14s] TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+[10/23 17:02:00     14s] Reading property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+[10/23 17:02:00     14s] *** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1791.4M) ***
+[10/23 17:02:00     14s] eee: Design meta data file: /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/extraction/extractionMetaData.gz doesn't exist
+[10/23 17:02:00     14s] Extraction setup Started 
+[10/23 17:02:00     14s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M6 and M7 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M7 and M8 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M8 and M9 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M9 and M10 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2773):	The via resistance between layers M10 and M11 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/23 17:02:00     14s] Type 'man IMPEXT-2773' for more detail.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.18 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M8 is not defined in the cap table. Therefore, the LEF value 0.17 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M9 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M10 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M11 is not defined in the cap table. Therefore, the LEF value 0.02 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/23 17:02:00     14s] Summary of Active RC-Corners : 
+[10/23 17:02:00     14s]  
+[10/23 17:02:00     14s]  Analysis View: view_typical
+[10/23 17:02:00     14s]     RC-Corner Name        : rc_typical
+[10/23 17:02:00     14s]     RC-Corner Index       : 0
+[10/23 17:02:00     14s]     RC-Corner Temperature : 25 Celsius
+[10/23 17:02:00     14s]     RC-Corner Cap Table   : ''
+[10/23 17:02:00     14s]     RC-Corner PreRoute Res Factor         : 1
+[10/23 17:02:00     14s]     RC-Corner PreRoute Cap Factor         : 1
+[10/23 17:02:00     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[10/23 17:02:00     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[10/23 17:02:00     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[10/23 17:02:00     14s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+[10/23 17:02:00     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[10/23 17:02:00     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[10/23 17:02:00     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[10/23 17:02:00     14s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[10/23 17:02:00     14s] eee: RC Grid memory allocated = 8448 (8 X 8 X 11 X 12b)
+[10/23 17:02:00     14s] eee: pegSigSF=1.070000
+[10/23 17:02:00     14s] Updating RC Grid density data for preRoute extraction ...
+[10/23 17:02:00     14s] Initializing multi-corner resistance tables ...
+[10/23 17:02:00     14s] eee: Grid unit RC data computation started
+[10/23 17:02:00     14s] eee: Grid unit RC data computation completed
+[10/23 17:02:00     14s] eee: l=1 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=2 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=3 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=4 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=5 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=6 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=7 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=8 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=9 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=10 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] eee: l=11 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[10/23 17:02:00     14s] {RT rc_typical 0 11 11 {10 0} 1}
+[10/23 17:02:00     14s] eee: LAM-FP: thresh=1 ; dimX=611.710526 ; dimY=594.000000 ; multX=1.000000 ; multY=1.000000 ; minP=380 ; fpMult=1.000000 ;
+[10/23 17:02:00     14s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 pModAss=50 wcR=0.759000 crit=0.000000 siPrev=0 newSi=0.000000 wHLS=1.897500 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[10/23 17:02:00     14s] eee: dbu = 2000, Design = [ll(0.000000, 0.000000) ur(116.225000, 112.860000)], Layers = [f(11) b(0)], Grid size = 17.100000 um, Grid Dim = (7 X 7)
+[10/23 17:02:00     14s] eee: Metal Layers Info:
+[10/23 17:02:00     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/23 17:02:00     14s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[10/23 17:02:00     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/23 17:02:00     14s] eee: |       M1 |   1 |   0.060 |   0.060 |   0.190 |  0.000 |   3.00 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M2 |   2 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | V | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M3 |   3 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M4 |   4 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | V | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M5 |   5 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M6 |   6 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | V | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M7 |   7 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M8 |   8 |   0.080 |   0.070 |   0.200 |  0.000 |   2.12 | V | 0 |  1 |
+[10/23 17:02:00     14s] eee: |       M9 |   9 |   0.080 |   0.070 |   0.400 |  0.000 |   0.25 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: |      M10 |  10 |   0.220 |   0.200 |   0.500 |  0.000 |   0.09 | V | 0 |  1 |
+[10/23 17:02:00     14s] eee: |      M11 |  11 |   0.220 |   0.200 |   0.500 |  0.000 |   0.09 | H | 0 |  1 |
+[10/23 17:02:00     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/23 17:02:00     14s] eee: uC/uR for corner rc_typical, min-width/min-spacing, 30 perc over/under densities.
+[10/23 17:02:00     14s] eee: +-----------------------NDR Info-----------------------+
+[10/23 17:02:00     14s] eee: Number of NDR:: 1,  Number of Fake NDR:: 0
+[10/23 17:02:00     14s] eee: +----------------------------------------------------+
+[10/23 17:02:00     14s] eee: | NDR Name:: VLMDefaultSetup  | Id:: 1  | isHard:: 0 
+[10/23 17:02:00     14s] eee: +----------------------------------------------------+
+[10/23 17:02:00     14s] Start generating vias ...
+[10/23 17:02:00     14s] Generating vias for default rule ...
+[10/23 17:02:00     14s] Total 108 vias inserted to default rule.
+[10/23 17:02:00     14s] Via generation for default rule completed.
+[10/23 17:02:00     14s] Generating vias for nondefault rule VLMDefaultSetup ...
+[10/23 17:02:00     14s] Total 96 vias added to nondefault rule VLMDefaultSetup
+[10/23 17:02:00     14s] Via generation for nondefault rule VLMDefaultSetup completed.
+[10/23 17:02:00     14s] Via generation completed successfully.
+[10/23 17:02:00     14s] % Begin Load power constraints ... (date=10/23 17:02:00, mem=1771.1M)
+[10/23 17:02:00     14s] source /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/init_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_power_constraints.tcl
+[10/23 17:02:00     14s] % End Load power constraints ... (date=10/23 17:02:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1771.6M, current mem=1771.6M)
+[10/23 17:02:00     14s] % Begin load AAE data ... (date=10/23 17:02:00, mem=1788.6M)
+[10/23 17:02:01     14s] AAE DB initialization (MEM=1845.04 CPU=0:00:00.0 REAL=0:00:00.0) 
+[10/23 17:02:01     14s] % End load AAE data ... (date=10/23 17:02:01, total cpu=0:00:00.4, real=0:00:01.0, peak res=1795.0M, current mem=1795.0M)
+[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFHQX1 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: EDFFTRX2 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFHQX4 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: EDFFTRXL complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFTRX1 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: TLATNTSCAX2_clone complicate code: 9
+[10/23 17:02:01     14s] SBFF Setting to complicate: SMDFFHQX8 complicate code: 30.1
+[10/23 17:02:01     14s] SBFF Setting to complicate: SMDFFHQX4 complicate code: 30.1
+[10/23 17:02:01     14s] SBFF Setting to complicate: SMDFFHQX2 complicate code: 30.1
+[10/23 17:02:01     14s] SBFF Setting to complicate: SMDFFHQX1 complicate code: 30.1
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFTRXL complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFTRX4 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFTRX2 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFHQX8 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: SEDFFHQX2 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: EDFFTRX4 complicate code: 30.05
+[10/23 17:02:01     14s] SBFF Setting to complicate: EDFFTRX1 complicate code: 30.05
+[10/23 17:02:01     14s] Summary for sequential cells identification: 
+[10/23 17:02:01     14s]   Identified SBFF number: 102
+[10/23 17:02:01     14s]   Identified MBFF number: 0
+[10/23 17:02:01     14s]   Identified SB Latch number: 0
+[10/23 17:02:01     14s]   Identified MB Latch number: 0
+[10/23 17:02:01     14s]   Not identified SBFF number: 17
+[10/23 17:02:01     14s]   Not identified MBFF number: 0
+[10/23 17:02:01     14s]   Not identified SB Latch number: 0
+[10/23 17:02:01     14s]   Not identified MB Latch number: 0
+[10/23 17:02:01     14s]   Number of sequential cells which are not FFs: 32
+[10/23 17:02:01     14s] Total number of combinational cells: 317
+[10/23 17:02:01     14s] Total number of sequential cells: 151
+[10/23 17:02:01     14s] Total number of tristate cells: 10
+[10/23 17:02:01     14s] Total number of level shifter cells: 0
+[10/23 17:02:01     14s] Total number of power gating cells: 0
+[10/23 17:02:01     14s] Total number of isolation cells: 0
+[10/23 17:02:01     14s] Total number of power switch cells: 0
+[10/23 17:02:01     14s] Total number of pulse generator cells: 0
+[10/23 17:02:01     14s] Total number of always on buffers: 0
+[10/23 17:02:01     14s] Total number of retention cells: 0
+[10/23 17:02:01     14s] Total number of physical cells: 0
+[10/23 17:02:01     14s] List of usable buffers: BUFX2 BUFX12 BUFX16 BUFX20 CLKBUFX2 BUFX3 BUFX4 CLKBUFX12 CLKBUFX16 CLKBUFX20 CLKBUFX4 CLKBUFX6 CLKBUFX8 BUFX8 CLKBUFX3 BUFX6
+[10/23 17:02:01     14s] Total number of usable buffers: 16
+[10/23 17:02:01     14s] List of unusable buffers:
+[10/23 17:02:01     14s] Total number of unusable buffers: 0
+[10/23 17:02:01     14s] List of usable inverters: CLKINVX1 CLKINVX2 CLKINVX12 CLKINVX16 CLKINVX20 CLKINVX3 INVX1 CLKINVX4 CLKINVX6 INVX12 INVX2 INVX3 CLKINVX8 INVX20 INVX4 INVX6 INVX16 INVXL INVX8
+[10/23 17:02:01     14s] Total number of usable inverters: 19
+[10/23 17:02:01     14s] List of unusable inverters:
+[10/23 17:02:01     14s] Total number of unusable inverters: 0
+[10/23 17:02:01     14s] List of identified usable delay cells: DLY1X4 DLY2X4 DLY3X4 DLY1X1 DLY4X1[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+ DLY2X1 DLY3X1 DLY4X4
+[10/23 17:02:01     14s] Total number of identified usable delay cells: 8
+[10/23 17:02:01     14s] List of identified unusable delay cells:
+[10/23 17:02:01     14s] Total number of identified unusable delay cells: 0
+[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] TimeStamp Deleting Cell Server Begin ...
+[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] TimeStamp Deleting Cell Server End ...
+[10/23 17:02:01     14s] #% End load design ... (date=10/23 17:02:01, total cpu=0:00:01.8, real=0:00:02.0, peak res=1819.0M, current mem=1796.2M)
+[10/23 17:02:01     14s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] *** Summary of all messages that are not suppressed in this session:
+[10/23 17:02:01     14s] Severity  ID               Count  Summary                                  
+[10/23 17:02:01     14s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[10/23 17:02:01     14s] WARNING   IMPEXT-2766         11  The sheet resistance for layer %s is not...
+[10/23 17:02:01     14s] WARNING   IMPEXT-2773         11  The via resistance between layers %s and...
+[10/23 17:02:01     14s] WARNING   IMPVL-159          956  Pin '%s' of cell '%s' is defined in LEF ...
+[10/23 17:02:01     14s] *** Message Summary: 979 warning(s), 0 error(s)
+[10/23 17:02:01     14s] 
+[10/23 17:02:01     14s] Convert 0 swires and 0 svias from compressed groups
+[10/23 17:02:01     14s] Adjusting coreMargin bottom  to finFet grid (PlacementGrid) : after adjusting :10.07
+[10/23 17:02:01     14s] Adjusting coreMargin top     to finFet grid (PlacementGrid) : after adjusting :10.07
+[10/23 17:02:01     14s] Adjusting core size to PlacementGrid : width :124.4 height : 123.12
+[10/23 17:02:01     14s] Horizontal Layer M1 offset = 190 (guessed)
+[10/23 17:02:01     14s] Vertical Layer M2 offset = 200 (derived)
+[10/23 17:02:01     14s] Suggestion: specify LAYER OFFSET in LEF file
+[10/23 17:02:01     14s] Reason: hard to extract LAYER OFFSET from standard cells
+[10/23 17:02:01     14s] Start create_tracks
+[10/23 17:02:01     14s] Generated pitch 0.5 in M11 is different from 0.48 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.475 in M11 is different from 0.48 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.475 in M11 is different from previous one 0.5 in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M10 is different from 0.48 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M10 is different from previous one 0.4 in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.5 in M10 is different from 0.48 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.2 in M9 is different from 0.33 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M9 is different from 0.33 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M9 is different from previous one 0.4 in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M8 is different from 0.2 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M8 is different from previous one 0.2 in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M7 is different from 0.2 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M7 is different from previous one 0.2 in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M6 is different from 0.2 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M6 is different from previous one 0.2 in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M5 is different from 0.2 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M5 is different from previous one 0.2 in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M4 is different from 0.2 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M4 is different from previous one 0.2 in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M3 is different from 0.2 defined in technology file in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M3 is different from previous one 0.2 in preferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.19 in M2 is different from 0.2 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] Generated pitch 0.2 in M1 is different from 0.19 defined in technology file in unpreferred direction.
+[10/23 17:02:01     14s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[10/23 17:02:01     14s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/23 17:02:01     14s] ### import design signature (1): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 inst_orient=1 via=1871068310 routing_via=1 timing=1 sns=1 ppa_info=1
+[10/23 17:02:01     14s] Successfully spread [49] pins.
+[10/23 17:02:01     14s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1854.1M).
+[10/23 17:02:01     14s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/23 17:02:01     14s] ### import design signature (2): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1 inst_orient=1 via=1871068310 routing_via=1 timing=1 sns=1 ppa_info=1
+[10/23 17:02:01     14s] Successfully spread [35] pins.
+[10/23 17:02:01     14s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1854.1M).
+[10/23 17:02:01     14s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/23 17:02:01     14s] #% Begin save design ... (date=10/23 17:02:01, mem=1815.6M)
+[10/23 17:02:01     14s] % Begin Save ccopt configuration ... (date=10/23 17:02:01, mem=1815.6M)
+[10/23 17:02:01     14s] % End Save ccopt configuration ... (date=10/23 17:02:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=1817.5M, current mem=1817.5M)
+[10/23 17:02:01     14s] % Begin Save netlist data ... (date=10/23 17:02:01, mem=1835.3M)
+[10/23 17:02:01     14s] Writing Binary DB to /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/floorplan_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.v.bin in single-threaded mode...
+[10/23 17:02:01     14s] % End Save netlist data ... (date=10/23 17:02:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=1835.6M, current mem=1835.3M)
+[10/23 17:02:01     14s] Saving symbol-table file ...
+[10/23 17:02:01     14s] Saving congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/floorplan_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+[10/23 17:02:01     14s] % Begin Save AAE data ... (date=10/23 17:02:01, mem=1835.9M)
+[10/23 17:02:01     14s] Saving AAE Data ...
+[10/23 17:02:01     14s] % End Save AAE data ... (date=10/23 17:02:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=1850.6M, current mem=1836.6M)
+[10/23 17:02:01     14s] Saving mode setting ...
+[10/23 17:02:01     14s] Saving root attributes to be loaded post write_db ...
+[10/23 17:02:01     15s] Saving global file ...
+[10/23 17:02:01     15s] Saving root attributes to be loaded previous write_db ...
+[10/23 17:02:02     15s] % Begin Save floorplan data ... (date=10/23 17:02:02, mem=1840.4M)
+[10/23 17:02:02     15s] Saving floorplan file ...
+[10/23 17:02:02     15s] Convert 0 swires and 0 svias from compressed groups
+[10/23 17:02:02     15s] % End Save floorplan data ... (date=10/23 17:02:02, total cpu=0:00:00.0, real=0:00:00.0, peak res=1840.4M, current mem=1840.4M)
+[10/23 17:02:02     15s] Saving Drc markers ...
+[10/23 17:02:02     15s] ... No Drc file written since there is no markers found.
+[10/23 17:02:02     15s] % Begin Save placement data ... (date=10/23 17:02:02, mem=1840.4M)
+[10/23 17:02:02     15s] ** Saving stdCellPlacement_binary (version# 2) ...
+[10/23 17:02:02     15s] Save Adaptive View Pruning View Names to Binary file
+[10/23 17:02:02     15s] *** Completed savePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1907.6M) ***
+[10/23 17:02:02     15s] % End Save placement data ... (date=10/23 17:02:02, total cpu=0:00:00.0, real=0:00:00.0, peak res=1841.0M, current mem=1841.0M)
+[10/23 17:02:02     15s] % Begin Save routing data ... (date=10/23 17:02:02, mem=1841.0M)
+[10/23 17:02:02     15s] Saving route file ...
+[10/23 17:02:02     15s] *** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1907.6M) ***
+[10/23 17:02:02     15s] % End Save routing data ... (date=10/23 17:02:02, total cpu=0:00:00.0, real=0:00:00.0, peak res=1841.2M, current mem=1841.2M)
+[10/23 17:02:02     15s] Saving property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-23_16-44-16/floorplan_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.prop
+[10/23 17:02:02     15s] *** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1907.6M) ***
+[10/23 17:02:02     15s] % Begin Save power constraints data ... (date=10/23 17:02:02, mem=1842.7M)
+[10/23 17:02:02     15s] % End Save power constraints data ... (date=10/23 17:02:02, total cpu=0:00:00.0, real=0:00:00.0, peak res=1842.7M, current mem=1842.7M)
+[10/23 17:02:02     15s] Generated self-contained design floorplan_amba_3_apb_rsa_apb_top.tmp
+[10/23 17:02:02     15s] #% End save design ... (date=10/23 17:02:02, total cpu=0:00:00.8, real=0:00:01.0, peak res=1874.7M, current mem=1846.0M)
+[10/23 17:02:02     15s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/23 17:02:02     15s] *** Message Summary: 0 warning(s), 0 error(s)
+[10/23 17:02:02     15s] 
+[10/23 17:02:02     15s] 
+[10/23 17:02:02     15s] *** Memory Usage v#2 (Current mem = 1914.684M, initial mem = 661.535M) ***
+[10/23 17:02:02     15s] 
+[10/23 17:02:02     15s] *** Summary of all messages that are not suppressed in this session:
+[10/23 17:02:02     15s] Severity  ID               Count  Summary                                  
+[10/23 17:02:02     15s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[10/23 17:02:02     15s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[10/23 17:02:02     15s] WARNING   IMPEXT-2766         11  The sheet resistance for layer %s is not...
+[10/23 17:02:02     15s] WARNING   IMPEXT-2773         11  The via resistance between layers %s and...
+[10/23 17:02:02     15s] WARNING   IMPVL-159          956  Pin '%s' of cell '%s' is defined in LEF ...
+[10/23 17:02:02     15s] *** Message Summary: 980 warning(s), 0 error(s)
+[10/23 17:02:02     15s] 
+[10/23 17:02:02     15s] --- Ending "Innovus" (totcpu=0:00:15.6, real=0:00:16.0, mem=1914.7M) ---

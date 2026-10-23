@@ -1,3 +1,4 @@
+
 # ============================================================
 # APB RSA peripheral - TSMC28
 # Liberty time unit: 1 ns
@@ -15,26 +16,83 @@ create_clock \
 
 
 # ------------------------------------------------------------
+# Clock uncertainty
+# ------------------------------------------------------------
+# Preliminary setup margin.
+# Adjust according to the real clock budget.
+
+set_clock_uncertainty \
+    -setup 0.2 \
+    [get_clocks pclk_i]
+
+
+# ------------------------------------------------------------
+# APB input ports
+# ------------------------------------------------------------
+# Exclude asynchronous reset and primary clock.
+
+set APB_INPUTS [get_ports {
+    psel_i
+    penable_i
+    pwrite_i
+    paddr_i*
+    pwdata_i*
+}]
+
+
+# ------------------------------------------------------------
 # Input interface delays
 # ------------------------------------------------------------
-# External logic is assumed to consume 2 ns before inputs
-# reach this block.
-#
-# Do NOT apply input delay to pclk_i.
+# Maximum: external data arrives after 2 ns.
+# Minimum: provisional earliest arrival of 0 ns.
 
-set_input_delay 2.0 \
+set_input_delay \
     -clock pclk_i \
-    [get_ports {presetn_i psel_i penable_i pwrite_i paddr_i[*] pwdata_i[*]}]
+    -max 2.0 \
+    $APB_INPUTS
+
+set_input_delay \
+    -clock pclk_i \
+    -min 0.0 \
+    $APB_INPUTS
+
+
+# ------------------------------------------------------------
+# APB output ports
+# ------------------------------------------------------------
+
+set APB_OUTPUTS [get_ports {
+    prdata_o*
+    pready_o
+    pslverr_o
+    irq_o
+}]
 
 
 # ------------------------------------------------------------
 # Output interface delays
 # ------------------------------------------------------------
-# External receiving logic is assumed to require 2 ns
-# of the clock period for APB outputs.
-#
-# Outputs are prdata_o, pready_o, pslverr_o and irq_o.
+# Maximum: external receiver timing budget of 2 ns.
+# Minimum: provisional value; replace with the
+# receiver's actual hold requirement.
 
-set_output_delay 2.0 \
+set_output_delay \
     -clock pclk_i \
-    [get_ports {prdata_o[*] pready_o pslverr_o irq_o}]
+    -max 2.0 \
+    $APB_OUTPUTS
+
+set_output_delay \
+    -clock pclk_i \
+    -min 0.0 \
+    $APB_OUTPUTS
+
+
+# ------------------------------------------------------------
+# Asynchronous reset
+# ------------------------------------------------------------
+# presetn_i is intentionally excluded from synchronous
+# input delays.
+#
+# Review reset timing paths and recovery/removal checks
+# separately before declaring timing exceptions.
+

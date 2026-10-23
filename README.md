@@ -166,8 +166,8 @@ no diretório atual:
 | Conformal LEC e lint | `lec/` |
 | Xcelium e SimVision | `xrun/` |
 | IMC, standalone ou chamado pelo Xcelium | `imc/` |
-| Innovus, etapas 0 a 9 | `innovus/0.init/` a `innovus/9.export/` |
-| Innovus GUI | `innovus/gui/` |
+| Innovus, etapas 0 a 9 | `innovus/rsa32_v2/<SYNTH_RUN>/<etapa>/` |
+| Innovus GUI | `innovus/rsa32_v2/<SYNTH_RUN>/gui/` |
 | Icarus Verilog | `iverilog/` |
 | Verilator | `verilator/` |
 
@@ -175,6 +175,10 @@ Assim, `imc.log`, `imc.key`, `mdv.log`, `innovus.log`, `innovus.cmd` e
 `xcelium.d/` ficam nos diretórios das ferramentas. Relatórios, bancos,
 netlists, cobertura e formas de onda com caminhos explícitos continuam em
 `reports/`, `ps_files/`, `coverage/` e `waveforms/`.
+
+O [fluxo Innovus da RSA32 v2](docs/fluxo_innovus_rsa32_v2.md) seleciona a
+netlist e o SDC da mesma síntese, mantém as etapas nessa execução e separa
+os bancos físicos por `SYNTH_RUN`.
 
 ## Diagrama de arquitetura de topo
 

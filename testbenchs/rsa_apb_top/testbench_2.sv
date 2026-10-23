@@ -42,8 +42,8 @@ module testbench;
     logic  irq;
 
     // Results analyzer signals
-    logic [ADDR_WIDTH-1:0] expected_result;
-    logic [ADDR_WIDTH-1:0] read_data;
+    logic [DATA_WIDTH-1:0] expected_result;
+    logic [DATA_WIDTH-1:0] read_data;
     logic                  error;
 
 ////////////////////////////////////////////////
@@ -143,9 +143,8 @@ task compare_results(
         output logic error
     );
     begin
-        // Assert error
-        if (dut_result !== expected_result) begin
-            error++;
+        error = (dut_result !== expected_result);
+        if (error) begin
             $display("Received data: %h  Expected: %h", dut_result, expected_result);
         end
     end
@@ -192,7 +191,7 @@ task test_rsa_operation;
         apb_read(RESULT_ADDR, read_data);
 
         // Compare result
-        compare_results(read_data, expected_result);
+        compare_results(read_data, expected_result, error);
 
     end
  endtask
@@ -223,6 +222,7 @@ initial begin
     div();
     if (error) begin
         $display("FAIL!!");
+        $fatal(1, "RSA result mismatch");
     end 
     else begin
         $display("PASS!!");

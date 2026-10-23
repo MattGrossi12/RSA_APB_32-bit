@@ -1,0 +1,194 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 23, 2026 at 16:01:08 -03
+xrun
+	-64bit
+	-sv
+	-uvm
+	-uvmhome CDNS-1.2
+	-gui
+	-timescale 1ns/1ps
+	-input /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/xrun_uvm_gui.tcl
+	-top top_tb
+	-access +rwc
+	-incdir /home/aluno/Documents/RSA_APB_32-bit/UVM
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun_uvm/gui/amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-01-08.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/UVM/testbench.svh
+	+UVM_TESTNAME=test_rsa_operation
+	+UVM_VERBOSITY=UVM_MEDIUM
+	-elaborate
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	module worklib.kogge_stone_adder:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	module worklib.rsa_core_mult:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	module worklib.rsa_core_mod:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	module worklib.rsa_core_ctrl:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	module worklib.rsa_core:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	module worklib.amba_3_apb_adrec:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	module worklib.amba_3_apb_data_o_mux:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	module worklib.amba_3_apb_data_io_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	module worklib.amba_3_apb_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	module worklib.amba_3_apb_regbank:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	module worklib.amba_3_apb_reset:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	module worklib.amba_3_apb_rsa_wrapper_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	module worklib.amba_3_apb_rsa_wrapper_data:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	module worklib.amba_3_apb_rsa_wrapper_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	module worklib.amba_3_apb_rsa_apb_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/UVM/testbench.svh
+	interface worklib.apb_rsa_if:svh
+		errors: 0, warnings: 0
+	package worklib.sequence_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.agent_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.env_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_seq_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_test_pkg:svh
+		errors: 0, warnings: 0
+	package worklib.top_tb_pkg:svh
+		errors: 0, warnings: 0
+	module worklib.top_th:svh
+		errors: 0, warnings: 0
+	module worklib.top_tb:svh
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		uvm_pkg
+		cdns_uvmapi
+		cdns_assert2uvm_pkg
+		cdns_uvm_pkg
+		$unit_0x7477448d
+		top_tb_pkg
+		sequence_pkg
+		agent_pkg
+		env_pkg
+		top_seq_pkg
+		top_test_pkg
+		top_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.rsa_core_ctrl:sv <0x4cf28ac2>
+			streams:  25, words: 10665
+		worklib.rsa_core_mod:sv <0x42a074a6>
+			streams:  22, words: 12049
+		worklib.rsa_core:sv <0x35378e13>
+			streams:  20, words:  5265
+		worklib.amba_3_apb_rsa_wrapper_data:sv <0x02945676>
+			streams:   1, words:  3299
+		worklib.amba_3_apb_rsa_wrapper_control:sv <0x43311c41>
+			streams:   5, words:  3417
+		worklib.amba_3_apb_rsa_wrapper_top:sv <0x401b0b30>
+			streams:  19, words:  4742
+		worklib.amba_3_apb_reset:sv <0x35129fad>
+			streams:   4, words:  1005
+		worklib.amba_3_apb_regbank:sv <0x24578188>
+			streams:  26, words:  8753
+		worklib.amba_3_apb_control:sv <0x22a07b2e>
+			streams:   4, words:  4728
+		worklib.amba_3_apb_data_o_mux:sv <0x3cc0ddec>
+			streams:   1, words:   467
+		worklib.amba_3_apb_adrec:sv <0x73c37a2c>
+			streams:   1, words:   413
+		worklib.amba_3_apb_data_io_top:sv <0x7f47dc11>
+			streams:   6, words:  1945
+		worklib.amba_3_apb_rsa_apb_top:sv <0x02cb9839>
+			streams:  58, words: 14323
+		worklib.top_tb:svh <0x2b695cfc>
+			streams: 516, words: 582459
+		worklib.sequence_pkg:svh <0x3d3407a4>
+			streams: 197, words: 224506
+		worklib.kogge_stone_adder:sv <0x5c64a216>
+			streams:  29, words: 22920
+		worklib.rsa_core_mult:sv <0x60515ff7>
+			streams:  19, words:  8974
+		worklib.kogge_stone_adder:sv <0x66f47467>
+			streams:  29, words: 22838
+		worklib.kogge_stone_adder:sv <0x7c6ea906>
+			streams:  29, words: 23856
+		worklib.kogge_stone_adder:sv <0x0f901464>
+			streams:  25, words: 19457
+		worklib.top_th:svh <0x161d9fed>
+			streams:  13, words:  2987
+		worklib.cdns_uvm_pkg:sv <0x77e006cf>
+			streams: 237, words: 383088
+		worklib.cdns_uvmapi:svp <0x1d87b93a>
+			streams:  27, words: 30445
+		worklib.cdns_assert2uvm_pkg:sv <0x74547978>
+			streams:   3, words:  1824
+		worklib.uvm_pkg:sv <0x7c03bf13>
+			streams: 5289, words: 8323282
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                        Instances  Unique
+		Modules:                       20      17
+		Interfaces:                     1       1
+		Verilog packages:              10      10
+		Registers:                 17,000  11,882
+		Scalar wires:               2,785       -
+		Vectored wires:               111       -
+		Named events:                   4      12
+		Always blocks:                 17      17
+		Initial blocks:               338     162
+		Parallel blocks:               27      28
+		Cont. assignments:          2,697      60
+		Pseudo assignments:           123       -
+		Assertions:                     3       3
+		Covergroup Instances:           0       1
+		Compilation units:              1       1
+		SV Class declarations:        240     355
+		SV Class specializations:     459     459
+		Process Clocks:                 8       2
+		Simulation timescale:         1ps
+	Writing initial simulation snapshot: worklib.top_tb:svh
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 23, 2026 at 16:01:11 -03  (total: 00:00:03)

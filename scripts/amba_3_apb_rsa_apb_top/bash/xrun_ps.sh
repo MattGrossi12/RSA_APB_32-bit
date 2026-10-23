@@ -14,9 +14,18 @@ COV_DIR="$PROJECT_ROOT/coverage/amba_3_apb_rsa_apb_top"
 REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top"
 
 # Innovus Export:
-EXPORT_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top/innovus/export"
+source "$SCRIPT_DIR/innovus_common.sh"
+innovus_setup xrun_ps
+EXPORT_DIR="$INNOVUS_DB_DIR/export"
 NETLIST_FILE="$EXPORT_DIR/amba_3_apb_rsa_apb_top.v"
 SDF_FILE="$EXPORT_DIR/amba_3_apb_rsa_apb_top.sdf"
+
+for file in "$NETLIST_FILE" "$SDF_FILE"; do
+    if [[ ! -s "$file" ]]; then
+        echo "Erro: arquivo pos-route ausente: $file. Execute 9.innovus_export.sh." >&2
+        exit 1
+    fi
+done
 
 # GSCLib045 Standard-Cell Library:
 LIB_FILE="/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v"

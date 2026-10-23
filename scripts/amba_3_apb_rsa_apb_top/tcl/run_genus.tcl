@@ -9,7 +9,11 @@ set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
 set_db / .use_scan_seqs_for_non_dft false
 
 set rtl_files [list \
-    [file join $project_root src rsa32 rsa_core_32.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
     [file join $source_dir amba_3_apb_adrec.sv] \
     [file join $source_dir amba_3_apb_data_o_mux.sv] \
     [file join $source_dir amba_3_apb_data_io_top.sv] \
@@ -34,7 +38,7 @@ set_db lef_library [list \
     /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef \
 ]
 
-set_db init_hdl_search_path [list [file join $project_root src rsa32] $source_dir]
+set_db init_hdl_search_path [list [file join $project_root src rsa32 v2] $source_dir]
 
 
 foreach rtl_file $rtl_files {
@@ -61,7 +65,7 @@ write_db $project_name -to_file [file join $output_dir db "synth_${run_id}.db"]
 write_hdl > [file join $output_dir netlist "synth_${run_id}.v"]
 write_sdc > [file join $output_dir sdc "synth_${run_id}.sdc"]
 
-report_timing -max_paths 20 > [file join $report_dir timing_max.rpt]
+report_timing -max_paths 100 > [file join $report_dir timing_max.rpt]
 report_area > [file join $report_dir area.rpt]
 report_power > [file join $report_dir power.rpt]
 report_gates > [file join $report_dir gates.rpt]
