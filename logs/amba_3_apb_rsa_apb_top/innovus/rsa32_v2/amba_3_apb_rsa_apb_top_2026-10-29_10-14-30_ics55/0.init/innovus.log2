@@ -1,0 +1,421 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+Date:		Thu Oct 29 10:27:34 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:27:34.048010] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-14-30/0.init/innovus_temp_121586_67d7c3a9-42c7-4fad-9c23-beef26a207cf_rock8_aluno_kwMXfi.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+@file 1: # Context shared by every stage of the RSA32 v2 flow.
+@file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+    if {![info exists ::env($required)] || $::env($required) eq ""} {
+        puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+        exit 1
+    }
+}
+@file 8:
+@file 9: set project_name "amba_3_apb_rsa_apb_top"
+@file 10: set project_root $::env(PROJECT_ROOT)
+@file 11: set db_dir $::env(INNOVUS_DB_DIR)
+@file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+@file 13:
+@file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+@file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+@file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+@file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+@file 18: # [file join $tech_dir LIB typical.lib]
+@file 19:
+@file 20: # ICsprout55 - H7CR (RVT), ativo.
+@file 21: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 22: set ics55 [file join $pdk_base icsprout55-v1.10.102-a7b1e2edbb12d056]
+@file 23: set std_cell [file join $ics55 IP STD_cell ics55_LLSC_H7C_V1p10C100 ics55_LLSC_H7CR]
+@file 24: set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+@file 25: set tech_lef [file join $ics55 prtech techLEF N551P6M.lef]
+@file 26: set cell_lef [file join $std_cell lef ics55_LLSC_H7CR_ecos.lef]
+@file 27: set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+@file 28:
+@file 29: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd (legacy, kept commented).
+@file 30: # set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+@file 31: # set std_cell [file join $sky130 libs sky130hd]
+@file 32: # set lib_dir [file join $std_cell nldm]
+@file 33: # set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+@file 34: # set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+@file 35: # set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+@file 36: # set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+@file 37:
+@file 38: # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 - legado, mantido comentado.
+@file 39: # set gf180 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk gf180]
+@file 40: # set std_cell [file join $gf180 libs gf180mcu_fd_sc_mcu7t5v0]
+@file 41: # set lib_dir [file join $std_cell nldm]
+@file 42: # set tech_lef [file join $gf180 base apr gf180mcu_5LM_1TM_9K_7t_tech.lef]
+@file 43: # set cell_lef [file join $std_cell lef gf180mcu_fd_sc_mcu7t5v0.lef]
+@file 44: # set lib_file [file join $lib_dir gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz]
+@file 45: # set std_cell_gds [file join $std_cell gds 5LM gf180mcu_fd_sc_mcu7t5v0.gds.gz]
+@file 46:
+@file 47: proc innovus_stage {body} {
+    if {[catch {uplevel 1 $body} result]} {
+        puts stderr "Erro no fluxo Innovus: $result"
+        exit 1
+    }
+}
+@file 53:
+@file 54: proc innovus_read_stage {stage} {
+    global db_dir project_name
+    set path [file join $db_dir ${stage}_${project_name}]
+    if {![file exists $path]} {
+        error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+    }
+    read_db $path
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+@file 2:
+@file 3: innovus_stage {
+    set report_dir [file join $report_root init]
+    file mkdir $db_dir $report_dir
+
+    # GPDK45/GSCLib045 (legacy):
+    # set_db design_process_node 45
+    # read_physical -lef [list \
+    #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_tech.lef] \
+    #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_macro.lef]]
+
+    # ICsprout55 - H7CR.
+    set_db design_process_node 55
+
+    # SKY130 - SkyWater 130 nm (legacy):
+    # set_db design_process_node 130
+
+    # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 (legacy):
+    # set_db design_process_node 180
+    set_db add_route_vias_auto true
+    set_db init_power_nets {VDD}
+    set_db init_ground_nets {VSS}
+
+    # Consume the mapped netlist and SDC from the same Genus execution.
+    read_mmmc $::env(MMMC_FILE)
+    read_physical -lef [list $tech_lef $cell_lef]
+    read_netlist -top $project_name $::env(NETLIST_FILE)
+    init_design
+
+    check_timing -verbose > [file join $report_dir timing_constraints.rpt]
+    write_db [file join $db_dir init_${project_name}]
+
+    # Record provenance and select this run only after initialization succeeds.
+    set provenance [open [file join $db_dir synthesis_inputs.txt] w]
+    puts $provenance "RSA implementation: src/rsa32/v2"
+    puts $provenance "Synthesis: $::env(SYNTH_RUN)"
+    puts $provenance "Netlist: $::env(NETLIST_FILE)"
+    puts $provenance "SDC: $::env(SDC_FILE)"
+    close $provenance
+
+    set marker [file join $::env(INNOVUS_BASE_DIR) active_run]
+    set temporary "${marker}.[pid].tmp"
+    set handle [open $temporary w]
+    puts $handle $::env(SYNTH_RUN)
+    close $handle
+    file rename -force $temporary $marker
+    exit
+}
+##  Process: 55            (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 55nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'high'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB timing views
+@file 3: # Technology: ICsprout55 / ics55_LLSC_H7CR
+@file 4: # ============================================================
+@file 5:
+@file 6: # GPDK45/GSCLib045 (legacy):
+@file 7: # set lib_file [file join $::env(INNOVUS_TECH_DIR) LIB typical.lib]
+@file 8:
+@file 9: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 10: set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+@file 11: set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+@file 12: foreach input [list $lib_file $::env(SDC_FILE)] {
+    if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+    }
+}
+@file 17:
+@@file 18: create_library_set \
+    -name lib_typical \
+    -timing [list $lib_file]
+@file 21:
+@@file 22: create_rc_corner \
+    -name rc_typical \
+    -temperature 25 \
+    -pre_route_res 1.0 \
+    -pre_route_cap 1.0 \
+    -post_route_res {1.0 1.0 1.0} \
+    -post_route_cap {1.0 1.0 1.0}
+@file 29:
+@@file 30: create_timing_condition \
+    -name tc_typical \
+    -library_sets [list lib_typical]
+@file 33:
+@@file 34: create_delay_corner \
+    -name dc_typical \
+    -timing_condition tc_typical \
+    -rc_corner rc_typical
+@file 38:
+@@file 39: create_constraint_mode \
+    -name mode_functional \
+    -sdc_files [list $::env(SDC_FILE)]
+@file 42:
+@@file 43: create_analysis_view \
+    -name view_typical \
+    -constraint_mode mode_functional \
+    -delay_corner dc_typical
+@file 47:
+@@file 48: set_analysis_view \
+    -setup view_typical \
+    -hold view_typical
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+Reading lib_typical timing library '/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGX4H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGX3H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGX2H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGX1H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGX0P5H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGNX4H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGNX3H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGNX2H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGNX1H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ICGNX0P5H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'FILLCAP8H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'FILLCAP4H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'FILLCAP32H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'FILLCAP16H7R'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5/liberty/ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib)
+Read 747 cells in library 'ics55_LLSC_H7CR_typ_tt_1p2_25' 
+
+Loading LEF file /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-v1.10.102-a7b1e2edbb12d056/prtech/techLEF/N551P6M.lef ...
+
+Loading LEF file /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/icsprout55-v1.10.102-a7b1e2edbb12d056/IP/STD_cell/ics55_LLSC_H7C_V1p10C100/ics55_LLSC_H7CR/lef/ics55_LLSC_H7CR_ecos.lef ...
+Set DBUPerIGU to M2 pitch 200.
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+#% Begin Load netlist data ... (date=10/29 10:27:49, mem=1477.2M)
+*** Begin netlist parsing (mem=1592.3M) ***
+Created 747 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.v'
+
+*** Memory Usage v#2 (Current mem = 1592.332M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1592.3M) ***
+#% End Load netlist data ... (date=10/29 10:27:49, total cpu=0:00:00.0, real=0:00:00.0, peak res=1512.9M, current mem=1512.9M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 747 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 786 modules.
+** info: there are 2315 stdCell insts.
+** info: there are 2315 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1616.332M, initial mem = 661.535M) ***
+**WARN: (IMPFP-3961):	The techSite 'core9' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'CoreSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Generated pitch 0.8 in RDL is different from 5 defined in technology file in unpreferred direction.
+Generated pitch 0.2 in T4M2 is different from 0.8 defined in technology file in unpreferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.1122 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.0914 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.0914 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.0914 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.0914 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.0239 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0151 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.sdc' ...
+Current (total cpu=0:00:15.2, real=0:00:15.0, peak res=1935.0M, current mem=1935.0M)
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.sdc, Line 9).
+
+**WARN: (TCLCMD-1461):	Skipped unsupported command: set_units (File /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.sdc, Line 10).
+
+amba_3_apb_rsa_apb_top
+INFO (CTE): Reading of timing constraints file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.sdc completed, with 2 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1949.5M, current mem=1949.5M)
+Current (total cpu=0:00:15.2, real=0:00:15.0, peak res=1949.5M, current mem=1949.5M)
+Total number of combinational cells: 600
+Total number of sequential cells: 121
+Total number of tristate cells: 22
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 4
+List of usable buffers: BUFX0P7H7R BUFX0P5H7R BUFX10H7R BUFX12H7R BUFX16H7R BUFX1P4H7R BUFX1H7R BUFX20H7R BUFX2H7R BUFX3H7R BUFX2P5H7R BUFX3P5H7R BUFX5H7R BUFX4H7R BUFX7H7R BUFX6H7R BUFX8H7R
+Total number of usable buffers: 17
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INVX0P7H7R INVX0P5H7R INVX10H7R INVX12H7R INVX16H7R INVX1P4H7R INVX1H7R INVX20H7R INVX2P5H7R INVX2H7R INVX3H7R INVX5H7R INVX3P5H7R INVX4H7R INVX7H7R INVX6H7R INVX8H7R
+Total number of usable inverters: 17
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X2H7R DLY2X2H7R DLY1X6H7R DLY2X6H7R DLY3X2H7R DLY4X2H7R DLY3X6H7R DLY4X6H7R
+Total number of identified usable delay cells: 8
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Start generating vias ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE ABOVE is not defined on cut layer "VIA4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE ABOVE is not defined on cut layer "T4V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Generating vias for default rule ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "VIA3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE ABOVE is not defined on cut layer "VIA4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE ABOVE is not defined on cut layer "T4V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Total 76 vias inserted to default rule.
+Via generation for default rule completed.
+Found no NONDEFAULTRULE.
+Via generation completed successfully.
+AAE_INFO: opIsDesignInPostRouteState() is 0
+AAE DB initialization (MEM=2044.68 CPU=0:00:00.0 REAL=0:00:00.0) 
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: amba_3_apb_rsa_apb_top
+# Design Mode: 55nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+Start delay calculation (fullDC) (1 T). (MEM=2042.6)
+siFlow : Timing analysis mode is single, using late cdB files
+Total number of fetched objects 2419
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=2465.59 CPU=0:00:00.2 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=2465.59 CPU=0:00:00.3 REAL=0:00:00.0)
+#% Begin save design ... (date=10/29 10:27:51, mem=2000.0M)
+% Begin Save ccopt configuration ... (date=10/29 10:27:51, mem=2000.0M)
+% End Save ccopt configuration ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2002.0M, current mem=2002.0M)
+% Begin Save netlist data ... (date=10/29 10:27:51, mem=2002.0M)
+Writing Binary DB to /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-14-30/init_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2002.2M, current mem=2002.2M)
+Saving symbol-table file ...
+Saving congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-14-30/init_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Save AAE data ... (date=10/29 10:27:51, mem=2002.8M)
+Saving AAE Data ...
+% End Save AAE data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2047.2M, current mem=2005.8M)
+Saving mode setting ...
+Saving root attributes to be loaded post write_db ...
+Saving global file ...
+Saving root attributes to be loaded previous write_db ...
+% Begin Save floorplan data ... (date=10/29 10:27:51, mem=2011.2M)
+Saving floorplan file ...
+% End Save floorplan data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2013.3M, current mem=2013.3M)
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=10/29 10:27:51, mem=2013.3M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2013.7M, current mem=2013.7M)
+% Begin Save routing data ... (date=10/29 10:27:51, mem=2013.7M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=2496.1M) ***
+% End Save routing data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2014.1M, current mem=2014.1M)
+Saving property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-14-30/init_amba_3_apb_rsa_apb_top.tmp/amba_3_apb_rsa_apb_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=2496.1M) ***
+% Begin Save power constraints data ... (date=10/29 10:27:51, mem=2015.8M)
+% End Save power constraints data ... (date=10/29 10:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=2015.8M, current mem=2015.8M)
+rc_typical
+Generated self-contained design init_amba_3_apb_rsa_apb_top.tmp
+lib_typical
+rc_typical
+mode_functional
+#% End save design ... (date=10/29 10:27:51, total cpu=0:00:00.8, real=0:00:00.0, peak res=2073.5M, current mem=2047.1M)
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_ics55/sdc/synth_amba_3_apb_rsa_apb_top_2026-10-29_10-14-30.sdc
+*** Message Summary: 0 warning(s), 0 error(s)
+
+
+*** Memory Usage v#2 (Current mem = 2496.109M, initial mem = 661.535M) ***
+*** Message Summary: 42 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:17.0, real=0:00:17.0, mem=2496.1M) ---

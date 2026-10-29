@@ -16,7 +16,7 @@ innovus_stage {
         if {$stage ni {postroute route cts place power floorplan init}} {
             error "Etapa de banco invalida: $stage"
         }
-        set db_path [file join $db_dir ${stage}_${project_name}]
+        set db_path [file join $db_dir ${stage}_${artifact_name}]
         if {[file exists $db_path]} {
             puts "Abrindo banco GUI: $db_path"
             innovus_read_stage $stage

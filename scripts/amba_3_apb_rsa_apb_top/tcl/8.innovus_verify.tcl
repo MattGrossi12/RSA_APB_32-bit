@@ -6,11 +6,11 @@ innovus_stage {
     file mkdir $report_dir
     innovus_read_stage postroute
 
-    check_design -type all -out_file [file join $report_dir design.rpt]
-    check_timing -verbose > [file join $report_dir timing.rpt]
-    check_drc > [file join $report_dir drc.rpt]
-    check_connectivity -type all > [file join $report_dir connectivity.rpt]
-    time_design -post_route -report_dir [file join $report_dir setup]
-    time_design -post_route -hold -report_dir [file join $report_dir hold]
+    check_design -type all -out_file [file join $report_dir design_${pdk}.rpt]
+    check_timing -verbose > [file join $report_dir timing_${pdk}.rpt]
+    check_drc > [file join $report_dir drc_${pdk}.rpt]
+    check_connectivity -type all > [file join $report_dir connectivity_${pdk}.rpt]
+    time_design -post_route -report_dir [file join $report_dir setup_${pdk}]
+    time_design -post_route -hold -report_dir [file join $report_dir hold_${pdk}]
     exit
 }

@@ -1,91 +1,85 @@
 # Fluxo Innovus para RSA32 v2
 
-O Innovus implementa o topo `amba_3_apb_rsa_apb_top` a partir da netlist mapeada
+O Innovus implementa `amba_3_apb_rsa_apb_top` a partir da netlist mapeada
 pelo Genus. Os módulos de `src/rsa32/v2` já estão contidos nessa netlist.
-O período de clock e os delays de interface vêm do SDC exportado pela mesma
-execução de síntese.
+O período de clock e os delays de interface vêm do SDC da mesma síntese.
 
-## Execução
-
-Com as ferramentas e licenças Cadence configuradas, execute na ordem:
+## Execução por PDK
 
 ```bash
-./scripts/amba_3_apb_rsa_apb_top/bash/0.innovus_init.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/1.innovus_check.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/2.innovus_floorplan.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/3.innovus_power.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/4.innovus_place.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/5.innovus_cts.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/6.innovus_route.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/7.innovus_postroute.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/8.innovus_verify.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/9.innovus_export.sh
+./scripts/amba_3_apb_rsa_apb_top/bash/genus_no_gui.sh -p gpdk45
+./scripts/amba_3_apb_rsa_apb_top/bash/innovus_no_gui.sh -p gpdk45
 ```
 
-A etapa 0 seleciona a netlist `synth_amba_3_apb_rsa_apb_top_*.v` mais recente
-por data de modificação e exige o SDC com o mesmo identificador. Ela executa
-`init_design`, grava o banco inicial e registra a execução ativa. As próximas
-etapas continuam nessa execução, mesmo que outra síntese seja criada depois.
+As opções são `sky130`, `gpdk45`, `free45` e `ics55`; o padrão é
+`gpdk45`.
+`innovus_full_flow.sh` é uma entrada equivalente a `innovus_no_gui.sh`.
 
-Para selecionar uma síntese específica, informe `SYNTH_RUN` na inicialização.
-Por exemplo, a execução da v2 a 250 MHz de 23/10/2026 às 16:20:
+O fluxo completo seleciona a netlist mais recente do PDK escolhido e exige
+o SDC com o mesmo identificador. Essa seleção fica fixa nas dez etapas:
+
+| Etapa | Script |
+|---|---|
+| Inicialização | `0.innovus_init.sh` |
+| Verificações iniciais | `1.innovus_check.sh` |
+| Floorplan | `2.innovus_floorplan.sh` |
+| Alimentação | `3.innovus_power.sh` |
+| Placement | `4.innovus_place.sh` |
+| CTS | `5.innovus_cts.sh` |
+| Roteamento | `6.innovus_route.sh` |
+| Otimização pós-roteamento | `7.innovus_postroute.sh` |
+| Verificação física | `8.innovus_verify.sh` |
+| Exportação | `9.innovus_export.sh` |
+
+Os scripts individuais também aceitam `-p`. A etapa 0 grava `active_run`
+após inicializar com sucesso. Etapas individuais posteriores usam esse
+marcador do mesmo PDK, ou a seleção explícita em `SYNTH_RUN`:
 
 ```bash
-SYNTH_RUN=amba_3_apb_rsa_apb_top_2026-10-23_16-20-34 \
-  ./scripts/amba_3_apb_rsa_apb_top/bash/0.innovus_init.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/1.innovus_check.sh
+SYNTH_RUN=amba_3_apb_rsa_apb_top_2026-10-29_16-00-00_123456789_free45 \
+  ./scripts/amba_3_apb_rsa_apb_top/bash/innovus_no_gui.sh -p free45
 ```
 
-Também é possível informar `SYNTH_RUN` às outras etapas para trabalhar com
-um banco já iniciado. A etapa acusa erro se o banco anterior dessa execução
-estiver ausente.
+Uma seleção incompatível com o PDK é rejeitada. Uma etapa que falha
+interrompe o fluxo completo; os bancos anteriores ficam disponíveis.
 
 ## Bancos e resultados
 
-Os resultados são separados por identificador da síntese:
-
 | Artefato | Diretório |
 |---|---|
-| Bancos físicos | `ps_files/rsa_apb_top/innovus/rsa32_v2/<SYNTH_RUN>/` |
-| Relatórios | `reports/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/<SYNTH_RUN>/` |
-| Logs | `logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/<SYNTH_RUN>/<etapa>/` |
-| Exportação | `ps_files/rsa_apb_top/innovus/rsa32_v2/<SYNTH_RUN>/export/` |
+| Bancos físicos | `ps_files/rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/` |
+| Relatórios | `reports/amba_3_apb_rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/` |
+| Logs | `logs/amba_3_apb_rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/<etapa>/` |
+| Exportação | `ps_files/rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/export/` |
 
-O arquivo `ps_files/rsa_apb_top/innovus/rsa32_v2/active_run` identifica a
-execução ativa. Cada banco inicial contém `synthesis_inputs.txt` com os
-caminhos da netlist e do SDC. Os bancos anteriores fora de `rsa32_v2/`
-continuam disponíveis e não são usados automaticamente pelo novo fluxo.
+`SYNTH_RUN` inclui data, hora, nanossegundos e sufixo do PDK.
+Os bancos têm nomes como `postroute_amba_3_apb_rsa_apb_top_gpdk45`.
+Os relatórios explícitos e as exportações também recebem o sufixo.
+`synthesis_inputs_<flag>.txt` registra a origem dos arquivos e as bibliotecas.
+Cada PDK mantém seu marcador em
+`ps_files/rsa_apb_top_<flag>/innovus/rsa32_v2/active_run`.
 
-A tecnologia é GSCLib045, com `design_process_node` de 45 nm e biblioteca
-`typical.lib`. O floorplan usa densidade de 60% para dimensionar o core a
-partir da área das células importadas. A etapa de exportação gera DEF,
-netlist, SDF, SDC e GDS experimental, conforme os comandos do fluxo.
+Os parâmetros de tecnologia são compartilhados com o Genus em
+`scripts/amba_3_apb_rsa_apb_top/tcl/pdks/`: nó, Liberty, LEFs, site,
+camadas de pinos/alimentação e células de CTS. O floorplan mantém densidade
+de 60%; SKY130 usa dimensões de anel adequadas ao mínimo de largura de met5.
+O MMMC usa o corner typical e RC dos LEFs. O GDS exportado permanece
+experimental, sem GDS das células e sem mapa de camadas validado.
 
-## GUI e simulação após roteamento
-
-```bash
-./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh
-./scripts/amba_3_apb_rsa_apb_top/bash/xrun_ps.sh
-```
-
-A GUI abre por padrão o banco **postroute da execução ativa**, mostra o
-caminho completo no terminal e enquadra o desenho na tela. Se esse banco
-estiver ausente, o script informa o erro. Para abrir uma etapa específica:
+## GUI
 
 ```bash
-INNOVUS_DB_STAGE=place ./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh
-# Equivalente:
-./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh place
+./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh -p sky130
+./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh place -p sky130
+./scripts/amba_3_apb_rsa_apb_top/bash/genus_gui.sh -p sky130
 ```
 
-Para selecionar automaticamente a etapa mais avançada disponível:
+A GUI Innovus abre a etapa mais avançada disponível por padrão, ou a etapa
+informada antes de `-p`. Também aceita `INNOVUS_DB_STAGE` e `SYNTH_RUN`.
+A GUI Genus abre o banco mais recente do PDK escolhido.
 
-```bash
-./scripts/amba_3_apb_rsa_apb_top/bash/innovus_gui.sh auto
-```
-
-`xrun_ps.sh` usa a netlist e o SDF da exportação da mesma execução ativa.
-
-Os scripts podem ser chamados de qualquer diretório. `INNOVUS_BIN` permite
-informar o executável do Innovus; `INNOVUS_TECH_DIR` permite informar a raiz
-da árvore GSCLib045 com `LIB/` e `LEF/`.
+Os scripts podem ser chamados de qualquer diretório. `GENUS_BIN` e
+`INNOVUS_BIN` permitem indicar os executáveis. Os caminhos dos PDKs podem
+ser configurados pelas variáveis descritas no
+[guia de síntese por PDK](../scripts/amba_3_apb_rsa_apb_top/README.md).
+Os scripts de simulação pós-síntese e LEC mantêm suas configurações próprias.

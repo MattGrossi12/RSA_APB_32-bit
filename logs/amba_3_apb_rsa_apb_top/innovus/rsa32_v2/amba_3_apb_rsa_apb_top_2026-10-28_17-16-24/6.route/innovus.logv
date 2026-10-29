@@ -1,0 +1,116 @@
+[10/28 17:27:33      0s] 
+[10/28 17:27:33      0s] Cadence Innovus(TM) Implementation System.
+[10/28 17:27:33      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/28 17:27:33      0s] 
+[10/28 17:27:33      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/28 17:27:33      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+[10/28 17:27:33      0s] Date:		Wed Oct 28 17:27:33 2026
+[10/28 17:27:33      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/28 17:27:33      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/28 17:27:33      0s] 
+[10/28 17:27:33      0s] License:
+[10/28 17:27:33      0s] 		[17:27:33.048058] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/28 17:27:33      0s] 
+[10/28 17:27:33      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/28 17:27:33      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/28 17:27:40      6s] *** sockopt - 113
+[10/28 17:27:40      7s] Memory management switch to non-aggressive memory release mode.
+[10/28 17:27:40      7s] 
+[10/28 17:27:40      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/28 17:27:40      7s] 
+[10/28 17:27:40      7s] 
+[10/28 17:27:40      7s] 
+[10/28 17:27:43      9s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/28 17:27:44     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/28 17:27:44     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/28 17:27:44     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/28 17:27:44     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/28 17:27:44     11s] @(#)CDS: CPE v22.18-s071
+[10/28 17:27:44     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/28 17:27:44     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/28 17:27:44     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/28 17:27:44     11s] @(#)CDS: RCDB 11.15.0
+[10/28 17:27:44     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/28 17:27:44     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/28 17:27:44     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-28_17-16-24/6.route/innovus_temp_119224_824d95c9-1300-4b7c-b78a-7c6b75a8ef24_rock8_aluno_cinowa.
+
+[10/28 17:27:45     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-28_17-16-24/6.route/innovus_temp_119224_824d95c9-1300-4b7c-b78a-7c6b75a8ef24_rock8_aluno_cinowa.
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s] **INFO:  MMMC transition support version v31-84 
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s] #@ Processing -files option
+[10/28 17:27:45     11s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/28 17:27:45     11s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+[10/28 17:27:45     11s] @file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+[10/28 17:27:45     11s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+[10/28 17:27:45     11s] @file 1: # Context shared by every stage of the RSA32 v2 flow.
+[10/28 17:27:45     11s] @file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+[10/28 17:27:45     11s]     if {![info exists ::env($required)] || $::env($required) eq ""} {
+[10/28 17:27:45     11s]         puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+[10/28 17:27:45     11s]         exit 1
+[10/28 17:27:45     11s]     }
+[10/28 17:27:45     11s] }
+[10/28 17:27:45     11s] @file 8:
+[10/28 17:27:45     11s] @file 9: set project_name "amba_3_apb_rsa_apb_top"
+[10/28 17:27:45     11s] @file 10: set project_root $::env(PROJECT_ROOT)
+[10/28 17:27:45     11s] @file 11: set db_dir $::env(INNOVUS_DB_DIR)
+[10/28 17:27:45     11s] @file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+[10/28 17:27:45     11s] @file 13:
+[10/28 17:27:45     11s] @file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+[10/28 17:27:45     11s] @file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+[10/28 17:27:45     11s] @file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+[10/28 17:27:45     11s] @file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+[10/28 17:27:45     11s] @file 18: # [file join $tech_dir LIB typical.lib]
+[10/28 17:27:45     11s] @file 19:
+[10/28 17:27:45     11s] @file 20: # ICsprout55 - H7CR (RVT), matching the Genus flow.
+[10/28 17:27:45     11s] @file 21: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+[10/28 17:27:45     11s] @file 22: set ics55 [file join $pdk_base icsprout55-v1.10.102-a7b1e2edbb12d056]
+[10/28 17:27:45     11s] @file 23: set std_cell [file join $ics55 IP STD_cell ics55_LLSC_H7C_V1p10C100 ics55_LLSC_H7CR]
+[10/28 17:27:45     11s] @file 24: set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+[10/28 17:27:45     11s] @file 25: set tech_lef [file join $ics55 prtech techLEF N551P6M.lef]
+[10/28 17:27:45     11s] @file 26: set cell_lef [file join $std_cell lef ics55_LLSC_H7CR_ecos.lef]
+[10/28 17:27:45     11s] @file 27: set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+[10/28 17:27:45     11s] @file 28:
+[10/28 17:27:45     11s] @file 29: proc innovus_stage {body} {
+[10/28 17:27:45     11s]     if {[catch {uplevel 1 $body} result]} {
+[10/28 17:27:45     11s]         puts stderr "Erro no fluxo Innovus: $result"
+[10/28 17:27:45     11s]         exit 1
+[10/28 17:27:45     11s]     }
+[10/28 17:27:45     11s] }
+[10/28 17:27:45     11s] @file 35:
+[10/28 17:27:45     11s] @file 36: proc innovus_read_stage {stage} {
+[10/28 17:27:45     11s]     global db_dir project_name
+[10/28 17:27:45     11s]     set path [file join $db_dir ${stage}_${project_name}]
+[10/28 17:27:45     11s]     if {![file exists $path]} {
+[10/28 17:27:45     11s]         error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+[10/28 17:27:45     11s]     }
+[10/28 17:27:45     11s]     read_db $path
+[10/28 17:27:45     11s] }
+[10/28 17:27:45     11s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+[10/28 17:27:45     11s] @file 2:
+[10/28 17:27:45     11s] @file 3: innovus_stage {
+[10/28 17:27:45     11s]     # Project:
+[10/28 17:27:45     11s]     set output_dir $db_dir
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s]     # Automatic Via Generation:
+[10/28 17:27:45     11s]     set_db add_route_vias_auto true
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s]     # Restore CTS Database:
+[10/28 17:27:45     11s]     innovus_read_stage cts
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s]     # Routing:
+[10/28 17:27:45     11s]     route_design
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s]     # Save Routed Database:
+[10/28 17:27:45     11s]     write_db [file join $output_dir route_${project_name}]
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s]     exit
+[10/28 17:27:45     11s] }
+[10/28 17:27:45     11s] Erro no fluxo Innovus: Banco da etapa cts ausente para esta sintese: /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-28_17-16-24/cts_amba_3_apb_rsa_apb_top. Execute a etapa anterior.
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s] *** Memory Usage v#2 (Current mem = 1430.758M, initial mem = 661.535M) ***
+[10/28 17:27:45     11s] *** Message Summary: 0 warning(s), 0 error(s)
+[10/28 17:27:45     11s] 
+[10/28 17:27:45     11s] --- Ending "Innovus" (totcpu=0:00:11.9, real=0:00:12.0, mem=1430.8M) ---

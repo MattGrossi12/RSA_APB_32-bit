@@ -7,10 +7,10 @@ innovus_stage {
 
     innovus_read_stage init
 
-    check_library > [file join $report_dir library.rpt]
-    check_netlist > [file join $report_dir netlist.rpt]
-    check_timing -verbose > [file join $report_dir timing_constraints.rpt]
-    time_design -pre_place -report_dir [file join $report_dir pre_place]
+    check_library > [file join $report_dir library_${pdk}.rpt]
+    check_netlist > [file join $report_dir netlist_${pdk}.rpt]
+    check_timing -verbose > [file join $report_dir timing_constraints_${pdk}.rpt]
+    time_design -pre_place -report_dir [file join $report_dir pre_place_${pdk}]
 
     exit
 }

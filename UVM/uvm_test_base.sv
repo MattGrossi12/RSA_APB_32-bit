@@ -14,14 +14,14 @@ class test_base extends uvm_test;
 // Test components instantiation
 ////////////////////////////////////////////////
     // Environment
-    env                                     env_h;
-    env_config                              env_config_h;
+    env                      env_h;
+    env_config               env_config_h;
 
     // Virtual sequence
-    vseq                                    vseq_h;
+    vseq    vseq_h;
 
     // Agent configuration
-    //agent_config #(cfg_default) agent_config_h;
+    //agent_config agent_config_h;
 
     // Misc
     uvm_factory factory;
@@ -61,7 +61,7 @@ function void test_base::build_phase(uvm_phase phase);
     env_config_h = env_config::type_id::create(.name("env_config_h"));
 
     // Config
-    uvm_config_db#(env_config)::set(
+    uvm_config_db #(env_config)::set(
         .cntxt          (this),
         .inst_name      ("*"),
         .field_name     ("env_config"),

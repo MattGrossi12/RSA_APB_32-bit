@@ -1,0 +1,140 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_gui.tcl 
+Date:		Thu Oct 29 11:48:44 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[11:48:44.048050] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_11-42-54/gui/innovus_temp_222864_9949cf5b-85c4-4a2b-9141-586617db20f2_rock8_aluno_JK3eXg.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_gui.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_gui.tcl
+@file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+@file 1: # Context shared by every stage of the RSA32 v2 flow.
+@file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+    if {![info exists ::env($required)] || $::env($required) eq ""} {
+        puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+        exit 1
+    }
+}
+@file 8:
+@file 9: set project_name "amba_3_apb_rsa_apb_top"
+@file 10: set project_root $::env(PROJECT_ROOT)
+@file 11: set db_dir $::env(INNOVUS_DB_DIR)
+@file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+@file 13:
+@file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+@file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+@file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+@file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+@file 18: # [file join $tech_dir LIB typical.lib]
+@file 19:
+@file 20: # ICsprout55 - H7CR (RVT), arquivado e mantido comentado.
+@file 21:
+@file 22: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd (legacy, kept commented).
+@file 23: # set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+@file 24: # set std_cell [file join $sky130 libs sky130hd]
+@file 25: # set lib_dir [file join $std_cell nldm]
+@file 26: # set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+@file 27: # set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+@file 28: # set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+@file 29: # set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+@file 30:
+@file 31: # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 - legado, mantido comentado.
+@file 32: # set gf180 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk gf180]
+@file 33: # set std_cell [file join $gf180 libs gf180mcu_fd_sc_mcu7t5v0]
+@file 34: # set lib_dir [file join $std_cell nldm]
+@file 35: # set tech_lef [file join $gf180 base apr gf180mcu_5LM_1TM_9K_7t_tech.lef]
+@file 36: # set cell_lef [file join $std_cell lef gf180mcu_fd_sc_mcu7t5v0.lef]
+@file 37: # set lib_file [file join $lib_dir gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz]
+@file 38: # set std_cell_gds [file join $std_cell gds 5LM gf180mcu_fd_sc_mcu7t5v0.gds.gz]
+@file 39:
+@file 40: # ASAP7 / ASAP7SC7P5T_RVT - 7 nm FinFET.
+@file 41: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 42: set asap7 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk asap7]
+@file 43: set std_cell [file join $asap7 libs asap7sc7p5t_rvt]
+@file 44: set lib_dir [file join $std_cell nldm]
+@file 45: set lib_files [list \
+    [file join $lib_dir asap7sc7p5t_AO_RVT_TT_nldm.lib.gz] \
+    [file join $lib_dir asap7sc7p5t_INVBUF_RVT_TT_nldm.lib.gz] \
+    [file join $lib_dir asap7sc7p5t_OA_RVT_TT_nldm.lib.gz] \
+    [file join $lib_dir asap7sc7p5t_SEQ_RVT_TT_nldm.lib.gz] \
+    [file join $lib_dir asap7sc7p5t_SIMPLE_RVT_TT_nldm.lib.gz]]
+@file 51: set tech_lef [file join $asap7 base apr asap7_tech.lef]
+@file 52: set cell_lef [file join $std_cell lef asap7sc7p5t_28_R.lef]
+@file 53: foreach input [concat $lib_files [list $tech_lef $cell_lef]] {
+    if {![file readable $input]} {
+        error "Arquivo ASAP7 nao encontrado ou ilegivel: $input"
+    }
+}
+@file 58:
+@file 59: proc innovus_stage {body} {
+    if {[catch {uplevel 1 $body} result]} {
+        puts stderr "Erro no fluxo Innovus: $result"
+        exit 1
+    }
+}
+@file 65:
+@file 66: proc innovus_read_stage {stage} {
+    global db_dir project_name
+    set path [file join $db_dir ${stage}_${project_name}]
+    if {![file exists $path]} {
+        error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+    }
+    read_db $path
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+@file 2:
+@file 3: innovus_stage {
+    # The final database is the default; fallback requires explicit auto mode.
+    set selected_stage postroute
+    if {[info exists ::env(INNOVUS_DB_STAGE)] && $::env(INNOVUS_DB_STAGE) ne ""} {
+        set selected_stage $::env(INNOVUS_DB_STAGE)
+    }
+    if {$selected_stage eq "auto"} {
+        set stages {postroute route cts place power floorplan init}
+    } else {
+        set stages [list $selected_stage]
+    }
+    set restored false
+    foreach stage $stages {
+        if {$stage ni {postroute route cts place power floorplan init}} {
+            error "Etapa de banco invalida: $stage"
+        }
+        set db_path [file join $db_dir ${stage}_${project_name}]
+        if {[file exists $db_path]} {
+            puts "Abrindo banco GUI: $db_path"
+            innovus_read_stage $stage
+            set restored true
+            break
+        }
+    }
+    if {!$restored} {
+        error "Banco $selected_stage ausente para $::env(SYNTH_RUN). Execute a etapa correspondente ou selecione uma etapa existente com INNOVUS_DB_STAGE."
+    }
+    gui_show
+    gui_fit
+}
+Erro no fluxo Innovus: Banco postroute ausente para amba_3_apb_rsa_apb_top_2026-10-29_11-42-54. Execute a etapa correspondente ou selecione uma etapa existente com INNOVUS_DB_STAGE.
+
+*** Memory Usage v#2 (Current mem = 1548.816M, initial mem = 661.535M) ***
+*** Message Summary: 0 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:15.5, real=0:00:16.0, mem=1548.8M) ---

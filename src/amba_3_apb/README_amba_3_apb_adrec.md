@@ -50,24 +50,22 @@ Os bits `[1:0]` são ignorados, como no caminho de endereço anterior. Assim, os
 
 O índice é produzido mesmo para endereços inválidos. O controle APB usa `addr_valid_o` para rejeitar esses acessos, e `data_io_top` usa o mesmo sinal para retornar zero em PRDATA.
 
-## 5. Testbench
+## 5. Testbench legado
 
-`testbenchs/amba_3_apb_adrec/testbench.sv` percorre todos os endereços da largura configurada, verifica o índice e a faixa válida e testa a propagação de X/Z. Com 12 bits, são 4096 endereços e cinco casos adicionais.
+`legacy/testbenchs/amba_3_apb_adrec/testbench.sv` percorre todos os endereços da largura configurada, verifica o índice e a faixa válida e testa a propagação de X/Z. Com 12 bits, são 4096 endereços e cinco casos adicionais.
 
-Para simular com Icarus a partir da raiz do projeto:
+Comando histórico com Icarus, ajustado ao caminho do arquivo na raiz do projeto:
 
 ```bash
 iverilog -g2012 -s testbench -o /tmp/amba_3_apb_adrec.vvp \
     src/amba_3_apb/amba_3_apb_adrec.sv \
-    testbenchs/amba_3_apb_adrec/testbench.sv
+    legacy/testbenchs/amba_3_apb_adrec/testbench.sv
 vvp /tmp/amba_3_apb_adrec.vvp
 ```
 
-## 6. Fluxos Cadence
+## 6. Fluxos Cadence legados
 
-Os scripts Xcelium, Genus, LEC e lint ficam em `scripts/amba_3_apb_adrec/`.
-Execute `bash/xrun.sh` para simular; execute `bash/genus_nogui.sh` antes de
-`bash/lec.sh` para sintetizar e comparar a netlist. `bash/lint.sh` executa as
-verificações RTL do Conformal LEC. Os scripts Genus e LEC usam as bibliotecas
-de tecnologia configuradas nos arquivos Tcl e pressupõem que os executáveis
-Cadence estejam no `PATH`.
+Os scripts Xcelium, Genus, LEC e lint foram arquivados em
+`legacy/scripts/amba_3_apb_adrec/`, com seus caminhos internos históricos.
+O fluxo ativo simula e sintetiza apenas `amba_3_apb_rsa_apb_top`, que inclui
+este bloco. Consulte [a organização do legado](../../legacy/README.md).

@@ -17,11 +17,11 @@ innovus_stage {
     opt_design -post_route -hold
 
     # Timing Reports:
-    time_design -post_route -report_dir [file join $report_dir setup]
-    time_design -post_route -hold -report_dir [file join $report_dir hold]
+    time_design -post_route -report_dir [file join $report_dir setup_${pdk}]
+    time_design -post_route -hold -report_dir [file join $report_dir hold_${pdk}]
 
     # Save Post-route Database:
-    write_db [file join $db_dir postroute_amba_3_apb_rsa_apb_top]
+    write_db [file join $db_dir postroute_${artifact_name}]
 
     exit
 }

@@ -5,6 +5,10 @@ Periférico RSA com interface AMBA 3 APB (APB3), descrito em SystemVerilog.
 O projeto contém RTL do periférico, um núcleo RSA, testbenches estruturais e
 scripts auxiliares de síntese, LEC e simulação.
 
+Os fluxos ativos de simulação e síntese têm como alvo exclusivamente
+`amba_3_apb_rsa_apb_top`. Os fluxos individuais dos sub-blocos e seus
+artefatos estão arquivados em [`legacy/`](legacy/README.md).
+
 ## Diagrama de topo da arquitetura
 
 **[Abrir o diagrama interativo conectado ao Drive](https://mattgrossi12.github.io/RSA_APB_32-bit/#arquitetura)**
@@ -22,23 +26,31 @@ salvas no diagrams.net aparecem sem exportar imagens ou reconstruir o site.
 
 ```text
 .
-├── constraints/                 # SDCs por módulo
+├── constraints/                 # Restrições do top
 ├── docs/                        # Especificações e material de referência
 ├── images/                      # Diagramas e imagens do projeto
-├── logs/<modulo>/{genus,lec,xrun,imc,innovus,iverilog,verilator}/
-├── ps_files/<modulo>/{db,netlist,sdc}/
-├── reports/<modulo>/
-├── scripts/<modulo>/
-│   ├── bash/                    # Entradas dos fluxos
-│   └── tcl/
-│       └── legacy/              # Tcl legado preservado
+├── legacy/                      # Fluxos individuais e artefatos dos sub-blocos
+│   ├── scripts/
+│   ├── reports/
+│   ├── logs/
+│   ├── ps_files/
+│   └── testbenchs/
+├── logs/amba_3_apb_rsa_apb_top*/  # Simulação e síntese por PDK
+├── ps_files/rsa_apb_top*/        # Resultados do top por tecnologia
+├── reports/amba_3_apb_rsa_apb_top*/
+├── scripts/
+│   ├── amba_3_apb_rsa_apb_top/   # Entradas Bash e Tcl do top
+│   ├── pages/                  # Geração da documentação
+│   └── clean.sh                # Limpeza de artefatos do top
 ├── src/
 │   ├── amba_3_apb/              # RTL APB e wrapper RSA
 │   │   ├── legacy/              # RTL legado, fora do fluxo ativo
 │   │   └── amba_3_apb_rsa_apb_top.sv
 │   └── rsa32/
-│       └── rsa_core_32.sv       # Declara rsa_core e módulos auxiliares
-├── testbenchs/<modulo>/testbench.sv
+│       ├── v1/                 # Núcleo RSA original
+│       └── v2/                 # Núcleo RSA modular
+├── testbenchs/rsa_apb_top/       # Bancadas integradas
+├── UVM/                        # Verificação UVM do top
 └── waveforms/
 ```
 
@@ -81,9 +93,28 @@ salvas no diagrams.net aparecem sem exportar imagens ou reconstruir o site.
 
 ## Artefatos legados
 
-O diretório `scripts/amba_3_apb_data_i_demux/` e o RTL
-`src/amba_3_apb/legacy/amba_3_apb_data_i_demux.sv` são artefatos legados;
-`amba_3_apb_data_i_demux` não faz parte dos blocos ativos do projeto.
+O diretório [`legacy/`](legacy/README.md), na raiz, reúne scripts,
+relatórios, logs, resultados de síntese e testbenches individuais dos
+sub-blocos. Seus arquivos preservam o conteúdo e os caminhos internos
+históricos; esses scripts não fazem parte do fluxo ativo.
+
+O RTL dos sub-blocos permanece em `src/`, pois é necessário à integração
+do top. O RTL `src/amba_3_apb/legacy/amba_3_apb_data_i_demux.sv` continua
+legado e não faz parte dos blocos ativos do projeto.
+
+## Síntese por PDK
+
+Genus e Innovus aceitam `-p sky130|gpdk45|free45|ics55`; o padrão é
+`gpdk45`.
+
+```bash
+./scripts/amba_3_apb_rsa_apb_top/bash/genus_no_gui.sh -p sky130
+./scripts/amba_3_apb_rsa_apb_top/bash/innovus_no_gui.sh -p sky130
+```
+
+Os resultados ficam separados por execução e PDK, com sufixos nos arquivos
+de síntese e relatórios. Consulte o [guia dos fluxos por PDK](scripts/amba_3_apb_rsa_apb_top/README.md)
+para os quatro PDKs, caminhos e seleção de execuções anteriores.
 
 ## Módulos RTL
 
@@ -107,8 +138,8 @@ aplica reset físico, envia CTRL.SRST, aguarda cinco ciclos e verifica as
 escritas/leitura dos registradores RW em dez rodadas com scoreboard. Ao final,
 executa dez operações RSA, conferindo STATUS, IRQ, RESULT e preservação de
 MSG/EXP/MOD. A instância usa `LOAD_GAP=1`, conforme o protocolo do núcleo real.
-Os outros testbenches
-por módulo estão em `testbenchs/<nome_do_modulo>/` e são estruturais.
+Os testbenches individuais estão arquivados em
+`legacy/testbenchs/<nome_do_modulo>/`.
 
 ### Simulação integrada com Icarus Verilog
 
@@ -160,16 +191,17 @@ Os scripts do topo podem ser chamados de qualquer diretório. Cada ferramenta
 executa em sua pasta de logs, incluindo os arquivos auxiliares que ela gera
 no diretório atual:
 
-| Ferramenta | Diretório em `logs/amba_3_apb_rsa_apb_top/` |
+| Ferramenta | Diretório relativo a `logs/` |
 | --- | --- |
-| Genus, batch e GUI | `genus/` |
-| Conformal LEC e lint | `lec/` |
-| Xcelium e SimVision | `xrun/` |
-| IMC, standalone ou chamado pelo Xcelium | `imc/` |
-| Innovus, etapas 0 a 9 | `innovus/rsa32_v2/<SYNTH_RUN>/<etapa>/` |
-| Innovus GUI | `innovus/rsa32_v2/<SYNTH_RUN>/gui/` |
-| Icarus Verilog | `iverilog/` |
-| Verilator | `verilator/` |
+| Genus, batch | `amba_3_apb_rsa_apb_top_<flag>/genus/<RUN>/` |
+| Genus GUI | `amba_3_apb_rsa_apb_top_<flag>/genus/gui/<RUN>/` |
+| Conformal LEC e lint | `amba_3_apb_rsa_apb_top/lec/` |
+| Xcelium e SimVision | `amba_3_apb_rsa_apb_top/xrun/` |
+| IMC, standalone ou chamado pelo Xcelium | `amba_3_apb_rsa_apb_top/imc/` |
+| Innovus, etapas 0 a 9 | `amba_3_apb_rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/<etapa>/` |
+| Innovus GUI | `amba_3_apb_rsa_apb_top_<flag>/innovus/rsa32_v2/<SYNTH_RUN>/gui/` |
+| Icarus Verilog | `amba_3_apb_rsa_apb_top/iverilog/` |
+| Verilator | `amba_3_apb_rsa_apb_top/verilator/` |
 
 Assim, `imc.log`, `imc.key`, `mdv.log`, `innovus.log`, `innovus.cmd` e
 `xcelium.d/` ficam nos diretórios das ferramentas. Relatórios, bancos,
@@ -223,12 +255,15 @@ locais existentes, execute `python3 scripts/pages/build.py`; a saída fica em
 `_site/`. O workflow `.github/workflows/pages.yml` recria as simulações e
 publica a página quando GitHub Pages está configurado para GitHub Actions.
 
-- Os SDCs estão em `constraints/<nome_do_modulo>.sdc`.
+- O SDC do top está em `constraints/amba_3_apb_rsa_apb_top.sdc`.
 - Os resultados de síntese são separados em
-  `ps_files/<nome_do_modulo>/{netlist,sdc,db}/`.
-- Os relatórios ficam em `reports/<nome_do_modulo>/`.
-- Os logs são centralizados em `logs/<nome_do_modulo>/<ferramenta>/`.
+  `ps_files/rsa_apb_top*/`, conforme a tecnologia e a execução.
+- Os relatórios de síntese ficam em `reports/amba_3_apb_rsa_apb_top_<flag>/`;
+  os de simulação continuam em `reports/amba_3_apb_rsa_apb_top/`.
+- Os logs de síntese ficam em `logs/amba_3_apb_rsa_apb_top_<flag>/`;
+  os de simulação continuam em `logs/amba_3_apb_rsa_apb_top/<ferramenta>/`.
 - Formas de onda são armazenadas em `waveforms/`.
+- Os artefatos individuais dos sub-blocos ficam nas categorias de `legacy/`.
 
 Os arquivos `insira_aqui.txt` mantêm pastas vazias rastreáveis pelo Git até que
 sejam gerados os respectivos resultados.
@@ -238,18 +273,16 @@ sejam gerados os respectivos resultados.
 1. **Completar e validar a integração de `rsa_apb_top`:** confirmar que as
    instâncias e conexões usam as interfaces RTL atuais e que todas as saídas APB
    têm drivers.
-2. **Criar listas de fontes por fluxo/módulo:** os Tcl de síntese referenciam
+2. **Criar listas de fontes para o top:** os Tcl de síntese referenciam
    `filelist.f`; manter listas explícitas e versionadas evita depender de
    arquivos externos ou de diretórios de execução implícitos.
-3. **Parametrizar os scripts compartilhados:** os scripts foram copiados por
-   módulo e repetem lógica. Um fluxo comum com o módulo como argumento reduz
-   divergências de caminhos e opções.
+3. **Centralizar a configuração do top:** compartilhar caminhos e opções
+   entre os scripts ativos reduz divergências entre ferramentas.
 4. **Adicionar verificação automatizada:** elaborar os testbenches com clock,
    reset, estímulos e assertions; executar lint, compilação/elaboração e testes
    em CI antes de considerar o fluxo funcional.
-5. **Alinhar os artefatos aos módulos ativos:** revisar os diretórios SDC,
-   relatórios e resultados que ainda incluem o módulo legado
-   `amba_3_apb_data_i_demux`.
+5. **Manter o isolamento do legado:** direcionar novos relatórios e resultados
+   ao top e preservar os artefatos dos sub-blocos em `legacy/`.
 6. **Documentar e versionar requisitos das ferramentas:** registrar versões de
    simulador, Genus/LEC, bibliotecas e variáveis de ambiente necessárias para
    reproduzir os fluxos.

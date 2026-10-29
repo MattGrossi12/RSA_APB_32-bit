@@ -1,0 +1,168 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[11:08:32.047994] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+Version: 22.18-s061_1, built Fri Apr 25 06:12:05 PDT 2025
+Options: -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl -log /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/genus/amba_3_apb_rsa_apb_top_2026-10-29_11-08-32.log 
+Date:    Thu Oct 29 11:08:32 2026
+Host:    rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*1physical cpu*Intel(R) Core(TM) i5-14500 24576KB) (32331728KB)
+PID:     173063
+OS:      Rocky Linux 8.10 (Green Obsidian)
+
+Checking out license: Genus_Synthesis
+[11:08:32.309673] Periodic Lic check successful
+[11:08:32.309673] Feature usage summary:
+[11:08:32.309673] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+@file(run_genus.tcl) 2: set project_name "amba_3_apb_rsa_apb_top"
+@file(run_genus.tcl) 3: set project_root $::env(PROJECT_ROOT)
+@file(run_genus.tcl) 4: set run_id $::env(RUN)
+@file(run_genus.tcl) 5: set output_dir $::env(OUTPUT_DIR)
+@file(run_genus.tcl) 6: set report_dir $::env(REPORT_DIR)
+@file(run_genus.tcl) 7: set source_dir [file join $project_root src amba_3_apb]
+@file(run_genus.tcl) 8: set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
+@file(run_genus.tcl) 9: set_db / .use_scan_seqs_for_non_dft false
+  Setting attribute of root '/': 'use_scan_seqs_for_non_dft' = false
+@file(run_genus.tcl) 11: set rtl_files [list \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
+    [file join $source_dir amba_3_apb_adrec.sv] \
+    [file join $source_dir amba_3_apb_data_o_mux.sv] \
+    [file join $source_dir amba_3_apb_data_io_top.sv] \
+    [file join $source_dir amba_3_apb_control.sv] \
+    [file join $source_dir amba_3_apb_regbank.sv] \
+    [file join $source_dir amba_3_apb_reset.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+    [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+]
+@file(run_genus.tcl) 76: set PDK_BASE "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file(run_genus.tcl) 77: set IHP130 "$PDK_BASE/ihp130-d490cfb2e3258f71-b533d8db583765d2"
+@file(run_genus.tcl) 78: set candidates [concat \
+    [glob -nocomplain -types d \
+        "$IHP130/ihp-sg13g2/libs.ref/sg13g2_stdcell"] \
+    [glob -nocomplain -types d \
+        "$IHP130/libs.ref/sg13g2_stdcell"] \
+    [glob -nocomplain -types d \
+        "$IHP130/*/ihp-sg13g2/libs.ref/sg13g2_stdcell"]]
+@file(run_genus.tcl) 85: if {[llength $candidates] == 0} {
+    error "Biblioteca sg13g2_stdcell nao encontrada"
+}
+@file(run_genus.tcl) 88: set STD_CELL [lindex $candidates 0]
+@file(run_genus.tcl) 89: set LIB_DIR "$STD_CELL/lib"
+@file(run_genus.tcl) 90: set LIB_FILE "$LIB_DIR/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file(run_genus.tcl) 91: set TECH_LEF "$STD_CELL/lef/sg13g2_tech.lef"
+@file(run_genus.tcl) 92: set CELL_LEF "$STD_CELL/lef/sg13g2_stdcell.lef"
+@file(run_genus.tcl) 93: set STD_CELL_VERILOG "$STD_CELL/verilog/sg13g2_stdcell.v"
+@file(run_genus.tcl) 94: foreach file [list $LIB_FILE $TECH_LEF $CELL_LEF $STD_CELL_VERILOG] {
+    if {![file readable $file]} {
+        error "Arquivo IHP nao encontrado: $file"
+    }
+}
+@file(run_genus.tcl) 99: set_db init_lib_search_path [list $LIB_DIR]
+  Setting attribute of root '/': 'init_lib_search_path' = /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/ihp130-d490cfb2e3258f71-b533d8db583765d2/ihp-sg13g2/libs.ref/sg13g2_stdcell/lib
+@file(run_genus.tcl) 100: read_libs [list $LIB_FILE]
+
+  Message Summary for Library sg13g2_stdcell_typ_1p20V_25C.lib:
+  *************************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 6
+  *************************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.200000, 25.000000) in library 'sg13g2_stdcell_typ_1p20V_25C.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_lgcp_1'
+        : To make the cell usable, change the value of 'dont_use' attribute to false.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_slgcp_1'
+@file(run_genus.tcl) 101: set_db lef_library [list $TECH_LEF $CELL_LEF]
+
+  According to lef_library, there are total 7 routing layers [ V(3) / H(4) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.16, 2) of 'WIDTH' for layers 'Metal1' and 'TopMetal2' is too large.
+        : Check the consistency of the parameters, and see if you can ignore this message or you're using different LEF file with wrong parameters.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.18, 2) of 'MINSPACING' for layers 'Metal1' and 'TopMetal2' is too large.
+  Setting attribute of root '/': 'lef_library' = /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/ihp130-d490cfb2e3258f71-b533d8db583765d2/ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_tech.lef /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/ihp130-d490cfb2e3258f71-b533d8db583765d2/ihp-sg13g2/libs.ref/sg13g2_stdcell/lef/sg13g2_stdcell.lef
+@file(run_genus.tcl) 165: foreach rtl_file $rtl_files {
+    read_hdl -language sv $rtl_file
+}
+@file(run_genus.tcl) 169: elaborate $project_name
+  Library has 58 usable logic and 13 usable sequential lib-cells.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'amba_3_apb_rsa_apb_top' from file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv'.
+Warning : Using default parameter value for module elaboration. [CDFG-818]
+        : Elaborating block 'amba_3_apb_rsa_apb_top' with default parameters value.
+Error   : Attempt to override localparam definition. [CDFG-816] [elaborate]
+        : Parameter 'IDLE' of module 'amba_3_apb_rsa_wrapper_control' in file '/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_wrapper_params_fsm.svh' on line 1.
+        : To conform with Verilog LRM, Localparams cannot be overridden by module instance parameter value assignments or Defparam.
+Info    : Unable to elaborate the design. [ELAB-4]
+        : Module 'amba_3_apb_rsa_apb_top' contains errors and cannot be elaborated.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+1
+Encountered problems processing file: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+WARNING: This version of the tool is 552 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[11:11:20.428171] Cdslmd servers: Logus
+[11:11:20.428176] Feature usage summary:
+[11:11:20.428177] Genus_Synthesis
+
+Normal exit.

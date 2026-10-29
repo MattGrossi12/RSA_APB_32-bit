@@ -53,7 +53,7 @@ function void agent::build_phase(uvm_phase phase);
     this.agent_ap = new(.name("agent_ap"),.parent(this));
   
     config_h = agent_config::type_id::create(.name("config_h"));
-  
+
     if (!uvm_config_db #(virtual apb_rsa_if)::get(this, "", "apb_rsa_if", config_h.vif))
         `uvm_fatal("NOVIF", "virtual interface apb_rsa_if nao encontrada no config_db")
   

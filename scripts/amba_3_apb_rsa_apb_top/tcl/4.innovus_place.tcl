@@ -7,8 +7,8 @@ innovus_stage {
     innovus_read_stage power
 
     place_opt_design
-    time_design -pre_cts -report_dir [file join $report_dir pre_cts]
+    time_design -pre_cts -report_dir [file join $report_dir pre_cts_${pdk}]
 
-    write_db [file join $db_dir place_amba_3_apb_rsa_apb_top]
+    write_db [file join $db_dir place_${artifact_name}]
     exit
 }

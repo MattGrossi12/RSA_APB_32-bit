@@ -52,6 +52,8 @@ function void monitor::build_phase(uvm_phase phase);
 
     this.monitor_ap = new(.name("monitor_ap"),.parent(this));
 
+    item = seq_item::type_id::create("item");
+
 endfunction
 
 
@@ -59,13 +61,7 @@ endfunction
 // Build phase
 ////////////////////////////////////////////////
 task monitor::run_phase(uvm_phase phase);
-   
-   item = seq_item::type_id::create("item");
-
-   repeat(2) @(posedge vif.pclk);
-  
-   forever begin
-     
+    
     // Monitoramos o barramento
     // Encapsulamos em itens de transação
     @(posedge vif.psel);
@@ -85,8 +81,5 @@ task monitor::run_phase(uvm_phase phase);
     // Envia para analysis port
     monitor_ap.write(item);
 
-   end
-  
-    phase.drop_objection(this);
 
 endtask

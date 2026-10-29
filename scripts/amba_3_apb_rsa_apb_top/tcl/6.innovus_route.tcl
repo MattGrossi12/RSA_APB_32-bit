@@ -14,7 +14,7 @@ innovus_stage {
     route_design
 
     # Save Routed Database:
-    write_db [file join $output_dir route_${project_name}]
+    write_db [file join $output_dir route_${artifact_name}]
 
     exit
 }

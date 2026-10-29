@@ -1,18 +1,11 @@
-# ============================================================
-# Innovus 22.18 - RSA_APB timing views
-# Technology: GSCLib045
-# ============================================================
-
-set lib_file [file join $::env(INNOVUS_TECH_DIR) LIB typical.lib]
-foreach input [list $lib_file $::env(SDC_FILE)] {
-    if {![file isfile $input] || ![file readable $input]} {
-        error "Arquivo MMMC nao encontrado ou ilegivel: $input"
-    }
+source [file join [file dirname [info script]] pdk_common.tcl]
+if {![file isfile $::env(SDC_FILE)] || ![file readable $::env(SDC_FILE)]} {
+    error "SDC ausente ou ilegivel: $::env(SDC_FILE)"
 }
 
 create_library_set \
     -name lib_typical \
-    -timing [list $lib_file]
+    -timing $lib_files
 
 create_rc_corner \
     -name rc_typical \

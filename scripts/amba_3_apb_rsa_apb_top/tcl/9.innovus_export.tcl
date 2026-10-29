@@ -10,20 +10,20 @@ innovus_stage {
     innovus_read_stage postroute
 
     # DEF:
-    write_def [file join $output_dir ${project_name}.def]
+    write_def [file join $output_dir ${artifact_name}.def]
 
     # Verilog Netlist:
-    write_netlist [file join $output_dir ${project_name}.v]
+    write_netlist [file join $output_dir ${artifact_name}.v]
 
     # SDF:
-    write_sdf [file join $output_dir ${project_name}.sdf]
+    write_sdf [file join $output_dir ${artifact_name}.sdf]
 
     # Physical implementation constraints, including the synthesized clock budget.
-    write_sdc [file join $output_dir ${project_name}.sdc]
+    write_sdc [file join $output_dir ${artifact_name}.sdc]
 
     # Experimental GDSII:
     # Standard-cell layouts and validated GDS layer map are unavailable.
-    write_stream [file join $output_dir ${project_name}_experimental.gds]
+    write_stream [file join $output_dir ${project_name}_experimental_${pdk}.gds]
 
     exit
 }

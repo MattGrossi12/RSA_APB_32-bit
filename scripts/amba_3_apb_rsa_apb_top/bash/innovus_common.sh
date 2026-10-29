@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-# Shared context for the RSA32 v2 physical implementation.
+source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/pdk_common.sh"
 
 innovus_setup() {
     local stage="$1" candidate latest="" netlist_dir
     local common_dir
     common_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
     PROJECT_ROOT="$(cd -- "$common_dir/../../.." && pwd)"
-    INNOVUS_BASE_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top/innovus/rsa32_v2"
-    netlist_dir="$PROJECT_ROOT/ps_files/rsa_apb_top/netlist"
+    INNOVUS_BASE_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top_${PDK}/innovus/rsa32_v2"
+    netlist_dir="$PROJECT_ROOT/ps_files/rsa_apb_top_${PDK}/netlist"
 
     if [[ -z "${SYNTH_RUN:-}" ]]; then
         if [[ "$stage" == "0.init" ]]; then
-            for candidate in "$netlist_dir"/synth_amba_3_apb_rsa_apb_top_*.v; do
+            for candidate in "$netlist_dir"/synth_amba_3_apb_rsa_apb_top_*_"$PDK".v; do
                 [[ -f "$candidate" ]] || continue
                 if [[ -z "$latest" || "$candidate" -nt "$latest" ]]; then
                     latest="$candidate"
@@ -32,13 +32,13 @@ innovus_setup() {
         fi
     fi
 
-    if [[ ! "$SYNTH_RUN" =~ ^amba_3_apb_rsa_apb_top_[0-9]{4}-[0-9]{2}-[0-9]{2}_[0-9]{2}-[0-9]{2}-[0-9]{2}$ ]]; then
-        echo "Erro: identificador de sintese invalido: $SYNTH_RUN" >&2
+    if [[ ! "$SYNTH_RUN" =~ ^amba_3_apb_rsa_apb_top_[0-9]{4}-[0-9]{2}-[0-9]{2}_[0-9]{2}-[0-9]{2}-[0-9]{2}(_[0-9]+)?_${PDK}$ ]]; then
+        echo "Erro: identificador de sintese invalido para $PDK: $SYNTH_RUN" >&2
         return 1
     fi
 
     NETLIST_FILE="$netlist_dir/synth_${SYNTH_RUN}.v"
-    SDC_FILE="$PROJECT_ROOT/ps_files/rsa_apb_top/sdc/synth_${SYNTH_RUN}.sdc"
+    SDC_FILE="$PROJECT_ROOT/ps_files/rsa_apb_top_${PDK}/sdc/synth_${SYNTH_RUN}.sdc"
     for candidate in "$NETLIST_FILE" "$SDC_FILE"; do
         if [[ ! -s "$candidate" ]]; then
             echo "Erro: arquivo da sintese selecionada nao encontrado ou vazio: $candidate" >&2
@@ -48,11 +48,11 @@ innovus_setup() {
 
     INNOVUS_STAGE="$stage"
     INNOVUS_DB_DIR="$INNOVUS_BASE_DIR/$SYNTH_RUN"
-    INNOVUS_REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/$SYNTH_RUN"
-    INNOVUS_LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/$SYNTH_RUN/$stage"
+    INNOVUS_REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top_${PDK}/innovus/rsa32_v2/$SYNTH_RUN"
+    INNOVUS_LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top_${PDK}/innovus/rsa32_v2/$SYNTH_RUN/$stage"
     INNOVUS_TECH_DIR="${INNOVUS_TECH_DIR:-/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries}"
     MMMC_FILE="$common_dir/../tcl/innovus_mmmc.tcl"
-    export PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE MMMC_FILE
+    export PDK PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE MMMC_FILE
     export INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_LOG_DIR
     export INNOVUS_STAGE INNOVUS_TECH_DIR
 }
@@ -72,12 +72,14 @@ innovus_run() {
         echo "Erro: Innovus nao encontrado. Configure o PATH ou INNOVUS_BIN." >&2
         return 127
     fi
+    export INNOVUS_SCRIPT="$tcl_file"
+    tcl_file="$PROJECT_ROOT/scripts/amba_3_apb_rsa_apb_top/tcl/run_innovus_${PDK}.tcl"
     mkdir -p -- "$INNOVUS_LOG_DIR" "$INNOVUS_REPORT_DIR" "$INNOVUS_DB_DIR"
     cd -- "$INNOVUS_LOG_DIR"
     printf 'Sintese: %s\nNetlist: %s\nSDC: %s\nBanco: %s\n' \
         "$SYNTH_RUN" "$NETLIST_FILE" "$SDC_FILE" "$INNOVUS_DB_DIR"
     if [[ "$mode" == "gui" ]]; then
-        exec "$binary" -stylus -files "$tcl_file" "$@"
+        exec "$binary" -stylus -files "$tcl_file" -log "$INNOVUS_LOG_DIR/innovus_${PDK}.log" "$@"
     fi
     exec "$binary" -stylus -no_gui -files "$tcl_file" "$@"
 }

@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd -- "$SCRIPT_DIR/.." && pwd)"
 DESIGN="amba_3_apb_rsa_apb_top"
 
-if [[ ! -d "$PROJECT_ROOT/scripts/$DESIGN/tcl" || ! -d "$PROJECT_ROOT/ps_files/rsa_apb_top" ]]; then
+if [[ ! -d "$PROJECT_ROOT/scripts/$DESIGN/tcl" || ! -d "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130" ]]; then
     printf 'Erro: diretório do projeto RSA_APB não reconhecido: %s\n' "$PROJECT_ROOT" >&2
     exit 1
 fi
@@ -21,11 +21,11 @@ targets=(
     "$PROJECT_ROOT/logs/$DESIGN/innovus"
     "$PROJECT_ROOT/reports/$DESIGN/genus"
     "$PROJECT_ROOT/reports/$DESIGN/innovus"
-    "$PROJECT_ROOT/ps_files/rsa_apb_top/netlist"
-    "$PROJECT_ROOT/ps_files/rsa_apb_top/sdc"
-    "$PROJECT_ROOT/ps_files/rsa_apb_top/db"
-    "$PROJECT_ROOT/ps_files/rsa_apb_top/genus"
-    "$PROJECT_ROOT/ps_files/rsa_apb_top/innovus"
+    "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130/netlist"
+    "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130/sdc"
+    "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130/db"
+    "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130/genus"
+    "$PROJECT_ROOT/ps_files/rsa_apb_top_ihp130/innovus"
 )
 
 # Logs antigos criados na raiz antes da correção do diretório de execução.

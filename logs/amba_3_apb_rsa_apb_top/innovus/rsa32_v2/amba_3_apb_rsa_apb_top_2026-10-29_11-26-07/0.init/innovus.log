@@ -1,0 +1,227 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+Date:		Thu Oct 29 11:27:03 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[11:27:03.047986] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_11-26-07/0.init/innovus_temp_196329_124aa2c9-29cb-4948-8acb-26eb143d3e6a_rock8_aluno_dQk6fS.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+@file 1: # Context shared by every stage of the RSA32 v2 flow.
+@file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+    if {![info exists ::env($required)] || $::env($required) eq ""} {
+        puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+        exit 1
+    }
+}
+@file 8:
+@file 9: set project_name "amba_3_apb_rsa_apb_top"
+@file 10: set project_root $::env(PROJECT_ROOT)
+@file 11: set db_dir $::env(INNOVUS_DB_DIR)
+@file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+@file 13:
+@file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+@file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+@file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+@file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+@file 18: # [file join $tech_dir LIB typical.lib]
+@file 19:
+@file 20: # ICsprout55 - H7CR (RVT), arquivado e mantido comentado.
+@file 21:
+@file 22: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd (legacy, kept commented).
+@file 23: # set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+@file 24: # set std_cell [file join $sky130 libs sky130hd]
+@file 25: # set lib_dir [file join $std_cell nldm]
+@file 26: # set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+@file 27: # set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+@file 28: # set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+@file 29: # set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+@file 30:
+@file 31: # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 - legado, mantido comentado.
+@file 32: # set gf180 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk gf180]
+@file 33: # set std_cell [file join $gf180 libs gf180mcu_fd_sc_mcu7t5v0]
+@file 34: # set lib_dir [file join $std_cell nldm]
+@file 35: # set tech_lef [file join $gf180 base apr gf180mcu_5LM_1TM_9K_7t_tech.lef]
+@file 36: # set cell_lef [file join $std_cell lef gf180mcu_fd_sc_mcu7t5v0.lef]
+@file 37: # set lib_file [file join $lib_dir gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz]
+@file 38: # set std_cell_gds [file join $std_cell gds 5LM gf180mcu_fd_sc_mcu7t5v0.gds.gz]
+@file 39:
+@file 40: # FreePDK45 / Nangate Open Cell Library - 45 nm.
+@file 41: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 42: set freepdk45 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk freepdk45]
+@file 43: set std_cell [file join $freepdk45 libs nangate45]
+@file 44: set lib_dir [file join $std_cell nldm]
+@file 45: set lib_file [file join $lib_dir NangateOpenCellLibrary_typical.lib]
+@file 46: set tech_lef [file join $freepdk45 base apr freepdk45.tech.lef]
+@file 47: set cell_lef [file join $std_cell lef NangateOpenCellLibrary.macro.mod.lef]
+@file 48: foreach input [list $lib_file $tech_lef $cell_lef] {
+    if {![file readable $input]} {
+        error "Arquivo FreePDK45 nao encontrado ou ilegivel: $input"
+    }
+}
+@file 53:
+@file 54: proc innovus_stage {body} {
+    if {[catch {uplevel 1 $body} result]} {
+        puts stderr "Erro no fluxo Innovus: $result"
+        exit 1
+    }
+}
+@file 60:
+@file 61: proc innovus_read_stage {stage} {
+    global db_dir project_name
+    set path [file join $db_dir ${stage}_${project_name}]
+    if {![file exists $path]} {
+        error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+    }
+    read_db $path
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+@file 2:
+@file 3: innovus_stage {
+    set report_dir [file join $report_root init]
+    file mkdir $db_dir $report_dir
+
+    # GPDK45/GSCLib045 (legacy):
+    # set_db design_process_node 45
+    # read_physical -lef [list \
+    #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_tech.lef] \
+    #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_macro.lef]]
+
+    # FreePDK45 / Nangate Open Cell Library - 45 nm.
+    set_db design_process_node 45
+
+    # SKY130 - SkyWater 130 nm (legacy):
+    # set_db design_process_node 130
+
+    # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 (legacy):
+    # set_db design_process_node 180
+    set_db add_route_vias_auto true
+    set_db init_power_nets {VDD}
+    set_db init_ground_nets {VSS}
+
+    # Consume the mapped netlist and SDC from the same Genus execution.
+    read_mmmc $::env(MMMC_FILE)
+    read_physical -lef [list $tech_lef $cell_lef]
+    read_netlist -top $project_name $::env(NETLIST_FILE)
+    init_design
+
+    check_timing -verbose > [file join $report_dir timing_constraints.rpt]
+    write_db [file join $db_dir init_${project_name}]
+
+    # Record provenance and select this run only after initialization succeeds.
+    set provenance [open [file join $db_dir synthesis_inputs.txt] w]
+    puts $provenance "RSA implementation: src/rsa32/v2"
+    puts $provenance "Synthesis: $::env(SYNTH_RUN)"
+    puts $provenance "Netlist: $::env(NETLIST_FILE)"
+    puts $provenance "SDC: $::env(SDC_FILE)"
+    close $provenance
+
+    set marker [file join $::env(INNOVUS_BASE_DIR) active_run]
+    set temporary "${marker}.[pid].tmp"
+    set handle [open $temporary w]
+    puts $handle $::env(SYNTH_RUN)
+    close $handle
+    file rename -force $temporary $marker
+    exit
+}
+##  Process: 45            (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'high'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB timing views
+@file 3: # Technology: FreePDK45 / Nangate Open Cell Library
+@file 4: # ============================================================
+@file 5:
+@file 6: # GPDK45/GSCLib045 (legacy):
+@file 7: # set lib_file [file join $::env(INNOVUS_TECH_DIR) LIB typical.lib]
+@file 8:
+@file 9: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 10: set freepdk45 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk freepdk45]
+@file 11: set std_cell [file join $freepdk45 libs nangate45]
+@file 12: set lib_dir [file join $std_cell lib]
+@file 13: set lib_file [file join $lib_dir sg13g2_stdcell_typ_1p20V_25C.lib]
+@file 14: foreach input [list $lib_file $::env(SDC_FILE)] {
+    if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+    }
+}
+**ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl' line 15: Arquivo MMMC nao encontrado ou ilegivel: /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/freepdk45/libs/nangate45/lib/sg13g2_stdcell_typ_1p20V_25C.lib.
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+Arquivo MMMC nao encontrado ou ilegivel: /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/freepdk45/libs/nangate45/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+    while executing
+"error "Arquivo MMMC nao encontrado ou ilegivel: $input""
+    invoked from within
+"if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+    }"
+    ("foreach" body line 2)
+    invoked from within
+"foreach input [list $lib_file $::env(SDC_FILE)] {
+    if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo MMMC nao encontra..."
+    (file "/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl" line 14)
+    invoked from within
+"::se_source_orig /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    invoked from within
+"if { !$encrypted && !$no_encoding && $encodingName != ""  } {
+                  set st [uplevel [concat ::se_source_orig " -encoding " $encodingName "..."
+    invoked from within
+"if {[::SE::source_verbose_file_state $file_name] == 1} {
+              ::SE::source_verbose_start $file_name
+              if { !$encrypted && !$no_en..."
+    invoked from within
+"if {$useTclVerbose} {
+          # use tcl internal method
+          set st ""
+          if {[::SE::source_verbose_file_state $file_name] == 1} {
+     ..."
+    invoked from within
+"if {$largeFile == 1} {
+    if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+      $putCmd "Sourcing $file_name"
+    }
+    set st [uplevel [concat..."
+    (procedure "source" line 185)
+    invoked from within
+"source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 {source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl}"
+Erro no fluxo Innovus: 1
+
+*** Memory Usage v#2 (Current mem = 1431.578M, initial mem = 669.535M) ***
+*** Message Summary: 0 warning(s), 1 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:14.2, real=0:00:14.0, mem=1431.6M) ---

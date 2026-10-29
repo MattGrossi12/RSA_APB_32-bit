@@ -24,13 +24,13 @@ module amba_3_apb_rsa_wrapper_top #(
 );
 
 // RSA Wrapper FSM States (One-Hot):
-localparam logic [6:0] IDLE        = 7'b0000001,
-                       LOAD_MSG    = 7'b0000010,
-                       GAP_MSG_EXP = 7'b0000100,
-                       LOAD_EXP    = 7'b0001000,
-                       GAP_EXP_MOD = 7'b0010000,
-                       LOAD_MOD    = 7'b0100000,
-                       WAIT_DONE   = 7'b1000000;
+localparam logic [5:0] IDLE        = 6'b000000,
+                       LOAD_MSG    = 6'b000001,
+                       GAP_MSG_EXP = 6'b000010,
+                       LOAD_EXP    = 6'b000100,
+                       GAP_EXP_MOD = 6'b001000,
+                       LOAD_MOD    = 6'b010000,
+                       WAIT_DONE   = 6'b100000;
 
 // GAP Counter Parameters:
 localparam integer GAP_WIDTH = (LOAD_GAP > 1) ? $clog2(LOAD_GAP) : 1;

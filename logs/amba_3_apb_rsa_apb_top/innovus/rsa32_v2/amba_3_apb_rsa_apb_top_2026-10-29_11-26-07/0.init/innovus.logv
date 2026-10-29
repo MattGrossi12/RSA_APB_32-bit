@@ -1,0 +1,249 @@
+[10/29 11:27:03      0s] 
+[10/29 11:27:03      0s] Cadence Innovus(TM) Implementation System.
+[10/29 11:27:03      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/29 11:27:03      0s] 
+[10/29 11:27:03      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/29 11:27:03      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+[10/29 11:27:03      0s] Date:		Thu Oct 29 11:27:03 2026
+[10/29 11:27:03      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/29 11:27:03      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/29 11:27:03      0s] 
+[10/29 11:27:03      0s] License:
+[10/29 11:27:03      0s] 		[11:27:03.047986] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/29 11:27:03      0s] 
+[10/29 11:27:03      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/29 11:27:03      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/29 11:27:11      8s] *** sockopt - 113
+[10/29 11:27:11      8s] Memory management switch to non-aggressive memory release mode.
+[10/29 11:27:11      8s] 
+[10/29 11:27:11      8s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/29 11:27:11      8s] 
+[10/29 11:27:11      8s] 
+[10/29 11:27:11      8s] 
+[10/29 11:27:15     11s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/29 11:27:16     13s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/29 11:27:16     13s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/29 11:27:16     13s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/29 11:27:16     13s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/29 11:27:16     13s] @(#)CDS: CPE v22.18-s071
+[10/29 11:27:16     13s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/29 11:27:16     13s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/29 11:27:16     13s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/29 11:27:16     13s] @(#)CDS: RCDB 11.15.0
+[10/29 11:27:16     13s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/29 11:27:16     13s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/29 11:27:16     13s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_11-26-07/0.init/innovus_temp_196329_124aa2c9-29cb-4948-8acb-26eb143d3e6a_rock8_aluno_dQk6fS.
+
+[10/29 11:27:16     13s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_11-26-07/0.init/innovus_temp_196329_124aa2c9-29cb-4948-8acb-26eb143d3e6a_rock8_aluno_dQk6fS.
+[10/29 11:27:16     13s] 
+[10/29 11:27:16     13s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] **INFO:  MMMC transition support version v31-84 
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] #@ Processing -files option
+[10/29 11:27:17     14s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/29 11:27:17     14s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+[10/29 11:27:17     14s] @file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+[10/29 11:27:17     14s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+[10/29 11:27:17     14s] @file 1: # Context shared by every stage of the RSA32 v2 flow.
+[10/29 11:27:17     14s] @file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+[10/29 11:27:17     14s]     if {![info exists ::env($required)] || $::env($required) eq ""} {
+[10/29 11:27:17     14s]         puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+[10/29 11:27:17     14s]         exit 1
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] @file 8:
+[10/29 11:27:17     14s] @file 9: set project_name "amba_3_apb_rsa_apb_top"
+[10/29 11:27:17     14s] @file 10: set project_root $::env(PROJECT_ROOT)
+[10/29 11:27:17     14s] @file 11: set db_dir $::env(INNOVUS_DB_DIR)
+[10/29 11:27:17     14s] @file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+[10/29 11:27:17     14s] @file 13:
+[10/29 11:27:17     14s] @file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+[10/29 11:27:17     14s] @file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+[10/29 11:27:17     14s] @file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+[10/29 11:27:17     14s] @file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+[10/29 11:27:17     14s] @file 18: # [file join $tech_dir LIB typical.lib]
+[10/29 11:27:17     14s] @file 19:
+[10/29 11:27:17     14s] @file 20: # ICsprout55 - H7CR (RVT), arquivado e mantido comentado.
+[10/29 11:27:17     14s] @file 21:
+[10/29 11:27:17     14s] @file 22: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd (legacy, kept commented).
+[10/29 11:27:17     14s] @file 23: # set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+[10/29 11:27:17     14s] @file 24: # set std_cell [file join $sky130 libs sky130hd]
+[10/29 11:27:17     14s] @file 25: # set lib_dir [file join $std_cell nldm]
+[10/29 11:27:17     14s] @file 26: # set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+[10/29 11:27:17     14s] @file 27: # set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+[10/29 11:27:17     14s] @file 28: # set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+[10/29 11:27:17     14s] @file 29: # set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+[10/29 11:27:17     14s] @file 30:
+[10/29 11:27:17     14s] @file 31: # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 - legado, mantido comentado.
+[10/29 11:27:17     14s] @file 32: # set gf180 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk gf180]
+[10/29 11:27:17     14s] @file 33: # set std_cell [file join $gf180 libs gf180mcu_fd_sc_mcu7t5v0]
+[10/29 11:27:17     14s] @file 34: # set lib_dir [file join $std_cell nldm]
+[10/29 11:27:17     14s] @file 35: # set tech_lef [file join $gf180 base apr gf180mcu_5LM_1TM_9K_7t_tech.lef]
+[10/29 11:27:17     14s] @file 36: # set cell_lef [file join $std_cell lef gf180mcu_fd_sc_mcu7t5v0.lef]
+[10/29 11:27:17     14s] @file 37: # set lib_file [file join $lib_dir gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz]
+[10/29 11:27:17     14s] @file 38: # set std_cell_gds [file join $std_cell gds 5LM gf180mcu_fd_sc_mcu7t5v0.gds.gz]
+[10/29 11:27:17     14s] @file 39:
+[10/29 11:27:17     14s] @file 40: # FreePDK45 / Nangate Open Cell Library - 45 nm.
+[10/29 11:27:17     14s] @file 41: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+[10/29 11:27:17     14s] @file 42: set freepdk45 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk freepdk45]
+[10/29 11:27:17     14s] @file 43: set std_cell [file join $freepdk45 libs nangate45]
+[10/29 11:27:17     14s] @file 44: set lib_dir [file join $std_cell nldm]
+[10/29 11:27:17     14s] @file 45: set lib_file [file join $lib_dir NangateOpenCellLibrary_typical.lib]
+[10/29 11:27:17     14s] @file 46: set tech_lef [file join $freepdk45 base apr freepdk45.tech.lef]
+[10/29 11:27:17     14s] @file 47: set cell_lef [file join $std_cell lef NangateOpenCellLibrary.macro.mod.lef]
+[10/29 11:27:17     14s] @file 48: foreach input [list $lib_file $tech_lef $cell_lef] {
+[10/29 11:27:17     14s]     if {![file readable $input]} {
+[10/29 11:27:17     14s]         error "Arquivo FreePDK45 nao encontrado ou ilegivel: $input"
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] @file 53:
+[10/29 11:27:17     14s] @file 54: proc innovus_stage {body} {
+[10/29 11:27:17     14s]     if {[catch {uplevel 1 $body} result]} {
+[10/29 11:27:17     14s]         puts stderr "Erro no fluxo Innovus: $result"
+[10/29 11:27:17     14s]         exit 1
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] @file 60:
+[10/29 11:27:17     14s] @file 61: proc innovus_read_stage {stage} {
+[10/29 11:27:17     14s]     global db_dir project_name
+[10/29 11:27:17     14s]     set path [file join $db_dir ${stage}_${project_name}]
+[10/29 11:27:17     14s]     if {![file exists $path]} {
+[10/29 11:27:17     14s]         error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s]     read_db $path
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+[10/29 11:27:17     14s] @file 2:
+[10/29 11:27:17     14s] @file 3: innovus_stage {
+[10/29 11:27:17     14s]     set report_dir [file join $report_root init]
+[10/29 11:27:17     14s]     file mkdir $db_dir $report_dir
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # GPDK45/GSCLib045 (legacy):
+[10/29 11:27:17     14s]     # set_db design_process_node 45
+[10/29 11:27:17     14s]     # read_physical -lef [list \
+[10/29 11:27:17     14s]     #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_tech.lef] \
+[10/29 11:27:17     14s]     #     [file join $::env(INNOVUS_TECH_DIR) LEF gsclib045_macro.lef]]
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # FreePDK45 / Nangate Open Cell Library - 45 nm.
+[10/29 11:27:17     14s]     set_db design_process_node 45
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # SKY130 - SkyWater 130 nm (legacy):
+[10/29 11:27:17     14s]     # set_db design_process_node 130
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0 (legacy):
+[10/29 11:27:17     14s]     # set_db design_process_node 180
+[10/29 11:27:17     14s]     set_db add_route_vias_auto true
+[10/29 11:27:17     14s]     set_db init_power_nets {VDD}
+[10/29 11:27:17     14s]     set_db init_ground_nets {VSS}
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # Consume the mapped netlist and SDC from the same Genus execution.
+[10/29 11:27:17     14s]     read_mmmc $::env(MMMC_FILE)
+[10/29 11:27:17     14s]     read_physical -lef [list $tech_lef $cell_lef]
+[10/29 11:27:17     14s]     read_netlist -top $project_name $::env(NETLIST_FILE)
+[10/29 11:27:17     14s]     init_design
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     check_timing -verbose > [file join $report_dir timing_constraints.rpt]
+[10/29 11:27:17     14s]     write_db [file join $db_dir init_${project_name}]
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     # Record provenance and select this run only after initialization succeeds.
+[10/29 11:27:17     14s]     set provenance [open [file join $db_dir synthesis_inputs.txt] w]
+[10/29 11:27:17     14s]     puts $provenance "RSA implementation: src/rsa32/v2"
+[10/29 11:27:17     14s]     puts $provenance "Synthesis: $::env(SYNTH_RUN)"
+[10/29 11:27:17     14s]     puts $provenance "Netlist: $::env(NETLIST_FILE)"
+[10/29 11:27:17     14s]     puts $provenance "SDC: $::env(SDC_FILE)"
+[10/29 11:27:17     14s]     close $provenance
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s]     set marker [file join $::env(INNOVUS_BASE_DIR) active_run]
+[10/29 11:27:17     14s]     set temporary "${marker}.[pid].tmp"
+[10/29 11:27:17     14s]     set handle [open $temporary w]
+[10/29 11:27:17     14s]     puts $handle $::env(SYNTH_RUN)
+[10/29 11:27:17     14s]     close $handle
+[10/29 11:27:17     14s]     file rename -force $temporary $marker
+[10/29 11:27:17     14s]     exit
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] ##  Process: 45            (User Set)               
+[10/29 11:27:17     14s] ##     Node: (not set)                           
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] ##  Check design process and node:  
+[10/29 11:27:17     14s] ##  Design tech node is not set.
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+[10/29 11:27:17     14s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/29 11:27:17     14s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/29 11:27:17     14s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'high'.
+[10/29 11:27:17     14s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+[10/29 11:27:17     14s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+[10/29 11:27:17     14s] @file 1: # ============================================================
+[10/29 11:27:17     14s] @file 2: # Innovus 22.18 - RSA_APB timing views
+[10/29 11:27:17     14s] @file 3: # Technology: FreePDK45 / Nangate Open Cell Library
+[10/29 11:27:17     14s] @file 4: # ============================================================
+[10/29 11:27:17     14s] @file 5:
+[10/29 11:27:17     14s] @file 6: # GPDK45/GSCLib045 (legacy):
+[10/29 11:27:17     14s] @file 7: # set lib_file [file join $::env(INNOVUS_TECH_DIR) LIB typical.lib]
+[10/29 11:27:17     14s] @file 8:
+[10/29 11:27:17     14s] @file 9: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+[10/29 11:27:17     14s] @file 10: set freepdk45 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk freepdk45]
+[10/29 11:27:17     14s] @file 11: set std_cell [file join $freepdk45 libs nangate45]
+[10/29 11:27:17     14s] @file 12: set lib_dir [file join $std_cell lib]
+[10/29 11:27:17     14s] @file 13: set lib_file [file join $lib_dir sg13g2_stdcell_typ_1p20V_25C.lib]
+[10/29 11:27:17     14s] @file 14: foreach input [list $lib_file $::env(SDC_FILE)] {
+[10/29 11:27:17     14s]     if {![file isfile $input] || ![file readable $input]} {
+[10/29 11:27:17     14s]         error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s] }
+[10/29 11:27:17     14s] **ERROR: (IMPSE-110):	File '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl' line 15: Arquivo MMMC nao encontrado ou ilegivel: /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/freepdk45/libs/nangate45/lib/sg13g2_stdcell_typ_1p20V_25C.lib.
+[10/29 11:27:17     14s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+[10/29 11:27:17     14s] Arquivo MMMC nao encontrado ou ilegivel: /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/freepdk45/libs/nangate45/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+[10/29 11:27:17     14s]     while executing
+[10/29 11:27:17     14s] "error "Arquivo MMMC nao encontrado ou ilegivel: $input""
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "if {![file isfile $input] || ![file readable $input]} {
+[10/29 11:27:17     14s]         error "Arquivo MMMC nao encontrado ou ilegivel: $input"
+[10/29 11:27:17     14s]     }"
+[10/29 11:27:17     14s]     ("foreach" body line 2)
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "foreach input [list $lib_file $::env(SDC_FILE)] {
+[10/29 11:27:17     14s]     if {![file isfile $input] || ![file readable $input]} {
+[10/29 11:27:17     14s]         error "Arquivo MMMC nao encontra..."
+[10/29 11:27:17     14s]     (file "/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl" line 14)
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "::se_source_orig /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+[10/29 11:27:17     14s]     ("uplevel" body line 1)
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "uplevel [concat ::se_source_orig $args]"
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "if { !$encrypted && !$no_encoding && $encodingName != ""  } {
+[10/29 11:27:17     14s]                   set st [uplevel [concat ::se_source_orig " -encoding " $encodingName "..."
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/29 11:27:17     14s]               ::SE::source_verbose_start $file_name
+[10/29 11:27:17     14s]               if { !$encrypted && !$no_en..."
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "if {$useTclVerbose} {
+[10/29 11:27:17     14s]           # use tcl internal method
+[10/29 11:27:17     14s]           set st ""
+[10/29 11:27:17     14s]           if {[::SE::source_verbose_file_state $file_name] == 1} {
+[10/29 11:27:17     14s]      ..."
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "if {$largeFile == 1} {
+[10/29 11:27:17     14s]     if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+[10/29 11:27:17     14s]       $putCmd "Sourcing $file_name"
+[10/29 11:27:17     14s]     }
+[10/29 11:27:17     14s]     set st [uplevel [concat..."
+[10/29 11:27:17     14s]     (procedure "source" line 185)
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl"
+[10/29 11:27:17     14s]     ("uplevel" body line 1)
+[10/29 11:27:17     14s]     invoked from within
+[10/29 11:27:17     14s] "uplevel #0 {source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl}"
+[10/29 11:27:17     14s] Erro no fluxo Innovus: 1
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] *** Memory Usage v#2 (Current mem = 1431.578M, initial mem = 669.535M) ***
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] *** Summary of all messages that are not suppressed in this session:
+[10/29 11:27:17     14s] Severity  ID               Count  Summary                                  
+[10/29 11:27:17     14s] ERROR     IMPSE-110            1  File '%s' line %s: %s.                   
+[10/29 11:27:17     14s] *** Message Summary: 0 warning(s), 1 error(s)
+[10/29 11:27:17     14s] 
+[10/29 11:27:17     14s] --- Ending "Innovus" (totcpu=0:00:14.2, real=0:00:14.0, mem=1431.6M) ---

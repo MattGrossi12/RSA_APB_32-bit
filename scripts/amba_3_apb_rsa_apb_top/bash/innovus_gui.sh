@@ -4,8 +4,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/innovus_common.sh"
 
-# Open the final physical database unless another stage is explicitly selected.
-INNOVUS_DB_STAGE="${INNOVUS_DB_STAGE:-postroute}"
+# Open the most advanced available physical database unless another stage is explicitly selected.
+# This also allows the GUI to inspect incomplete runs that do not yet have a postroute DB.
+INNOVUS_DB_STAGE="${INNOVUS_DB_STAGE:-auto}"
 if [[ $# -gt 0 && "$1" != -* ]]; then
     INNOVUS_DB_STAGE="$1"
     shift
@@ -19,5 +20,6 @@ case "$INNOVUS_DB_STAGE" in
 esac
 export INNOVUS_DB_STAGE
 
+pdk_parse_args "$@"
 innovus_setup gui
-innovus_run "$SCRIPT_DIR/../tcl/innovus_gui.tcl" gui "$@"
+innovus_run "$SCRIPT_DIR/../tcl/innovus_gui.tcl" gui "${TOOL_ARGS[@]}"
