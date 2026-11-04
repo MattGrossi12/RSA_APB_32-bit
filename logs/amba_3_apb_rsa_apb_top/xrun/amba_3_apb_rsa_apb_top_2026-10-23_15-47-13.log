@@ -1,0 +1,200 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 23, 2026 at 15:47:13 -03
+xrun
+	-64bit
+	-timescale 1ns/1ps
+	-top testbench
+	-access +rwc
+	-coverage all
+	-covoverwrite
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+	-covtest amba_3_apb_rsa_apb_top_2026-10-23_15-47-13
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun/amba_3_apb_rsa_apb_top_2026-10-23_15-47-13.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-23_15-47-13.vcd
+
+   User defined plus("+") options:
+	+VCD=/home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_2026-10-23_15-47-13.vcd
+
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	module worklib.kogge_stone_adder:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	module worklib.rsa_core_mult:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	module worklib.rsa_core_mod:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	module worklib.rsa_core_ctrl:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	module worklib.rsa_core:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	module worklib.amba_3_apb_adrec:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	module worklib.amba_3_apb_data_o_mux:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	module worklib.amba_3_apb_data_io_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	module worklib.amba_3_apb_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	module worklib.amba_3_apb_regbank:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	module worklib.amba_3_apb_reset:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	module worklib.amba_3_apb_rsa_wrapper_control:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	module worklib.amba_3_apb_rsa_wrapper_data:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	module worklib.amba_3_apb_rsa_wrapper_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	module worklib.amba_3_apb_rsa_apb_top:sv
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv
+        compare_results(read_data, expected_result);
+                      |
+xmvlog: *W,FAAOP1 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,195|22): task or function call does not specify all formal output arguments [10.2.2][10.3(IEEE)].
+        output logic error
+                         |
+xmvlog: *W,FAAOP2 (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv,143|25): Formal output argument 'error' is absent in the task or function call identified by the previous error message [10.2.2][10.3(IEEE)].
+	module worklib.testbench:sv
+		errors: 0, warnings: 2
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		testbench
+
+	Extracting FSMs for coverage:
+		worklib.amba_3_apb_adrec
+		worklib.amba_3_apb_data_o_mux
+		worklib.amba_3_apb_data_io_top
+		worklib.amba_3_apb_control
+		worklib.amba_3_apb_regbank
+		worklib.amba_3_apb_reset
+		worklib.amba_3_apb_rsa_wrapper_control
+			FSM extracted for state register c_state
+		worklib.amba_3_apb_rsa_wrapper_data
+		worklib.kogge_stone_adder
+		worklib.rsa_core_mult
+			FSM extracted for state register state_reg
+		worklib.rsa_core_mod
+			FSM extracted for state register state_reg
+		worklib.rsa_core_ctrl
+			FSM extracted for state register state_reg
+		worklib.rsa_core
+		worklib.amba_3_apb_rsa_wrapper_top
+		worklib.amba_3_apb_rsa_apb_top
+		worklib.testbench
+	Total FSMs extracted = 4
+xmelab: *W,COVSCE: Expression coverage is supported for expressions with static cast as a default configuration. To continue merging older databases, use the "set_backward_compat -disable_static_cast" backward compatibility command in the coverage configuration file. This command disables the support of expression coverage with static cast.
+	Building instance overlay tables: ....
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+................ Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.rsa_core_ctrl:sv <0x7196fe0b>
+			streams:  26, words: 23494
+		worklib.rsa_core_mod:sv <0x1bf86353>
+			streams:  22, words: 20927
+		worklib.rsa_core:sv <0x59c3bced>
+			streams:  20, words:  7341
+		worklib.amba_3_apb_rsa_wrapper_data:sv <0x4a4673eb>
+			streams:   1, words:  8966
+		worklib.amba_3_apb_rsa_wrapper_control:sv <0x78451df1>
+			streams:   5, words:  7754
+		worklib.amba_3_apb_rsa_wrapper_top:sv <0x3a311cd7>
+			streams:  19, words:  6914
+		worklib.amba_3_apb_reset:sv <0x55ca27c8>
+			streams:   4, words:  1616
+		worklib.amba_3_apb_regbank:sv <0x6472f928>
+			streams:  25, words: 15697
+		worklib.amba_3_apb_control:sv <0x0c00a1d5>
+			streams:   4, words: 10973
+		worklib.amba_3_apb_data_o_mux:sv <0x5b39c8a0>
+			streams:   1, words:  3150
+		worklib.amba_3_apb_adrec:sv <0x3574cc76>
+			streams:   1, words:   802
+		worklib.amba_3_apb_data_io_top:sv <0x332ceedc>
+			streams:   6, words:  2813
+		worklib.amba_3_apb_rsa_apb_top:sv <0x32279e5c>
+			streams:  58, words: 19797
+		worklib.testbench:sv <0x6fe82b30>
+			streams:  19, words: 24873
+		worklib.kogge_stone_adder:sv <0x532478bc>
+			streams:  29, words: 23586
+		worklib.rsa_core_mult:sv <0x29e76346>
+			streams:  19, words: 15176
+		worklib.kogge_stone_adder:sv <0x772f3b43>
+			streams:  29, words: 23475
+		worklib.kogge_stone_adder:sv <0x338ace17>
+			streams:  29, words: 24484
+		worklib.kogge_stone_adder:sv <0x6ac39342>
+			streams:  25, words: 20083
+    logic [DATA_WIDTH-1:0] p_stage [0:LEVELS];
+                                 |
+xmelab: *W,COVMDD (/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv,22|33): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                   Instances  Unique
+		Modules:                  19      16
+		Registers:               194     179
+		Scalar wires:          2,784       -
+		Vectored wires:          111       -
+		Always blocks:            17      17
+		Initial blocks:            1       1
+		Cont. assignments:     2,697      60
+		Pseudo assignments:      123       -
+		Process Clocks:            7       2
+		Simulation timescale:    1ps
+	Writing initial simulation snapshot: worklib.testbench:sv
+Loading snapshot worklib.testbench:sv .................... Done
+xcelium> source /home/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> run
++-----------------------------------------------+
+Test   Result
++-----------------------------------------------+
+PASS!!
++-----------------------------------------------+
+Simulation complete via $finish(1) at time 2645 NS + 0
+/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench_2.sv:232     $finish;
+xcelium> exit
+
+coverage setup:
+  workdir  :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top
+  dutinst  :  testbench(testbench)
+  scope    :  scope
+  testname :  amba_3_apb_rsa_apb_top_2026-10-23_15-47-13
+
+coverage files:
+  model(design data) :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/scope/icc_531170a1_00000000.ucm
+  data               :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/scope/amba_3_apb_rsa_apb_top_2026-10-23_15-47-13/icc_531170a1_00000000.ucd
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 23, 2026 at 15:47:15 -03  (total: 00:00:02)

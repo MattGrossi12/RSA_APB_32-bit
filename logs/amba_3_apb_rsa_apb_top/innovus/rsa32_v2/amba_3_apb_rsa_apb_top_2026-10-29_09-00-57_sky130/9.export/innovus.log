@@ -1,0 +1,695 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl 
+Date:		Thu Oct 29 09:29:06 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[09:29:06.048082] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/9.export/innovus_temp_54604_c114f795-aaa4-4eab-80f6-2183af703ad8_rock8_aluno_DbkqC2.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl
+@file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+@file 1: # Context shared by every stage of the RSA32 v2 flow.
+@file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+    if {![info exists ::env($required)] || $::env($required) eq ""} {
+        puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+        exit 1
+    }
+}
+@file 8:
+@file 9: set project_name "amba_3_apb_rsa_apb_top"
+@file 10: set project_root $::env(PROJECT_ROOT)
+@file 11: set db_dir $::env(INNOVUS_DB_DIR)
+@file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+@file 13:
+@file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+@file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+@file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+@file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+@file 18: # [file join $tech_dir LIB typical.lib]
+@file 19:
+@file 20: # ICsprout55 - H7CR (RVT), legado, mantido comentado.
+@file 21: # set ics55 [file join $pdk_base icsprout55-v1.10.102-a7b1e2edbb12d056]
+@file 22: # set std_cell [file join $ics55 IP STD_cell ics55_LLSC_H7C_V1p10C100 ics55_LLSC_H7CR]
+@file 23: # set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+@file 24: # set tech_lef [file join $ics55 prtech techLEF N551P6M.lef]
+@file 25: # set cell_lef [file join $std_cell lef ics55_LLSC_H7CR_ecos.lef]
+@file 26: # set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+@file 27:
+@file 28: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd.
+@file 29: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 30: set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+@file 31: set std_cell [file join $sky130 libs sky130hd]
+@file 32: set lib_dir [file join $std_cell nldm]
+@file 33: set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+@file 34: set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+@file 35: set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+@file 36: set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+@file 37:
+@file 38: proc innovus_stage {body} {
+    if {[catch {uplevel 1 $body} result]} {
+        puts stderr "Erro no fluxo Innovus: $result"
+        exit 1
+    }
+}
+@file 44:
+@file 45: proc innovus_read_stage {stage} {
+    global db_dir project_name
+    set path [file join $db_dir ${stage}_${project_name}]
+    if {![file exists $path]} {
+        error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+    }
+    read_db $path
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+@file 2:
+@file 3: innovus_stage {
+    # Experimental Export:
+    set output_dir [file join $db_dir export]
+
+    file mkdir $output_dir
+
+    # Restore Post-route Database:
+    innovus_read_stage postroute
+
+    # DEF:
+    write_def [file join $output_dir ${project_name}.def]
+
+    # Verilog Netlist:
+    write_netlist [file join $output_dir ${project_name}.v]
+
+    # SDF:
+    write_sdf [file join $output_dir ${project_name}.sdf]
+
+    # Physical implementation constraints, including the synthesized clock budget.
+    write_sdc [file join $output_dir ${project_name}.sdc]
+
+    # Experimental GDSII:
+    # Standard-cell layouts and validated GDS layer map are unavailable.
+    write_stream [file join $output_dir ${project_name}_experimental.gds]
+
+    exit
+}
+#% Begin load design ... (date=10/29 09:29:21, mem=1446.4M)
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+**WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+Loading design 'amba_3_apb_rsa_apb_top' saved by 'Innovus' '22.18-s118_1' on 'Thu Oct 29 09:28:41 2026'.
+Reading lib_typical timing library '/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz' ...
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82148)
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82282)
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82416)
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82693)
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82827)
+**ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82961)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_6'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_3'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_12'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_bleeder_1'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__diode_2'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_6'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_3'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_12'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+Read 428 cells in library 'sky130_fd_sc_hd__tt_025C_1v80' 
+tc_typical
+rc_typical
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/libs/lef/sky130_fd_sc.tlef ...
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/libs/lef/sky130_fd_sc_hd_merged.lef ...
+**WARN: (IMPLF-108):	There is no overlap layer defined in any LEF file
+so you are unable to create rectilinear partition in a hierarchical flow.
+Set DBUPerIGU to M1 pitch 460.
+**WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__xor2_4' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__probec_p_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__probe_p_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'LO' in macro 'sky130_fd_sc_hd__macro_sparecell' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__dlymetal6s4s_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+**WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__dlymetal6s2s_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-201' for more detail.
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Loading view definition file from /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/viewDefinition.tcl
+% Begin Load netlist data ... (date=10/29 09:29:22, mem=1470.4M)
+*** Begin netlist parsing (mem=1503.7M) ***
+Created 428 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin'
+
+*** Memory Usage v#2 (Current mem = 1503.676M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1503.7M) ***
+% End Load netlist data ... (date=10/29 09:29:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1482.5M, current mem=1482.5M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 428 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 438 modules.
+** info: there are 8309 stdCell insts.
+** info: there are 8309 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1542.176M, initial mem = 661.535M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'unithddbl' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Adjust met3 preferred direction offset from 0.34 to 0.17.
+Adjust met4 preferred direction offset from 0.46 to 0.23.
+Adjust met5 preferred direction offset from 1.7 to 0.17.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.4 defined in technology file in preferred direction.
+Generated pitch 0.69 in met4 is different from 0.92 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.68 defined in technology file in preferred direction.
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+Slack adjustment of -0 applied on <default> path group
+Effort level <high> specified for tdgp_reg2reg_default path_group
+Slack adjustment of -0 applied on tdgp_reg2reg_default path_group
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 319
+Total number of sequential cells: 68
+Total number of tristate cells: 13
+Total number of level shifter cells: 7
+Total number of power gating cells: 0
+Total number of isolation cells: 11
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 10
+List of usable buffers: sky130_fd_sc_hd__buf_1 sky130_fd_sc_hd__buf_12 sky130_fd_sc_hd__buf_16 sky130_fd_sc_hd__buf_2 sky130_fd_sc_hd__buf_4 sky130_fd_sc_hd__buf_6 sky130_fd_sc_hd__buf_8 sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_16 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8 sky130_fd_sc_hd__dlymetal6s2s_1 sky130_fd_sc_hd__probec_p_8 sky130_fd_sc_hd__probe_p_8
+Total number of usable buffers: 15
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sky130_fd_sc_hd__bufinv_16 sky130_fd_sc_hd__clkinv_1 sky130_fd_sc_hd__bufinv_8 sky130_fd_sc_hd__clkinv_16 sky130_fd_sc_hd__clkinv_2 sky130_fd_sc_hd__clkinv_4 sky130_fd_sc_hd__clkinv_8 sky130_fd_sc_hd__inv_1 sky130_fd_sc_hd__clkinvlp_2 sky130_fd_sc_hd__clkinvlp_4 sky130_fd_sc_hd__inv_12 sky130_fd_sc_hd__inv_16 sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_4 sky130_fd_sc_hd__inv_6 sky130_fd_sc_hd__inv_8
+Total number of usable inverters: 16
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sky130_fd_sc_hd__bufbuf_16 sky130_fd_sc_hd__bufbuf_8 sky130_fd_sc_hd__clkdlybuf4s15_1 sky130_fd_sc_hd__clkdlybuf4s15_2 sky130_fd_sc_hd__clkdlybuf4s18_1 sky130_fd_sc_hd__clkdlybuf4s18_2 sky130_fd_sc_hd__clkdlybuf4s25_1 sky130_fd_sc_hd__clkdlybuf4s50_1 sky130_fd_sc_hd__clkdlybuf4s25_2 sky130_fd_sc_hd__clkdlybuf4s50_2 sky130_fd_sc_hd__dlygate4sd2_1 sky130_fd_sc_hd__dlygate4sd1_1 sky130_fd_sc_hd__dlygate4sd3_1 sky130_fd_sc_hd__dlymetal6s6s_1 sky130_fd_sc_hd__dlymetal6s4s_1
+Total number of identified usable delay cells: 15
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.gz (mem = 1802.9M).
+% Begin Load floorplan data ... (date=10/29 09:29:22, mem=1792.4M)
+*info: reset 8514 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 310960 306000)
+**WARN: (IMPFP-3961):	The techSite 'unithddbl' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Adjust met3 preferred direction offset from 0.34 to 0.17.
+Adjust met4 preferred direction offset from 0.46 to 0.23.
+Adjust met5 preferred direction offset from 1.7 to 0.17.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.4 defined in technology file in preferred direction.
+Generated pitch 0.69 in met4 is different from 0.92 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.68 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.spr.gz (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:28:41 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1794.0M, current mem=1794.0M)
+There are 34 nets with weight being set
+There are 34 nets with bottomPreferredRoutingLayer being set
+There are 34 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Delete all existing relative floorplan constraints.
+% End Load floorplan data ... (date=10/29 09:29:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1794.6M, current mem=1794.6M)
+Reading congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=10/29 09:29:22, mem=1794.8M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=10/29 09:29:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1796.7M, current mem=1796.7M)
+Loading place ...
+% Begin Load placement data ... (date=10/29 09:29:22, mem=1796.7M)
+Reading placement file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:28:41 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1802.9M) ***
+Total net length = 1.450e+05 (6.561e+04 7.936e+04) (ext = 1.259e+04)
+% End Load placement data ... (date=10/29 09:29:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1797.8M, current mem=1797.6M)
+% Begin Load routing data ... (date=10/29 09:29:22, mem=1797.2M)
+Reading routing file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.gz.
+Reading Innovus routing data (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:28:41 2026 Format: 20.1) ...
+*** Total 8511 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.1 real=0:00:00.0 mem=1802.9M) ***
+% End Load routing data ... (date=10/29 09:29:22, total cpu=0:00:00.1, real=0:00:00.0, peak res=1807.2M, current mem=1806.6M)
+Loading Drc markers ...
+... 236 markers are loaded ...
+... 0 geometry drc markers are loaded ...
+... 2 antenna drc markers are loaded ...
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1805.9M) ***
+Reading dirtyarea snapshot file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.db.da.gz (Create by Innovus v22.18-s118_1 on Thu Oct 29 09:28:41 2026, version: 7).
+**WARN: (IMPEXT-2523):	Option 'extract_rc_cap_table_basic' should not be used for post_route (extract_rc_effort_level low) mode. It should be used only for  diagnostic or debugging purposes.
+**WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+**WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+**WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers POLY and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 12.8 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.0285 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Initializing multi-corner resistance tables ...
+Start generating vias ...
+Generating vias for default rule ...
+Total 3 vias inserted to default rule.
+Via generation for default rule completed.
+Found no NONDEFAULTRULE.
+Via generation completed successfully.
+% Begin Load power constraints ... (date=10/29 09:29:23, mem=1814.0M)
+source /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_power_constraints.tcl
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=10/29 09:29:23, total cpu=0:00:00.0, real=0:00:00.0, peak res=1819.9M, current mem=1819.9M)
+dc_typical
+% Begin load AAE data ... (date=10/29 09:29:23, mem=1841.3M)
+**WARN: (IMPESI-3505):	set_db delaycal_eng_enablePrePlacedFlow false (default=false) will be obsoleted along with its sgs2set equivalent.  This parameter will continue to be supported in the current release, but will be removed in the next major release of the software.
+AAE DB initialization (MEM=1874.01 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=10/29 09:29:23, total cpu=0:00:00.4, real=0:00:00.0, peak res=1854.0M, current mem=1854.0M)
+Restoring CCOpt config...
+  Extracting original clock gating for pclk_i...
+    clock_tree pclk_i contains 705 sinks and 0 clock gates.
+  Extracting original clock gating for pclk_i done.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 319
+Total number of sequential cells: 68
+Total number of tristate cells: 13
+Total number of level shifter cells: 7
+Total number of power gating cells: 0
+Total number of isolation cells: 11
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 10
+List of usable buffers: sky130_fd_sc_hd__buf_1 sky130_fd_sc_hd__buf_12 sky130_fd_sc_hd__buf_16 sky130_fd_sc_hd__buf_2 sky130_fd_sc_hd__buf_4 sky130_fd_sc_hd__buf_6 sky130_fd_sc_hd__buf_8 sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_16 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8 sky130_fd_sc_hd__dlymetal6s2s_1 sky130_fd_sc_hd__probec_p_8 sky130_fd_sc_hd__probe_p_8
+Total number of usable buffers: 15
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sky130_fd_sc_hd__bufinv_16 sky130_fd_sc_hd__clkinv_1 sky130_fd_sc_hd__bufinv_8 sky130_fd_sc_hd__clkinv_16 sky130_fd_sc_hd__clkinv_2 sky130_fd_sc_hd__clkinv_4 sky130_fd_sc_hd__clkinv_8 sky130_fd_sc_hd__inv_1 sky130_fd_sc_hd__clkinvlp_2 sky130_fd_sc_hd__clkinvlp_4 sky130_fd_sc_hd__inv_12 sky130_fd_sc_hd__inv_16 sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_4 sky130_fd_sc_hd__inv_6 sky130_fd_sc_hd__inv_8
+Total number of usable inverters: 16
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sky130_fd_sc_hd__bufbuf_16 sky130_fd_sc_hd__bufbuf_8 sky130_fd_sc_hd__clkdlybuf4s15_1 sky130_fd_sc_hd__clkdlybuf4s15_2 sky130_fd_sc_hd__clkdlybuf4s18_1 sky130_fd_sc_hd__clkdlybuf4s18_2 sky130_fd_sc_hd__clkdlybuf4s25_1 sky130_fd_sc_hd__clkdlybuf4s50_1 sky130_fd_sc_hd__clkdlybuf4s25_2 sky130_fd_sc_hd__clkdlybuf4s50_2 sky130_fd_sc_hd__dlygate4sd2_1 sky130_fd_sc_hd__dlygate4sd1_1 sky130_fd_sc_hd__dlygate4sd3_1 sky130_fd_sc_hd__dlymetal6s6s_1 sky130_fd_sc_hd__dlymetal6s4s_1
+Total number of identified usable delay cells: 15
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version (null). They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=10/29 09:29:23, total cpu=0:00:02.3, real=0:00:02.0, peak res=1871.8M, current mem=1861.7M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-201            6  Pin '%s' in macro '%s' has no ANTENNADIF...
+WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+WARNING   IMPEXT-2766          6  The sheet resistance for layer %s is not...
+WARNING   IMPEXT-2773          6  The via resistance between layers %s and...
+WARNING   IMPEXT-2523          1  Option 'extract_rc_cap_table_basic' shou...
+WARNING   IMPEXT-6138          3  Options 'extract_rc_relative_cap_thresho...
+WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+WARNING   TECHLIB-302         12  No function defined for cell '%s'. The c...
+ERROR     TECHLIB-702          6  No pg_pin with name '%s' has been read i...
+*** Message Summary: 41 warning(s), 6 error(s)
+
+Writing DEF file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/export/amba_3_apb_rsa_apb_top.def', current time is Thu Oct 29 09:29:23 2026 ...
+unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+DEF file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/export/amba_3_apb_rsa_apb_top.def' is written, current time is Thu Oct 29 09:29:23 2026 ...
+Writing Netlist "/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/export/amba_3_apb_rsa_apb_top.v" ...
+**WARN: (SDF-808):	The software is currently operating in a high performance mode which optimizes the handling of multiple timing arcs between input and output pin pairs. With the current settings, the SDF file generated will contain the same delay information for all of these arcs. To have the SDF recalculated with explicit pin pair data, you should use the option '-recompute_delay_calc'. This setting is recommended for generating SDF for functional  simulation applications.
+AAE_INFO: opIsDesignInPostRouteState() is 1
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: amba_3_apb_rsa_apb_top
+# Design Mode: 130nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Extraction called for design 'amba_3_apb_rsa_apb_top' of instances=8309 and nets=8514 using extraction engine 'post_route' at effort level 'low' .
+post_route (extract_rc_effort_level low) RC Extraction called for design amba_3_apb_rsa_apb_top.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using pre_route extraction or post_route extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'write_cap_table' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+**WARN: (IMPEXT-3032):	Because the cap table file was not provided, it will be created internally with the following process info:
+* Layer Id             : 1 - M1
+      Thickness        : 0.1
+      Min Width        : 0.17
+      Layer Dielectric : 4.1
+* Layer Id             : 2 - M2
+      Thickness        : 0.35
+      Min Width        : 0.14
+      Layer Dielectric : 4.1
+* Layer Id             : 3 - M3
+      Thickness        : 0.35
+      Min Width        : 0.14
+      Layer Dielectric : 4.1
+* Layer Id             : 4 - M4
+      Thickness        : 0.8
+      Min Width        : 0.3
+      Layer Dielectric : 4.1
+* Layer Id             : 5 - M5
+      Thickness        : 0.8
+      Min Width        : 0.3
+      Layer Dielectric : 4.1
+* Layer Id             : 6 - M6
+      Thickness        : 1.2
+      Min Width        : 1.6
+      Layer Dielectric : 4.1
+extractDetailRC Option : -outfile /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-00-57/9.export/innovus_temp_54604_c114f795-aaa4-4eab-80f6-2183af703ad8_rock8_aluno_DbkqC2/amba_3_apb_rsa_apb_top_54604_3SPiLk.rcdb.d  -basic
+RC Mode: PostRoute extract_rc_effort_level low [Basic CapTable, LEF Resistances]
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Coupling Cap. Scaling Factor : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+Initializing multi-corner resistance tables ...
+Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 1882.0M)
+Extracted 10.0031% (CPU Time= 0:00:00.1  MEM= 1921.0M)
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'L1M1_PR_2x1_VH_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+Extracted 20.0031% (CPU Time= 0:00:00.1  MEM= 1925.0M)
+Extracted 30.0031% (CPU Time= 0:00:00.1  MEM= 1925.0M)
+Extracted 40.0031% (CPU Time= 0:00:00.1  MEM= 1925.0M)
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M1M2_PR_2x1_HV_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+Extracted 50.0031% (CPU Time= 0:00:00.1  MEM= 1925.0M)
+Extracted 60.0031% (CPU Time= 0:00:00.1  MEM= 1925.0M)
+Extracted 70.0031% (CPU Time= 0:00:00.2  MEM= 1925.0M)
+Extracted 80.0031% (CPU Time= 0:00:00.2  MEM= 1926.0M)
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M2M3_PR_2x1_VH_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+Extracted 90.0031% (CPU Time= 0:00:00.2  MEM= 1926.0M)
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M3M4_PR' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+**WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M4M5_PR_2x1_VV_W' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+Extracted 100% (CPU Time= 0:00:00.2  MEM= 1927.0M)
+Number of Extracted Resistors     : 114060
+Number of Extracted Ground Cap.   : 121966
+Number of Extracted Coupling Cap. : 0
+PostRoute (extract_rc_effort_level low) RC Extraction DONE (CPU Time: 0:00:00.3  Real Time: 0:00:00.0  MEM: 1912.012M)
+Start delay calculation (fullDC) (1 T). (MEM=1993.97)
+Initializing multi-corner resistance tables ...
+siFlow : Timing analysis mode is single, using late cdB files
+Total number of fetched objects 8506
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=2428.17 CPU=0:00:00.6 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=2428.17 CPU=0:00:00.8 REAL=0:00:00.0)
+Parse flat map file 'streamOut.map'
+Writing GDSII file ...
+	****** db unit per micron = 1000 ******
+	****** output gds2 file unit per micron = 1000 ******
+	****** unit scaling factor = 1 ******
+Output for instance
+Output for bump
+Output for physical terminals
+Output for logical terminals
+Output for regular nets
+Output for special nets and metal fills
+Convert 0 swires and 0 svias from compressed groups
+Output for via structure generation total number 38
+Statistics for GDS generated (version 3)
+----------------------------------------
+Stream Out Layer Mapping Information:
+GDS Layer Number          GDS Layer Name
+----------------------------------------
+    128                             COMP
+    129                          DIEAREA
+    122                             met5
+    121                             met5
+    120                             met5
+    119                             met5
+    118                             met5
+    53                              met2
+    52                              met2
+    48                               via
+    29                              met1
+    47                               via
+    44                               via
+    43                               via
+    38                              met1
+    95                              met4
+    36                              met1
+    93                              met4
+    112                             via4
+    55                              met2
+    113                             met5
+    32                              met1
+    54                              met2
+    31                              met1
+    107                             via4
+    30                              met1
+    49                               via
+    106                             via4
+    33                              met1
+    109                             via4
+    10                               li1
+    86                              via3
+    50                              met2
+    69                              via2
+    6                              licon
+    35                              met1
+    8                                li1
+    27                              mcon
+    3                              licon
+    51                              met2
+    70                              via2
+    7                              licon
+    64                              via2
+    34                              met1
+    92                              met4
+    111                             via4
+    11                               li1
+    4                              licon
+    9                                li1
+    28                              mcon
+    85                              via3
+    5                              licon
+    12                               li1
+    88                              via3
+    45                               via
+    22                              mcon
+    13                               li1
+    71                              met3
+    90                              via3
+    46                               via
+    23                              mcon
+    37                              met1
+    94                              met4
+    14                               li1
+    15                               li1
+    72                              met3
+    91                              via3
+    16                               li1
+    73                              met3
+    26                              mcon
+    17                               li1
+    74                              met3
+    1                              licon
+    24                              mcon
+    2                              licon
+    25                              mcon
+    56                              met2
+    57                              met2
+    114                             met5
+    58                              met2
+    115                             met5
+    59                              met2
+    116                             met5
+    65                              via2
+    66                              via2
+    67                              via2
+    68                              via2
+    75                              met3
+    76                              met3
+    77                              met3
+    78                              met3
+    79                              met3
+    80                              met3
+    87                              via3
+    89                              via3
+    96                              met4
+    97                              met4
+    98                              met4
+    99                              met4
+    100                             met4
+    101                             met4
+    108                             via4
+    110                             via4
+    117                             met5
+    63                              met2
+    62                              met2
+    39                              met1
+    105                             met4
+    103                             met4
+    123                             met5
+    42                              met1
+    41                              met1
+    40                              met1
+    20                               li1
+    60                              met2
+    18                               li1
+    61                              met2
+    102                             met4
+    21                               li1
+    19                               li1
+    81                              met3
+    104                             met4
+    82                              met3
+    83                              met3
+    84                              met3
+    124                             met5
+    125                             met5
+    126                             met5
+
+
+Stream Out Information Processed for GDS version 3:
+Units: 1000 DBU
+
+Object                             Count
+----------------------------------------
+Instances                           8309
+
+Ports/Pins                            84
+    metal layer met2                  84
+
+Nets                               64303
+    metal layer li1                 4422
+    metal layer met1               26606
+    metal layer met2               23841
+    metal layer met3                5839
+    metal layer met4                3396
+    metal layer met5                 199
+
+    Via Instances                  49695
+
+Special Nets                         128
+    metal layer met1                 106
+    metal layer met4                  22
+
+    Via Instances                   3498
+
+Metal Fills                            0
+
+    Via Instances                      0
+
+Metal FillOPCs                         0
+
+    Via Instances                      0
+
+Metal FillDRCs                         0
+
+    Via Instances                      0
+
+Text                                8546
+    metal layer li1                 1158
+    metal layer met1                4575
+    metal layer met2                2576
+    metal layer met3                 139
+    metal layer met4                  96
+    metal layer met5                   2
+
+
+Blockages                              0
+
+
+Custom Text                            0
+
+
+Custom Box                             0
+
+Trim Metal                             0
+
+######Streamout is finished!
+
+*** Memory Usage v#2 (Current mem = 2411.961M, initial mem = 661.535M) ***
+*** Message Summary: 49 warning(s), 6 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:18.6, real=0:00:19.0, mem=2412.0M) ---

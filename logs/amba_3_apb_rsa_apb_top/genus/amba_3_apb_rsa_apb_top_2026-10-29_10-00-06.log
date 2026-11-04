@@ -1,0 +1,89 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[10:00:06.047930] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+Version: 22.18-s061_1, built Fri Apr 25 06:12:05 PDT 2025
+Options: -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl -log /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/genus/amba_3_apb_rsa_apb_top_2026-10-29_10-00-06.log 
+Date:    Thu Oct 29 10:00:06 2026
+Host:    rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*1physical cpu*Intel(R) Core(TM) i5-14500 24576KB) (32331728KB)
+PID:     83391
+OS:      Rocky Linux 8.10 (Green Obsidian)
+
+Checking out license: Genus_Synthesis
+[10:00:06.203363] Periodic Lic check successful
+[10:00:06.203370] Feature usage summary:
+[10:00:06.203370] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+@file(run_genus.tcl) 2: set project_name "amba_3_apb_rsa_apb_top"
+@file(run_genus.tcl) 3: set project_root $::env(PROJECT_ROOT)
+@file(run_genus.tcl) 4: set run_id $::env(RUN)
+@file(run_genus.tcl) 5: set output_dir $::env(OUTPUT_DIR)
+@file(run_genus.tcl) 6: set report_dir $::env(REPORT_DIR)
+@file(run_genus.tcl) 7: set source_dir [file join $project_root src amba_3_apb]
+@file(run_genus.tcl) 8: set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
+@file(run_genus.tcl) 9: set_db / .use_scan_seqs_for_non_dft false
+  Setting attribute of root '/': 'use_scan_seqs_for_non_dft' = false
+@file(run_genus.tcl) 11: set rtl_files [list \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
+    [file join $source_dir amba_3_apb_adrec.sv] \
+    [file join $source_dir amba_3_apb_data_o_mux.sv] \
+    [file join $source_dir amba_3_apb_data_io_top.sv] \
+    [file join $source_dir amba_3_apb_control.sv] \
+    [file join $source_dir amba_3_apb_regbank.sv] \
+    [file join $source_dir amba_3_apb_reset.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+    [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+]
+@file(run_genus.tcl) 95: set PDK_BASE "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file(run_genus.tcl) 96: set GF180 "$PDK_BASE/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180"
+@file(run_genus.tcl) 97: set STD_CELL "$GF180/libs/gf180mcu_fd_sc_mcu7t5v0"
+@file(run_genus.tcl) 103: set LIB_DIR "$STD_CELL/nldm"
+@file(run_genus.tcl) 104: set LIB_FILE "/home/aluno/eda-pdks-docker/workspace/gf180_lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib"
+@file(run_genus.tcl) 105: set_db init_lib_search_path [list $LIB_DIR [file dirname $LIB_FILE]]
+  Setting attribute of root '/': 'init_lib_search_path' = /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm /home/aluno/eda-pdks-docker/workspace/gf180_lib
+@file(run_genus.tcl) 106: read_libs [list $LIB_FILE]
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file '/home/aluno/eda-pdks-docker/workspace/gf180_lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'. File not found.
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : A library file does not exist. [LBR-68] [::legacy::set_attribute]
+        : File '/home/aluno/eda-pdks-docker/workspace/gf180_lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [::legacy::set_attribute]
+        : The value '  { /home/aluno/eda-pdks-docker/workspace/gf180_lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib } ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+1
+Encountered problems processing file: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+WARNING: This version of the tool is 551 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[10:01:10.307602] Cdslmd servers: Logus
+[10:01:10.307611] Feature usage summary:
+[10:01:10.307611] Genus_Synthesis
+
+Normal exit.

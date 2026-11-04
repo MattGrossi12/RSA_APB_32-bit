@@ -1,0 +1,1080 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl 
+Date:		Thu Oct 29 10:06:02 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[10:06:02.047946] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/6.route/innovus_temp_92813_e9630886-d278-46e6-8332-9aa822cad974_rock8_aluno_YGjbI0.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/6.innovus_route.tcl
+@file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+@file 1: # Context shared by every stage of the RSA32 v2 flow.
+@file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+    if {![info exists ::env($required)] || $::env($required) eq ""} {
+        puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+        exit 1
+    }
+}
+@file 8:
+@file 9: set project_name "amba_3_apb_rsa_apb_top"
+@file 10: set project_root $::env(PROJECT_ROOT)
+@file 11: set db_dir $::env(INNOVUS_DB_DIR)
+@file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+@file 13:
+@file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+@file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+@file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+@file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+@file 18: # [file join $tech_dir LIB typical.lib]
+@file 19:
+@file 20: # ICsprout55 - H7CR (RVT), legado, mantido comentado.
+@file 21: # set ics55 [file join $pdk_base icsprout55-v1.10.102-a7b1e2edbb12d056]
+@file 22: # set std_cell [file join $ics55 IP STD_cell ics55_LLSC_H7C_V1p10C100 ics55_LLSC_H7CR]
+@file 23: # set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+@file 24: # set tech_lef [file join $ics55 prtech techLEF N551P6M.lef]
+@file 25: # set cell_lef [file join $std_cell lef ics55_LLSC_H7CR_ecos.lef]
+@file 26: # set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+@file 27:
+@file 28: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd (legacy, kept commented).
+@file 29: # set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+@file 30: # set std_cell [file join $sky130 libs sky130hd]
+@file 31: # set lib_dir [file join $std_cell nldm]
+@file 32: # set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+@file 33: # set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+@file 34: # set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+@file 35: # set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+@file 36:
+@file 37: # GF180MCU - GlobalFoundries 180 nm / MCU7T5V0.
+@file 38: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+@file 39: set gf180 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk gf180]
+@file 40: set std_cell [file join $gf180 libs gf180mcu_fd_sc_mcu7t5v0]
+@file 41: set lib_dir [file join $std_cell nldm]
+@file 42: set tech_lef [file join $gf180 base apr gf180mcu_5LM_1TM_9K_7t_tech.lef]
+@file 43: set cell_lef [file join $std_cell lef gf180mcu_fd_sc_mcu7t5v0.lef]
+@file 44: set lib_file [file join $lib_dir gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz]
+@file 45: set std_cell_gds [file join $std_cell gds 5LM gf180mcu_fd_sc_mcu7t5v0.gds.gz]
+@file 46:
+@file 47: proc innovus_stage {body} {
+    if {[catch {uplevel 1 $body} result]} {
+        puts stderr "Erro no fluxo Innovus: $result"
+        exit 1
+    }
+}
+@file 53:
+@file 54: proc innovus_read_stage {stage} {
+    global db_dir project_name
+    set path [file join $db_dir ${stage}_${project_name}]
+    if {![file exists $path]} {
+        error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+    }
+    read_db $path
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+@file 2:
+@file 3: innovus_stage {
+    # Project:
+    set output_dir $db_dir
+
+    # Automatic Via Generation:
+    set_db add_route_vias_auto true
+
+    # Restore CTS Database:
+    innovus_read_stage cts
+
+    # Routing:
+    route_design
+
+    # Save Routed Database:
+    write_db [file join $output_dir route_${project_name}]
+
+    exit
+}
+#% Begin load design ... (date=10/29 10:06:15, mem=1449.4M)
+##  Process: 180           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	For post_route extract_rc_effort_level low extraction, the coupling_c_th value will be used only when the extract_rc_cap_filter_mode parameter of the set_db command is set to relative_and_coupling or relative_or_coupling. Default value of extract_rc_cap_filter_mode parameter in post_route extraction extract_rc_effort_level low is relative_only.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+**WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+Loading design 'amba_3_apb_rsa_apb_top' saved by 'Innovus' '22.18-s118_1' on 'Thu Oct 29 10:06:01 2026'.
+Reading lib_typical timing library '/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__filltie'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fillcap_64'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fillcap_32'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fillcap_16'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fillcap_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fillcap_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_64'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_32'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_16'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_2'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__fill_1'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__endcap'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+**WARN: (TECHLIB-302):	No function defined for cell 'gf180mcu_fd_sc_mcu7t5v0__antenna'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/gf180/libs/gf180mcu_fd_sc_mcu7t5v0/nldm/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib.gz)
+Read 229 cells in library 'gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00' 
+tc_typical
+rc_typical
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/libs/lef/gf180mcu_5LM_1TM_9K_7t_tech.lef ...
+
+Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/libs/lef/gf180mcu_fd_sc_mcu7t5v0.lef ...
+Set DBUPerIGU to M2 pitch 1120.
+**WARN: (IMPLF-200):	Pin 'I' in macro 'gf180mcu_fd_sc_mcu7t5v0__antenna' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Loading view definition file from /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/viewDefinition.tcl
+% Begin Load netlist data ... (date=10/29 10:06:16, mem=1471.9M)
+*** Begin netlist parsing (mem=1526.7M) ***
+Created 229 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin'
+
+*** Memory Usage v#2 (Current mem = 1526.738M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1526.7M) ***
+% End Load netlist data ... (date=10/29 10:06:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1484.4M, current mem=1484.4M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 229 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 230 modules.
+** info: there are 3452 stdCell insts.
+** info: there are 3452 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1550.738M, initial mem = 661.535M) ***
+*info: set bottom ioPad orient R0
+Start create_tracks
+Generated pitch 0.84 in Metal5 is different from 0.9 defined in technology file in preferred direction.
+##  Process: 180           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	For post_route extract_rc_effort_level low extraction, the coupling_c_th value will be used only when the extract_rc_cap_filter_mode parameter of the set_db command is set to relative_and_coupling or relative_or_coupling. Default value of extract_rc_cap_filter_mode parameter in post_route extraction extract_rc_effort_level low is relative_only.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+Slack adjustment of -0 applied on <default> path group
+Effort level <high> specified for tdgp_reg2reg_default path_group
+Slack adjustment of -0 applied on tdgp_reg2reg_default path_group
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 147
+Total number of sequential cells: 54
+Total number of tristate cells: 14
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 14
+List of usable buffers: gf180mcu_fd_sc_mcu7t5v0__buf_1 gf180mcu_fd_sc_mcu7t5v0__buf_2 gf180mcu_fd_sc_mcu7t5v0__buf_3 gf180mcu_fd_sc_mcu7t5v0__buf_4 gf180mcu_fd_sc_mcu7t5v0__buf_8 gf180mcu_fd_sc_mcu7t5v0__buf_12 gf180mcu_fd_sc_mcu7t5v0__buf_16 gf180mcu_fd_sc_mcu7t5v0__buf_20 gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 gf180mcu_fd_sc_mcu7t5v0__clkbuf_2 gf180mcu_fd_sc_mcu7t5v0__clkbuf_4 gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 gf180mcu_fd_sc_mcu7t5v0__clkbuf_8 gf180mcu_fd_sc_mcu7t5v0__clkbuf_12 gf180mcu_fd_sc_mcu7t5v0__clkbuf_16 gf180mcu_fd_sc_mcu7t5v0__clkbuf_20
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 gf180mcu_fd_sc_mcu7t5v0__clkinv_2 gf180mcu_fd_sc_mcu7t5v0__clkinv_3 gf180mcu_fd_sc_mcu7t5v0__clkinv_4 gf180mcu_fd_sc_mcu7t5v0__clkinv_8 gf180mcu_fd_sc_mcu7t5v0__clkinv_12 gf180mcu_fd_sc_mcu7t5v0__clkinv_16 gf180mcu_fd_sc_mcu7t5v0__clkinv_20 gf180mcu_fd_sc_mcu7t5v0__inv_1 gf180mcu_fd_sc_mcu7t5v0__inv_2 gf180mcu_fd_sc_mcu7t5v0__inv_3 gf180mcu_fd_sc_mcu7t5v0__inv_4 gf180mcu_fd_sc_mcu7t5v0__inv_8 gf180mcu_fd_sc_mcu7t5v0__inv_12 gf180mcu_fd_sc_mcu7t5v0__inv_16 gf180mcu_fd_sc_mcu7t5v0__inv_20
+Total number of usable inverters: 16
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: gf180mcu_fd_sc_mcu7t5v0__dlya_1 gf180mcu_fd_sc_mcu7t5v0__dlya_2 gf180mcu_fd_sc_mcu7t5v0__dlyb_1 gf180mcu_fd_sc_mcu7t5v0__dlya_4 gf180mcu_fd_sc_mcu7t5v0__dlyb_2 gf180mcu_fd_sc_mcu7t5v0__dlyb_4 gf180mcu_fd_sc_mcu7t5v0__dlyc_1 gf180mcu_fd_sc_mcu7t5v0__dlyc_2 gf180mcu_fd_sc_mcu7t5v0__dlyc_4 gf180mcu_fd_sc_mcu7t5v0__dlyd_1 gf180mcu_fd_sc_mcu7t5v0__dlyd_2 gf180mcu_fd_sc_mcu7t5v0__dlyd_4
+Total number of identified usable delay cells: 12
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.gz (mem = 1802.0M).
+% Begin Load floorplan data ... (date=10/29 10:06:16, mem=1790.2M)
+*info: reset 3617 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 863520 847840)
+Start create_tracks
+Generated pitch 0.84 in Metal5 is different from 0.9 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.spr.gz (Created by Innovus v22.18-s118_1 on Thu Oct 29 10:06:01 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1791.2M, current mem=1791.2M)
+There are 9 nets with weight being set
+There are 9 nets with bottomPreferredRoutingLayer being set
+There are 9 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+**WARN: (IMPTR-2108):	For layer M5, the gaps of 503 out of 503 tracks are narrower than 0.900um (space 0.460 + width 0.440).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Pin and blockage extraction finished
+Delete all existing relative floorplan constraints.
+% End Load floorplan data ... (date=10/29 10:06:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1792.3M, current mem=1792.3M)
+Reading congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=10/29 10:06:16, mem=1792.6M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=10/29 10:06:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1794.0M, current mem=1794.0M)
+Loading place ...
+% Begin Load placement data ... (date=10/29 10:06:16, mem=1794.0M)
+Reading placement file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v22.18-s118_1 on Thu Oct 29 10:06:01 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1802.0M) ***
+Total net length = 1.031e+05 (5.518e+04 4.794e+04) (ext = 1.739e+04)
+% End Load placement data ... (date=10/29 10:06:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1795.0M, current mem=1794.9M)
+Reading PG file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.pg.gz, version#2, (Created by Innovus v22.18-s118_1 on       Thu Oct 29 10:06:01 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1802.0M) ***
+% Begin Load routing data ... (date=10/29 10:06:16, mem=1794.7M)
+Reading routing file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.gz.
+Reading Innovus routing data (Created by Innovus v22.18-s118_1 on Thu Oct 29 10:06:01 2026 Format: 20.1) ...
+*** Total 3615 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1802.0M) ***
+% End Load routing data ... (date=10/29 10:06:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=1800.7M, current mem=1799.9M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1802.0M) ***
+Reading dirtyarea snapshot file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.db.da.gz (Create by Innovus v22.18-s118_1 on Thu Oct 29 10:06:01 2026, version: 7).
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 4.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 4.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 4.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 4.5 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.09 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.09 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.09 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.09 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.04 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Start generating vias ...
+Generating vias for default rule ...
+Total 33 vias inserted to default rule.
+Via generation for default rule completed.
+Found no NONDEFAULTRULE.
+Via generation completed successfully.
+% Begin Load power constraints ... (date=10/29 10:06:17, mem=1805.2M)
+source /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_power_constraints.tcl
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=10/29 10:06:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1811.1M, current mem=1811.1M)
+dc_typical
+% Begin load AAE data ... (date=10/29 10:06:17, mem=1828.3M)
+**WARN: (IMPESI-3505):	set_db delaycal_eng_enablePrePlacedFlow false (default=false) will be obsoleted along with its sgs2set equivalent.  This parameter will continue to be supported in the current release, but will be removed in the next major release of the software.
+AAE DB initialization (MEM=1866.12 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=10/29 10:06:17, total cpu=0:00:00.4, real=0:00:00.0, peak res=1842.8M, current mem=1842.8M)
+Restoring CCOpt config...
+  Extracting original clock gating for pclk_i...
+    clock_tree pclk_i contains 705 sinks and 0 clock gates.
+  Extracting original clock gating for pclk_i done.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+  The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 147
+Total number of sequential cells: 54
+Total number of tristate cells: 14
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 14
+List of usable buffers: gf180mcu_fd_sc_mcu7t5v0__buf_1 gf180mcu_fd_sc_mcu7t5v0__buf_2 gf180mcu_fd_sc_mcu7t5v0__buf_3 gf180mcu_fd_sc_mcu7t5v0__buf_4 gf180mcu_fd_sc_mcu7t5v0__buf_8 gf180mcu_fd_sc_mcu7t5v0__buf_12 gf180mcu_fd_sc_mcu7t5v0__buf_16 gf180mcu_fd_sc_mcu7t5v0__buf_20 gf180mcu_fd_sc_mcu7t5v0__clkbuf_1 gf180mcu_fd_sc_mcu7t5v0__clkbuf_2 gf180mcu_fd_sc_mcu7t5v0__clkbuf_4 gf180mcu_fd_sc_mcu7t5v0__clkbuf_3 gf180mcu_fd_sc_mcu7t5v0__clkbuf_8 gf180mcu_fd_sc_mcu7t5v0__clkbuf_12 gf180mcu_fd_sc_mcu7t5v0__clkbuf_16 gf180mcu_fd_sc_mcu7t5v0__clkbuf_20
+Total number of usable buffers: 16
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: gf180mcu_fd_sc_mcu7t5v0__clkinv_1 gf180mcu_fd_sc_mcu7t5v0__clkinv_2 gf180mcu_fd_sc_mcu7t5v0__clkinv_3 gf180mcu_fd_sc_mcu7t5v0__clkinv_4 gf180mcu_fd_sc_mcu7t5v0__clkinv_8 gf180mcu_fd_sc_mcu7t5v0__clkinv_12 gf180mcu_fd_sc_mcu7t5v0__clkinv_16 gf180mcu_fd_sc_mcu7t5v0__clkinv_20 gf180mcu_fd_sc_mcu7t5v0__inv_1 gf180mcu_fd_sc_mcu7t5v0__inv_2 gf180mcu_fd_sc_mcu7t5v0__inv_3 gf180mcu_fd_sc_mcu7t5v0__inv_4 gf180mcu_fd_sc_mcu7t5v0__inv_8 gf180mcu_fd_sc_mcu7t5v0__inv_12 gf180mcu_fd_sc_mcu7t5v0__inv_16 gf180mcu_fd_sc_mcu7t5v0__inv_20
+Total number of usable inverters: 16
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: gf180mcu_fd_sc_mcu7t5v0__dlya_1 gf180mcu_fd_sc_mcu7t5v0__dlya_2 gf180mcu_fd_sc_mcu7t5v0__dlyb_1 gf180mcu_fd_sc_mcu7t5v0__dlya_4 gf180mcu_fd_sc_mcu7t5v0__dlyb_2 gf180mcu_fd_sc_mcu7t5v0__dlyb_4 gf180mcu_fd_sc_mcu7t5v0__dlyc_1 gf180mcu_fd_sc_mcu7t5v0__dlyc_2 gf180mcu_fd_sc_mcu7t5v0__dlyc_4 gf180mcu_fd_sc_mcu7t5v0__dlyd_1 gf180mcu_fd_sc_mcu7t5v0__dlyd_2 gf180mcu_fd_sc_mcu7t5v0__dlyd_4
+Total number of identified usable delay cells: 12
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version (null). They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=10/29 10:06:17, total cpu=0:00:01.9, real=0:00:02.0, peak res=1858.8M, current mem=1850.9M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+WARNING   IMPEXT-2766          5  The sheet resistance for layer %s is not...
+WARNING   IMPEXT-2773          1  The via resistance between layers %s and...
+WARNING   IMPEXT-2776          4  The via resistance between layers %s and...
+WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+WARNING   IMPTR-2108           1  For layer M%d, the gaps of %d out of %d ...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   TECHLIB-302         15  No function defined for cell '%s'. The c...
+*** Message Summary: 30 warning(s), 0 error(s)
+
+#% Begin route_design (date=10/29 10:06:17, mem=1850.9M)
+#route_design: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1850.93 (MB), peak = 1858.84 (MB)
+AAE_INFO: Pre Route call back at the beginning of routeDesign
+#**INFO: setDesignMode -flowEffort standard
+#**INFO: setDesignMode -powerEffort none
+**INFO: User settings:
+delaycal_enable_high_fanout                           true
+delaycal_eng_enablepreplacedflow                      false
+delaycal_ignore_net_load                              false
+delaycal_socv_accuracy_mode                           low
+setAnalysisMode -skew                                 true
+setDelayCalMode -engine                               aae
+design_process_node                                   180
+extract_rc_coupling_cap_threshold                     3.0
+extract_rc_engine                                     pre_route
+extract_rc_relative_cap_threshold                     0.03
+extract_rc_shrink_factor                              1.0
+extract_rc_total_cap_threshold                        5.0
+route_extract_third_party_compatible                  false
+route_global_exp_timing_driven_std_delay              94.5
+route_route_side                                      front
+setActiveLogicViewMode -keepHighFanoutCriticalInsts   false
+getAnalysisMode -skew                                 true
+getDelayCalMode -engine                               aae
+getIlmMode -keepHighFanoutCriticalInsts               false
+getImportMode -config                                 true
+get_power_analysis_mode -honor_net_activity_for_tcf   false
+get_power_analysis_mode -honor_sublevel_activity      true
+getAnalysisMode -skew                                 true
+#rc_typical has no qx tech file defined
+#No active RC corner or QRC tech file is missing.
+#**INFO: multi-cut via swapping will be performed after routing.
+#**INFO: All auto set options tuned by route_design will be restored to their original settings on command completion.
+**WARN: (IMPSP-362):	Site 'GF018hv5v_mcu_sc7' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Begin checking placement ... (start mem=1874.1M, init mem=2002.5M)
+*info: Placed = 3452           (Fixed = 8)
+*info: Unplaced = 0           
+Placement Density:60.53%(100608/166187)
+Placement Density (including fixed std cells):60.53%(100608/166187)
+Finished check_place (total: cpu=0:00:00.0, real=0:00:00.0; vio checks: cpu=0:00:00.0, real=0:00:00.0; mem=2002.5M)
+
+changeUseClockNetStatus Option :  -ignoreSkipRoutingNets -noFixedNetWires 
+*** Changed status on (9) nets in Clock.
+*** End changeUseClockNetStatus (cpu=0:00:00.0, real=0:00:00.0, mem=2002.5M) ***
+#Start route 9 clock and analog nets...
+
+route_global_detail
+
+#Start route_global_detail on Thu Oct 29 10:06:17 2026
+#
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+#WARNING (NRIG-1303) The congestion map does not match the GCELL grid. Clearing the congestion map.
+#NanoRoute Version 22.18-s118_1 NR250220-2048/22_18-UB
+#Skip comparing routing design signature in db-snapshot flow
+#Total number of trivial nets (e.g. < 2 pins) = 7 (skipped).
+#Total number of nets with skipped attribute = 3601 (skipped).
+#Total number of routable nets = 9.
+#Total number of nets in the design = 3617.
+#9 routable nets have routed wires.
+#3601 skipped nets have only detail routed wires.
+#9 detail routed (routable) nets have been constrained (e.g. have preferred extra spacing, require shielding etc.)
+#No nets have been global routed.
+#Start routing data preparation on Thu Oct 29 10:06:17 2026
+#
+#Rebuild pin access data for design.
+#WARNING (NRDB-1028) Some option affecting pin access calculation is set by the user. Pin access is to be recalculated. This incurs runtime.
+#Initial pin access analysis.
+#Detail pin access analysis.
+# Metal1       H   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.47500
+# Metal2       V   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal3       H   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal4       V   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal5       H   Track-Pitch = 0.84000    Line-2-Via Pitch = 0.90000
+#WARNING (NRAG-44) Track pitch is too small compared with line-2-via pitch.
+#Bottom routing layer index=1(Metal1), bottom routing layer for shielding=1(Metal1), bottom shield layer=1(Metal1)
+#shield_bottom_stripe_layer=1(Metal1), shield_top_stripe_layer=5(Metal5)
+#pin_access_rlayer=2(Metal2)
+#shield_top_dpt_rlayer=-1 top_rlayer=5 top_trim_metal_rlayer=-1 rlayer_lowest=1 bottom_rlayer=1
+#enable_trim_layer_shield=F enable_dpt_layer_shield=F has_line_end_grid=F
+#enable_dpt_layer_shield=F
+#has_line_end_grid=F
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1901.75 (MB), peak = 1935.92 (MB)
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer Metal3's pitch = 0.56000.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:02, elapsed time = 00:00:02, memory = 1923.35 (MB), peak = 1935.92 (MB)
+#
+#Finished routing data preparation on Thu Oct 29 10:06:19 2026
+#
+#Cpu time = 00:00:02
+#Elapsed time = 00:00:02
+#Increased memory = 34.57 (MB)
+#Total memory = 1923.35 (MB)
+#Peak memory = 1935.92 (MB)
+#
+#
+#Start global routing on Thu Oct 29 10:06:19 2026
+#
+#
+#Start global routing initialization on Thu Oct 29 10:06:19 2026
+#
+#WARNING (NRGR-22) Design is already detail routed.
+#Routing data preparation, pin analysis, global routing and track assignment statistics:
+#Cpu time = 00:00:02
+#Elapsed time = 00:00:02
+#Increased memory = 34.57 (MB)
+#Total memory = 1923.35 (MB)
+#Peak memory = 1935.92 (MB)
+#
+#Start Detail Routing..
+#start initial detail routing ...
+# ECO: 95.31% of the total area was rechecked for DRC, and 0.00% required routing.
+#   number of violations = 0
+#851 out of 3452 instances (24.7%) need to be verified(marked ipoed), dirty area = 9.9%.
+#82.72% of the total area is being checked for drcs
+#82.7% of the total area was checked
+#   number of violations = 0
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 1931.09 (MB), peak = 1978.96 (MB)
+#Complete Detail Routing.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 8741 um.
+#Total half perimeter of net bounding box = 2738 um.
+#Total wire length on LAYER Metal1 = 8 um.
+#Total wire length on LAYER Metal2 = 669 um.
+#Total wire length on LAYER Metal3 = 3991 um.
+#Total wire length on LAYER Metal4 = 3832 um.
+#Total wire length on LAYER Metal5 = 241 um.
+#Total number of vias = 2071
+#Up-Via Summary (total 2071):
+#           
+#-----------------------
+# Metal1            721
+# Metal2            685
+# Metal3            636
+# Metal4             29
+#-----------------------
+#                  2071 
+#
+#Total number of DRC violations = 0
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:01
+#Increased memory = 7.75 (MB)
+#Total memory = 1931.09 (MB)
+#Peak memory = 1978.96 (MB)
+#route_detail Statistics:
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:01
+#Increased memory = 7.75 (MB)
+#Total memory = 1931.09 (MB)
+#Peak memory = 1978.96 (MB)
+Extracting standard cell pins and blockage ...... 
+**WARN: (IMPTR-2108):	For layer M5, the gaps of 503 out of 503 tracks are narrower than 0.900um (space 0.460 + width 0.440).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Pin and blockage extraction finished
+#
+#route_global_detail statistics:
+#Cpu time = 00:00:03
+#Elapsed time = 00:00:03
+#Increased memory = 64.18 (MB)
+#Total memory = 1931.63 (MB)
+#Peak memory = 1978.96 (MB)
+#Number of warnings = 4
+#Total number of warnings = 4
+#Number of fails = 0
+#Total number of fails = 0
+#Complete route_global_detail on Thu Oct 29 10:06:20 2026
+#
+#**INFO: auto set of droutePostRouteSwapVia to multiCut
+
+route_global_detail
+
+#Start route_global_detail on Thu Oct 29 10:06:20 2026
+#
+#Generating timing data, please wait...
+#3610 total nets, 9 already routed, 9 will ignore in trialRoute
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using pre_route extraction or post_route extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'write_cap_table' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+#Dump tif for version 2.1
+siFlow : Timing analysis mode is single, using late cdB files
+Total number of fetched objects 3610
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=2591.84 CPU=0:00:00.3 REAL=0:00:01.0)
+
+#Generating timing data took: cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2043.04 (MB), peak = 2091.73 (MB)
+#Done generating timing data.
+#WARNING (NRIG-1303) The congestion map does not match the GCELL grid. Clearing the congestion map.
+#Start reading timing information from file .timing_file_92813.tif.gz ...
+#Read in timing information for 84 ports, 3452 instances from timing file .timing_file_92813.tif.gz.
+#NanoRoute Version 22.18-s118_1 NR250220-2048/22_18-UB
+#Total number of trivial nets (e.g. < 2 pins) = 7 (skipped).
+#Total number of routable nets = 3610.
+#Total number of nets in the design = 3617.
+#3601 routable nets do not have any wires.
+#9 routable nets have routed wires.
+#3601 nets will be global routed.
+#9 detail routed (routable) nets have been constrained (e.g. have preferred extra spacing, require shielding etc.)
+#Start routing data preparation on Thu Oct 29 10:06:21 2026
+#
+#Initial pin access analysis.
+#Detail pin access analysis.
+# Metal1       H   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.47500
+# Metal2       V   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal3       H   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal4       V   Track-Pitch = 0.56000    Line-2-Via Pitch = 0.56000
+# Metal5       H   Track-Pitch = 0.84000    Line-2-Via Pitch = 0.90000
+#WARNING (NRAG-44) Track pitch is too small compared with line-2-via pitch.
+#Bottom routing layer index=1(Metal1), bottom routing layer for shielding=1(Metal1), bottom shield layer=1(Metal1)
+#shield_bottom_stripe_layer=1(Metal1), shield_top_stripe_layer=5(Metal5)
+#pin_access_rlayer=2(Metal2)
+#shield_top_dpt_rlayer=-1 top_rlayer=5 top_trim_metal_rlayer=-1 rlayer_lowest=1 bottom_rlayer=1
+#enable_trim_layer_shield=F enable_dpt_layer_shield=F has_line_end_grid=F
+#enable_dpt_layer_shield=F
+#has_line_end_grid=F
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2053.30 (MB), peak = 2091.73 (MB)
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer Metal3's pitch = 0.56000.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2068.12 (MB), peak = 2091.73 (MB)
+#
+#Finished routing data preparation on Thu Oct 29 10:06:22 2026
+#
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:01
+#Increased memory = 18.81 (MB)
+#Total memory = 2068.12 (MB)
+#Peak memory = 2091.73 (MB)
+#
+#
+#Start global routing on Thu Oct 29 10:06:22 2026
+#
+#
+#Start global routing initialization on Thu Oct 29 10:06:22 2026
+#
+#Number of eco nets is 0
+#
+#Start global routing data preparation on Thu Oct 29 10:06:22 2026
+#
+#Start routing resource analysis on Thu Oct 29 10:06:22 2026
+#
+#Routing resource analysis is done on Thu Oct 29 10:06:22 2026
+#
+#  Resource Analysis:
+#
+#               Routing  #Avail      #Track     #Total     %Gcell
+#  Layer      Direction   Track     Blocked      Gcell    Blocked
+#  --------------------------------------------------------------
+#  Metal1         H         132         624        2550    66.43%
+#  Metal2         V         655         115        2550     0.00%
+#  Metal3         H         603         153        2550     0.00%
+#  Metal4         V         653         117        2550     0.00%
+#  Metal5         H         442          13        2550     0.00%
+#  --------------------------------------------------------------
+#  Total                   2486      27.10%       12750    13.29%
+#
+#  9 nets (0.25%) with 1 preferred extra spacing.
+#
+#
+#
+#Global routing data preparation is done on Thu Oct 29 10:06:22 2026
+#
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2070.44 (MB), peak = 2091.73 (MB)
+#
+#
+#Global routing initialization is done on Thu Oct 29 10:06:22 2026
+#
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2070.44 (MB), peak = 2091.73 (MB)
+#
+#start global routing iteration 1...
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2086.81 (MB), peak = 2303.70 (MB)
+#
+#start global routing iteration 2...
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2087.84 (MB), peak = 2303.70 (MB)
+#
+#
+#Total number of trivial nets (e.g. < 2 pins) = 7 (skipped).
+#Total number of routable nets = 3610.
+#Total number of nets in the design = 3617.
+#
+#3610 routable nets have routed wires.
+#9 detail routed (routable) nets have been constrained (e.g. have preferred extra spacing, require shielding etc.)
+#
+#Routed nets constraints summary:
+#-----------------------------
+#        Rules   Unconstrained  
+#-----------------------------
+#      Default            3601  
+#-----------------------------
+#        Total            3601  
+#-----------------------------
+#
+#Routing constraints summary of the whole design:
+#------------------------------------------------
+#        Rules   Pref Extra Space   Unconstrained  
+#------------------------------------------------
+#      Default                  9            3601  
+#------------------------------------------------
+#        Total                  9            3601  
+#------------------------------------------------
+#
+#
+#  Congestion Analysis: (blocked Gcells are excluded)
+#
+#                 OverCon       OverCon          
+#                  #Gcell        #Gcell    %Gcell
+#     Layer           (1)           (2)   OverCon
+#  ----------------------------------------------
+#  Metal1        0(0.00%)      0(0.00%)   (0.00%)
+#  Metal2        2(0.08%)      1(0.04%)   (0.12%)
+#  Metal3        6(0.24%)      1(0.04%)   (0.27%)
+#  Metal4        0(0.00%)      0(0.00%)   (0.00%)
+#  Metal5        0(0.00%)      0(0.00%)   (0.00%)
+#  ----------------------------------------------
+#     Total      8(0.07%)      2(0.02%)   (0.09%)
+#
+#  The worst congested Gcell overcon (routing demand over resource in number of tracks) = 2
+#  Overflow after GR: 0.06% H + 0.03% V
+#
+#Hotspot report including placement blocked areas
+[hotspot] +----------------+-------------------+-------------------+-------------------------------------+
+[hotspot] |      layer     |    max hotspot    |   total hotspot   |            hotspot bbox             |
+[hotspot] +----------------+-------------------+-------------------+-------------------------------------+
+[hotspot] |   Metal1(H)    |              1.00 |              1.00 |   235.19   360.63   250.88   376.31 |
+[hotspot] |   Metal2(V)    |              0.00 |              0.00 |   (none)                            |
+[hotspot] |   Metal3(H)    |              0.00 |              0.00 |   (none)                            |
+[hotspot] |   Metal4(V)    |              0.00 |              0.00 |   (none)                            |
+[hotspot] |   Metal5(H)    |              0.00 |              0.00 |   (none)                            |
+[hotspot] +----------------+-------------------+-------------------+-------------------------------------+
+[hotspot] |      worst     | (Metal1)     1.00 | (Metal1)     1.00 |                                     |
+[hotspot] +----------------+-------------------+-------------------+-------------------------------------+
+[hotspot] |   all layers   |              0.00 |              0.00 |                                     |
+[hotspot] +----------------+-------------------+-------------------+-------------------------------------+
+Local HotSpot Analysis (blockage included) (3d): normalized congestion max/total hotspot area = 0.00/0.00 (area is in unit of 4 std-cell row bins)
+#Complete Global Routing.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 116900 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 75 um.
+#Total wire length on LAYER Metal2 = 37639 um.
+#Total wire length on LAYER Metal3 = 43562 um.
+#Total wire length on LAYER Metal4 = 18423 um.
+#Total wire length on LAYER Metal5 = 17202 um.
+#Total number of vias = 20425
+#Up-Via Summary (total 20425):
+#           
+#-----------------------
+# Metal1          11699
+# Metal2           6550
+# Metal3           1769
+# Metal4            407
+#-----------------------
+#                 20425 
+#
+#Max overcon = 2 tracks.
+#Total overcon = 0.09%.
+#Worst layer Gcell overcon rate = 0.27%.
+#
+#Global routing statistics:
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:01
+#Increased memory = 21.95 (MB)
+#Total memory = 2090.07 (MB)
+#Peak memory = 2304.96 (MB)
+#
+#Finished global routing on Thu Oct 29 10:06:23 2026
+#
+#
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2089.77 (MB), peak = 2304.96 (MB)
+#Start Track Assignment.
+#Done with 3894 horizontal wires in 2 hboxes and 4444 vertical wires in 2 hboxes.
+#Done with 664 horizontal wires in 2 hboxes and 811 vertical wires in 2 hboxes.
+#Done with 2 horizontal wires in 2 hboxes and 2 vertical wires in 2 hboxes.
+#
+#Track assignment summary:
+# layer   (wire length)   (overlap)     (long ovlp)	(with obs/pg/clk)  
+#------------------------------------------------------------------------
+# Metal1        70.79 	  0.00%  	  0.00% 	  0.00%
+# Metal2     36689.10 	  0.08%  	  0.00% 	  0.00%
+# Metal3     38789.55 	  0.08%  	  0.00% 	  0.01%
+# Metal4     14352.52 	  0.01%  	  0.00% 	  0.00%
+# Metal5     16999.03 	  0.01%  	  0.00% 	  0.00%
+#------------------------------------------------------------------------
+# All      106901.00  	  0.06% 	  0.00% 	  0.00%
+#Complete Track Assignment.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 114708 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 79 um.
+#Total wire length on LAYER Metal2 = 36974 um.
+#Total wire length on LAYER Metal3 = 42413 um.
+#Total wire length on LAYER Metal4 = 18092 um.
+#Total wire length on LAYER Metal5 = 17151 um.
+#Total number of vias = 20425
+#Up-Via Summary (total 20425):
+#           
+#-----------------------
+# Metal1          11699
+# Metal2           6550
+# Metal3           1769
+# Metal4            407
+#-----------------------
+#                 20425 
+#
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2090.03 (MB), peak = 2304.96 (MB)
+#
+#number of short segments in preferred routing layers
+#	
+#	
+#
+#Routing data preparation, pin analysis, global routing and track assignment statistics:
+#Cpu time = 00:00:02
+#Elapsed time = 00:00:02
+#Increased memory = 40.97 (MB)
+#Total memory = 2090.03 (MB)
+#Peak memory = 2304.96 (MB)
+#
+#Start Detail Routing..
+#start initial detail routing ...
+#   number of violations = 68
+#
+#    By Layer and Type :
+#	         MetSpc    Short      Enc   Totals
+#	Metal1        0        0       37       37
+#	Metal2       20       11        0       31
+#	Totals       20       11       37       68
+#cpu time = 00:00:12, elapsed time = 00:00:12, memory = 2101.62 (MB), peak = 2328.05 (MB)
+#start 1st optimization iteration ...
+#   number of violations = 25
+#
+#    By Layer and Type :
+#	          Short      Enc   Totals
+#	Metal1        0       20       20
+#	Metal2        5        0        5
+#	Totals        5       20       25
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2099.36 (MB), peak = 2328.05 (MB)
+#start 2nd optimization iteration ...
+#   number of violations = 4
+#
+#    By Layer and Type :
+#	         MetSpc    Short   Totals
+#	Metal1        0        0        0
+#	Metal2        1        3        4
+#	Totals        1        3        4
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2099.34 (MB), peak = 2328.05 (MB)
+#start 3rd optimization iteration ...
+#   number of violations = 0
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2099.77 (MB), peak = 2328.05 (MB)
+#Complete Detail Routing.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 129752 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5131 um.
+#Total wire length on LAYER Metal2 = 40732 um.
+#Total wire length on LAYER Metal3 = 44066 um.
+#Total wire length on LAYER Metal4 = 23945 um.
+#Total wire length on LAYER Metal5 = 15879 um.
+#Total number of vias = 23557
+#Up-Via Summary (total 23557):
+#           
+#-----------------------
+# Metal1          12510
+# Metal2           8055
+# Metal3           2677
+# Metal4            315
+#-----------------------
+#                 23557 
+#
+#Total number of DRC violations = 0
+#Cpu time = 00:00:14
+#Elapsed time = 00:00:14
+#Increased memory = 9.73 (MB)
+#Total memory = 2099.77 (MB)
+#Peak memory = 2328.05 (MB)
+#
+#start routing for process antenna violation fix ...
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 2101.66 (MB), peak = 2328.05 (MB)
+#
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 129752 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5131 um.
+#Total wire length on LAYER Metal2 = 40732 um.
+#Total wire length on LAYER Metal3 = 44066 um.
+#Total wire length on LAYER Metal4 = 23945 um.
+#Total wire length on LAYER Metal5 = 15879 um.
+#Total number of vias = 23557
+#Up-Via Summary (total 23557):
+#           
+#-----------------------
+# Metal1          12510
+# Metal2           8055
+# Metal3           2677
+# Metal4            315
+#-----------------------
+#                 23557 
+#
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 129752 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5131 um.
+#Total wire length on LAYER Metal2 = 40732 um.
+#Total wire length on LAYER Metal3 = 44066 um.
+#Total wire length on LAYER Metal4 = 23945 um.
+#Total wire length on LAYER Metal5 = 15879 um.
+#Total number of vias = 23557
+#Up-Via Summary (total 23557):
+#           
+#-----------------------
+# Metal1          12510
+# Metal2           8055
+# Metal3           2677
+# Metal4            315
+#-----------------------
+#                 23557 
+#
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#
+#Start Post Route via swapping...
+#93.85% of area are rerouted by ECO routing.
+#   number of violations = 0
+#cpu time = 00:00:02, elapsed time = 00:00:02, memory = 2101.54 (MB), peak = 2328.05 (MB)
+#CELL_VIEW amba_3_apb_rsa_apb_top,init has no DRC violation.
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#Post Route via swapping is done.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 129752 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5131 um.
+#Total wire length on LAYER Metal2 = 40732 um.
+#Total wire length on LAYER Metal3 = 44066 um.
+#Total wire length on LAYER Metal4 = 23945 um.
+#Total wire length on LAYER Metal5 = 15879 um.
+#Total number of vias = 23557
+#Total number of multi-cut vias = 22642 ( 96.1%)
+#Total number of single cut vias = 915 (  3.9%)
+#Up-Via Summary (total 23557):
+#                   single-cut          multi-cut      Total
+#-----------------------------------------------------------
+# Metal1           766 (  6.1%)     11744 ( 93.9%)      12510
+# Metal2           136 (  1.7%)      7919 ( 98.3%)       8055
+# Metal3            13 (  0.5%)      2664 ( 99.5%)       2677
+# Metal4             0 (  0.0%)       315 (100.0%)        315
+#-----------------------------------------------------------
+#                  915 (  3.9%)     22642 ( 96.1%)      23557 
+#
+#
+#Start Post Route wire spreading..
+#
+#Start DRC checking..
+#   number of violations = 0
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2102.08 (MB), peak = 2328.05 (MB)
+#CELL_VIEW amba_3_apb_rsa_apb_top,init has no DRC violation.
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#Start data preparation for wire spreading...
+#
+#Data preparation is done on Thu Oct 29 10:06:40 2026
+#
+#
+#Start Post Route Wire Spread.
+#Done with 558 horizontal wires in 3 hboxes and 548 vertical wires in 3 hboxes.
+#Complete Post Route Wire Spread.
+#
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 130802 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5153 um.
+#Total wire length on LAYER Metal2 = 40890 um.
+#Total wire length on LAYER Metal3 = 44476 um.
+#Total wire length on LAYER Metal4 = 24313 um.
+#Total wire length on LAYER Metal5 = 15969 um.
+#Total number of vias = 23557
+#Total number of multi-cut vias = 22642 ( 96.1%)
+#Total number of single cut vias = 915 (  3.9%)
+#Up-Via Summary (total 23557):
+#                   single-cut          multi-cut      Total
+#-----------------------------------------------------------
+# Metal1           766 (  6.1%)     11744 ( 93.9%)      12510
+# Metal2           136 (  1.7%)      7919 ( 98.3%)       8055
+# Metal3            13 (  0.5%)      2664 ( 99.5%)       2677
+# Metal4             0 (  0.0%)       315 (100.0%)        315
+#-----------------------------------------------------------
+#                  915 (  3.9%)     22642 ( 96.1%)      23557 
+#
+#
+#Start DRC checking..
+#   number of violations = 0
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2102.63 (MB), peak = 2328.05 (MB)
+#CELL_VIEW amba_3_apb_rsa_apb_top,init has no DRC violation.
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#   number of violations = 0
+#cpu time = 00:00:01, elapsed time = 00:00:01, memory = 2102.63 (MB), peak = 2328.05 (MB)
+#CELL_VIEW amba_3_apb_rsa_apb_top,init has no DRC violation.
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#Post Route wire spread is done.
+#Total number of nets with non-default rule or having extra spacing = 9
+#Total wire length = 130802 um.
+#Total half perimeter of net bounding box = 114184 um.
+#Total wire length on LAYER Metal1 = 5153 um.
+#Total wire length on LAYER Metal2 = 40890 um.
+#Total wire length on LAYER Metal3 = 44476 um.
+#Total wire length on LAYER Metal4 = 24313 um.
+#Total wire length on LAYER Metal5 = 15969 um.
+#Total number of vias = 23557
+#Total number of multi-cut vias = 22642 ( 96.1%)
+#Total number of single cut vias = 915 (  3.9%)
+#Up-Via Summary (total 23557):
+#                   single-cut          multi-cut      Total
+#-----------------------------------------------------------
+# Metal1           766 (  6.1%)     11744 ( 93.9%)      12510
+# Metal2           136 (  1.7%)      7919 ( 98.3%)       8055
+# Metal3            13 (  0.5%)      2664 ( 99.5%)       2677
+# Metal4             0 (  0.0%)       315 (100.0%)        315
+#-----------------------------------------------------------
+#                  915 (  3.9%)     22642 ( 96.1%)      23557 
+#
+#route_detail Statistics:
+#Cpu time = 00:00:18
+#Elapsed time = 00:00:18
+#Increased memory = 12.60 (MB)
+#Total memory = 2102.63 (MB)
+#Peak memory = 2328.05 (MB)
+#
+#route_global_detail statistics:
+#Cpu time = 00:00:22
+#Elapsed time = 00:00:22
+#Increased memory = 158.58 (MB)
+#Total memory = 2090.28 (MB)
+#Peak memory = 2328.05 (MB)
+#Number of warnings = 2
+#Total number of warnings = 7
+#Number of fails = 0
+#Total number of fails = 0
+#Complete route_global_detail on Thu Oct 29 10:06:42 2026
+#
+#Default setup view is reset to view_typical.
+#Default setup view is reset to view_typical.
+AAE_INFO: Post Route call back at the end of routeDesign
+#route_design: cpu time = 00:00:25, elapsed time = 00:00:25, memory = 2082.52 (MB), peak = 2328.05 (MB)
+#% End route_design (date=10/29 10:06:42, total cpu=0:00:24.6, real=0:00:25.0, peak res=2328.1M, current mem=2082.5M)
+#% Begin save design ... (date=10/29 10:06:42, mem=2085.7M)
+% Begin Save ccopt configuration ... (date=10/29 10:06:42, mem=2085.7M)
+% End Save ccopt configuration ... (date=10/29 10:06:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=2087.2M, current mem=2087.2M)
+% Begin Save netlist data ... (date=10/29 10:06:42, mem=2087.4M)
+Writing Binary DB to /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin in single-threaded mode...
+% End Save netlist data ... (date=10/29 10:06:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=2087.6M, current mem=2087.6M)
+Saving symbol-table file ...
+Saving congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+% Begin Save AAE data ... (date=10/29 10:06:42, mem=2088.2M)
+Saving AAE Data ...
+AAE DB initialization (MEM=5082.32 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End Save AAE data ... (date=10/29 10:06:42, total cpu=0:00:00.0, real=0:00:00.0, peak res=2091.0M, current mem=2091.0M)
+Saving mode setting ...
+Saving root attributes to be loaded post write_db ...
+Saving global file ...
+Saving root attributes to be loaded previous write_db ...
+% Begin Save floorplan data ... (date=10/29 10:06:43, mem=2096.2M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=10/29 10:06:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=2096.7M, current mem=2096.7M)
+Saving PG file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.pg.gz, version#2, (Created by Innovus v22.18-s118_1 on Thu Oct 29 10:06:43 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=3778.3M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=10/29 10:06:43, mem=2096.7M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=10/29 10:06:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=2097.0M, current mem=2097.0M)
+% Begin Save routing data ... (date=10/29 10:06:43, mem=2097.0M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=3778.3M) ***
+% End Save routing data ... (date=10/29 10:06:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=2097.1M, current mem=2097.1M)
+Saving property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=3778.3M) ***
+#Saving pin access data to file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/route_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.apa ...
+#
+% Begin Save power constraints data ... (date=10/29 10:06:43, mem=2098.3M)
+% End Save power constraints data ... (date=10/29 10:06:43, total cpu=0:00:00.0, real=0:00:00.0, peak res=2098.3M, current mem=2098.3M)
+rc_typical
+Generated self-contained design route_amba_3_apb_rsa_apb_top
+lib_typical
+rc_typical
+mode_functional
+#% End save design ... (date=10/29 10:06:43, total cpu=0:00:01.0, real=0:00:01.0, peak res=2103.4M, current mem=2103.4M)
+/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_gf180/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_10-02-03/cts_amba_3_apb_rsa_apb_top/mmmc/modes/mode_functional/mode_functional.sdc
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   NRAG-44              3  Track pitch is too small compared with l...
+WARNING   NRIG-1303            3  The congestion map does not match the GC...
+*** Message Summary: 4 warning(s), 0 error(s)
+
+
+*** Memory Usage v#2 (Current mem = 3778.324M, initial mem = 661.535M) ***
+*** Message Summary: 37 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:40.7, real=0:00:41.0, mem=3778.3M) ---

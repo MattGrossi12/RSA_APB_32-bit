@@ -189,7 +189,7 @@ def build(output):
     references = {
         "README.md": "README.md",
         "testbenchs/rsa_apb_top/testbench.sv": "testbench.sv",
-        "testbenchs/amba_3_apb_adrec/testbench.sv": "testbench_adrec.sv",
+        "legacy/testbenchs/amba_3_apb_adrec/testbench.sv": "testbench_adrec.sv",
         "scripts/amba_3_apb_rsa_apb_top/bash/iverilog.sh": "iverilog.sh",
         "scripts/amba_3_apb_rsa_apb_top/bash/verilator.sh": "verilator.sh",
         "scripts/pages/build.py": "build.py",

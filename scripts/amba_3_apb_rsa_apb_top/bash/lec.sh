@@ -12,4 +12,4 @@ export LEC_LOG="$LOG_DIR/${RUN}.log"
 
 cd -- "$LOG_DIR"
 
-exec lec -no_gui -dofile "$SCRIPT_DIR/../tcl/lec.tcl"
+exec lec -nogui -dofile "$SCRIPT_DIR/../tcl/lec.tcl"

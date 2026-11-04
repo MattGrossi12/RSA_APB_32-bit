@@ -1,31 +1,29 @@
-# Innovus 22.18 - RSA_APB power planning (GSCLib045).
-# Preliminary geometry; verify power connectivity and DRC before placement.
+source [file join [file dirname [info script]] innovus_common.tcl]
 
-set project_root $::env(PROJECT_ROOT)
-set db_dir [file join $project_root ps_files rsa_apb_top innovus]
-set report_dir [file join $project_root reports amba_3_apb_rsa_apb_top innovus power]
-file mkdir $report_dir
+innovus_stage {
+    set report_dir [file join $report_root power]
+    file mkdir $report_dir
+    innovus_read_stage floorplan
 
-read_db [file join $db_dir floorplan_amba_3_apb_rsa_apb_top]
-
-connect_global_net VDD -type pg_pin -pin_base_name VDD -all
-connect_global_net VSS -type pg_pin -pin_base_name VSS -all
-
-add_rings -nets {VDD VSS} -type core_rings -follow core \
-    -layer {top M9 bottom M9 left M10 right M10} \
-    -width 1.0 -spacing 1.5 -offset 1.0
-
-add_stripes -nets {VDD VSS} -layer M10 -direction vertical \
-    -width 0.8 -spacing 1.5 -set_to_set_distance 25 \
-    -start_from left -start_offset 15
-
-route_special -nets {VDD VSS} \
-    -connect {corePin floatingStripe} \
-    -corePinTarget {ring stripe} \
-    -floatingStripeTarget {ring stripe followpin}
-
-check_connectivity -nets {VDD VSS} -type special \
-    > [file join $report_dir power_connectivity.rpt]
-
-write_db [file join $db_dir power_amba_3_apb_rsa_apb_top]
-exit
+    foreach pin_name $power_pins {
+        connect_global_net $power_net -type pg_pin -pin_base_name $pin_name -all
+    }
+    foreach pin_name $ground_pins {
+        connect_global_net $ground_net -type pg_pin -pin_base_name $pin_name -all
+    }
+    set supply_nets [list $power_net $ground_net]
+    add_rings -nets $supply_nets -type core_rings -follow core \
+        -layer [list top $ring_horizontal_layer bottom $ring_horizontal_layer left $ring_vertical_layer right $ring_vertical_layer] \
+        -width $ring_width -spacing $ring_spacing -offset 1.0
+    add_stripes -nets $supply_nets -layer $ring_vertical_layer -direction vertical \
+        -width $stripe_width -spacing $ring_spacing -set_to_set_distance 25 \
+        -start_from left -start_offset 15
+    route_special -nets $supply_nets \
+        -connect {core_pin floating_stripe} \
+        -core_pin_target {ring stripe} \
+        -floating_stripe_target {ring stripe followpin}
+    check_connectivity -nets $supply_nets -type special \
+        > [file join $report_dir power_connectivity_${pdk}.rpt]
+    write_db [file join $db_dir power_${artifact_name}]
+    exit
+}

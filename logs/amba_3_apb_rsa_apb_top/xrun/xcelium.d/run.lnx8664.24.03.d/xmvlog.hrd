@@ -4,3 +4,5 @@
 //
 -VFILE
 /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+-DEFINE
+POST_SYNTHESIS

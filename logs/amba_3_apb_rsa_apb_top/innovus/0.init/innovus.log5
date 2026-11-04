@@ -1,0 +1,177 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+Date:		Fri Oct 23 16:45:44 2026
+Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+OS:		Rocky Linux 8.10 (Green Obsidian)
+
+License:
+		[16:45:44.048066] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+		invs	Innovus Implementation System	22.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+*** sockopt - 113
+
+
+Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/0.init/innovus_temp_197186_482cfa52-3c85-4295-9e33-cb8c002d1381_rock8_aluno_8hEhqW.
+
+Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+#@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@file 1: # Project:
+@file 2: set project_name "amba_3_apb_rsa_apb_top"
+@file 3: set project_root $::env(PROJECT_ROOT)
+@file 4: set lef_dir "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF"
+@file 5: set output_dir [file join $project_root ps_files rsa_apb_top innovus]
+@file 6:
+@file 7: file mkdir $output_dir
+@file 8:
+@file 9: # Automatic Via Generation:
+@@file 10: set_db add_route_vias_auto true
+@file 11:
+@file 12: # Power and Ground:
+@@file 13: set_db init_power_nets {VDD}
+@@file 14: set_db init_ground_nets {VSS}
+@file 15:
+@file 16: # MMMC:
+@@file 17: read_mmmc $::env(MMMC_FILE)
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl (pre)
+@file 1: # ============================================================
+@file 2: # Innovus 22.18 - RSA_APB timing views
+@file 3: # Technology: GSCLib045
+@file 4: # ============================================================
+@file 5:
+@file 6: set lib_file "/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib"
+@file 7:
+@@file 8: create_library_set \
+    -name lib_typical \
+    -timing [list $lib_file]
+@file 11:
+@@file 12: create_rc_corner \
+    -name rc_typical \
+    -temperature 25 \
+    -pre_route_res 1.0 \
+    -pre_route_cap 1.0 \
+    -post_route_res {1.0 1.0 1.0} \
+    -post_route_cap {1.0 1.0 1.0}
+@file 19:
+@@file 20: create_timing_condition \
+    -name tc_typical \
+    -library_sets [list lib_typical]
+@file 23:
+@@file 24: create_delay_corner \
+    -name dc_typical \
+    -timing_condition tc_typical \
+    -rc_corner rc_typical
+@file 28:
+@@file 29: create_constraint_mode \
+    -name mode_functional \
+    -sdc_files [list $::env(SDC_FILE)]
+@file 32:
+@@file 33: create_analysis_view \
+    -name view_typical \
+    -constraint_mode mode_functional \
+    -delay_corner dc_typical
+@file 37:
+@@file 38: set_analysis_view \
+    -setup view_typical \
+    -hold view_typical
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_mmmc.tcl
+Reading lib_typical timing library '/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LIB/typical.lib' ...
+Read 478 cells in library 'typical' 
+@file 19: # LEF:
+@@file 20: read_physical -lef [list \
+    [file join $lef_dir gsclib045_tech.lef] \
+    [file join $lef_dir gsclib045_macro.lef]]
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_tech.lef ...
+Set DBUPerIGU to M2 pitch 400.
+
+Loading LEF file /home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/LEF/gsclib045_macro.lef ...
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+@file 23:
+@file 24: # Netlist:
+@@file 25: read_netlist -top $project_name $::env(NETLIST_FILE)
+#% Begin Load netlist data ... (date=10/23 16:45:57, mem=1466.3M)
+*** Begin netlist parsing (mem=1494.1M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI211XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKAND2X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'SEDFFHQX1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'EDFFTRX2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'NOR3X4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'DFFHQX4' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'CLKMX2X8' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'XOR3X1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OAI222XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'OA22XL' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 478 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/netlist/synth_amba_3_apb_rsa_apb_top_2026-10-23_16-44-16.v'
+
+*** Memory Usage v#2 (Current mem = 1494.074M, initial mem = 661.535M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1494.1M) ***
+#% End Load netlist data ... (date=10/23 16:45:57, total cpu=0:00:00.0, real=0:00:00.0, peak res=1477.0M, current mem=1477.0M)
+Set top cell to amba_3_apb_rsa_apb_top.
+Hooked 478 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 489 modules.
+** info: there are 2501 stdCell insts.
+** info: there are 2501 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#2 (Current mem = 1529.574M, initial mem = 661.535M) ***
+#@ End verbose source: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl
+@innovus 2> exit
+
+*** Memory Usage v#2 (Current mem = 1529.574M, initial mem = 661.535M) ***
+*** Message Summary: 957 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:13.1, real=0:12:15, mem=1529.6M) ---

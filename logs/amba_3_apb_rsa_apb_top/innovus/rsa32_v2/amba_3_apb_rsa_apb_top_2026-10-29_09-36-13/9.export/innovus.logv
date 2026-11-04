@@ -1,0 +1,926 @@
+[10/29 09:41:04      0s] 
+[10/29 09:41:04      0s] Cadence Innovus(TM) Implementation System.
+[10/29 09:41:04      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/29 09:41:04      0s] 
+[10/29 09:41:04      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/29 09:41:04      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl 
+[10/29 09:41:04      0s] Date:		Thu Oct 29 09:41:04 2026
+[10/29 09:41:04      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.179.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/29 09:41:04      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/29 09:41:04      0s] 
+[10/29 09:41:04      0s] License:
+[10/29 09:41:04      0s] 		[09:41:04.048018] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/29 09:41:04      0s] 
+[10/29 09:41:04      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/29 09:41:04      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/29 09:41:11      7s] *** sockopt - 113
+[10/29 09:41:11      7s] Memory management switch to non-aggressive memory release mode.
+[10/29 09:41:11      7s] 
+[10/29 09:41:11      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/29 09:41:11      7s] 
+[10/29 09:41:11      7s] 
+[10/29 09:41:11      7s] 
+[10/29 09:41:14     10s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v22.18-s118_1 (64bit) 04/28/2025 11:32 (Linux 3.10.0-693.el7.x86_64)
+[10/29 09:41:16     11s] @(#)CDS: NanoRoute 22.18-s118_1 NR250220-2048/22_18-UB (database version 18.20.629) {superthreading v2.20}
+[10/29 09:41:16     11s] @(#)CDS: AAE 22.18-s011 (64bit) 04/28/2025 (Linux 3.10.0-693.el7.x86_64)
+[10/29 09:41:16     11s] @(#)CDS: CTE 22.18-s039_1 () Feb 18 2025 04:04:55 ( )
+[10/29 09:41:16     11s] @(#)CDS: SYNTECH 22.18-s005_1 () Nov 27 2024 22:27:27 ( )
+[10/29 09:41:16     11s] @(#)CDS: CPE v22.18-s071
+[10/29 09:41:16     11s] @(#)CDS: IQuantus/TQuantus 21.2.2-s369 (64bit) Tue May 7 14:30:42 PDT 2024 (Linux 3.10.0-693.el7.x86_64)
+[10/29 09:41:16     11s] @(#)CDS: OA 22.60-p095 Wed Apr 17 03:30:14 2024
+[10/29 09:41:16     11s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[10/29 09:41:16     11s] @(#)CDS: RCDB 11.15.0
+[10/29 09:41:16     11s] @(#)CDS: STYLUS 22.15-s003_1 (04/04/2024 05:58 PDT)
+[10/29 09:41:16     11s] @(#)CDS: IntegrityPlanner-22.17-15746 (22.17) (2024-07-03 11:16:10+0800)
+[10/29 09:41:16     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ.
+
+[10/29 09:41:16     11s] Create and set the environment variable TMPDIR to /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ.
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s] Change the soft stacksize limit to 0.2%RAM (63 mbytes). Set global soft_stack_size_limit to change the value.
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s] **INFO:  MMMC transition support version v31-84 
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s] #@ Processing -files option
+[10/29 09:41:16     11s] @innovus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl
+[10/29 09:41:16     11s] #@ Begin verbose source (pre): source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/9.innovus_export.tcl
+[10/29 09:41:16     11s] @file 1: source [file join [file dirname [info script]] innovus_common.tcl]
+[10/29 09:41:16     11s] #@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl (pre)
+[10/29 09:41:16     11s] @file 1: # Context shared by every stage of the RSA32 v2 flow.
+[10/29 09:41:16     11s] @file 2: foreach required {PROJECT_ROOT SYNTH_RUN NETLIST_FILE SDC_FILE INNOVUS_BASE_DIR INNOVUS_DB_DIR INNOVUS_REPORT_DIR INNOVUS_TECH_DIR} {
+[10/29 09:41:16     11s]     if {![info exists ::env($required)] || $::env($required) eq ""} {
+[10/29 09:41:16     11s]         puts stderr "Erro: variavel $required ausente. Execute o script Bash da etapa."
+[10/29 09:41:16     11s]         exit 1
+[10/29 09:41:16     11s]     }
+[10/29 09:41:16     11s] }
+[10/29 09:41:16     11s] @file 8:
+[10/29 09:41:16     11s] @file 9: set project_name "amba_3_apb_rsa_apb_top"
+[10/29 09:41:16     11s] @file 10: set project_root $::env(PROJECT_ROOT)
+[10/29 09:41:16     11s] @file 11: set db_dir $::env(INNOVUS_DB_DIR)
+[10/29 09:41:16     11s] @file 12: set report_root $::env(INNOVUS_REPORT_DIR)
+[10/29 09:41:16     11s] @file 13:
+[10/29 09:41:16     11s] @file 14: # GPDK45/GSCLib045 (legacy) -- kept commented for reference only.
+[10/29 09:41:16     11s] @file 15: # set tech_dir $::env(INNOVUS_TECH_DIR)
+[10/29 09:41:16     11s] @file 16: # [file join $tech_dir LEF gsclib045_tech.lef]
+[10/29 09:41:16     11s] @file 17: # [file join $tech_dir LEF gsclib045_macro.lef]
+[10/29 09:41:16     11s] @file 18: # [file join $tech_dir LIB typical.lib]
+[10/29 09:41:16     11s] @file 19:
+[10/29 09:41:16     11s] @file 20: # ICsprout55 - H7CR (RVT), legado, mantido comentado.
+[10/29 09:41:16     11s] @file 21: # set ics55 [file join $pdk_base icsprout55-v1.10.102-a7b1e2edbb12d056]
+[10/29 09:41:16     11s] @file 22: # set std_cell [file join $ics55 IP STD_cell ics55_LLSC_H7C_V1p10C100 ics55_LLSC_H7CR]
+[10/29 09:41:16     11s] @file 23: # set lib_dir [file join $pdk_base icsprout55-liberty-r-v1.10.102-c9ed7480e1a5b5d5 liberty]
+[10/29 09:41:16     11s] @file 24: # set tech_lef [file join $ics55 prtech techLEF N551P6M.lef]
+[10/29 09:41:16     11s] @file 25: # set cell_lef [file join $std_cell lef ics55_LLSC_H7CR_ecos.lef]
+[10/29 09:41:16     11s] @file 26: # set lib_file [file join $lib_dir ics55_LLSC_H7CR_typ_tt_1p2_25_nldm.lib]
+[10/29 09:41:16     11s] @file 27:
+[10/29 09:41:16     11s] @file 28: # SKY130 - SkyWater 130 nm / sky130_fd_sc_hd.
+[10/29 09:41:16     11s] @file 29: set pdk_base "/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot"
+[10/29 09:41:16     11s] @file 30: set sky130 [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk sky130]
+[10/29 09:41:16     11s] @file 31: set std_cell [file join $sky130 libs sky130hd]
+[10/29 09:41:16     11s] @file 32: set lib_dir [file join $std_cell nldm]
+[10/29 09:41:16     11s] @file 33: set tech_lef [file join $sky130 base apr sky130_fd_sc.tlef]
+[10/29 09:41:16     11s] @file 34: set cell_lef [file join $std_cell lef sky130_fd_sc_hd_merged.lef]
+[10/29 09:41:16     11s] @file 35: set lib_file [file join $lib_dir sky130_fd_sc_hd__tt_025C_1v80.lib.gz]
+[10/29 09:41:16     11s] @file 36: set std_cell_gds [file join $std_cell gds sky130_fd_sc_hd.gds]
+[10/29 09:41:16     11s] @file 37:
+[10/29 09:41:16     11s] @file 38: proc innovus_stage {body} {
+[10/29 09:41:16     11s]     if {[catch {uplevel 1 $body} result]} {
+[10/29 09:41:16     11s]         puts stderr "Erro no fluxo Innovus: $result"
+[10/29 09:41:16     11s]         exit 1
+[10/29 09:41:16     11s]     }
+[10/29 09:41:16     11s] }
+[10/29 09:41:16     11s] @file 44:
+[10/29 09:41:16     11s] @file 45: proc innovus_read_stage {stage} {
+[10/29 09:41:16     11s]     global db_dir project_name
+[10/29 09:41:16     11s]     set path [file join $db_dir ${stage}_${project_name}]
+[10/29 09:41:16     11s]     if {![file exists $path]} {
+[10/29 09:41:16     11s]         error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
+[10/29 09:41:16     11s]     }
+[10/29 09:41:16     11s]     read_db $path
+[10/29 09:41:16     11s] }
+[10/29 09:41:16     11s] #@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_common.tcl
+[10/29 09:41:16     11s] @file 2:
+[10/29 09:41:16     11s] @file 3: innovus_stage {
+[10/29 09:41:16     11s]     # Experimental Export:
+[10/29 09:41:16     11s]     set output_dir [file join $db_dir export]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     file mkdir $output_dir
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # Restore Post-route Database:
+[10/29 09:41:16     11s]     innovus_read_stage postroute
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # DEF:
+[10/29 09:41:16     11s]     write_def [file join $output_dir ${project_name}.def]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # Verilog Netlist:
+[10/29 09:41:16     11s]     write_netlist [file join $output_dir ${project_name}.v]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # SDF:
+[10/29 09:41:16     11s]     write_sdf [file join $output_dir ${project_name}.sdf]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # Physical implementation constraints, including the synthesized clock budget.
+[10/29 09:41:16     11s]     write_sdc [file join $output_dir ${project_name}.sdc]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     # Experimental GDSII:
+[10/29 09:41:16     11s]     # Standard-cell layouts and validated GDS layer map are unavailable.
+[10/29 09:41:16     11s]     write_stream [file join $output_dir ${project_name}_experimental.gds]
+[10/29 09:41:16     11s] 
+[10/29 09:41:16     11s]     exit
+[10/29 09:41:16     11s] }
+[10/29 09:41:16     12s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/29 09:41:16     12s] #% Begin load design ... (date=10/29 09:41:16, mem=1452.6M)
+[10/29 09:41:17     12s] ##  Process: 130           (User Set)               
+[10/29 09:41:17     12s] ##     Node: (not set)                           
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] ##  Check design process and node:  
+[10/29 09:41:17     12s] ##  Design tech node is not set.
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[10/29 09:41:17     12s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/29 09:41:17     12s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/29 09:41:17     12s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[10/29 09:41:17     12s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[10/29 09:41:17     12s] **WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+[10/29 09:41:17     12s] Loading design 'amba_3_apb_rsa_apb_top' saved by 'Innovus' '22.18-s118_1' on 'Thu Oct 29 09:40:46 2026'.
+[10/29 09:41:17     12s] Reading lib_typical timing library '/home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz' ...
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82148)
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82282)
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82416)
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82693)
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82827)
+[10/29 09:41:17     12s] **ERROR: (TECHLIB-702):	No pg_pin with name 'VNB' has been read in the cell 'sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4'. The attribute 'related_bias_pin' specified for the pg_pin 'VGND' is being ignored. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz, Line 82961)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_6'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_3'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_decapkapwr_12'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__lpflow_bleeder_1'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__diode_2'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_8'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_6'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_4'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_3'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] **WARN: (TECHLIB-302):	No function defined for cell 'sky130_fd_sc_hd__decap_12'. The cell will only be used for analysis. (File /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot/lambdapdk-v0.2.22-967925fc5309e6d4/lambdapdk/sky130/libs/sky130hd/nldm/sky130_fd_sc_hd__tt_025C_1v80.lib.gz)
+[10/29 09:41:17     12s] Read 428 cells in library 'sky130_fd_sc_hd__tt_025C_1v80' 
+[10/29 09:41:17     12s] Ending "PreSetAnalysisView" (total cpu=0:00:00.4, real=0:00:00.0, peak res=1518.1M, current mem=1468.0M)
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/libs/lef/sky130_fd_sc.tlef ...
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] Loading LEF file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/libs/lef/sky130_fd_sc_hd_merged.lef ...
+[10/29 09:41:17     12s] **WARN: (IMPLF-108):	There is no overlap layer defined in any LEF file
+[10/29 09:41:17     12s] so you are unable to create rectilinear partition in a hierarchical flow.
+[10/29 09:41:17     12s] Set DBUPerIGU to M1 pitch 460.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__xor2_4' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__probec_p_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__probe_p_8' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'LO' in macro 'sky130_fd_sc_hd__macro_sparecell' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__dlymetal6s4s_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] **WARN: (IMPLF-201):	Pin 'X' in macro 'sky130_fd_sc_hd__dlymetal6s2s_1' has no ANTENNADIFFAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/29 09:41:17     12s] Type 'man IMPLF-201' for more detail.
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] ##  Check design process and node:  
+[10/29 09:41:17     12s] ##  Design tech node is not set.
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] Loading view definition file from /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/viewDefinition.tcl
+[10/29 09:41:17     12s] % Begin Load netlist data ... (date=10/29 09:41:17, mem=1476.8M)
+[10/29 09:41:17     12s] *** Begin netlist parsing (mem=1504.9M) ***
+[10/29 09:41:17     12s] Created 428 new cells from 1 timing libraries.
+[10/29 09:41:17     12s] Reading netlist ...
+[10/29 09:41:17     12s] Backslashed names will retain backslash and a trailing blank character.
+[10/29 09:41:17     12s] Reading verilogBinary netlist '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.v.bin'
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] *** Memory Usage v#2 (Current mem = 1504.910M, initial mem = 661.535M) ***
+[10/29 09:41:17     12s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1504.9M) ***
+[10/29 09:41:17     12s] % End Load netlist data ... (date=10/29 09:41:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1487.8M, current mem=1487.8M)
+[10/29 09:41:17     12s] Set top cell to amba_3_apb_rsa_apb_top.
+[10/29 09:41:17     12s] Hooked 428 DB cells to tlib cells.
+[10/29 09:41:17     12s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1493.1M, current mem=1493.1M)
+[10/29 09:41:17     12s] Starting recursive module instantiation check.
+[10/29 09:41:17     12s] No recursion found.
+[10/29 09:41:17     12s] Building hierarchical netlist for Cell amba_3_apb_rsa_apb_top ...
+[10/29 09:41:17     12s] ***** UseNewTieNetMode *****.
+[10/29 09:41:17     12s] *** Netlist is unique.
+[10/29 09:41:17     12s] Setting Std. cell height to 2720 DBU (smallest netlist inst).
+[10/29 09:41:17     12s] ** info: there are 438 modules.
+[10/29 09:41:17     12s] ** info: there are 2445 stdCell insts.
+[10/29 09:41:17     12s] ** info: there are 2445 stdCell insts with at least one signal pin.
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] *** Memory Usage v#2 (Current mem = 1539.410M, initial mem = 661.535M) ***
+[10/29 09:41:17     12s] *info: set bottom ioPad orient R0
+[10/29 09:41:17     12s] **WARN: (IMPFP-3961):	The techSite 'unithddbl' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[10/29 09:41:17     12s] Type 'man IMPFP-3961' for more detail.
+[10/29 09:41:17     12s] Adjust met3 preferred direction offset from 0.34 to 0.17.
+[10/29 09:41:17     12s] Adjust met4 preferred direction offset from 0.46 to 0.23.
+[10/29 09:41:17     12s] Adjust met5 preferred direction offset from 1.7 to 0.17.
+[10/29 09:41:17     12s] Start create_tracks
+[10/29 09:41:17     12s] Generated pitch 3.66 in met5 is different from 3.4 defined in technology file in preferred direction.
+[10/29 09:41:17     12s] Generated pitch 0.69 in met4 is different from 0.92 defined in technology file in preferred direction.
+[10/29 09:41:17     12s] Generated pitch 0.61 in met3 is different from 0.68 defined in technology file in preferred direction.
+[10/29 09:41:17     12s] ##  Process: 130           (User Set)               
+[10/29 09:41:17     12s] ##     Node: (not set)                           
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] ##  Check design process and node:  
+[10/29 09:41:17     12s] ##  Design tech node is not set.
+[10/29 09:41:17     12s] 
+[10/29 09:41:17     12s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[10/29 09:41:17     12s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/29 09:41:17     12s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/29 09:41:17     12s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[10/29 09:41:17     12s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[10/29 09:41:17     12s] Effort level <high> specified for reg2reg path_group
+[10/29 09:41:17     12s] Slack adjustment of -0 applied on reg2reg path_group
+[10/29 09:41:17     12s] Slack adjustment of -0 applied on <default> path group
+[10/29 09:41:17     12s] Effort level <high> specified for tdgp_reg2reg_default path_group
+[10/29 09:41:17     12s] Slack adjustment of -0 applied on tdgp_reg2reg_default path_group
+[10/29 09:41:17     12s] **WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+[10/29 09:41:17     13s] Extraction setup Delayed 
+[10/29 09:41:17     13s] *Info: initialize multi-corner CTS.
+[10/29 09:41:17     13s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1784.9M, current mem=1541.9M)
+[10/29 09:41:17     13s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[10/29 09:41:17     13s] Summary for sequential cells identification: 
+[10/29 09:41:17     13s]   Identified SBFF number: 45
+[10/29 09:41:17     13s]   Identified MBFF number: 0
+[10/29 09:41:17     13s]   Identified SB Latch number: 0
+[10/29 09:41:17     13s]   Identified MB Latch number: 0
+[10/29 09:41:17     13s]   Not identified SBFF number: 0
+[10/29 09:41:17     13s]   Not identified MBFF number: 0
+[10/29 09:41:17     13s]   Not identified SB Latch number: 0
+[10/29 09:41:17     13s]   Not identified MB Latch number: 0
+[10/29 09:41:17     13s]   Number of sequential cells which are not FFs: 23
+[10/29 09:41:17     13s] Total number of combinational cells: 319
+[10/29 09:41:17     13s] Total number of sequential cells: 68
+[10/29 09:41:17     13s] Total number of tristate cells: 13
+[10/29 09:41:17     13s] Total number of level shifter cells: 7
+[10/29 09:41:17     13s] Total number of power gating cells: 0
+[10/29 09:41:17     13s] Total number of isolation cells: 11
+[10/29 09:41:17     13s] Total number of power switch cells: 0
+[10/29 09:41:17     13s] Total number of pulse generator cells: 0
+[10/29 09:41:17     13s] Total number of always on buffers: 0
+[10/29 09:41:17     13s] Total number of retention cells: 0
+[10/29 09:41:17     13s] Total number of physical cells: 10
+[10/29 09:41:17     13s] List of usable buffers: sky130_fd_sc_hd__buf_1 sky130_fd_sc_hd__buf_12 sky130_fd_sc_hd__buf_16 sky130_fd_sc_hd__buf_2 sky130_fd_sc_hd__buf_4 sky130_fd_sc_hd__buf_6 sky130_fd_sc_hd__buf_8 sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_16 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8 sky130_fd_sc_hd__dlymetal6s2s_1 sky130_fd_sc_hd__probec_p_8 sky130_fd_sc_hd__probe_p_8
+[10/29 09:41:17     13s] Total number of usable buffers: 15
+[10/29 09:41:17     13s] List of unusable buffers:
+[10/29 09:41:17     13s] Total number of unusable buffers: 0
+[10/29 09:41:17     13s] List of usable inverters: sky130_fd_sc_hd__bufinv_16 sky130_fd_sc_hd__clkinv_1 sky130_fd_sc_hd__bufinv_8 sky130_fd_sc_hd__clkinv_16 sky130_fd_sc_hd__clkinv_2 sky130_fd_sc_hd__clkinv_4 sky130_fd_sc_hd__clkinv_8 sky130_fd_sc_hd__inv_1 sky130_fd_sc_hd__clkinvlp_2 sky130_fd_sc_hd__clkinvlp_4 sky130_fd_sc_hd__inv_12 sky130_fd_sc_hd__inv_16 sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_4 sky130_fd_sc_hd__inv_6 sky130_fd_sc_hd__inv_8
+[10/29 09:41:17     13s] Total number of usable inverters: 16
+[10/29 09:41:17     13s] List of unusable inverters:
+[10/29 09:41:17     13s] Total number of unusable inverters: 0
+[10/29 09:41:17     13s] List of identified usable delay cells: sky130_fd_sc_hd__bufbuf_16 sky130_fd_sc_hd__bufbuf_8 sky130_fd_sc_hd__clkdlybuf4s15_1 sky130_fd_sc_hd__clkdlybuf4s15_2 sky130_fd_sc_hd__clkdlybuf4s18_1 sky130_fd_sc_hd__clkdlybuf4s18_2 sky130_fd_sc_hd__clkdlybuf4s25_1 sky130_fd_sc_hd__clkdlybuf4s50_1 sky130_fd_sc_hd__clkdlybuf4s25_2 sky130_fd_sc_hd__clkdlybuf4s50_2 sky130_fd_sc_hd__dlygate4sd2_1 sky130_fd_sc_hd__dlygate4sd1_1 sky130_fd_sc_hd__dlygate4sd3_1 sky130_fd_sc_hd__dlymetal6s6s_1 sky130_fd_sc_hd__dlymetal6s4s_1
+[10/29 09:41:17     13s] Total number of identified usable delay cells: 15
+[10/29 09:41:17     13s] List of identified unusable delay cells:
+[10/29 09:41:17     13s] Total number of identified unusable delay cells: 0
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Deleting Cell Server Begin ...
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Deleting Cell Server End ...
+[10/29 09:41:17     13s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1798.8M, current mem=1798.4M)
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[10/29 09:41:17     13s] Summary for sequential cells identification: 
+[10/29 09:41:17     13s]   Identified SBFF number: 45
+[10/29 09:41:17     13s]   Identified MBFF number: 0
+[10/29 09:41:17     13s]   Identified SB Latch number: 0
+[10/29 09:41:17     13s]   Identified MB Latch number: 0
+[10/29 09:41:17     13s]   Not identified SBFF number: 0
+[10/29 09:41:17     13s]   Not identified MBFF number: 0
+[10/29 09:41:17     13s]   Not identified SB Latch number: 0
+[10/29 09:41:17     13s]   Not identified MB Latch number: 0
+[10/29 09:41:17     13s]   Number of sequential cells which are not FFs: 23
+[10/29 09:41:17     13s]  Visiting view : view_typical
+[10/29 09:41:17     13s]    : PowerDomain = none : Weighted F : unweighted  = 42.50 (1.000) with rcCorner = 0
+[10/29 09:41:17     13s]    : PowerDomain = none : Weighted F : unweighted  = 32.60 (1.000) with rcCorner = -1
+[10/29 09:41:17     13s]  Visiting view : view_typical
+[10/29 09:41:17     13s]    : PowerDomain = none : Weighted F : unweighted  = 42.50 (1.000) with rcCorner = 0
+[10/29 09:41:17     13s]    : PowerDomain = none : Weighted F : unweighted  = 32.60 (1.000) with rcCorner = -1
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Deleting Cell Server Begin ...
+[10/29 09:41:17     13s] 
+[10/29 09:41:17     13s] TimeStamp Deleting Cell Server End ...
+[10/29 09:41:17     13s] Reading floorplan file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.gz (mem = 1799.1M).
+[10/29 09:41:17     13s] % Begin Load floorplan data ... (date=10/29 09:41:17, mem=1801.0M)
+[10/29 09:41:17     13s] *info: reset 2677 existing net BottomPreferredLayer and AvoidDetour
+[10/29 09:41:17     13s] Deleting old partition specification.
+[10/29 09:41:17     13s] Set FPlanBox to (0 0 257600 257040)
+[10/29 09:41:17     13s] **WARN: (IMPFP-3961):	The techSite 'unithddbl' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[10/29 09:41:17     13s] Type 'man IMPFP-3961' for more detail.
+[10/29 09:41:17     13s] Adjust met3 preferred direction offset from 0.34 to 0.17.
+[10/29 09:41:17     13s] Adjust met4 preferred direction offset from 0.46 to 0.23.
+[10/29 09:41:17     13s] Adjust met5 preferred direction offset from 1.7 to 0.17.
+[10/29 09:41:17     13s] Start create_tracks
+[10/29 09:41:17     13s] Generated pitch 3.66 in met5 is different from 3.4 defined in technology file in preferred direction.
+[10/29 09:41:17     13s] Generated pitch 0.69 in met4 is different from 0.92 defined in technology file in preferred direction.
+[10/29 09:41:17     13s] Generated pitch 0.61 in met3 is different from 0.68 defined in technology file in preferred direction.
+[10/29 09:41:17     13s]  ... processed partition successfully.
+[10/29 09:41:17     13s] Reading binary special route file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.fp.spr.gz (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:40:45 2026, version: 1)
+[10/29 09:41:17     13s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1801.0M, current mem=1801.0M)
+[10/29 09:41:17     13s] There are 15 nets with weight being set
+[10/29 09:41:17     13s] There are 15 nets with bottomPreferredRoutingLayer being set
+[10/29 09:41:17     13s] There are 15 nets with avoidDetour being set
+[10/29 09:41:17     13s] Extracting standard cell pins and blockage ...... 
+[10/29 09:41:17     13s] Pin and blockage extraction finished
+[10/29 09:41:17     13s] Delete all existing relative floorplan constraints.
+[10/29 09:41:17     13s] % End Load floorplan data ... (date=10/29 09:41:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1803.1M, current mem=1803.1M)
+[10/29 09:41:17     13s] Reading congestion map file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.congmap.gz ...
+[10/29 09:41:17     13s] % Begin Load SymbolTable ... (date=10/29 09:41:17, mem=1803.3M)
+[10/29 09:41:17     13s] routingBox: (0 0) (257600 257040)
+[10/29 09:41:17     13s] coreBox:    (10120 10200) (247480 246840)
+[10/29 09:41:17     13s] Suppress "**WARN ..." messages.
+[10/29 09:41:17     13s] Un-suppress "**WARN ..." messages.
+[10/29 09:41:17     13s] % End Load SymbolTable ... (date=10/29 09:41:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1804.7M, current mem=1804.7M)
+[10/29 09:41:17     13s] Loading place ...
+[10/29 09:41:17     13s] % Begin Load placement data ... (date=10/29 09:41:17, mem=1804.7M)
+[10/29 09:41:17     13s] Reading placement file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.place.gz.
+[10/29 09:41:17     13s] ** Reading stdCellPlacement_binary (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:40:45 2026, version# 2) ...
+[10/29 09:41:17     13s] Read Views for adaptive view pruning ...
+[10/29 09:41:17     13s] Read 0 views from Binary DB for adaptive view pruning
+[10/29 09:41:17     13s] *** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1799.1M) ***
+[10/29 09:41:17     13s] Total net length = 5.714e+04 (3.019e+04 2.695e+04) (ext = 1.084e+04)
+[10/29 09:41:17     13s] % End Load placement data ... (date=10/29 09:41:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1805.4M, current mem=1805.3M)
+[10/29 09:41:17     13s] % Begin Load routing data ... (date=10/29 09:41:17, mem=1805.0M)
+[10/29 09:41:17     13s] Reading routing file - /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.route.gz.
+[10/29 09:41:18     13s] Reading Innovus routing data (Created by Innovus v22.18-s118_1 on Thu Oct 29 09:40:45 2026 Format: 20.1) ...
+[10/29 09:41:18     13s] *** Total 2675 nets are successfully restored.
+[10/29 09:41:18     13s] *** Completed restoreRoute (cpu=0:00:00.0 real=0:00:01.0 mem=1799.1M) ***
+[10/29 09:41:18     13s] % End Load routing data ... (date=10/29 09:41:18, total cpu=0:00:00.0, real=0:00:01.0, peak res=1809.4M, current mem=1808.7M)
+[10/29 09:41:18     13s] Loading Drc markers ...
+[10/29 09:41:18     13s] ... 194 markers are loaded ...
+[10/29 09:41:18     13s] ... 0 geometry drc markers are loaded ...
+[10/29 09:41:18     13s] ... 0 antenna drc markers are loaded ...
+[10/29 09:41:18     13s] TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+[10/29 09:41:18     13s] Reading property file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.prop
+[10/29 09:41:18     13s] *** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1799.1M) ***
+[10/29 09:41:18     13s] Reading dirtyarea snapshot file /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top.db.da.gz (Create by Innovus v22.18-s118_1 on Thu Oct 29 09:40:46 2026, version: 7).
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2523):	Option 'extract_rc_cap_table_basic' should not be used for post_route (extract_rc_effort_level low) mode. It should be used only for  diagnostic or debugging purposes.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-6138):	Options 'extract_rc_relative_cap_threshold', 'extract_rc_total_cap_threshold' and 'extract_rc_coupling_cap_threshold' are thresholds defined for coupling capacitance, hence only work when 'set_extract_rc_mode rc_extract_coupled'. Turn on the 'extract_rc_coupled' option, or remove the 'extract_rc_relative_cap_threshold or extract_rc_total_cap_threshold or extract_rc_coupling_cap_threshold' options.
+[10/29 09:41:18     13s] eee: Design meta data file: /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/extraction/extractionMetaData.gz doesn't exist
+[10/29 09:41:18     13s] Extraction setup Started 
+[10/29 09:41:18     13s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers POLY and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers M1 and M2 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers M2 and M3 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers M3 and M4 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers M4 and M5 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2773):	The via resistance between layers M5 and M6 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/29 09:41:18     13s] Type 'man IMPEXT-2773' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 12.8 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.125 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.047 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.0285 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/29 09:41:18     13s] Summary of Active RC-Corners : 
+[10/29 09:41:18     13s]  
+[10/29 09:41:18     13s]  Analysis View: view_typical
+[10/29 09:41:18     13s]     RC-Corner Name        : rc_typical
+[10/29 09:41:18     13s]     RC-Corner Index       : 0
+[10/29 09:41:18     13s]     RC-Corner Temperature : 25 Celsius
+[10/29 09:41:18     13s]     RC-Corner Cap Table   : ''
+[10/29 09:41:18     13s]     RC-Corner PreRoute Res Factor         : 1
+[10/29 09:41:18     13s]     RC-Corner PreRoute Cap Factor         : 1
+[10/29 09:41:18     13s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[10/29 09:41:18     13s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[10/29 09:41:18     13s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[10/29 09:41:18     13s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+[10/29 09:41:18     13s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[10/29 09:41:18     13s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[10/29 09:41:18     13s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[10/29 09:41:18     13s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[10/29 09:41:18     13s] eee: RC Grid memory allocated = 8712 (11 X 11 X 6 X 12b)
+[10/29 09:41:18     13s] eee: pegSigSF=1.070000
+[10/29 09:41:18     13s] Initializing multi-corner resistance tables ...
+[10/29 09:41:18     13s] eee: Grid unit RC data computation started
+[10/29 09:41:18     13s] eee: Grid unit RC data computation completed
+[10/29 09:41:18     13s] eee: l=1 avDens=0.021365 usedTrk=111.169963 availTrk=5203.478261 sigTrk=111.169963
+[10/29 09:41:18     13s] eee: l=2 avDens=0.199376 usedTrk=1595.007933 availTrk=8000.000000 sigTrk=1595.007933
+[10/29 09:41:18     13s] eee: l=3 avDens=0.207138 usedTrk=1126.830218 availTrk=5440.000000 sigTrk=1126.830218
+[10/29 09:41:18     13s] eee: l=4 avDens=0.122847 usedTrk=471.089117 availTrk=3834.754098 sigTrk=471.089117
+[10/29 09:41:18     13s] eee: l=5 avDens=0.083009 usedTrk=310.862426 availTrk=3744.927536 sigTrk=310.862426
+[10/29 09:41:18     13s] eee: l=6 avDens=0.296430 usedTrk=160.817132 availTrk=542.513661 sigTrk=160.817132
+[10/29 09:41:18     13s] eee: LAM-FP: thresh=1 ; dimX=757.647059 ; dimY=756.000000 ; multX=1.000000 ; multY=1.000000 ; minP=340 ; fpMult=1.000000 ;
+[10/29 09:41:18     13s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.296925 uaWl=1.000000 uaWlH=0.269900 aWlH=0.000000 lMod=0 pMax=0.864100 pMod=80 pModAss=50 wcR=0.396600 crit=0.000000 siPrev=0 newSi=0.001600 wHLS=1.000000 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[10/29 09:41:18     13s] eee: dbu = 1000, Design = [ll(0.000000, 0.000000) ur(257.600000, 257.040000)], Layers = [f(6) b(0)], Grid size = 27.200000 um, Grid Dim = (10 X 10)
+[10/29 09:41:18     13s] eee: Metal Layers Info:
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: |      li1 |   1 |   0.170 |   0.170 |   0.460 |  0.000 |  75.29 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met1 |   2 |   0.140 |   0.140 |   0.340 |  0.000 |   0.89 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met2 |   3 |   0.140 |   0.140 |   0.460 |  0.000 |   0.89 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met3 |   4 |   0.300 |   0.300 |   0.610 |  0.000 |   0.16 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met4 |   5 |   0.300 |   0.300 |   0.690 |  0.000 |   0.16 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met5 |   6 |   1.600 |   1.600 |   3.660 |  0.000 |   0.02 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: uC/uR for corner rc_typical, min-width/min-spacing, 30 perc over/under densities.
+[10/29 09:41:18     13s] eee: +-----------------------NDR Info-----------------------+
+[10/29 09:41:18     13s] eee: Number of NDR:: 0,  Number of Fake NDR:: 0
+[10/29 09:41:18     13s] Start generating vias ...
+[10/29 09:41:18     13s] Generating vias for default rule ...
+[10/29 09:41:18     13s] Total 6 vias inserted to default rule.
+[10/29 09:41:18     13s] Via generation for default rule completed.
+[10/29 09:41:18     13s] Found no NONDEFAULTRULE.
+[10/29 09:41:18     13s] Via generation completed successfully.
+[10/29 09:41:18     13s] % Begin Load power constraints ... (date=10/29 09:41:18, mem=1814.2M)
+[10/29 09:41:18     13s] source /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/postroute_amba_3_apb_rsa_apb_top/amba_3_apb_rsa_apb_top_power_constraints.tcl
+[10/29 09:41:18     13s] 'set_default_switching_activity' finished successfully.
+[10/29 09:41:18     13s] % End Load power constraints ... (date=10/29 09:41:18, total cpu=0:00:00.0, real=0:00:00.0, peak res=1820.1M, current mem=1820.1M)
+[10/29 09:41:18     13s] % Begin load AAE data ... (date=10/29 09:41:18, mem=1837.2M)
+[10/29 09:41:18     13s] **WARN: (IMPESI-3505):	set_db delaycal_eng_enablePrePlacedFlow false (default=false) will be obsoleted along with its sgs2set equivalent.  This parameter will continue to be supported in the current release, but will be removed in the next major release of the software.
+[10/29 09:41:18     13s] AAE DB initialization (MEM=1861.22 CPU=0:00:00.0 REAL=0:00:00.0) 
+[10/29 09:41:18     13s] % End load AAE data ... (date=10/29 09:41:18, total cpu=0:00:00.4, real=0:00:00.0, peak res=1849.6M, current mem=1849.6M)
+[10/29 09:41:18     13s] Restoring CCOpt config...
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign Begin ...
+[10/29 09:41:18     13s] Summary for sequential cells identification: 
+[10/29 09:41:18     13s]   Identified SBFF number: 45
+[10/29 09:41:18     13s]   Identified MBFF number: 0
+[10/29 09:41:18     13s]   Identified SB Latch number: 0
+[10/29 09:41:18     13s]   Identified MB Latch number: 0
+[10/29 09:41:18     13s]   Not identified SBFF number: 0
+[10/29 09:41:18     13s]   Not identified MBFF number: 0
+[10/29 09:41:18     13s]   Not identified SB Latch number: 0
+[10/29 09:41:18     13s]   Not identified MB Latch number: 0
+[10/29 09:41:18     13s]   Number of sequential cells which are not FFs: 23
+[10/29 09:41:18     13s]  Visiting view : view_typical
+[10/29 09:41:18     13s]    : PowerDomain = none : Weighted F : unweighted  = 42.50 (1.000) with rcCorner = 0
+[10/29 09:41:18     13s]    : PowerDomain = none : Weighted F : unweighted  = 32.60 (1.000) with rcCorner = -1
+[10/29 09:41:18     13s]  Visiting view : view_typical
+[10/29 09:41:18     13s]    : PowerDomain = none : Weighted F : unweighted  = 42.50 (1.000) with rcCorner = 0
+[10/29 09:41:18     13s]    : PowerDomain = none : Weighted F : unweighted  = 32.60 (1.000) with rcCorner = -1
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) in restoreDesign End ...
+[10/29 09:41:18     13s]   Extracting original clock gating for pclk_i...
+[10/29 09:41:18     13s]     clock_tree pclk_i contains 705 sinks and 0 clock gates.
+[10/29 09:41:18     13s]   Extracting original clock gating for pclk_i done.
+[10/29 09:41:18     13s]   The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+[10/29 09:41:18     13s]   The skew group pclk_i/mode_functional was created. It contains 705 sinks and 1 sources.
+[10/29 09:41:18     13s] Restoring CCOpt config done.
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Deleting Cell Server Begin ...
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Deleting Cell Server End ...
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign Begin ...
+[10/29 09:41:18     13s] Summary for sequential cells identification: 
+[10/29 09:41:18     13s]   Identified SBFF number: 45
+[10/29 09:41:18     13s]   Identified MBFF number: 0
+[10/29 09:41:18     13s]   Identified SB Latch number: 0
+[10/29 09:41:18     13s]   Identified MB Latch number: 0
+[10/29 09:41:18     13s]   Not identified SBFF number: 0
+[10/29 09:41:18     13s]   Not identified MBFF number: 0
+[10/29 09:41:18     13s]   Not identified SB Latch number: 0
+[10/29 09:41:18     13s]   Not identified MB Latch number: 0
+[10/29 09:41:18     13s]   Number of sequential cells which are not FFs: 23
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) in restoreDesign End ...
+[10/29 09:41:18     13s] Total number of combinational cells: 319
+[10/29 09:41:18     13s] Total number of sequential cells: 68
+[10/29 09:41:18     13s] Total number of tristate cells: 13
+[10/29 09:41:18     13s] Total number of level shifter cells: 7
+[10/29 09:41:18     13s] Total number of power gating cells: 0
+[10/29 09:41:18     13s] Total number of isolation cells: 11
+[10/29 09:41:18     13s] Total number of power switch cells: 0
+[10/29 09:41:18     13s] Total number of pulse generator cells: 0
+[10/29 09:41:18     13s] Total number of always on buffers: 0
+[10/29 09:41:18     13s] Total number of retention cells: 0
+[10/29 09:41:18     13s] Total number of physical cells: 10
+[10/29 09:41:18     13s] List of usable buffers: sky130_fd_sc_hd__buf_1 sky130_fd_sc_hd__buf_12 sky130_fd_sc_hd__buf_16 sky130_fd_sc_hd__buf_2 sky130_fd_sc_hd__buf_4 sky130_fd_sc_hd__buf_6 sky130_fd_sc_hd__buf_8 sky130_fd_sc_hd__clkbuf_1 sky130_fd_sc_hd__clkbuf_16 sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8 sky130_fd_sc_hd__dlymetal6s2s_1 sky130_fd_sc_hd__probec_p_8 sky130_fd_sc_hd__probe_p_8
+[10/29 09:41:18     13s] Total number of usable buffers: 15
+[10/29 09:41:18     13s] List of unusable buffers:
+[10/29 09:41:18     13s] Total number of unusable buffers: 0
+[10/29 09:41:18     13s] List of usable inverters: sky130_fd_sc_hd__bufinv_16 sky130_fd_sc_hd__clkinv_1 sky130_fd_sc_hd__bufinv_8 sky130_fd_sc_hd__clkinv_16 sky130_fd_sc_hd__clkinv_2 sky130_fd_sc_hd__clkinv_4 sky130_fd_sc_hd__clkinv_8 sky130_fd_sc_hd__inv_1 sky130_fd_sc_hd__clkinvlp_2 sky130_fd_sc_hd__clkinvlp_4 sky130_fd_sc_hd__inv_12 sky130_fd_sc_hd__inv_16 sky130_fd_sc_hd__inv_2 sky130_fd_sc_hd__inv_4 sky130_fd_sc_hd__inv_6 sky130_fd_sc_hd__inv_8
+[10/29 09:41:18     13s] Total number of usable inverters: 16
+[10/29 09:41:18     13s] List of unusable inverters:
+[10/29 09:41:18     13s] Total number of unusable inverters: 0
+[10/29 09:41:18     13s] List of identified usable delay cells: sky130_fd_sc_hd__bufbuf_16 sky130_fd_sc_hd__bufbuf_8 sky130_fd_sc_hd__clkdlybuf4s15_1 sky130_fd_sc_hd__clkdlybuf4s15_2 sky130_fd_sc_hd__clkdlybuf4s18_1 sky130_fd_sc_hd__clkdlybuf4s18_2 sky130_fd_sc_hd__clkdlybuf4s25_1 sky130_fd_sc_hd__clkdlybuf4s50_1 sky130_fd_sc_hd__clkdlybuf4s25_2 sky130_fd_sc_hd__clkdlybuf4s50_2 sky130_fd_sc_hd__dlygate4sd2_1 sky130_fd_sc_hd__dlygate4sd1_1 sky130_fd_sc_hd__dlygate4sd3_1 sky130_fd_sc_hd__dlymetal6s6s_1 sky130_fd_sc_hd__dlymetal6s4s_1
+[10/29 09:41:18     13s] Total number of identified usable delay cells: 15
+[10/29 09:41:18     13s] List of identified unusable delay cells:
+[10/29 09:41:18     13s] Total number of identified unusable delay cells: 0
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Deleting Cell Server Begin ...
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] TimeStamp Deleting Cell Server End ...
+[10/29 09:41:18     13s] **WARN: (IMPCTE-107):	The following globals have been obsoleted since version (null). They will be removed in the next release. 
+[10/29 09:41:18     13s] timing_enable_separate_device_slew_effect_sensitivities
+[10/29 09:41:18     13s] #% End load design ... (date=10/29 09:41:18, total cpu=0:00:01.8, real=0:00:02.0, peak res=1867.5M, current mem=1858.6M)
+[10/29 09:41:18     13s] report_message: '-start_cmd/-end_cmd' can not be nested. Interior calls do nothing. Ignore.
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] *** Summary of all messages that are not suppressed in this session:
+[10/29 09:41:18     13s] Severity  ID               Count  Summary                                  
+[10/29 09:41:18     13s] WARNING   IMPLF-201            6  Pin '%s' in macro '%s' has no ANTENNADIF...
+[10/29 09:41:18     13s] WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+[10/29 09:41:18     13s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[10/29 09:41:18     13s] WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+[10/29 09:41:18     13s] WARNING   IMPEXT-2766          6  The sheet resistance for layer %s is not...
+[10/29 09:41:18     13s] WARNING   IMPEXT-2773          6  The via resistance between layers %s and...
+[10/29 09:41:18     13s] WARNING   IMPEXT-2523          1  Option 'extract_rc_cap_table_basic' shou...
+[10/29 09:41:18     13s] WARNING   IMPEXT-6138          3  Options 'extract_rc_relative_cap_thresho...
+[10/29 09:41:18     13s] WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+[10/29 09:41:18     13s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[10/29 09:41:18     13s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[10/29 09:41:18     13s] WARNING   TECHLIB-302         12  No function defined for cell '%s'. The c...
+[10/29 09:41:18     13s] ERROR     TECHLIB-702          6  No pg_pin with name '%s' has been read i...
+[10/29 09:41:18     13s] *** Message Summary: 41 warning(s), 6 error(s)
+[10/29 09:41:18     13s] 
+[10/29 09:41:18     13s] Writing DEF file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/export/amba_3_apb_rsa_apb_top.def', current time is Thu Oct 29 09:41:18 2026 ...
+[10/29 09:41:18     13s] unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+[10/29 09:41:18     13s] DEF file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/export/amba_3_apb_rsa_apb_top.def' is written, current time is Thu Oct 29 09:41:18 2026 ...
+[10/29 09:41:18     13s] Writing Netlist "/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_sky130/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/export/amba_3_apb_rsa_apb_top.v" ...
+[10/29 09:41:18     13s] **WARN: (SDF-808):	The software is currently operating in a high performance mode which optimizes the handling of multiple timing arcs between input and output pin pairs. With the current settings, the SDF file generated will contain the same delay information for all of these arcs. To have the SDF recalculated with explicit pin pair data, you should use the option '-recompute_delay_calc'. This setting is recommended for generating SDF for functional  simulation applications.
+[10/29 09:41:18     13s] AAE_INFO: opIsDesignInPostRouteState() is 1
+[10/29 09:41:18     13s] #################################################################################
+[10/29 09:41:18     13s] # Design Stage: PostRoute
+[10/29 09:41:18     13s] # Design Name: amba_3_apb_rsa_apb_top
+[10/29 09:41:18     13s] # Design Mode: 130nm
+[10/29 09:41:18     13s] # Analysis Mode: MMMC Non-OCV 
+[10/29 09:41:18     13s] # Parasitics Mode: No SPEF/RCDB 
+[10/29 09:41:18     13s] # Signoff Settings: SI Off 
+[10/29 09:41:18     13s] #################################################################################
+[10/29 09:41:18     13s] Extraction called for design 'amba_3_apb_rsa_apb_top' of instances=2445 and nets=2677 using extraction engine 'post_route' at effort level 'low' .
+[10/29 09:41:18     13s] post_route (extract_rc_effort_level low) RC Extraction called for design amba_3_apb_rsa_apb_top.
+[10/29 09:41:18     13s] RC Extraction called in multi-corner(1) mode.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using pre_route extraction or post_route extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'write_cap_table' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+[10/29 09:41:18     13s] Type 'man IMPEXT-6197' for more detail.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-3032):	Because the cap table file was not provided, it will be created internally with the following process info:
+[10/29 09:41:18     13s] * Layer Id             : 1 - M1
+[10/29 09:41:18     13s]       Thickness        : 0.1
+[10/29 09:41:18     13s]       Min Width        : 0.17
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] * Layer Id             : 2 - M2
+[10/29 09:41:18     13s]       Thickness        : 0.35
+[10/29 09:41:18     13s]       Min Width        : 0.14
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] * Layer Id             : 3 - M3
+[10/29 09:41:18     13s]       Thickness        : 0.35
+[10/29 09:41:18     13s]       Min Width        : 0.14
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] * Layer Id             : 4 - M4
+[10/29 09:41:18     13s]       Thickness        : 0.8
+[10/29 09:41:18     13s]       Min Width        : 0.3
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] * Layer Id             : 5 - M5
+[10/29 09:41:18     13s]       Thickness        : 0.8
+[10/29 09:41:18     13s]       Min Width        : 0.3
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] * Layer Id             : 6 - M6
+[10/29 09:41:18     13s]       Thickness        : 1.2
+[10/29 09:41:18     13s]       Min Width        : 1.6
+[10/29 09:41:18     13s]       Layer Dielectric : 4.1
+[10/29 09:41:18     13s] extractDetailRC Option : -outfile /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d  -basic
+[10/29 09:41:18     13s] RC Mode: PostRoute extract_rc_effort_level low [Basic CapTable, LEF Resistances]
+[10/29 09:41:18     13s]       RC Corner Indexes            0   
+[10/29 09:41:18     13s] Capacitance Scaling Factor   : 1.00000 
+[10/29 09:41:18     13s] Coupling Cap. Scaling Factor : 1.00000 
+[10/29 09:41:18     13s] Resistance Scaling Factor    : 1.00000 
+[10/29 09:41:18     13s] Clock Cap. Scaling Factor    : 1.00000 
+[10/29 09:41:18     13s] Clock Res. Scaling Factor    : 1.00000 
+[10/29 09:41:18     13s] Shrink Factor                : 1.00000
+[10/29 09:41:18     13s] eee: RC Grid memory freed = 8712 (11 X 11 X 6 X 12b)
+[10/29 09:41:18     13s] eee: RC Grid memory allocated = 8712 (11 X 11 X 6 X 12b)
+[10/29 09:41:18     13s] eee: pegSigSF=1.070000
+[10/29 09:41:18     13s] Initializing multi-corner resistance tables ...
+[10/29 09:41:18     13s] eee: Grid unit RC data computation started
+[10/29 09:41:18     13s] eee: Grid unit RC data computation completed
+[10/29 09:41:18     13s] eee: l=1 avDens=0.021365 usedTrk=111.169963 availTrk=5203.478261 sigTrk=111.169963
+[10/29 09:41:18     13s] eee: l=2 avDens=0.199376 usedTrk=1595.007933 availTrk=8000.000000 sigTrk=1595.007933
+[10/29 09:41:18     13s] eee: l=3 avDens=0.207138 usedTrk=1126.830218 availTrk=5440.000000 sigTrk=1126.830218
+[10/29 09:41:18     13s] eee: l=4 avDens=0.122847 usedTrk=471.089117 availTrk=3834.754098 sigTrk=471.089117
+[10/29 09:41:18     13s] eee: l=5 avDens=0.083009 usedTrk=310.862426 availTrk=3744.927536 sigTrk=310.862426
+[10/29 09:41:18     13s] eee: l=6 avDens=0.296430 usedTrk=160.817132 availTrk=542.513661 sigTrk=160.817132
+[10/29 09:41:18     13s] eee: LAM-FP: thresh=1 ; dimX=757.647059 ; dimY=756.000000 ; multX=1.000000 ; multY=1.000000 ; minP=340 ; fpMult=1.000000 ;
+[10/29 09:41:18     13s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.296925 uaWl=1.000000 uaWlH=0.269900 aWlH=0.000000 lMod=0 pMax=0.864100 pMod=80 pModAss=50 wcR=0.396600 crit=0.000000 siPrev=0 newSi=0.001600 wHLS=1.000000 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[10/29 09:41:18     13s] eee: NetCapCache creation started. (Current Mem: 1869.223M) 
+[10/29 09:41:18     13s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 1869.223M) 
+[10/29 09:41:18     13s] eee: dbu = 1000, Design = [ll(0.000000, 0.000000) ur(257.600000, 257.040000)], Layers = [f(6) b(0)], Grid size = 27.200000 um, Grid Dim = (10 X 10)
+[10/29 09:41:18     13s] eee: Metal Layers Info:
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: |      li1 |   1 |   0.170 |   0.170 |   0.460 |  0.000 |  75.29 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met1 |   2 |   0.140 |   0.140 |   0.340 |  0.000 |   0.89 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met2 |   3 |   0.140 |   0.140 |   0.460 |  0.000 |   0.89 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met3 |   4 |   0.300 |   0.300 |   0.610 |  0.000 |   0.16 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met4 |   5 |   0.300 |   0.300 |   0.690 |  0.000 |   0.16 | V | 0 |  1 |
+[10/29 09:41:18     13s] eee: |     met5 |   6 |   1.600 |   1.600 |   3.660 |  0.000 |   0.02 | H | 0 |  1 |
+[10/29 09:41:18     13s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     13s] eee: uC/uR for corner rc_typical, min-width/min-spacing, 30 perc over/under densities.
+[10/29 09:41:18     13s] eee: +-----------------------NDR Info-----------------------+
+[10/29 09:41:18     13s] eee: Number of NDR:: 0,  Number of Fake NDR:: 0
+[10/29 09:41:18     13s] Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 1869.2M)
+[10/29 09:41:18     13s] Creating parasitic data file '/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d' for storing RC.
+[10/29 09:41:18     13s] Extracted 10.0063% (CPU Time= 0:00:00.0  MEM= 1905.2M)
+[10/29 09:41:18     13s] Extracted 20.0056% (CPU Time= 0:00:00.0  MEM= 1907.2M)
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'L1M1_PR_2x1_VH_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[10/29 09:41:18     13s] Extracted 30.0049% (CPU Time= 0:00:00.0  MEM= 1907.2M)
+[10/29 09:41:18     13s] Extracted 40.0042% (CPU Time= 0:00:00.0  MEM= 1907.2M)
+[10/29 09:41:18     13s] Extracted 50.0071% (CPU Time= 0:00:00.0  MEM= 1907.2M)
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M1M2_PR_2x1_HV_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[10/29 09:41:18     13s] Extracted 60.0063% (CPU Time= 0:00:00.1  MEM= 1907.2M)
+[10/29 09:41:18     13s] Extracted 70.0056% (CPU Time= 0:00:00.1  MEM= 1907.2M)
+[10/29 09:41:18     13s] Extracted 80.0049% (CPU Time= 0:00:00.1  MEM= 1907.2M)
+[10/29 09:41:18     13s] Extracted 90.0042% (CPU Time= 0:00:00.1  MEM= 1907.2M)
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M2M3_PR_2x1_VH_W' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M3M4_PR_2x1_HV_W' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[10/29 09:41:18     13s] **WARN: (IMPEXT-2882):	Unable to find the resistance for via 'M4M5_PR_2x1_VV_E' in Cap table or LEF or OA files. The default value of 4.0 ohms is being assigned. To avoid this, check the Cap table and LEF and OA files, provide the resistance and read the files again.
+[10/29 09:41:18     13s] Extracted 100% (CPU Time= 0:00:00.1  MEM= 1908.2M)
+[10/29 09:41:18     13s] eee: RC Grid memory freed = 8712 (11 X 11 X 6 X 12b)
+[10/29 09:41:18     13s] Number of Extracted Resistors     : 48389
+[10/29 09:41:18     13s] Number of Extracted Ground Cap.   : 50924
+[10/29 09:41:18     13s] Number of Extracted Coupling Cap. : 0
+[10/29 09:41:18     13s] Lumped Parasitic Loading Started (total cpu=0:00:00.0, real=0:00:00.0, current mem=1892.223M)
+[10/29 09:41:18     13s] Opening parasitic data file '/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d' for reading (mem: 1892.223M)
+[10/29 09:41:18     13s] processing rcdb (/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d) for hinst (top) of cell (amba_3_apb_rsa_apb_top);
+[10/29 09:41:18     13s] Closing parasitic data file '/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d': 0 access done (mem: 1892.223M)
+[10/29 09:41:18     13s] Lumped Parasitic Loading Completed (total cpu=0:00:00.0, real=0:00:00.0, current mem=1892.223M)
+[10/29 09:41:18     13s] PostRoute (extract_rc_effort_level low) RC Extraction DONE (CPU Time: 0:00:00.1  Real Time: 0:00:00.0  MEM: 1892.223M)
+[10/29 09:41:18     14s] Topological Sorting (REAL = 0:00:00.0, MEM = 1973.6M, InitMEM = 1973.6M)
+[10/29 09:41:18     14s] Start delay calculation (fullDC) (1 T). (MEM=1983.16)
+[10/29 09:41:18     14s] eee: RC Grid memory allocated = 8712 (11 X 11 X 6 X 12b)
+[10/29 09:41:18     14s] eee: pegSigSF=1.070000
+[10/29 09:41:18     14s] Initializing multi-corner resistance tables ...
+[10/29 09:41:18     14s] eee: Grid unit RC data computation started
+[10/29 09:41:18     14s] eee: Grid unit RC data computation completed
+[10/29 09:41:18     14s] eee: l=1 avDens=0.021365 usedTrk=111.169963 availTrk=5203.478261 sigTrk=111.169963
+[10/29 09:41:18     14s] eee: l=2 avDens=0.199376 usedTrk=1595.007933 availTrk=8000.000000 sigTrk=1595.007933
+[10/29 09:41:18     14s] eee: l=3 avDens=0.207138 usedTrk=1126.830218 availTrk=5440.000000 sigTrk=1126.830218
+[10/29 09:41:18     14s] eee: l=4 avDens=0.122847 usedTrk=471.089117 availTrk=3834.754098 sigTrk=471.089117
+[10/29 09:41:18     14s] eee: l=5 avDens=0.083009 usedTrk=310.862426 availTrk=3744.927536 sigTrk=310.862426
+[10/29 09:41:18     14s] eee: l=6 avDens=0.296430 usedTrk=160.817132 availTrk=542.513661 sigTrk=160.817132
+[10/29 09:41:18     14s] eee: LAM-FP: thresh=1 ; dimX=757.647059 ; dimY=756.000000 ; multX=1.000000 ; multY=1.000000 ; minP=340 ; fpMult=1.000000 ;
+[10/29 09:41:18     14s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.296925 uaWl=1.000000 uaWlH=0.269900 aWlH=0.000000 lMod=0 pMax=0.864100 pMod=80 pModAss=50 wcR=0.396600 crit=0.000000 siPrev=0 newSi=0.001600 wHLS=1.000000 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[10/29 09:41:18     14s] eee: NetCapCache creation started. (Current Mem: 1983.156M) 
+[10/29 09:41:18     14s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 1983.156M) 
+[10/29 09:41:18     14s] eee: dbu = 1000, Design = [ll(0.000000, 0.000000) ur(257.600000, 257.040000)], Layers = [f(6) b(0)], Grid size = 27.200000 um, Grid Dim = (10 X 10)
+[10/29 09:41:18     14s] eee: Metal Layers Info:
+[10/29 09:41:18     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     14s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[10/29 09:41:18     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     14s] eee: |      li1 |   1 |   0.170 |   0.170 |   0.460 |  0.000 |  75.29 | V | 0 |  1 |
+[10/29 09:41:18     14s] eee: |     met1 |   2 |   0.140 |   0.140 |   0.340 |  0.000 |   0.89 | H | 0 |  1 |
+[10/29 09:41:18     14s] eee: |     met2 |   3 |   0.140 |   0.140 |   0.460 |  0.000 |   0.89 | V | 0 |  1 |
+[10/29 09:41:18     14s] eee: |     met3 |   4 |   0.300 |   0.300 |   0.610 |  0.000 |   0.16 | H | 0 |  1 |
+[10/29 09:41:18     14s] eee: |     met4 |   5 |   0.300 |   0.300 |   0.690 |  0.000 |   0.16 | V | 0 |  1 |
+[10/29 09:41:18     14s] eee: |     met5 |   6 |   1.600 |   1.600 |   3.660 |  0.000 |   0.02 | H | 0 |  1 |
+[10/29 09:41:18     14s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[10/29 09:41:18     14s] eee: uC/uR for corner rc_typical, min-width/min-spacing, 30 perc over/under densities.
+[10/29 09:41:18     14s] eee: +-----------------------NDR Info-----------------------+
+[10/29 09:41:18     14s] eee: Number of NDR:: 0,  Number of Fake NDR:: 0
+[10/29 09:41:18     14s] siFlow : Timing analysis mode is single, using late cdB files
+[10/29 09:41:18     14s] Start AAE Lib Loading. (MEM=1991.37)
+[10/29 09:41:18     14s] End AAE Lib Loading. (MEM=2211.45 CPU=0:00:00.0 Real=0:00:00.0)
+[10/29 09:41:18     14s] End AAE Lib Interpolated Model. (MEM=2211.45 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[10/29 09:41:18     14s] Opening parasitic data file '/home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/innovus/rsa32_v2/amba_3_apb_rsa_apb_top_2026-10-29_09-36-13/9.export/innovus_temp_70454_9383cd44-7dbe-470e-b3cf-c1fc3ae7eb66_rock8_aluno_6O6xoJ/amba_3_apb_rsa_apb_top_70454_mHueoO.rcdb.d' for reading (mem: 2250.062M)
+[10/29 09:41:18     14s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 2250.1M)
+[10/29 09:41:19     14s] Total number of fetched objects 2670
+[10/29 09:41:19     14s] AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+[10/29 09:41:19     14s] End Timing Check Calculation. (CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[10/29 09:41:19     14s] End delay calculation. (MEM=2393.28 CPU=0:00:00.2 REAL=0:00:01.0)
+[10/29 09:41:19     14s] End delay calculation (fullDC). (MEM=2393.28 CPU=0:00:00.4 REAL=0:00:01.0)
+[10/29 09:41:19     14s] *** CDM Built up (cpu=0:00:00.6  real=0:00:01.0  mem= 2393.3M) ***
+[10/29 09:41:19     14s] Parse flat map file 'streamOut.map'
+[10/29 09:41:19     14s] Writing GDSII file ...
+[10/29 09:41:19     14s] 	****** db unit per micron = 1000 ******
+[10/29 09:41:19     14s] 	****** output gds2 file unit per micron = 1000 ******
+[10/29 09:41:19     14s] 	****** unit scaling factor = 1 ******
+[10/29 09:41:19     14s] Output for instance
+[10/29 09:41:19     14s] Output for bump
+[10/29 09:41:19     14s] Output for physical terminals
+[10/29 09:41:19     14s] Output for logical terminals
+[10/29 09:41:19     14s] Output for regular nets
+[10/29 09:41:19     14s] Output for special nets and metal fills
+[10/29 09:41:19     14s] Convert 0 swires and 0 svias from compressed groups
+[10/29 09:41:19     14s] Output for via structure generation total number 31
+[10/29 09:41:19     14s] Statistics for GDS generated (version 3)
+[10/29 09:41:19     14s] ----------------------------------------
+[10/29 09:41:19     14s] Stream Out Layer Mapping Information:
+[10/29 09:41:19     14s] GDS Layer Number          GDS Layer Name
+[10/29 09:41:19     14s] ----------------------------------------
+[10/29 09:41:19     14s]     128                             COMP
+[10/29 09:41:19     14s]     129                          DIEAREA
+[10/29 09:41:19     14s]     122                             met5
+[10/29 09:41:19     14s]     121                             met5
+[10/29 09:41:19     14s]     120                             met5
+[10/29 09:41:19     14s]     119                             met5
+[10/29 09:41:19     14s]     118                             met5
+[10/29 09:41:19     14s]     53                              met2
+[10/29 09:41:19     14s]     52                              met2
+[10/29 09:41:19     14s]     48                               via
+[10/29 09:41:19     14s]     29                              met1
+[10/29 09:41:19     14s]     47                               via
+[10/29 09:41:19     14s]     44                               via
+[10/29 09:41:19     14s]     43                               via
+[10/29 09:41:19     14s]     38                              met1
+[10/29 09:41:19     14s]     95                              met4
+[10/29 09:41:19     14s]     36                              met1
+[10/29 09:41:19     14s]     93                              met4
+[10/29 09:41:19     14s]     112                             via4
+[10/29 09:41:19     14s]     55                              met2
+[10/29 09:41:19     14s]     113                             met5
+[10/29 09:41:19     14s]     32                              met1
+[10/29 09:41:19     14s]     54                              met2
+[10/29 09:41:19     14s]     31                              met1
+[10/29 09:41:19     14s]     107                             via4
+[10/29 09:41:19     14s]     30                              met1
+[10/29 09:41:19     14s]     49                               via
+[10/29 09:41:19     14s]     106                             via4
+[10/29 09:41:19     14s]     33                              met1
+[10/29 09:41:19     14s]     109                             via4
+[10/29 09:41:19     14s]     10                               li1
+[10/29 09:41:19     14s]     86                              via3
+[10/29 09:41:19     14s]     50                              met2
+[10/29 09:41:19     14s]     69                              via2
+[10/29 09:41:19     14s]     6                              licon
+[10/29 09:41:19     14s]     35                              met1
+[10/29 09:41:19     14s]     8                                li1
+[10/29 09:41:19     14s]     27                              mcon
+[10/29 09:41:19     14s]     3                              licon
+[10/29 09:41:19     14s]     51                              met2
+[10/29 09:41:19     14s]     70                              via2
+[10/29 09:41:19     14s]     7                              licon
+[10/29 09:41:19     14s]     64                              via2
+[10/29 09:41:19     14s]     34                              met1
+[10/29 09:41:19     14s]     92                              met4
+[10/29 09:41:19     14s]     111                             via4
+[10/29 09:41:19     14s]     11                               li1
+[10/29 09:41:19     14s]     4                              licon
+[10/29 09:41:19     14s]     9                                li1
+[10/29 09:41:19     14s]     28                              mcon
+[10/29 09:41:19     14s]     85                              via3
+[10/29 09:41:19     14s]     5                              licon
+[10/29 09:41:19     14s]     12                               li1
+[10/29 09:41:19     14s]     88                              via3
+[10/29 09:41:19     14s]     45                               via
+[10/29 09:41:19     14s]     22                              mcon
+[10/29 09:41:19     14s]     13                               li1
+[10/29 09:41:19     14s]     71                              met3
+[10/29 09:41:19     14s]     90                              via3
+[10/29 09:41:19     14s]     46                               via
+[10/29 09:41:19     14s]     23                              mcon
+[10/29 09:41:19     14s]     37                              met1
+[10/29 09:41:19     14s]     94                              met4
+[10/29 09:41:19     14s]     14                               li1
+[10/29 09:41:19     14s]     15                               li1
+[10/29 09:41:19     14s]     72                              met3
+[10/29 09:41:19     14s]     91                              via3
+[10/29 09:41:19     14s]     16                               li1
+[10/29 09:41:19     14s]     73                              met3
+[10/29 09:41:19     14s]     26                              mcon
+[10/29 09:41:19     14s]     17                               li1
+[10/29 09:41:19     14s]     74                              met3
+[10/29 09:41:19     14s]     1                              licon
+[10/29 09:41:19     14s]     24                              mcon
+[10/29 09:41:19     14s]     2                              licon
+[10/29 09:41:19     14s]     25                              mcon
+[10/29 09:41:19     14s]     56                              met2
+[10/29 09:41:19     14s]     57                              met2
+[10/29 09:41:19     14s]     114                             met5
+[10/29 09:41:19     14s]     58                              met2
+[10/29 09:41:19     14s]     115                             met5
+[10/29 09:41:19     14s]     59                              met2
+[10/29 09:41:19     14s]     116                             met5
+[10/29 09:41:19     14s]     65                              via2
+[10/29 09:41:19     14s]     66                              via2
+[10/29 09:41:19     14s]     67                              via2
+[10/29 09:41:19     14s]     68                              via2
+[10/29 09:41:19     14s]     75                              met3
+[10/29 09:41:19     14s]     76                              met3
+[10/29 09:41:19     14s]     77                              met3
+[10/29 09:41:19     14s]     78                              met3
+[10/29 09:41:19     14s]     79                              met3
+[10/29 09:41:19     14s]     80                              met3
+[10/29 09:41:19     14s]     87                              via3
+[10/29 09:41:19     14s]     89                              via3
+[10/29 09:41:19     14s]     96                              met4
+[10/29 09:41:19     14s]     97                              met4
+[10/29 09:41:19     14s]     98                              met4
+[10/29 09:41:19     14s]     99                              met4
+[10/29 09:41:19     14s]     100                             met4
+[10/29 09:41:19     14s]     101                             met4
+[10/29 09:41:19     14s]     108                             via4
+[10/29 09:41:19     14s]     110                             via4
+[10/29 09:41:19     14s]     117                             met5
+[10/29 09:41:19     14s]     63                              met2
+[10/29 09:41:19     14s]     62                              met2
+[10/29 09:41:19     14s]     39                              met1
+[10/29 09:41:19     14s]     105                             met4
+[10/29 09:41:19     14s]     103                             met4
+[10/29 09:41:19     14s]     123                             met5
+[10/29 09:41:19     14s]     42                              met1
+[10/29 09:41:19     14s]     41                              met1
+[10/29 09:41:19     14s]     40                              met1
+[10/29 09:41:19     14s]     20                               li1
+[10/29 09:41:19     14s]     60                              met2
+[10/29 09:41:19     14s]     18                               li1
+[10/29 09:41:19     14s]     61                              met2
+[10/29 09:41:19     14s]     102                             met4
+[10/29 09:41:19     14s]     21                               li1
+[10/29 09:41:19     14s]     19                               li1
+[10/29 09:41:19     14s]     81                              met3
+[10/29 09:41:19     14s]     104                             met4
+[10/29 09:41:19     14s]     82                              met3
+[10/29 09:41:19     14s]     83                              met3
+[10/29 09:41:19     14s]     84                              met3
+[10/29 09:41:19     14s]     124                             met5
+[10/29 09:41:19     14s]     125                             met5
+[10/29 09:41:19     14s]     126                             met5
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Stream Out Information Processed for GDS version 3:
+[10/29 09:41:19     14s] Units: 1000 DBU
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Object                             Count
+[10/29 09:41:19     14s] ----------------------------------------
+[10/29 09:41:19     14s] Instances                           2445
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Ports/Pins                            84
+[10/29 09:41:19     14s]     metal layer met2                  84
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Nets                               28471
+[10/29 09:41:19     14s]     metal layer li1                 2814
+[10/29 09:41:19     14s]     metal layer met1               11910
+[10/29 09:41:19     14s]     metal layer met2               11426
+[10/29 09:41:19     14s]     metal layer met3                1849
+[10/29 09:41:19     14s]     metal layer met4                 419
+[10/29 09:41:19     14s]     metal layer met5                  53
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s]     Via Instances                  19907
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Special Nets                         106
+[10/29 09:41:19     14s]     metal layer met1                  88
+[10/29 09:41:19     14s]     metal layer met4                  18
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s]     Via Instances                   2376
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Metal Fills                            0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s]     Via Instances                      0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Metal FillOPCs                         0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s]     Via Instances                      0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Metal FillDRCs                         0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s]     Via Instances                      0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Text                                2753
+[10/29 09:41:19     14s]     metal layer li1                  317
+[10/29 09:41:19     14s]     metal layer met1                1652
+[10/29 09:41:19     14s]     metal layer met2                 745
+[10/29 09:41:19     14s]     metal layer met3                  32
+[10/29 09:41:19     14s]     metal layer met4                   7
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Blockages                              0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Custom Text                            0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Custom Box                             0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] Trim Metal                             0
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] ######Streamout is finished!
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] *** Memory Usage v#2 (Current mem = 2377.070M, initial mem = 661.535M) ***
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] *** Summary of all messages that are not suppressed in this session:
+[10/29 09:41:19     14s] Severity  ID               Count  Summary                                  
+[10/29 09:41:19     14s] WARNING   IMPLF-201            6  Pin '%s' in macro '%s' has no ANTENNADIF...
+[10/29 09:41:19     14s] WARNING   IMPLF-108            1  There is no overlap layer defined in any...
+[10/29 09:41:19     14s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[10/29 09:41:19     14s] WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+[10/29 09:41:19     14s] WARNING   IMPEXT-6197          1  The Cap table file is not specified. Thi...
+[10/29 09:41:19     14s] WARNING   IMPEXT-2766          6  The sheet resistance for layer %s is not...
+[10/29 09:41:19     14s] WARNING   IMPEXT-2773          6  The via resistance between layers %s and...
+[10/29 09:41:19     14s] WARNING   IMPEXT-2882          5  Unable to find the resistance for via '%...
+[10/29 09:41:19     14s] WARNING   IMPEXT-2523          1  Option 'extract_rc_cap_table_basic' shou...
+[10/29 09:41:19     14s] WARNING   IMPEXT-3032          1  Because the cap table file was not provi...
+[10/29 09:41:19     14s] WARNING   IMPEXT-6138          3  Options 'extract_rc_relative_cap_thresho...
+[10/29 09:41:19     14s] WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+[10/29 09:41:19     14s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[10/29 09:41:19     14s] WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+[10/29 09:41:19     14s] WARNING   SDF-808              1  The software is currently operating in a...
+[10/29 09:41:19     14s] WARNING   TECHLIB-302         12  No function defined for cell '%s'. The c...
+[10/29 09:41:19     14s] ERROR     TECHLIB-702          6  No pg_pin with name '%s' has been read i...
+[10/29 09:41:19     14s] *** Message Summary: 49 warning(s), 6 error(s)
+[10/29 09:41:19     14s] 
+[10/29 09:41:19     14s] --- Ending "Innovus" (totcpu=0:00:14.6, real=0:00:15.0, mem=2377.1M) ---

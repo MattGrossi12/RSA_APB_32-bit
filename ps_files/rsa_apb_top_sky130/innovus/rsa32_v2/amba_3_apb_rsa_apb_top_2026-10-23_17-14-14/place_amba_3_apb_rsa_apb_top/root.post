@@ -1,0 +1,48 @@
+::db::check_and_set_root_attr extract_rc_engine pre_route
+::db::check_and_set_root_attr add_route_vias_auto true
+::db::check_and_set_root_attr delaycal_enable_high_fanout true
+::db::check_and_set_root_attr delaycal_eng_enablepreplacedflow false
+::db::check_and_set_root_attr delaycal_ignore_net_load false
+::db::check_and_set_root_attr extract_rc_coupling_cap_threshold 3.0
+::db::check_and_set_root_attr extract_rc_relative_cap_threshold 0.03
+::db::check_and_set_root_attr extract_rc_total_cap_threshold 5.0
+::db::check_and_set_root_attr floorplan_first_row_site_index 0
+::db::check_and_set_root_attr floorplan_last_row_site_index -1
+::db::check_and_set_root_attr floorplan_max_io_height false
+::db::check_and_set_root_attr ilm_keep_flatten true
+::db::check_and_set_root_attr ilm_keep_high_fanout_ports true
+::db::check_and_set_root_attr ilm_keep_inst_in_sdc false
+::db::check_and_set_root_attr ilm_keep_loopback false
+::db::check_and_set_root_attr opt_drv true
+::db::check_and_set_root_attr opt_drv_margin 0.0
+::db::check_and_set_root_attr opt_resize_flip_flops true
+::db::check_and_set_root_attr opt_setup_target_slack 0.0
+::db::check_and_set_root_attr opt_view_pruning_hold_views_active_list { view_typical }
+::db::check_and_set_root_attr opt_view_pruning_setup_views_active_list { view_typical }
+::db::check_and_set_root_attr opt_view_pruning_setup_views_persistent_list { view_typical}
+::db::check_and_set_root_attr opt_view_pruning_tdgr_setup_views_persistent_list { view_typical}
+::db::check_and_set_root_attr power_compatible_internal_power true
+::db::check_and_set_root_attr power_disable_static false
+::db::check_and_set_root_attr power_enable_input_net_power false
+::db::check_and_set_root_attr power_enable_state_propagation false
+::db::check_and_set_root_attr power_handle_glitch false
+::db::check_and_set_root_attr power_handle_tristate false
+::db::check_and_set_root_attr power_honor_negative_energy true
+::db::check_and_set_root_attr power_honor_net_activity true
+::db::check_and_set_root_attr power_honor_net_activity_with_pin true
+::db::check_and_set_root_attr power_ignore_control_signals true
+::db::check_and_set_root_attr power_ignore_inout_pin_cap false
+::db::check_and_set_root_attr power_method static
+::db::check_and_set_root_attr power_report_black_boxes false
+::db::check_and_set_root_attr power_report_missing_nets false
+::db::check_and_set_root_attr power_split_bus_power false
+::db::check_and_set_root_attr power_state_dependent_leakage true
+::db::check_and_set_root_attr power_transition_time_method max
+::db::check_and_set_root_attr power_worst_case_vector_activity false
+::db::check_and_set_root_attr power_worst_case_vector_activity_for_clk true
+::db::check_and_set_root_attr power_write_db false
+::db::check_and_set_root_attr power_x_transition_factor 0.5
+::db::check_and_set_root_attr power_z_transition_factor 0.25
+::db::check_and_set_root_attr route_extract_third_party_compatible false
+::db::check_and_set_root_attr route_global_exp_timing_driven_std_delay 12.7
+::db::check_and_set_root_attr write_def_stream_check_uncolored false
