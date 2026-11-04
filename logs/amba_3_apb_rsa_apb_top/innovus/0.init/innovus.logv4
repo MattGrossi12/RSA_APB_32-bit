@@ -1,0 +1,22 @@
+[10/23 16:38:29      0s] 
+[10/23 16:38:29      0s] Cadence Innovus(TM) Implementation System.
+[10/23 16:38:29      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/23 16:38:29      0s] 
+[10/23 16:38:29      0s] Version:	v22.18-s118_1, built Mon Apr 28 11:32:56 PDT 2025
+[10/23 16:38:29      0s] Options:	-stylus -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/innovus_init.tcl 
+[10/23 16:38:29      0s] Date:		Fri Oct 23 16:38:29 2026
+[10/23 16:38:29      0s] Host:		rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*Intel(R) Core(TM) i5-14500 24576KB)
+[10/23 16:38:29      0s] OS:		Rocky Linux 8.10 (Green Obsidian)
+[10/23 16:38:29      0s] 
+[10/23 16:38:29      0s] License:
+[10/23 16:38:29      0s] 		[16:38:29.048106] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+[10/23 16:38:29      0s] 
+[10/23 16:38:29      0s] 		invs	Innovus Implementation System	22.1	checkout succeeded
+[10/23 16:38:29      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/23 16:38:36      7s] *** sockopt - 113
+[10/23 16:38:36      7s] Memory management switch to non-aggressive memory release mode.
+[10/23 16:38:36      7s] 
+[10/23 16:38:36      7s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[10/23 16:38:36      7s] 
+[10/23 16:38:36      7s] 
+[10/23 16:38:36      7s] 

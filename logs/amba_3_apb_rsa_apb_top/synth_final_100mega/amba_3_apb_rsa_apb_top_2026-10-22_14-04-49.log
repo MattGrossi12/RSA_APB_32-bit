@@ -1,0 +1,135 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[14:04:49.048050] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+Version: 22.18-s061_1, built Fri Apr 25 06:12:05 PDT 2025
+Options: -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/open_genus_gui.tcl -log /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/genus/amba_3_apb_rsa_apb_top_2026-10-22_14-04-49.log 
+Date:    Thu Oct 22 14:04:49 2026
+Host:    rock8 (x86_64 w/Linux 4.18.0-553.174.1.el8_10.x86_64) (14cores*20cpus*1physical cpu*Intel(R) Core(TM) i5-14500 24576KB) (32331720KB)
+PID:     86056
+OS:      Rocky Linux 8.10 (Green Obsidian)
+
+Checking out license: Genus_Synthesis
+[14:04:49.183809] Periodic Lic check successful
+[14:04:49.183809] Feature usage summary:
+[14:04:49.183809] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (6 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/open_genus_gui.tcl
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/open_genus_gui.tcl
+@file(open_genus_gui.tcl) 1: if {![info exists ::env(DB_FILE)] || ![file isfile $::env(DB_FILE)]} {
+    error "Genus database not found. Run genus_nogui.sh before genus_gui.sh."
+}
+@file(open_genus_gui.tcl) 5: read_db $::env(DB_FILE)
+Reading database file '/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top/db/synth_amba_3_apb_rsa_apb_top_2026-10-22_14-02-51.db'.
+
+  Message Summary for Library typical.lib:
+  ****************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  Missing library level attribute. [LBR-516]: 1
+  ****************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.200000, 25.000000) in library 'typical.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX2'.  Ignoring the test_cell.
+        : Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRXL'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX1'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFNSRX4'.  Ignoring the test_cell.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX2' is assumed to be ' CKN'.
+        : The tool derives the clock polarity from the sequential timing arcs specified through the Liberty 'timing_type' attribute. For the positive-edge triggered cells a positive value is expected for the 'clocked_on' or 'enable' attribute while an inverted value is expected for the negative-edge triggered sequential cells.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRXL' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX1' is assumed to be ' CKN'.
+Info    : Found conflicting clock polarity information. [LBR-409]
+        : The clock polarity specified through the Liberty 'clocked_on' attribute in libcell 'SDFFNSRX4' is assumed to be ' CKN'.
+
+  According to lef_library, there are total 11 routing layers [ V(5) / H(6) ]
+
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell DFFNSRX4 cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL64 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL8 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL16 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ANTENNA cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell DFFSX2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL32 cannot be found in library.
+==================================
+Stage : incr_opt 
+==================================
+  =================
+   Message Summary
+  =================
+----------------------------------------------------------------------------------------------------------------------------------------------
+|   Id   |  Sev  |Count|                                                    Message Text                                                     |
+----------------------------------------------------------------------------------------------------------------------------------------------
+|LBR-41  |Info   |    1|An output library pin lacks a function attribute.                                                                    |
+|        |       |     |If the remainder of this library cell's semantic checks are successful, it will be considered as a timing-model      |
+|        |       |     | (because one of its outputs does not have a valid function.                                                         |
+|LBR-64  |Warning|    4|Malformed test_cell.                                                                                                 |
+|        |       |     |Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between   |
+|        |       |     | the two may exist.                                                                                                  |
+|LBR-170 |Info   |   32|Ignoring specified timing sense.                                                                                     |
+|        |       |     |Timing sense should never be set with 'rising_edge' or 'falling_edge' timing type.                                   |
+|LBR-409 |Info   |    4|Found conflicting clock polarity information.                                                                        |
+|        |       |     |The tool derives the clock polarity from the sequential timing arcs specified through the Liberty 'timing_type'      |
+|        |       |     | attribute. For the positive-edge triggered cells a positive value is expected for the 'clocked_on' or 'enable'      |
+|        |       |     | attribute while an inverted value is expected for the negative-edge triggered sequential cells.                     |
+|LBR-412 |Info   |    1|Created nominal operating condition.                                                                                 |
+|        |       |     |The nominal operating condition is represented, either by the nominal PVT values specified in the library source     |
+|        |       |     | (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).         |
+|LBR-516 |Info   |    1|Missing library level attribute.                                                                                     |
+|LBR-518 |Info   |    1|Missing a function attribute in the output pin definition.                                                           |
+|PHYS-279|Warning|   10|Physical cell not defined in library.                                                                                |
+|        |       |     |Ensure that the proper library files are available and have been imported.                                           |
+----------------------------------------------------------------------------------------------------------------------------------------------
+Warning : Detected both combinational and sequential timing arcs in a library cell. This might prevent the tool from using this cell for technology mapping. The tool will treat it as unusable. [LBR-76]
+        : The arc 'CK_SE_Ha3' between pins 'CK' and 'SE' in libcell 'TLATNTSCAX2_clone' is a sequential timing arc.
+        : The library cell will be treated as a timing-model. Make sure that the timing arcs and output function are defined correctly. Even if the cell intends to have dual-functionality, it cannot be unmapped or automatically inferred.
+@file(open_genus_gui.tcl) 6: gui_show
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/open_genus_gui.tcl
+WARNING: This version of the tool is 545 days old.
+GTD-INFO: Parsing file top.mtarpt...
+GTD-INFO: Parsing file top.mtarpt...
+
+Lic Summary:
+[14:05:36.441946] Cdslmd servers: Logus
+[14:05:36.441952] Feature usage summary:
+[14:05:36.441952] Genus_Synthesis
+
+Normal exit.

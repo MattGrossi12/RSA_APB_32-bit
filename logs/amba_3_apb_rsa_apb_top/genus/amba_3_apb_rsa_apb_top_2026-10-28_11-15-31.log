@@ -1,0 +1,278 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[11:15:32.047978] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+Version: 22.18-s061_1, built Fri Apr 25 06:12:05 PDT 2025
+Options: -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl -log /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/genus/amba_3_apb_rsa_apb_top_2026-10-28_11-15-31.log 
+Date:    Wed Oct 28 11:15:32 2026
+Host:    rock8 (x86_64 w/Linux 4.18.0-553.178.1.el8_10.x86_64) (14cores*20cpus*1physical cpu*Intel(R) Core(TM) i5-14500 24576KB) (32331700KB)
+PID:     102595
+OS:      Rocky Linux 8.10 (Green Obsidian)
+
+Checking out license: Genus_Synthesis
+[11:15:32.143553] Periodic Lic check successful
+[11:15:32.143553] Feature usage summary:
+[11:15:32.143554] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (5 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+@file(run_genus.tcl) 2: set project_name "amba_3_apb_rsa_apb_top"
+@file(run_genus.tcl) 3: set project_root $::env(PROJECT_ROOT)
+@file(run_genus.tcl) 4: set run_id $::env(RUN)
+@file(run_genus.tcl) 5: set output_dir $::env(OUTPUT_DIR)
+@file(run_genus.tcl) 6: set report_dir $::env(REPORT_DIR)
+@file(run_genus.tcl) 7: set source_dir [file join $project_root src amba_3_apb]
+@file(run_genus.tcl) 8: set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
+@file(run_genus.tcl) 9: set_db / .use_scan_seqs_for_non_dft false
+  Setting attribute of root '/': 'use_scan_seqs_for_non_dft' = false
+@file(run_genus.tcl) 11: set rtl_files [list \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
+    [file join $source_dir amba_3_apb_adrec.sv] \
+    [file join $source_dir amba_3_apb_data_o_mux.sv] \
+    [file join $source_dir amba_3_apb_data_io_top.sv] \
+    [file join $source_dir amba_3_apb_control.sv] \
+    [file join $source_dir amba_3_apb_regbank.sv] \
+    [file join $source_dir amba_3_apb_reset.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+    [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+]
+@file(run_genus.tcl) 43: set_db init_lib_search_path {/tsmc28/}
+  Setting attribute of root '/': 'init_lib_search_path' = /tsmc28/
+@file(run_genus.tcl) 44: read_libs                   [list tcbn28hpcplusbwp30p140tt1v25c.lib]
+
+  Message Summary for Library tcbn28hpcplusbwp30p140tt1v25c.lib:
+  **************************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 1
+  **************************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.000000, 25.000000) in library 'tcbn28hpcplusbwp30p140tt1v25c.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNABWP30P140' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNABWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_LEFTBWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_RIGHTBWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'BOUNDARY_RIGHTBWP30P140' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD20BWP30P140'
+        : To make the cell usable, change the value of 'dont_use' attribute to false.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD24BWP30P140'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD20BWP30P140'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD24BWP30P140'
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILL16BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILL16BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILL2BWP30P140' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILL2BWP30P140' must have an output pin.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-9'.
+@file(run_genus.tcl) 45: set_db lef_library          [list tcbn28hpcplusbwp30p140.lef]
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'Z' in macro 'AN2D0BWP30P140' is not found in the database.
+        : A layer must be defined in the LEF technology LAYER section before it can be referenced from a macro section. Review the LEF files specified in the lef_library attribute to see if the layer is not defined or is defined after the macro definition which refers to the layer in its pin section.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'A2' in macro 'AN2D0BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'A1' in macro 'AN2D0BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VSS' in macro 'AN2D0BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VDD' in macro 'AN2D0BWP30P140' is not found in the database.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D0BWP30P140' references a site 'core' that has not been defined.
+        : The sites must be defined before they can be referenced from a macro. Review the LEF files specified in the lef_library attribute to see if the site does not exist or is specified after the one that defines the macro.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M2' referenced in pin 'Z' in macro 'AN2D16BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M2' referenced in pin 'A2' in macro 'AN2D16BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M2' referenced in pin 'A1' in macro 'AN2D16BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VSS' in macro 'AN2D16BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VDD' in macro 'AN2D16BWP30P140' is not found in the database.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D16BWP30P140' references a site 'core' that has not been defined.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'Z' in macro 'AN2D1BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'A2' in macro 'AN2D1BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'A1' in macro 'AN2D1BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VSS' in macro 'AN2D1BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VDD' in macro 'AN2D1BWP30P140' is not found in the database.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D1BWP30P140' references a site 'core' that has not been defined.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'Z' in macro 'AN2D2BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M2' referenced in pin 'A2' in macro 'AN2D2BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M2' referenced in pin 'A1' in macro 'AN2D2BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VSS' in macro 'AN2D2BWP30P140' is not found in the database.
+Error   : Undefined pin layer detected. [PHYS-148] [set_db]
+        : The layer 'M1' referenced in pin 'VDD' in macro 'AN2D2BWP30P140' is not found in the database.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D2BWP30P140' references a site 'core' that has not been defined.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-148'.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D4BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D6BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN2D8BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D0BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D16BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D1BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D2BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D4BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D6BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN3D8BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN4D0BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN4D1BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN4D2BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN4D4BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'AN4D8BWP30P140' references a site 'core' that has not been defined.
+Warning : Macro references undefined site. [PHYS-2040]
+        : Macro 'ANTENNABWP30P140' references a site 'core' that has not been defined.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-2040'.
+Error   : LEF File Interface. [PHYS-100] [set_db]
+        : File '/tsmc28//tcbn28hpcplusbwp30p140.lef' contains an error on or near line '272139'.
+        : Check the LEF file and rerun the command.
+Warning : There are no vertical or horizontal layers. [PHYS-111]
+        : There are no vertical layers.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID1BWP30P140 cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID2BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID4BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID8BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD1BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD2BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD4BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD8BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRHID2BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRHID4BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRHID8BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRLOD2BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRLOD4BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOSRLOD8BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCD1BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCD2BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCD4BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCD8BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCLOD1BWP30P140 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLCLOD2BWP30P140 cannot be found in library.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-279'.
+Error   : No capacitance or resistance specified. [PHYS-10] [set_db]
+        : Specify the tech LEF first.
+        : Check the LEF technology files.
+Error   : The attribute or the value for this attribute is not allowed at this moment. [TUI-48] [set_db]
+        : attribute: 'lef_library', value: 'tcbn28hpcplusbwp30p140.lef'
+        : Cannot change the value of the attribute.
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+1
+Encountered problems processing file: /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+WARNING: This version of the tool is 551 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[11:15:49.081123] Cdslmd servers: Logus
+[11:15:49.081128] Feature usage summary:
+[11:15:49.081128] Genus_Synthesis
+
+Normal exit.

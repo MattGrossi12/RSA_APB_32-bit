@@ -1,0 +1,77 @@
+Creating directory checkNetlist.
+############################################################################
+# Innovus Netlist Design Rule Check
+# Thu Oct 29 14:06:38 2026
+############################################################################
+Design: amba_3_apb_rsa_apb_top
+
+------ Design Summary:
+Total Standard Cell Number   (cells) : 3208
+Total Block Cell Number      (cells) : 0
+Total I/O Pad Cell Number    (cells) : 0
+Total Standard Cell Area     ( um^2) : 439.53
+Total Block Cell Area        ( um^2) : 0.00
+Total I/O Pad Cell Area      ( um^2) : 0.00
+
+------ Design Statistics:
+
+Number of Instances            : 3208
+Number of Non-uniquified Insts : 3198
+Number of Nets                 : 3272
+Average number of Pins per Net : 3.69
+Maximum number of Pins in Net  : 705
+
+------ I/O Port summary
+
+Number of Primary I/O Ports    : 84
+Number of Input Ports          : 49
+Number of Output Ports         : 35
+Number of Bidirectional Ports  : 0
+Number of Power/Ground Ports   : 0
+Number of Floating Ports                     *: 3
+Number of Ports Connected to Multiple Pads   *: 0
+Number of Ports Connected to Core Instances   : 81
+**WARN: (IMPREPO-200):	There are 3 Floating Ports in the top design.
+**WARN: (IMPREPO-202):	There are 81 Ports connected to core instances.
+
+------ Design Rule Checking:
+
+Number of Output Pins connect to Power/Ground *: 0
+Number of Insts with Input Pins tied together ?: 2
+Number of TieHi/Lo term nets not connected to instance's PG terms ?: 0
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'reset_inst_reset_sync_reg_reg[0]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'D' of  instance 'reset_inst_reset_sync_reg_reg[0]' does not connect to a 'TieLo ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'reset_inst_reset_sync_reg_reg[1]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_ier_err_ie_reg_reg' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_ier_done_ie_reg_reg' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[5]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[2]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[4]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[29]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[13]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[26]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[25]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[23]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[27]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[20]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[18]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[17]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[16]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[15]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESETN' of  instance 'regbank_inst_result_reg_reg[28]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (EMS-27):	Message (IMPDB-2136) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Number of Input/InOut Floating Pins            : 139
+Number of Output Floating Pins                 : 0
+Number of Output Term Marked TieHi/Lo         *: 0
+
+**WARN: (IMPREPO-216):	There are 2 Instances with input pins tied together.
+**WARN: (IMPREPO-218):	There are 139 Floating Instance terminals.
+Number of nets with tri-state drivers          : 0
+Number of nets with parallel drivers           : 0
+Number of nets with multiple drivers           : 0
+Number of nets with no driver (No FanIn)       : 1
+Number of Output Floating nets (No FanOut)     : 10
+Number of High Fanout nets (>50)               : 13
+**WARN: (IMPREPO-227):	There are 13 High Fanout nets (>50).
+Report saved in file checkNetlist/amba_3_apb_rsa_apb_top.main.htm.ascii

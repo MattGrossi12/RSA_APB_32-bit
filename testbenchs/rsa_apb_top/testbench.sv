@@ -41,12 +41,16 @@ module testbench;
     integer errors = 0;
     string vcd_path;
 
-    amba_3_apb_rsa_apb_top #(
+    amba_3_apb_rsa_apb_top
+`ifndef POST_SYNTHESIS
+    #(
         .DATA_WIDTH(DATA_WIDTH),
         .ADDR_WIDTH(ADDR_WIDTH),
         // rsa_core_ctrl waits for LOAD to fall between MSG, EXP and MOD.
         .LOAD_GAP(1)
-    ) dut (
+    )
+`endif
+    dut (
         .pclk_i(pclk_i),
         .presetn_i(presetn_i),
         .psel_i(psel_i),

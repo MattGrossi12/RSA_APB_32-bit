@@ -1,0 +1,146 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Oct 23, 2026 at 16:04:46 -03
+xrun
+	-64bit
+	-sv
+	-uvm
+	-uvmhome CDNS-1.2
+	-timescale 1ns/1ps
+	-input /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/xrun_uvm_nogui.tcl
+	-top top_tb
+	-access +rwc
+	-incdir /home/aluno/Documents/RSA_APB_32-bit/UVM
+	-coverage all
+	-covoverwrite
+	-covdut amba_3_apb_rsa_apb_top
+	-covworkdir /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/uvm
+	-covtest amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-04-46
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top/xrun_uvm/nogui/amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-04-46.log
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_kogge_stone_adder.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mult.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_mod.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_ctrl.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2/rsa32_core_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_adrec.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_o_mux.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_data_io_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_regbank.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_reset.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb/amba_3_apb_rsa_apb_top.sv
+	/home/aluno/Documents/RSA_APB_32-bit/UVM/testbench.svh
+	+UVM_TESTNAME=test_rsa_operation
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+   User defined plus("+") options:
+	+UVM_VERBOSITY=UVM_MEDIUM
+
+Loading snapshot worklib.top_tb:svh .................... Done
+SVSEED default: 1
+xcelium> source /home/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> # Ondas do topo UVM, incluindo interface APB e DUT.
+xcelium> database -open waves -into $::env(WAVE_FILE) -event -default
+Created default SHM database waves
+xcelium> probe -create top_tb -all -depth all -database waves
+Created probe 1
+xcelium> run
+UVM_INFO /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh(412) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+CDNS-UVM-1.2 (24.03-s013)
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test test_rsa_operation...
+SDI/Verilog Transaction Recording Facility Version 24.03-s013
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+---------------------------
+Name  Type      Size  Value
+---------------------------
+item  seq_item  -     @3937
+---------------------------
+UVM_INFO /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_objection.svh(1271) @ 275000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_catcher.svh(705) @ 275000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_report_server.svh(851) @ 275000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+
+Simulation complete via $finish(1) at time 275 NS + 71
+/home/cadence/XCELIUM2403/tools/methodology/UVM/CDNS-1.2/sv/src/base/uvm_root.svh:543     $finish;
+xcelium> exit
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmsim: *W,CGDEFN: Default name "worklib.uvm_pkg::.apb_rsa" will be generated for covergroup instance "apb_rsa" as the name of the covergroup instance is not specified explicitly: /home/aluno/Documents/RSA_APB_32-bit/UVM/uvm_subscriber.sv, 16.
+
+coverage setup:
+  workdir  :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/uvm
+  dutinst  :  top_tb.th.dut(amba_3_apb_rsa_apb_top)
+  scope    :  scope
+  testname :  amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-04-46
+
+coverage files:
+  model(design data) :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/uvm/scope/icc_5665b45e_3402c7f8.ucm (reused)
+  data               :  /home/aluno/Documents/RSA_APB_32-bit/coverage/amba_3_apb_rsa_apb_top/uvm/scope/amba_3_apb_rsa_apb_top_uvm_2026-10-23_16-04-46/icc_5665b45e_3402c7f8.ucd
+TOOL:	xrun(64)	24.03-s013: Exiting on Oct 23, 2026 at 16:04:46 -03  (total: 00:00:00)

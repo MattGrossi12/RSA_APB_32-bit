@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -13,10 +12,18 @@ WAVE_DIR="$PROJECT_ROOT/waveforms/amba_3_apb_rsa_apb_top"
 COV_DIR="$PROJECT_ROOT/coverage/amba_3_apb_rsa_apb_top"
 REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top"
 
-# Innovus Export:
-EXPORT_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top/innovus/export"
-NETLIST_FILE="$EXPORT_DIR/amba_3_apb_rsa_apb_top.v"
-SDF_FILE="$EXPORT_DIR/amba_3_apb_rsa_apb_top.sdf"
+# Final Genus synthesis: keep netlist and SDF from the same run.
+SYNTH_RUN="${SYNTH_RUN:-amba_3_apb_rsa_apb_top_2026-10-26_10-13-03}"
+SYNTH_DIR="$PROJECT_ROOT/ps_files/rsa_apb_top_asap7"
+NETLIST_FILE="$SYNTH_DIR/netlist/synth_${SYNTH_RUN}.v"
+SDF_FILE="$SYNTH_DIR/sdf/synth_${SYNTH_RUN}.sdf"
+
+for file in "$NETLIST_FILE" "$SDF_FILE"; do
+    if [[ ! -s "$file" ]]; then
+        echo "Erro: arquivo da sintese $SYNTH_RUN ausente ou vazio: $file" >&2
+        exit 1
+    fi
+done
 
 # GSCLib045 Standard-Cell Library:
 LIB_FILE="/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v"
@@ -41,17 +48,19 @@ cat > "$SDF_CMD_FILE" <<EOF
 SDF_FILE = "$SDF_FILE",
 SCOPE = $DUT_SCOPE,
 LOG_FILE = "$SDF_LOG",
-MTM_CONTROL = "TYPICAL",
+MTM_CONTROL = "MAXIMUM",
 SCALE_TYPE = "FROM_MTM";
 EOF
 
 # ======================================
-# Post-Route Gate-Level Simulation
+# Post-Synthesis Gate-Level Simulation
 # Cadence Xcelium
 # ======================================
 
 xrun -64bit \
+    -input "$SCRIPT_DIR/../tcl/xrun_uvm_nogui.tcl" \
     -timescale 1ns/1ps \
+    +define+POST_SYNTHESIS \
     -top "$TB_TOP" \
     -access +rwc \
     -sdf_cmd_file "$SDF_CMD_FILE" \

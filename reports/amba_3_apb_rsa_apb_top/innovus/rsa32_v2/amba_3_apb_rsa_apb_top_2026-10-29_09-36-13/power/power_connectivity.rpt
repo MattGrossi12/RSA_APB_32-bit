@@ -1,0 +1,27 @@
+VERIFY_CONNECTIVITY use new engine.
+
+******** Start: VERIFY CONNECTIVITY ********
+Start Time: Thu Oct 29 09:37:56 2026
+
+Design Name: amba_3_apb_rsa_apb_top
+Database Units: 1000
+Design Boundary: (0.0000, 0.0000) (257.6000, 257.0400)
+Error Limit = 1000; Warning Limit = 50
+Check specified nets
+*** Checking Net VDD
+Net VDD: dangling Wire.
+*** Checking Net VSS
+Net VSS: dangling Wire.
+
+Begin Summary 
+    194 Problem(s) (IMPVFC-94): The net has dangling wire(s).
+    194 total info(s) created.
+End Summary
+
+End Time: Thu Oct 29 09:37:56 2026
+Time Elapsed: 0:00:00.0
+
+******** End: VERIFY CONNECTIVITY ********
+  Verification Complete : 194 Viols.  0 Wrngs.
+  (CPU Time: 0:00:00.0  MEM: 0.000M)
+

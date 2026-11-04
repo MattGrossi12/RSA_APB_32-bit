@@ -1,0 +1,76 @@
+Creating directory checkNetlist.
+############################################################################
+# Innovus Netlist Design Rule Check
+# Thu Oct 29 11:12:52 2026
+############################################################################
+Design: amba_3_apb_rsa_apb_top
+
+------ Design Summary:
+Total Standard Cell Number   (cells) : 3827
+Total Block Cell Number      (cells) : 0
+Total I/O Pad Cell Number    (cells) : 0
+Total Standard Cell Area     ( um^2) : 68143.42
+Total Block Cell Area        ( um^2) : 0.00
+Total I/O Pad Cell Area      ( um^2) : 0.00
+
+------ Design Statistics:
+
+Number of Instances            : 3827
+Number of Non-uniquified Insts : 3827
+Number of Nets                 : 3936
+Average number of Pins per Net : 3.40
+Maximum number of Pins in Net  : 705
+
+------ I/O Port summary
+
+Number of Primary I/O Ports    : 84
+Number of Input Ports          : 49
+Number of Output Ports         : 35
+Number of Bidirectional Ports  : 0
+Number of Power/Ground Ports   : 0
+Number of Floating Ports                     *: 3
+Number of Ports Connected to Multiple Pads   *: 0
+Number of Ports Connected to Core Instances   : 81
+**WARN: (IMPREPO-200):	There are 3 Floating Ports in the top design.
+**WARN: (IMPREPO-202):	There are 81 Ports connected to core instances.
+
+------ Design Rule Checking:
+
+Number of Output Pins connect to Power/Ground *: 0
+Number of Insts with Input Pins tied together ?: 0
+Number of TieHi/Lo term nets not connected to instance's PG terms ?: 0
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_state_reg_reg[0]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[4]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[19]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[6]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[10]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[15]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[5]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[2]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[11]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[43]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[24]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_e_reg_reg[24]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[23]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mult_blk_p_reg_reg[0]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_t_reg_reg[61]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[16]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[25]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_t_reg_reg[2]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[22]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (IMPDB-2136):	Input term 'RESET_B' of  instance 'rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_n_reg_reg[35]' does not connect to a 'TieHi ' net. The netlist is not correct or the net for connecting tie high/low signals is not specified. To resolve this problem, check your netlist or run connect_global_net to specify the tie high/low signal nets.
+**WARN: (EMS-27):	Message (IMPDB-2136) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Number of Input/InOut Floating Pins            : 567
+Number of Output Floating Pins                 : 0
+Number of Output Term Marked TieHi/Lo         *: 0
+
+**WARN: (IMPREPO-218):	There are 567 Floating Instance terminals.
+Number of nets with tri-state drivers          : 0
+Number of nets with parallel drivers           : 0
+Number of nets with multiple drivers           : 0
+Number of nets with no driver (No FanIn)       : 1
+Number of Output Floating nets (No FanOut)     : 6
+Number of High Fanout nets (>50)               : 2
+**WARN: (IMPREPO-227):	There are 2 High Fanout nets (>50).
+Report saved in file checkNetlist/amba_3_apb_rsa_apb_top.main.htm.ascii
