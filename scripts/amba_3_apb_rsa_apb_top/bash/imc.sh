@@ -10,13 +10,14 @@ if [[ -z "$COV_RUN" || ! -d "$COV_RUN" ]]; then
     exit 1
 fi
 COV_RUN="$(cd -- "$COV_RUN" && pwd)"
-RUN="$(basename -- "$COV_RUN")"
-REPORT_DIR="$PROJECT_ROOT/reports/amba_3_apb_rsa_apb_top/uvm"
-LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/imc_uvm"
-
-mkdir -p -- "$REPORT_DIR" "$LOG_DIR"
-export IMC_COV_RUN="$COV_RUN"
+source "$SCRIPT_DIR/report_common.sh"
+reports_setup imc rtl
+export IMC_COV_RUN="$COV_RUN" IMC_GENERATE_REPORTS=1
 cd -- "$LOG_DIR"
 
-exec imc -execcmd "source \"$SCRIPT_DIR/../tcl/imc.tcl\"; report -summary -cumulative on -inst -local off -out \"$REPORT_DIR/${RUN}_coverage.rpt\"; report_metrics -out \"$REPORT_DIR/${RUN}_coverage_html\" -overwrite -detail -metrics all -all"
-
+"${IMC_BIN:-imc}" -execcmd "source \"$SCRIPT_DIR/../tcl/imc.tcl\""
+if [[ ! -s "$REPORT_DIR/coverage_rtl.rpt" ]]; then
+    printf 'Erro: IMC não gerou %s\n' "$REPORT_DIR/coverage_rtl.rpt" >&2
+    exit 1
+fi
+printf 'Relatórios: %s\n' "$REPORT_DIR"

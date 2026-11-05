@@ -30,13 +30,19 @@ set rtl_files [list \
 ]
 
 source [file join [file dirname [info script]] pdk_common.tcl]
+source [file join [file dirname [info script]] report_common.tcl]
+flow_reports::init $report_dir $pdk
 set lib_dirs {}
 foreach lib_file $lib_files {
     lappend lib_dirs [file dirname $lib_file]
 }
 set_db init_lib_search_path [lsort -unique $lib_dirs]
 read_libs $lib_files
-set_db lef_library [list $tech_lef $cell_lef]
+if {$pdk_has_lef} {
+    set_db lef_library [list $tech_lef $cell_lef]
+} else {
+    puts "PDK $pdk: sintese logica com Liberty, sem LEF."
+}
 
 foreach rtl_file $rtl_files {
     read_hdl -language sv $rtl_file
@@ -47,8 +53,8 @@ elaborate $project_name
 set_time_unit -nanoseconds 1.0
 read_sdc $sdc_file
 
-check_design -unresolved > [file join $report_dir check_unresolved_${pdk}.rpt]
-report_clocks > [file join $report_dir clocks_${pdk}.rpt]
+check_design -unresolved > [flow_reports::path check_unresolved]
+report_clocks > [flow_reports::path clocks]
 
 set_db syn_generic_effort high
 syn_generic
@@ -64,11 +70,11 @@ write_sdc > [file join $output_dir sdc "synth_${run_id}.sdc"]
 write_sdf > [file join $output_dir sdf "synth_${run_id}.sdf"]
 
 
-report_timing -max_paths 100 > [file join $report_dir timing_max_${pdk}.rpt]
-report_area > [file join $report_dir area_${pdk}.rpt]
-report_power > [file join $report_dir power_${pdk}.rpt]
-report_gates > [file join $report_dir gates_${pdk}.rpt]
-report_qor > [file join $report_dir qor_${pdk}.rpt]
-check_design > [file join $report_dir check_design_${pdk}.rpt]
+report_timing -max_paths 100 > [flow_reports::path timing_max]
+report_area > [flow_reports::path area]
+report_power > [flow_reports::path power]
+report_gates > [flow_reports::path gates]
+report_qor > [flow_reports::path qor]
+check_design > [flow_reports::path check_design]
 
 exit

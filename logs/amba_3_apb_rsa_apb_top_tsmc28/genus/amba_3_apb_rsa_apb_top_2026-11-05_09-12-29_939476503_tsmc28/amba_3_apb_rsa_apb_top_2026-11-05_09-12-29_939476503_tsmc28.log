@@ -1,0 +1,121 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[09:12:30.047994] Configured Lic search path (22.01-s003): 5280@logus.unisinos.br:27020@modelab.unisinos.br
+
+Version: 22.18-s061_1, built Fri Apr 25 06:12:05 PDT 2025
+Options: -no_gui -files /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus_tsmc28.tcl -log /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top_tsmc28/genus/amba_3_apb_rsa_apb_top_2026-11-05_09-12-29_939476503_tsmc28/amba_3_apb_rsa_apb_top_2026-11-05_09-12-29_939476503_tsmc28.log 
+Date:    Thu Nov 05 09:12:30 2026
+Host:    rock8 (x86_64 w/Linux 4.18.0-553.182.1.el8_10.x86_64) (14cores*20cpus*1physical cpu*Intel(R) Core(TM) i5-14500 24576KB) (32331732KB)
+PID:     91409
+OS:      Rocky Linux 8.10 (Green Obsidian)
+
+Checking out license: Genus_Synthesis
+[09:12:30.442779] Periodic Lic check successful
+[09:12:30.442787] Feature usage summary:
+[09:12:30.442787] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (6 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus_tsmc28.tcl
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus_tsmc28.tcl
+@file(run_genus_tsmc28.tcl) 1: set selected_pdk tsmc28
+@file(run_genus_tsmc28.tcl) 2: if {[catch {source [file join [file dirname [info script]] run_genus.tcl]} message]} {
+    puts stderr "Erro no Genus (tsmc28): $message"
+    exit 1
+}
+Sourcing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl' (Thu Nov 05 09:12:36 -03 2026)...
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+@file(run_genus.tcl) 2: set project_name "amba_3_apb_rsa_apb_top"
+@file(run_genus.tcl) 3: set project_root $::env(PROJECT_ROOT)
+@file(run_genus.tcl) 4: set run_id $::env(RUN)
+@file(run_genus.tcl) 5: set output_dir $::env(OUTPUT_DIR)
+@file(run_genus.tcl) 6: set report_dir $::env(REPORT_DIR)
+@file(run_genus.tcl) 7: set source_dir [file join $project_root src amba_3_apb]
+@file(run_genus.tcl) 8: set sdc_file [file join $project_root constraints amba_3_apb_rsa_apb_top.sdc]
+@file(run_genus.tcl) 9: set_db / .use_scan_seqs_for_non_dft false
+  Setting attribute of root '/': 'use_scan_seqs_for_non_dft' = false
+@file(run_genus.tcl) 10: set_db init_hdl_search_path [list \
+    [file join $project_root src rsa32 v2] \
+    $source_dir]
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/aluno/Documents/RSA_APB_32-bit/src/rsa32/v2 /home/aluno/Documents/RSA_APB_32-bit/src/amba_3_apb
+@file(run_genus.tcl) 14: set rtl_files [list \
+    [file join $project_root src rsa32 v2 rsa32_core_kogge_stone_adder.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mult.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_mod.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_ctrl.sv] \
+    [file join $project_root src rsa32 v2 rsa32_core_top.sv] \
+    [file join $source_dir amba_3_apb_adrec.sv] \
+    [file join $source_dir amba_3_apb_data_o_mux.sv] \
+    [file join $source_dir amba_3_apb_data_io_top.sv] \
+    [file join $source_dir amba_3_apb_control.sv] \
+    [file join $source_dir amba_3_apb_regbank.sv] \
+    [file join $source_dir amba_3_apb_reset.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_control.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_data.sv] \
+    [file join $source_dir amba_3_apb_rsa_wrapper_top.sv] \
+    [file join $source_dir amba_3_apb_rsa_apb_top.sv] \
+]
+@file(run_genus.tcl) 32: source [file join [file dirname [info script]] pdk_common.tcl]
+Sourcing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdk_common.tcl' (Thu Nov 05 09:12:36 -03 2026)...
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdk_common.tcl
+@file(pdk_common.tcl) 1: proc pdk_env ...
+@file(pdk_common.tcl) 8: set pdk [pdk_env PDK gpdk45]
+@file(pdk_common.tcl) 9: if {$pdk ni {sky130 gpdk45 free45 ics55 tsmc28}} {
+    error "PDK invalido: $pdk"
+}
+@file(pdk_common.tcl) 12: if {[info exists selected_pdk] && $selected_pdk ne $pdk} {
+    error "Tcl $selected_pdk incompativel com PDK=$pdk"
+}
+@file(pdk_common.tcl) 15: set pdk_base [pdk_env PDK_BASE /home/aluno/eda-pdks-docker/home/.sc/cache/dataroot]
+@file(pdk_common.tcl) 16: set lambda_root [pdk_env LAMBDAPDK_ROOT [file join $pdk_base lambdapdk-v0.2.22-967925fc5309e6d4 lambdapdk]]
+@file(pdk_common.tcl) 17: set ring_width 1.0
+@file(pdk_common.tcl) 18: set ring_spacing 1.5
+@file(pdk_common.tcl) 19: set stripe_width 0.8
+@file(pdk_common.tcl) 20: set pdk_has_lef 1
+@file(pdk_common.tcl) 21: source [file join [file dirname [info script]] pdks ${pdk}.tcl]
+Sourcing '/home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdks/tsmc28.tcl' (Thu Nov 05 09:12:36 -03 2026)...
+#@ Begin verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdks/tsmc28.tcl
+@file(tsmc28.tcl) 3: set pdk_has_lef 0
+@file(tsmc28.tcl) 4: set process_node 28
+@file(tsmc28.tcl) 5: set pdk_root [pdk_env TSMC28_ROOT /home/grossimatheus/PDK/TSMC28/TSMCHOME]
+@file(tsmc28.tcl) 6: set lib_dir [file join $pdk_root digital Front_End timing_power_noise NLDM]
+@file(tsmc28.tcl) 7: set lib_files [pdk_env TSMC28_LIB_FILES [list \
+    [file join $lib_dir tcbn28hpcplusbwp30p140_180a tcbn28hpcplusbwp30p140tt0p9v25c.lib] \
+    [file join $lib_dir tcbn28hpcplusbwp30p140lvt_180a tcbn28hpcplusbwp30p140lvttt0p9v25c.lib]]]
+@file(tsmc28.tcl) 11: if {[catch {llength $lib_files} lib_count] || $lib_count == 0} {
+    error "TSMC28_LIB_FILES deve ser uma lista Tcl nao vazia de arquivos Liberty."
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdks/tsmc28.tcl
+@file(pdk_common.tcl) 22: set pdk_inputs $lib_files
+@file(pdk_common.tcl) 24: if {$pdk_has_lef && (![info exists pdk_require_lef] || $pdk_require_lef)} {
+    set pdk_inputs [concat $pdk_inputs [list $tech_lef $cell_lef]]
+}
+@file(pdk_common.tcl) 27: foreach input $pdk_inputs {
+    if {![file isfile $input] || ![file readable $input]} {
+        error "Arquivo do PDK $pdk ausente ou ilegivel: $input"
+    }
+}
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/pdk_common.tcl
+#@ End verbose source /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/run_genus.tcl
+Erro no Genus (tsmc28): Arquivo do PDK tsmc28 ausente ou ilegivel: /home/grossimatheus/PDK/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp30p140_180a/tcbn28hpcplusbwp30p140tt0p9v25c.lib
+
+Lic Summary:
+[09:12:36.187009] Cdslmd servers: Logus
+[09:12:36.187010] Feature usage summary:
+[09:12:36.187011] Genus_Synthesis
+
+Abnormal exit.

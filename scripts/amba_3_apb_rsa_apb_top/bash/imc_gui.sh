@@ -10,11 +10,10 @@ if [[ -z "$COV_RUN" || ! -d "$COV_RUN" ]]; then
     exit 1
 fi
 COV_RUN="$(cd -- "$COV_RUN" && pwd)"
-export IMC_COV_RUN="$COV_RUN"
-LOG_DIR="$PROJECT_ROOT/logs/amba_3_apb_rsa_apb_top/imc_uvm"
-
-mkdir -p -- "$LOG_DIR"
+export IMC_COV_RUN="$COV_RUN" IMC_GENERATE_REPORTS=0
+source "$SCRIPT_DIR/report_common.sh"
+reports_setup imc rtl
 cd -- "$LOG_DIR"
 
-exec imc -gui -init "$SCRIPT_DIR/../tcl/imc.tcl"
+exec "${IMC_BIN:-imc}" -gui -init "$SCRIPT_DIR/../tcl/imc.tcl"
 

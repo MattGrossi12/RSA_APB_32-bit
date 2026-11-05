@@ -2,6 +2,10 @@
 source "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)/pdk_common.sh"
 
 innovus_setup() {
+    if [[ "$PDK" == "tsmc28" ]]; then
+        printf 'Erro: tsmc28 suporta somente síntese Genus sem LEF; o fluxo Innovus exige configuração física.\n' >&2
+        return 2
+    fi
     local stage="$1" candidate latest="" netlist_dir
     local common_dir
     common_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"

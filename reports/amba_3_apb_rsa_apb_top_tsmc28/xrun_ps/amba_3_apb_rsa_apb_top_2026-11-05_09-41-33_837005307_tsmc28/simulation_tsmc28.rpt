@@ -1,0 +1,13 @@
+Synthesis: amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28
+Xrun exit status: 2
+Log: /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28.log
+SDF annotation: /home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/sdf_annotation_tsmc28.log
+Waveform: /home/aluno/Documents/RSA_APB_32-bit/waveforms/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/waves_tsmc28.shm
+xmsim: *E,TCLERR: couldn't read file "./report_common.tcl": no such file or directory.
+xmsim: *E,TCLERR: invalid command name "flow_reports::init".
+xmsim: *E,TCLERR: invalid command name "flow_reports::path".
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xmsim: *F,FATSEV (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv,362): (time 207645900 PS).

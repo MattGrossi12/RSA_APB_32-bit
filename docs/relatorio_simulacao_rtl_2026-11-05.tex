@@ -1,0 +1,279 @@
+% Relatório autossuficiente: não requer figuras ou arquivos de dados externos.
+% Compilar duas vezes com pdfLaTeX para atualizar as referências internas.
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{booktabs,tabularx,array}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{tt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\hex}[1]{\texttt{0x#1}}
+
+\title{Relatório de simulação RTL e cobertura\\
+RSA de 32 bits com interface AMBA APB\\
+\large Xcelium/Xrun --- clock de 100 MHz}
+\author{Projeto RSA\_APB\_32-bit}
+\date{Execução de 5 de novembro de 2026, às 15h10min39s (UTC$-$3)}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A última execução RTL disponível do periférico RSA/APB concluiu as 398
+verificações previstas, com 398 acertos e nenhuma falha. O teste utilizou
+clock de 100 MHz, 30 rodadas de banco de registradores e dez operações RSA,
+com duração simulada de 134,98~$\mu$s. O IMC registrou, na hierarquia do DUT,
+80,62\% de cobertura agregada, 80,45\% de cobertura de código e 90,12\%
+de cobertura de FSM, nas colunas \emph{Covered}. Não foram registradas
+mensagens de erro ou fatal. Há avisos sobre o escopo da instrumentação de
+cobertura, e a cobertura funcional aparece como não disponível.
+\end{abstract}
+
+\section{Identificação e condições da execução}
+Este relatório analisa a execução abaixo, sem executar nova simulação.
+Ela substitui, como execução RTL mais recente, o teste das 15h07min12s.
+O log confirma que o arquivo compilado nesta execução foi
+\path{testbenchs/rsa_apb_top/testbench.sv}; o arquivo
+\path{testbench_2.sv} não integra a linha de comando desta execução.
+
+\textbf{Identificador da execução:}\\
+\path{amba_3_apb_rsa_apb_top_2026-11-05_15-10-39}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Item & Configuração registrada \\
+\midrule
+Topo RTL & \path{amba_3_apb_rsa_apb_top} \\
+Instância do DUT & \path{testbench.dut} \\
+Simulador & Cadence Xcelium/Xrun 24.03-s013 \\
+Análise de cobertura & Cadence IMC 24.03-s002 \\
+Script & \path{scripts/amba_3_apb_rsa_apb_top/bash/xrun.sh} \\
+Fontes & RTL APB em \path{src/amba_3_apb/} e núcleo em \path{src/rsa32/v2/} \\
+Parâmetros do testbench & Dados: 32 bits; endereço: 12 bits; \texttt{LOAD\_GAP=1} \\
+Clock & 10,0 ns / 100 MHz \\
+Escala temporal & 1 ns / 1 ps \\
+Instrumentação & \texttt{-coverage all}; acesso \texttt{+rwc} \\
+Modelo de simulação & RTL, sem netlist de células ou anotação SDF \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Esta execução é independente de PDK. O clock é produzido pelo testbench;
+o SDC não é uma entrada desta simulação. O funcionamento a 100 MHz no
+modelo RTL não constitui validação dos atrasos físicos para essa frequência.
+
+\section{Método de verificação}
+O testbench aplica transações APB e compara os valores observados com um
+scoreboard. Os sinais de entrada APB são alterados na borda de descida do
+clock. A instância RTL recebe explicitamente \texttt{LOAD\_GAP=1}, que
+introduz intervalo entre cargas dos operandos do núcleo RSA.
+
+O plano executado contém oito verificações iniciais, 30 rodadas de banco
+de registradores com oito verificações por rodada e dez rodadas RSA com
+15 verificações por rodada:
+\[
+N_{\mathrm{checks}}=8+30\times8+10\times15=398.
+\]
+As operações RSA incluem carga e preservação de operandos, estados
+\texttt{BUSY}/\texttt{DONE}, resultado, interrupção e retorno ao estado
+ocioso. A referência aritmética é a função de exponenciação modular do
+testbench. O limite de uma transação APB é de 20 ciclos; cada operação
+RSA admite até 10\,000 consultas de estado. Há também um timeout global.
+
+\section{Resultados funcionais}
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Métrica & Resultado \\
+\midrule
+Verificações previstas / realizadas & 398 / 398 \\
+Acertos / falhas & 398 / 0 \\
+Rodadas do banco de registradores / RSA & 30 / 10 \\
+Tempo simulado & 134\,980 ns (134,98 $\mu$s) \\
+Tempo de execução informado pelo Xrun & 2 s \\
+Mensagens \texttt{*E} / \texttt{*F} no log Xrun & 0 / 0 \\
+FSMs extraídas para cobertura & 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+O log registra \texttt{TEST PASS: 398 checks, 0 errors}, seguido de
+encerramento normal por \texttt{\$finish}. A Tabela~\ref{tab:vectors}
+reproduz os resultados observados nas dez rodadas RSA. Mensagens, módulos
+e resultados estão em hexadecimal; rodada e expoente estão em decimal.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}rllrl l@{}}
+\toprule
+Rodada & Mensagem & Módulo & Expoente & Esperado = lido & Estado \\
+\midrule
+1  & \hex{00000041} & \hex{00000ca1} & 17 & \hex{00000ae6} & PASS \\
+2  & \hex{0000007b} & \hex{00000ca1} & 7  & \hex{00000b34} & PASS \\
+3  & \hex{00000000} & \hex{00000061} & 5  & \hex{00000000} & PASS \\
+4  & \hex{00000001} & \hex{00000101} & 13 & \hex{00000001} & PASS \\
+5  & \hex{0000002a} & \hex{00000061} & 0  & \hex{00000001} & PASS \\
+6  & \hex{12345678} & \hex{0000fff1} & 1  & \hex{00006793} & PASS \\
+7  & \hex{80000001} & \hex{fffffffb} & 2  & \hex{4000000b} & PASS \\
+8  & \hex{ffffffff} & \hex{fffffffb} & 3  & \hex{00000040} & PASS \\
+9  & \hex{075bcd15} & \hex{00010001} & 7  & \hex{00008a8e} & PASS \\
+10 & \hex{fedcba98} & \hex{8000000b} & 17 & \hex{14adadfc} & PASS \\
+\bottomrule
+\end{tabular}
+\caption{Vetores RSA e resultados observados no log da simulação.}
+\label{tab:vectors}
+\end{table}
+
+O resultado da décima operação, \hex{14adadfc}, foi verificado em
+134\,830 ns. As últimas verificações confirmaram a preservação dos
+operandos, \texttt{STATUS.IDLE}=0 e IRQ=0 em 134\,980 ns. O percentual de
+acertos do scoreboard é 100\%; ele é distinto das métricas de cobertura.
+
+\section{Resultados de cobertura}
+O IMC carregou o banco desta execução e produziu o relatório por instância
+com \texttt{report -summary -cumulative on -inst -local off}.
+A Tabela~\ref{tab:coverage} mantém a distinção entre \emph{Average}
+e \emph{Covered} usada pelo relatório. Os percentuais \emph{Covered}
+correspondem às razões de itens cobertos sobre itens contabilizados.
+\emph{Average} é a média apresentada pelo IMC e não deve ser interpretada
+como essa mesma razão.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Escopo & Métrica & Average & Covered \\
+\midrule
+Testbench e descendentes & Overall & 69,75\% & 80,39\% (3836/4772) \\
+Testbench e descendentes & Code & 69,69\% & 80,22\% (3763/4691) \\
+Testbench e descendentes & FSM & 90,49\% & 90,12\% (73/81) \\
+\midrule
+DUT e descendentes & Overall & 74,36\% & 80,62\% (3616/4485) \\
+DUT e descendentes & Code & 74,24\% & 80,45\% (3543/4404) \\
+DUT e descendentes & FSM & 90,49\% & 90,12\% (73/81) \\
+\bottomrule
+\end{tabular}
+\caption{Cobertura cumulativa por hierarquia, conforme relatório IMC.}
+\label{tab:coverage}
+\end{table}
+
+A cobertura \emph{Functional} aparece como \texttt{n/a} em todas as
+instâncias. A opção \texttt{-coverage all} não demonstra, por si só,
+a existência de um modelo de cobertura funcional. Neste relatório,
+``cumulativa'' inclui descendentes da instância; não indica união de
+execuções distintas. O IMC carregou apenas o banco identificado na Seção 1.
+
+\begin{center}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Instância (nome relativo) & Overall Covered & FSM Covered \\
+\midrule
+\texttt{data\_io\_top\_inst} & 59,40\% (354/596) & n/a \\
+\quad\texttt{adrec\_inst} & 35,29\% (6/17) & n/a \\
+\quad\texttt{da\_o\_m} & 59,26\% (160/270) & n/a \\
+\texttt{apb\_control\_inst} & 76,12\% (51/67) & n/a \\
+\texttt{regbank\_inst} & 69,36\% (335/483) & n/a \\
+\texttt{reset\_inst} & 60,00\% (6/10) & n/a \\
+\texttt{rsa\_wrapper\_inst} & 89,31\% (2649/2966) & 90,12\% (73/81) \\
+\quad\texttt{rsa\_wrapper\_control\_inst} & 83,13\% (69/83) & 87,50\% (14/16) \\
+\quad\texttt{rsa\_wrapper\_data\_inst} & 99,33\% (148/149) & n/a \\
+\quad\texttt{rsa\_core\_inst} & 89,54\% (2259/2523) & 90,77\% (59/65) \\
+\quad\texttt{rsa\_core\_mult\_blk} & 90,87\% (637/701) & 100,00\% (13/13) \\
+\quad\texttt{rsa\_core\_mod\_blk} & 98,36\% (899/914) & 85,00\% (17/20) \\
+\quad\texttt{rsa\_core\_ctrl\_blk} & 74,65\% (480/643) & 90,63\% (29/32) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+As linhas são cumulativas e se sobrepõem hierarquicamente; seus numeradores
+não devem ser somados. Restam 869 itens não cobertos no agregado do DUT,
+sendo 861 de código e oito de FSM. Os oito itens FSM distribuem-se entre
+controle do wrapper (dois), bloco modular (três) e controle do núcleo (três).
+O resumo não identifica quais estados ou transições faltam.
+
+O decodificador de endereços apresenta a menor cobertura agregada entre
+os blocos selecionados. Isso orienta uma inspeção detalhada dos itens
+não cobertos antes de definir novos estímulos ou exclusões. Não se pode
+concluir, apenas pelo resumo, se cada item representa comportamento
+alcançável, lógica constante ou cenário não exercitado.
+
+\section{Avisos e limites da instrumentação}
+O Xrun emitiu seis avisos, um de cada código abaixo. O IMC emitiu um aviso
+\texttt{REPDEP}. Não foram encontradas mensagens de erro ou fatal nos
+logs dessas duas ferramentas analisados.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Código & Interpretação e impacto \\
+\midrule
+\texttt{COVSCE} & Cobertura de expressões com cast estático habilitada por padrão; atenção à compatibilidade ao unir bancos antigos. \\
+\texttt{COVFDP} & Comparação de descrições FSM entre instâncias transferida para o descarregamento dos dados de simulação; aviso sobre configuração de módulos parametrizados. \\
+\texttt{COVFHT} & Transições de permanência no mesmo estado não são extraídas por padrão. \\
+\texttt{COVDCL} & A cobertura de expressões padrão limita operadores e contextos instrumentados; não inclui automaticamente todas as expressões RTL. \\
+\texttt{COVMDD} & Toggle de arrays estáticos multidimensionais não habilitado por padrão, com referência ao somador Kogge--Stone. \\
+\texttt{COVUTA} & Tipos como strings e certas estruturas de arrays não suportam toggle; referência a \texttt{failure\_details} no testbench. \\
+\texttt{REPDEP} & Comando de relatório legado do IMC; a ferramenta recomenda \texttt{report\_metrics} para relatórios dinâmicos. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Esses avisos não indicam falha das comparações do scoreboard. Eles delimitam
+o universo de cobertura medido: mesmo 100\% de uma categoria não abrangeria
+itens excluídos da instrumentação. O relatório resumido também não separa
+as contagens de bloco, expressão e toggle dentro de \emph{Code}.
+
+\section{Comparação com a simulação com SDF}
+A execução pós-síntese de referência é
+\path{amba_3_apb_rsa_apb_top_2026-11-05_14-37-30_767454205_tsmc28},
+documentada em \path{docs/relatorio_simulacao_sdf_tsmc28_2026-11-05.tex}.
+A comparação textual das 398 linhas numeradas dos scoreboards encontrou
+igualdade de valores esperados, valores lidos, status e tempos de verificação.
+Ambas as execuções concluíram em 134\,980 ns.
+
+Essa concordância confirma consistência nos pontos observados pelos testes.
+Ela não equivale a prova formal de equivalência nem demonstra identidade
+de todas as transições internas. Na execução RTL não há anotação de atrasos
+de células; as limitações de timing descritas no relatório SDF permanecem
+específicas daquela execução. Não há métrica IMC da execução SDF apresentada
+ali que permita uma comparação direta de cobertura com estes valores.
+
+\section{Conclusão}
+A regressão RTL a 100 MHz passou nas 398 verificações, com os dez resultados
+RSA corretos e concordância com o scoreboard da execução pós-síntese.
+A cobertura medida no DUT alcançou 80,62\% no agregado e 90,12\% em FSM.
+O teste fornece evidência funcional para os cenários executados, mas ainda
+há itens de código e FSM não cobertos e não há cobertura funcional reportada.
+
+Os próximos passos sugeridos são inspecionar os itens não cobertos por
+instância, revisar o escopo de instrumentação indicado pelos avisos e
+complementar os testes conforme o plano funcional. Nenhuma alteração de
+RTL, testbench ou scripts foi necessária para elaborar este relatório.
+
+\appendix
+\section{Rastreabilidade dos artefatos}
+Nos caminhos abaixo, \texttt{RUN} representa o identificador completo da
+Seção 1. Todos os caminhos são relativos à raiz do repositório.
+\begin{itemize}
+\item Log Xrun: \path{logs/amba_3_apb_rsa_apb_top/xrun/<RUN>.log}.
+\item Relatório IMC: \path{reports/amba_3_apb_rsa_apb_top/<RUN>_coverage.rpt}.
+\item Log do IMC: \path{logs/amba_3_apb_rsa_apb_top/imc/imc.log}.
+Este arquivo não possui identificador no nome; o conteúdo analisado registra
+explicitamente o carregamento da execução das 15h10min39s.
+\item Banco de cobertura: \path{coverage/amba_3_apb_rsa_apb_top/scope/<RUN>/icc_0cdf8577_00000000.ucd}.
+\item Modelo de cobertura: \path{coverage/amba_3_apb_rsa_apb_top/scope/icc_0cdf8577_00000000.ucm}.
+\item Formas de onda: \path{waveforms/amba_3_apb_rsa_apb_top/<RUN>.vcd}.
+O arquivo existe e possui 79\,412\,636 bytes; seu conteúdo não foi necessário
+para as conclusões baseadas nos logs e relatórios.
+\item Testbench: \path{testbenchs/rsa_apb_top/testbench.sv}.
+\item Script: \path{scripts/amba_3_apb_rsa_apb_top/bash/xrun.sh}.
+\end{itemize}
+\end{document}

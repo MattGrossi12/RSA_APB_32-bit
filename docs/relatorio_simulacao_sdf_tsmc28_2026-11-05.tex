@@ -1,0 +1,259 @@
+% Relatório autossuficiente: não requer figuras ou arquivos de dados externos.
+% Compilar duas vezes com pdfLaTeX para atualizar as referências internas.
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{booktabs,tabularx,array}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{tt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\arraystretch}{1.15}
+\newcommand{\hex}[1]{\texttt{0x#1}}
+
+\title{Relatório de simulação pós-síntese com anotação SDF\\
+RSA de 32 bits com interface AMBA APB\\
+\large TSMC28 --- clock de 100 MHz}
+\author{Projeto RSA\_APB\_32-bit}
+\date{Execução de 5 de novembro de 2026, às 14h37min30s (UTC$-$3)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A última simulação pós-síntese disponível do periférico RSA/APB concluiu
+as 398 verificações previstas, com 398 acertos e nenhuma falha, utilizando
+clock de 100 MHz e a netlist TSMC28 sintetizada às 14h36min09s.
+O tempo simulado foi de 134,98~$\mu$s. A anotação alcançou 100\% dos atrasos
+de caminho e 41,80\% dos checks temporais existentes nos modelos de células.
+Todos os checks \texttt{SETUPHOLD} e \texttt{RECREM} fornecidos pelo SDF
+foram anotados. Permaneceram avisos relacionados a checks temporais negativos
+e à desativação de checks de largura de pulso. O resultado confirma o
+funcionamento para os estímulos executados, com as limitações de timing
+detalhadas neste documento.
+\end{abstract}
+
+\section{Identificação e condições da execução}
+
+Este relatório foi elaborado a partir dos arquivos da execução identificada
+abaixo, sem realizar nova síntese ou simulação. Os caminhos de referência
+são relativos à raiz do repositório.
+
+\textbf{Identificador da simulação:}\\
+\path{amba_3_apb_rsa_apb_top_2026-11-05_14-37-30_767454205_tsmc28}
+
+\textbf{Identificador da síntese utilizada:}\\
+\path{amba_3_apb_rsa_apb_top_2026-11-05_14-36-09_068054729_tsmc28}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Item & Configuração registrada \\
+\midrule
+Topo & \path{amba_3_apb_rsa_apb_top} \\
+Instância anotada & \path{testbench.dut} \\
+Simulador & Cadence Xcelium/Xrun 24.03-s013 \\
+Síntese & Cadence Genus 22.18-s061\_1 \\
+Biblioteca Liberty & \path{/tsmc28/tcbn28hpcplusbwp30p140tt1v25c.lib} \\
+Modelos Verilog & \path{/tsmc28/tcbn28hpcplusbwp30p140.v} \\
+Corner & TT, 1,0 V, 25~$^{\circ}$C \\
+Clock & 10,0 ns / 100 MHz \\
+Escalas de tempo & Testbench: 1 ns / 1 ps; SDF: 1 ps \\
+Seleção SDF & \texttt{MAXIMUM} \\
+Defines & \texttt{POST\_SYNTHESIS}, \texttt{NTC}, \texttt{RECREM} \\
+Carga dos operandos & \texttt{LOAD\_GAP=1}, confirmado no log de elaboração do Genus \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+A síntese é lógica, sem LEF e sem parasitas extraídos de layout. O relatório
+de área identifica \texttt{ZeroWireload}, em modo \texttt{segmented}.
+A opção \texttt{MAXIMUM} seleciona o campo máximo do SDF; ela não altera
+o corner de caracterização para um corner de pior caso. O cabeçalho do
+SDF registra explicitamente 1,0 V e 25~$^{\circ}$C.
+
+\section{Método de verificação}
+
+O testbench \path{testbenchs/rsa_apb_top/testbench.sv} aplica transações APB,
+compara os dados lidos com os valores esperados e contabiliza os resultados
+em um scoreboard. Os estímulos APB são aplicados na borda de descida do
+clock, afastados da borda de amostragem do DUT. Para a simulação pós-síntese,
+a configuração do hardware está incorporada à netlist.
+
+Foram executadas oito verificações iniciais, 30 rodadas de banco de
+registradores com oito verificações por rodada e dez rodadas de RSA com
+15 verificações por rodada:
+\[
+N_{\mathrm{checks}} = 8 + 30\times8 + 10\times15 = 398.
+\]
+Os testes RSA verificam carga e preservação dos operandos, conclusão da
+operação, resultado da exponenciação modular, estado e interrupção.
+O valor esperado é calculado pela função de referência de exponenciação
+modular do testbench. Os limites configurados são 20 ciclos para uma
+transação APB e 10\,000 consultas de estado por operação RSA.
+
+\section{Resultados funcionais}
+
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Métrica & Resultado \\
+\midrule
+Verificações previstas / realizadas & 398 / 398 \\
+Acertos / falhas & 398 / 0 \\
+Rodadas do banco de registradores & 30 \\
+Rodadas RSA & 10 \\
+Tempo simulado & 134\,980 ns (134,98 $\mu$s) \\
+Tempo de execução informado pelo Xrun & 3 s \\
+Código de saída do Xrun / fluxo & 0 / 0 \\
+Mensagens de erro ou fatal (\texttt{*E}, \texttt{*F}) & 0 \\
+Ocorrências de \texttt{Timing violation} no log & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+O log encerra com \texttt{TEST PASS: 398 checks, 0 errors} e término normal
+por \texttt{\$finish}. A Tabela~\ref{tab:vectors} apresenta os dez vetores
+executados. Em cada linha, o valor lido em \texttt{RESULT} coincidiu com o
+valor esperado. Todos os operandos e resultados da tabela estão em
+hexadecimal, com exceção do número da rodada e do expoente.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}rllrl l@{}}
+\toprule
+Rodada & Mensagem & Módulo & Expoente & Esperado = lido & Estado \\
+\midrule
+1  & \hex{00000041} & \hex{00000ca1} & 17 & \hex{00000ae6} & PASS \\
+2  & \hex{0000007b} & \hex{00000ca1} & 7  & \hex{00000b34} & PASS \\
+3  & \hex{00000000} & \hex{00000061} & 5  & \hex{00000000} & PASS \\
+4  & \hex{00000001} & \hex{00000101} & 13 & \hex{00000001} & PASS \\
+5  & \hex{0000002a} & \hex{00000061} & 0  & \hex{00000001} & PASS \\
+6  & \hex{12345678} & \hex{0000fff1} & 1  & \hex{00006793} & PASS \\
+7  & \hex{80000001} & \hex{fffffffb} & 2  & \hex{4000000b} & PASS \\
+8  & \hex{ffffffff} & \hex{fffffffb} & 3  & \hex{00000040} & PASS \\
+9  & \hex{075bcd15} & \hex{00010001} & 7  & \hex{00008a8e} & PASS \\
+10 & \hex{fedcba98} & \hex{8000000b} & 17 & \hex{14adadfc} & PASS \\
+\bottomrule
+\end{tabular}
+\caption{Vetores RSA e resultados observados no log da simulação.}
+\label{tab:vectors}
+\end{table}
+
+Na última rodada, o resultado \hex{14adadfc} foi lido em 134\,830 ns.
+As verificações finais confirmaram a preservação de mensagem, expoente
+e módulo, o retorno de \texttt{STATUS} a zero e a desativação de IRQ
+em 134\,980 ns. A taxa de acerto de 100\% refere-se às comparações
+executadas; ela não representa uma medida de cobertura funcional ou de código.
+
+\section{Anotação SDF e avisos}
+
+\begin{center}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Categoria & Total no modelo & Anotados & Percentual \\
+\midrule
+Atrasos de caminho & 14\,871 & 14\,871 & 100,00\% \\
+Checks temporais (total) & 17\,826 & 7\,452 & 41,80\% \\
+\quad\texttt{\$setuphold} & 7\,314 & 7\,312 & 99,97\% \\
+\quad\texttt{\$recrem} & 140 & 140 & 100,00\% \\
+\quad\texttt{\$width} & 10\,372 & 0 & 0,00\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A inspeção do SDF encontrou 7\,312 entradas \texttt{SETUPHOLD}, 140
+entradas \texttt{RECREM} e nenhuma entrada \texttt{WIDTH}. Esses números
+coincidem com os checks anotados. Assim, o percentual global de 41,80\%
+é calculado sobre os checks existentes nos modelos Verilog e não indica
+que 58,20\% das restrições fornecidas pelo SDF tenham sido rejeitadas.
+
+Os dois checks \texttt{\$setuphold} sem anotação pertencem à instância
+\path{testbench.dut.reset_inst_reset_sync_reg_reg[0]}.
+A netlist conecta sua entrada D à constante \texttt{1'b1}, o que é
+compatível com a ausência de checks de transição de dados no SDF dessa
+instância. Os checks de recovery/removal fornecidos foram anotados.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{@{}lrX@{}}
+\toprule
+Aviso & Ocorrências & Significado registrado \\
+\midrule
+\texttt{NTCNNC} & 132 & Não convergência de valores de checks temporais negativos em determinadas instâncias. \\
+\texttt{NTCWID} & 196 & Desativação de checks de largura de pulso porque a diferença entre atrasos NTC de subida e descida supera o limite do check. \\
+\texttt{PRLDYN} & 1 & Objetos dinâmicos excluídos da captura de formas de onda pela opção de probing utilizada. \\
+\texttt{PRHOPT} & 1 & Sinais otimizados excluídos da captura de formas de onda. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Embora a tabela do anotador informe zero checks na categoria
+\emph{Disabled}, o simulador também emite avisos \texttt{NTCWID} de
+desativação. As duas informações correspondem a mecanismos distintos e
+devem ser preservadas na avaliação. A ausência de mensagens
+\texttt{Timing violation} não comprova o atendimento dos checks não
+anotados ou desativados, nem resolve os avisos \texttt{NTCNNC}.
+
+\section{Contexto temporal da síntese utilizada}
+
+Como informação complementar, o \path{qor_tsmc28.rpt} da síntese que
+gerou a netlist registra período de 10\,000 ps, slack crítico de
+$+5\,469{,}7$ ps ($+5{,}4697$ ns), TNS igual a zero e nenhum caminho
+violado no grupo \path{pclk_i}. O primeiro caminho de
+\path{timing_max_tsmc28.rpt} vai de \path{paddr_i[6]} a \path{pslverr_o}.
+A netlist possui 2\,562 células: 706 sequenciais e 1\,856 combinacionais.
+
+Esses valores são resultados da análise estática de síntese, separados
+dos resultados de simulação. O fluxo não inclui implementação física,
+árvore de clock roteada ou extração de parasitas. Portanto, esta execução
+não estabelece fechamento temporal pós-layout nem validação em todos
+os corners de processo, tensão e temperatura.
+
+\section{Conclusão}
+
+A regressão pós-síntese TSMC28 a 100 MHz foi aprovada para os estímulos
+executados: 398 verificações passaram e as dez operações RSA produziram
+os resultados esperados. A configuração sintetizada inclui
+\texttt{LOAD\_GAP=1}, e a execução concluiu as operações e a limpeza
+de estado e interrupção.
+
+Os atrasos de caminho e todos os checks presentes no SDF foram anotados.
+Para ampliar a conclusão temporal, ainda é necessário avaliar os avisos
+\texttt{NTCNNC}/\texttt{NTCWID} e a ausência de restrições de largura
+de pulso, além das etapas de validação física e de outros corners.
+
+\appendix
+\section{Rastreabilidade dos resultados}
+
+Os identificadores completos da Seção 1 definem as variáveis
+\texttt{SIM\_RUN} e \texttt{SYNTH\_RUN} usadas nos caminhos abaixo.
+São abreviações documentais; substitua-as pelo identificador correspondente.
+
+\begin{itemize}
+\item Resumo e entradas da simulação, estatísticas e checks não anotados:
+\path{reports/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/<SIM_RUN>/}, arquivos
+\path{simulation_tsmc28.rpt}, \path{simulation_inputs_tsmc28.txt},
+\path{sdf_annotation_tsmc28.log} e \path{sdf_unannotated_tsmc28.rpt}.
+\item Log completo, com scoreboard e avisos:
+\path{logs/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/<SIM_RUN>/<SIM_RUN>.log}.
+\item Netlist e SDF correspondentes:
+\path{ps_files/rsa_apb_top_tsmc28/netlist/synth_<SYNTH_RUN>.v} e
+\path{ps_files/rsa_apb_top_tsmc28/sdf/synth_<SYNTH_RUN>.sdf}.
+\item QoR, área e timing da síntese:
+\path{reports/amba_3_apb_rsa_apb_top_tsmc28/genus/<SYNTH_RUN>/}, arquivos
+\path{qor_tsmc28.rpt}, \path{area_tsmc28.rpt} e \path{timing_max_tsmc28.rpt}.
+\item Configuração elaborada:
+\path{logs/amba_3_apb_rsa_apb_top_tsmc28/genus/<SYNTH_RUN>/<SYNTH_RUN>.log}.
+\item Formas de onda geradas:
+\path{waveforms/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/<SIM_RUN>/waves_tsmc28.shm}.
+\end{itemize}
+
+As formas de onda são indicadas para inspeção posterior; as conclusões
+deste relatório foram extraídas dos logs e relatórios textuais.
+
+\end{document}

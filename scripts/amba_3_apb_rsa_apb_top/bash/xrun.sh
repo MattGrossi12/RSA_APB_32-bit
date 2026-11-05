@@ -50,7 +50,7 @@ xrun -64bit \
     "$RTL_DIR/amba_3_apb_rsa_wrapper_data.sv" \
     "$RTL_DIR/amba_3_apb_rsa_wrapper_top.sv" \
     "$RTL_DIR/amba_3_apb_rsa_apb_top.sv" \
-    "$PROJECT_ROOT/testbenchs/rsa_apb_top/testbench_2.sv" \
+    "$PROJECT_ROOT/testbenchs/rsa_apb_top/testbench.sv" \
     "+VCD=$WAVE_DIR/${RUN}.vcd"
 
 # ======================================

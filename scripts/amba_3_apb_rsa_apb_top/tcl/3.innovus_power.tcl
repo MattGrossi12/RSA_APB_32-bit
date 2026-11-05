@@ -1,7 +1,7 @@
 source [file join [file dirname [info script]] innovus_common.tcl]
 
 innovus_stage {
-    set report_dir [file join $report_root power]
+    set report_dir [innovus_report_stage power]
     file mkdir $report_dir
     innovus_read_stage floorplan
 
@@ -23,7 +23,7 @@ innovus_stage {
         -core_pin_target {ring stripe} \
         -floating_stripe_target {ring stripe followpin}
     check_connectivity -nets $supply_nets -type special \
-        > [file join $report_dir power_connectivity_${pdk}.rpt]
+        > [flow_reports::path power_connectivity]
     write_db [file join $db_dir power_${artifact_name}]
     exit
 }

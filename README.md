@@ -259,9 +259,15 @@ publica a página quando GitHub Pages está configurado para GitHub Actions.
 - Os resultados de síntese são separados em
   `ps_files/rsa_apb_top*/`, conforme a tecnologia e a execução.
 - Os relatórios de síntese ficam em `reports/amba_3_apb_rsa_apb_top_<flag>/`;
-  os de simulação continuam em `reports/amba_3_apb_rsa_apb_top/`.
+  LEC também usa a flag do PDK. Lint e cobertura IMC usam
+  `reports/amba_3_apb_rsa_apb_top_rtl/<ferramenta>/<RUN>/`, com sufixo `_rtl`
+  nos relatórios. A [metodologia dos Tcl](scripts/amba_3_apb_rsa_apb_top/README.md#metodologia-comum-de-relatórios)
+  detalha os caminhos e a preservação de execuções anteriores. Os relatórios
+  Verilator e os resultados históricos mantêm seus caminhos existentes.
 - Os logs de síntese ficam em `logs/amba_3_apb_rsa_apb_top_<flag>/`;
-  os de simulação continuam em `logs/amba_3_apb_rsa_apb_top/<ferramenta>/`.
+  os de LEC também usam a flag do PDK. Lint e IMC usam
+  `logs/amba_3_apb_rsa_apb_top_rtl/<ferramenta>/<RUN>/`; os de simulação
+  continuam em `logs/amba_3_apb_rsa_apb_top/<ferramenta>/`.
 - Formas de onda são armazenadas em `waveforms/`.
 - Os artefatos individuais dos sub-blocos ficam nas categorias de `legacy/`.
 

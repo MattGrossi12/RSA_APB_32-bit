@@ -3,7 +3,7 @@ module amba_3_apb_rsa_apb_top #(
                 D_WID = DATA_WIDTH - 1,
                 ADDR_WIDTH = 12,
                 A_WID = ADDR_WIDTH - 1,
-                LOAD_GAP = 0,
+                LOAD_GAP = 1,
                 RESET_LATENCY = 2
 )(
     // APB Clock and Reset:

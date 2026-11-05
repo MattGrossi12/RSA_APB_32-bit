@@ -2,7 +2,7 @@ source [file join [file dirname [info script]] innovus_common.tcl]
 
 innovus_stage {
     # Post-route timing optimization:
-    set report_dir [file join $report_root postroute]
+    set report_dir [innovus_report_stage postroute]
 
     file mkdir $report_dir
 
@@ -17,8 +17,8 @@ innovus_stage {
     opt_design -post_route -hold
 
     # Timing Reports:
-    time_design -post_route -report_dir [file join $report_dir setup_${pdk}]
-    time_design -post_route -hold -report_dir [file join $report_dir hold_${pdk}]
+    time_design -post_route -report_dir [flow_reports::directory setup]
+    time_design -post_route -hold -report_dir [flow_reports::directory hold]
 
     # Save Post-route Database:
     write_db [file join $db_dir postroute_${artifact_name}]

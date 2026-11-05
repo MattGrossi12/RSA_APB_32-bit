@@ -1,7 +1,7 @@
 source [file join [file dirname [info script]] innovus_common.tcl]
 
 innovus_stage {
-    set report_dir [file join $report_root init]
+    set report_dir [innovus_report_stage init]
     file mkdir $db_dir $report_dir
 
     set_db design_process_node $process_node
@@ -15,7 +15,7 @@ innovus_stage {
     read_netlist -top $project_name $::env(NETLIST_FILE)
     init_design
 
-    check_timing -verbose > [file join $report_dir timing_constraints_${pdk}.rpt]
+    check_timing -verbose > [flow_reports::path timing_constraints]
     write_db [file join $db_dir init_${artifact_name}]
 
     # Record provenance and select this run only after initialization succeeds.
