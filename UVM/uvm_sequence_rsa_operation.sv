@@ -36,7 +36,7 @@ endfunction
 // Body
 ////////////////////////////////////////////////
 task sequence_rsa_operation::body();
-        
+
         item = seq_item::type_id::create("item");
 
         // 3) Carregar operandos:
@@ -44,7 +44,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == WRITE;
-            address          == 'h0C;
+            address          == MSG_ADDR;
         });
         finish_item(item);
 
@@ -52,7 +52,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == WRITE;
-            address          == 'h10;
+            address          == EXP_ADDR;
         });
         finish_item(item);
 
@@ -60,7 +60,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == WRITE;
-            address == 'h14;
+            address == MOD_ADDR;
         });
         finish_item(item);
         
@@ -69,7 +69,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == WRITE;
-            address          == 'h00;
+            address          == CTRL_ADDR;
             data             == 'h01;
         });
         finish_item(item);
@@ -78,7 +78,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == READ;
-            address          == 'h04;
+            address          == STATUS_ADDR;
         });
         finish_item(item);
   
@@ -88,7 +88,7 @@ task sequence_rsa_operation::body();
         start_item(item);
         void'(item.randomize() with {
             transaction_type == READ;
-            address          == 'h18;
+            address          == RESULT_ADDR;
         });
         finish_item(item);
 

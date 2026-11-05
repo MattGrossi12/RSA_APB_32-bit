@@ -1,7 +1,9 @@
 # Resultados locais das simulações integradas.
 /logs/amba_3_apb_rsa_apb_top/iverilog/
 /logs/amba_3_apb_rsa_apb_top/verilator/
+/logs/amba_3_apb_rsa_apb_top/xezim_uvm/
 /reports/amba_3_apb_rsa_apb_top/verilator/
+/reports/amba_3_apb_rsa_apb_top/xezim_uvm/
 /waveforms/amba_3_apb_rsa_apb_top/
 
 # Arquivos gerados pelas ferramentas de síntese e pós-síntese.
@@ -21,4 +23,5 @@
 /_site/
 /.tools/
 /.verilator-source/
+/.deps/
 __pycache__/

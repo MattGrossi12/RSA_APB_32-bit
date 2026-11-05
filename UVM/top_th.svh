@@ -55,7 +55,4 @@ import top_tb_pkg::*;
         .irq_o      (apb_rsa_if.irq)
     );
 
-
-
-
 endmodule
