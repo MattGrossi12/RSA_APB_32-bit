@@ -1,0 +1,6 @@
+# Rodar nesta pasta: yosys -Q -T -l yosys.log elab.ys
+# Para escolher outro topo e gerar os SVGs: node generate.mjs --help
+script sources.ys
+hierarchy -check -top amba_3_apb_rsa_apb_top
+script processes.ys
+write_json rsa_apb.json

@@ -1,0 +1,10 @@
+# Processos -> muxes e flops, preservando a hierarquia e os operadores RTL.
+proc -noopt
+# Normaliza a polaridade do reset assincrono inferido pelo proc.
+opt_expr t:$adff n:$auto$proc_dff*
+# Remove ramos indefinidos introduzidos pela elaboracao de if/case.
+opt_expr -mux_undef t:$mux t:$pmux
+opt_merge
+opt_clean
+check -assert
+stat

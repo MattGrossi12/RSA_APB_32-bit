@@ -35,6 +35,7 @@ endfunction
 ////////////////////////////////////////////////
 // Body
 ////////////////////////////////////////////////
+
 task sequence_rsa_operation::body();
 
         item = seq_item::type_id::create("item");
@@ -93,6 +94,3 @@ task sequence_rsa_operation::body();
         finish_item(item);
 
 endtask
-
-
-

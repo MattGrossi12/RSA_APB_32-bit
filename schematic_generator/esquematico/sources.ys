@@ -1,0 +1,4 @@
+# Caminhos relativos a schematic_generator/esquematico/.
+# Mesmos fontes ativos dos scripts de simulacao: RSA v2, sem RTL legado.
+read_verilog -sv ../../src/rsa32/v2/rsa32_core_kogge_stone_adder.sv ../../src/rsa32/v2/rsa32_core_mult.sv ../../src/rsa32/v2/rsa32_core_mod.sv ../../src/rsa32/v2/rsa32_core_ctrl.sv ../../src/rsa32/v2/rsa32_core_top.sv
+read_verilog -sv ../../src/amba_3_apb/amba_3_apb_adrec.sv ../../src/amba_3_apb/amba_3_apb_data_o_mux.sv ../../src/amba_3_apb/amba_3_apb_data_io_top.sv ../../src/amba_3_apb/amba_3_apb_control.sv ../../src/amba_3_apb/amba_3_apb_regbank.sv ../../src/amba_3_apb/amba_3_apb_reset.sv ../../src/amba_3_apb/amba_3_apb_rsa_wrapper_control.sv ../../src/amba_3_apb/amba_3_apb_rsa_wrapper_data.sv ../../src/amba_3_apb/amba_3_apb_rsa_wrapper_top.sv ../../src/amba_3_apb/amba_3_apb_rsa_apb_top.sv

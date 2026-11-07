@@ -55,10 +55,13 @@ endtask
 ////////////////////////////////////////////////
 task vseq::body();
         
-    sequence_rsa_operation sequence_rsa_operation_h;
+    sequence_rsa_operation  sequence_rsa_operation_h;
+    sequence_soft_reset     sequence_soft_reset_h;
   
-    sequence_rsa_operation_h = sequence_rsa_operation::type_id::create("sequence_rsa_operation_h");
-  
+    sequence_rsa_operation_h    = sequence_rsa_operation::type_id::create("sequence_rsa_operation_h");
+    sequence_soft_reset_h       = sequence_soft_reset   ::type_id::create("sequence_soft_reset_h");
+
     sequence_rsa_operation_h.start(sequencer_h);
+    sequence_soft_reset_h   .start(sequencer_h);
 
 endtask

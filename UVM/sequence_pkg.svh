@@ -18,6 +18,6 @@ package sequence_pkg;
 
     // Sequence
     `include "uvm_sequence_rsa_operation.sv"
-
+    `include "uvm_sequence_soft_reset.sv"
 
 endpackage : sequence_pkg

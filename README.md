@@ -5,6 +5,10 @@ Periférico RSA com interface AMBA 3 APB (APB3), descrito em SystemVerilog.
 O projeto contém RTL do periférico, um núcleo RSA, testbenches estruturais e
 scripts auxiliares de síntese, LEC e simulação.
 
+Para gerar esquemáticos SVG diretamente do RTL com Yosys, consulte o
+[guia do schematic_generator](schematic_generator/esquematico/README.md).
+Há comandos para o periférico APB completo, o núcleo RSA v2 e módulos individuais.
+
 Os fluxos ativos de simulação e síntese têm como alvo exclusivamente
 `amba_3_apb_rsa_apb_top`. Os fluxos individuais dos sub-blocos e seus
 artefatos estão arquivados em [`legacy/`](legacy/README.md).

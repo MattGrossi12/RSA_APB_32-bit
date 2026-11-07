@@ -1,0 +1,14 @@
+{
+  "name": "esquematico-rsa-apb",
+  "private": true,
+  "type": "module",
+  "description": "Esquematico RTL do RSA_APB a partir da netlist do Yosys",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "apb": "node generate.mjs --top apb",
+    "rsa": "node generate.mjs --top rsa"
+  },
+  "dependencies": {
+    "elkjs": "0.12.1"
+  }
+}
