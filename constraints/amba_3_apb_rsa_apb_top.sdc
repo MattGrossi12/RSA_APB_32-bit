@@ -1,8 +1,8 @@
 
 # ============================================================
-# APB RSA peripheral - SKY130
-# Liberty time unit: 1 ns
-# Target clock: 1 MHz -> 1000 ns
+# APB RSA peripheral - shared constraints for all PDKs
+# Constraint time unit: 1 ns
+# Target clock: 100 MHz -> 10 ns
 # ============================================================
 
 # ------------------------------------------------------------
@@ -11,18 +11,18 @@
 
 create_clock \
     -name pclk_i \
-    -period 1000.0 \
+    -period 10.0 \
     [get_ports pclk_i]
 
 
 # ------------------------------------------------------------
 # Clock uncertainty
 # ------------------------------------------------------------
-# Preliminary setup margin: 2% of the 1000 ns clock period.
+# Preliminary setup margin: 2% of the 10 ns clock period.
 # Adjust according to the real clock budget.
 
 set_clock_uncertainty \
-    -setup 20.0 \
+    -setup 0.2 \
     [get_clocks pclk_i]
 
 
@@ -43,13 +43,13 @@ set APB_INPUTS [get_ports {
 # ------------------------------------------------------------
 # Input interface delays
 # ------------------------------------------------------------
-# Maximum: provisional external arrival budget of 200 ns
+# Maximum: provisional external arrival budget of 2 ns
 # (20% of the clock period); confirm with the APB source.
 # Minimum: provisional earliest arrival of 0 ns.
 
 set_input_delay \
     -clock pclk_i \
-    -max 200.0 \
+    -max 2.0 \
     $APB_INPUTS
 
 set_input_delay \
@@ -73,14 +73,14 @@ set APB_OUTPUTS [get_ports {
 # ------------------------------------------------------------
 # Output interface delays
 # ------------------------------------------------------------
-# Maximum: provisional external receiver budget of 200 ns
+# Maximum: provisional external receiver budget of 2 ns
 # (20% of the clock period); confirm with the APB receiver.
 # Minimum: provisional value; replace with the
 # receiver's actual hold requirement.
 
 set_output_delay \
     -clock pclk_i \
-    -max 200.0 \
+    -max 2.0 \
     $APB_OUTPUTS
 
 set_output_delay \
@@ -97,4 +97,3 @@ set_output_delay \
 #
 # Review reset timing paths and recovery/removal checks
 # separately before declaring timing exceptions.
-

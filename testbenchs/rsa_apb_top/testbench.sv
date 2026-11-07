@@ -3,7 +3,8 @@
 module testbench;
     localparam integer DATA_WIDTH = 32;
     localparam integer ADDR_WIDTH = 12;
-    localparam integer CLOCK_PERIOD_NS = 10;
+    // Configurable via -defparam; default clock is 100 MHz (10 ns).
+    parameter realtime CLOCK_PERIOD_NS = 10.0;
     localparam integer RESET_WAIT_CYCLES = 5;
     localparam integer APB_TIMEOUT_CYCLES = 20;
     localparam integer TEST_ROUNDS = 30;
@@ -419,7 +420,7 @@ module testbench;
         integer round_number;
         if (!$value$plusargs("DATA=%h", generic_value))
             generic_value = 32'h1234_567B;
-        $display("\n[TEST] amba_3_apb_rsa_apb_top | clock=%0d ns | dado=0x%08h | rodadas=%0d",
+        $display("\n[TEST] amba_3_apb_rsa_apb_top | clock=%0.6f ns | dado=0x%08h | rodadas=%0d",
                  CLOCK_PERIOD_NS, generic_value, TEST_ROUNDS);
         initialize_scoreboard();
         apply_hardware_reset();

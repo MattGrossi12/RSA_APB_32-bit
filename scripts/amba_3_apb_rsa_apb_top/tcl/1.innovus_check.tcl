@@ -2,15 +2,15 @@ source [file join [file dirname [info script]] innovus_common.tcl]
 
 innovus_stage {
     # Verify imported design and timing constraints.
-    set report_dir [file join $report_root check]
+    set report_dir [innovus_report_stage check]
     file mkdir $report_dir
 
     innovus_read_stage init
 
-    check_library > [file join $report_dir library_${pdk}.rpt]
-    check_netlist > [file join $report_dir netlist_${pdk}.rpt]
-    check_timing -verbose > [file join $report_dir timing_constraints_${pdk}.rpt]
-    time_design -pre_place -report_dir [file join $report_dir pre_place_${pdk}]
+    check_library > [flow_reports::path library]
+    check_netlist > [flow_reports::path netlist]
+    check_timing -verbose > [flow_reports::path timing_constraints]
+    time_design -pre_place -report_dir [flow_reports::directory pre_place]
 
     exit
 }

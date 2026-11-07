@@ -12,6 +12,9 @@ set db_dir $::env(INNOVUS_DB_DIR)
 set report_root $::env(INNOVUS_REPORT_DIR)
 
 source [file join [file dirname [info script]] pdk_common.tcl]
+if {!$pdk_has_lef} {
+    error "PDK $pdk configurado somente para sintese Genus sem LEF; Innovus exige configuracao fisica."
+}
 set artifact_name "${project_name}_${pdk}"
 
 proc innovus_stage {body} {
@@ -28,4 +31,16 @@ proc innovus_read_stage {stage} {
         error "Banco da etapa $stage ausente para esta sintese: $path. Execute a etapa anterior."
     }
     read_db $path
+}
+
+source [file join [file dirname [info script]] report_common.tcl]
+
+proc innovus_report_stage {stage} {
+    global report_root pdk
+    # A repeated stage keeps earlier reports from the same synthesis.
+    set stage_root [file join $report_root $stage]
+    set timestamp [clock format [clock seconds] -format %Y-%m-%d_%H-%M-%S]
+    set attempt "${timestamp}_[pid]_[clock clicks]_${pdk}"
+    set directory [file join $stage_root $attempt]
+    return [flow_reports::init $directory $pdk]
 }

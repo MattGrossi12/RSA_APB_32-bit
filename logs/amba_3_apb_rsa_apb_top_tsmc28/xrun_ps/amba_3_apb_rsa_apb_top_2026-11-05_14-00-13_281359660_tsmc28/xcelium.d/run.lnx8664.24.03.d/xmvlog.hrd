@@ -3,6 +3,11 @@
 // Do not modify this file
 //
 -VFILE
-/home/cadence/DDI221/JLS221/etc/rtls/tutorial/libraries/verilog/typical.v
+/tsmc28/tcbn28hpcplusbwp30p140.v
+-sv
 -DEFINE
 POST_SYNTHESIS
+-DEFINE
+NTC
+-DEFINE
+RECREM

@@ -1,0 +1,1298 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Nov 05, 2026 at 09:41:33 -03
+xrun
+	-64bit
+	-sv
+	-timescale 1ns/1ps
+	+define+POST_SYNTHESIS
+	-top testbench
+	-defparam testbench.CLOCK_PERIOD_NS=6.666667
+	-access +rwc
+	-input /home/aluno/Documents/RSA_APB_32-bit/scripts/amba_3_apb_rsa_apb_top/bash/../tcl/xrun_ps_tsmc28.tcl
+	-sdf_cmd_file /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/sdf_annotation_tsmc28.cmd
+	-sdf_verbose
+	-sdfstats /home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/sdf_unannotated_tsmc28.rpt
+	-l /home/aluno/Documents/RSA_APB_32-bit/logs/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28.log
+	-v /tsmc28/tcbn28hpcplusbwp30p140.v
+	/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/netlist/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.v
+	/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+file: /home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/netlist/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.v
+	module worklib.amba_3_apb_rsa_apb_top:v
+		errors: 0, warnings: 0
+file: /home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv
+	module worklib.testbench:sv
+		errors: 0, warnings: 0
+file: /tsmc28/tcbn28hpcplusbwp30p140.v
+	module tcbn28hpcplusbwp30p140.AN2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AN3D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AO211D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AO21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AO22D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI211D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI21D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI221D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI221D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI222D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI222D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI22D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI22D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI31D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.AOI32D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.CKAN2D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.CKAN2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.CKND1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.CKND2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFCND1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFCNQD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFKCND1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFKCNQD2BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFKCSND1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.DFMQD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.EDFCND1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.EDFCNQD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.FA1D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.IAO21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.IND2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.IND3D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.IND4D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.INR2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.INR3D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.INR4D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.INVD0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.INVD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.IOA21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.MAOI222D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.MAOI22D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.MOAI22D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.MUX2NUD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND2D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND2OPTIBD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND3D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND3D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.ND4D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR2D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR2OPTIBD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR3D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR3D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.NR4D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OA211D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OA21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI211D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI21D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI21D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI221D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI222D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI22D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI22D0P7BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI22D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI31D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI32D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OAI33D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OR2D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OR2D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OR3D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OR4D0BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.OR4D1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.XNR2UD1BWP30P140:v
+		errors: 0, warnings: 0
+	module tcbn28hpcplusbwp30p140.XOR2UD1BWP30P140:v
+		errors: 0, warnings: 0
+	primitive tcbn28hpcplusbwp30p140.tsmc_dff:v
+		errors: 0, warnings: 0
+	primitive tcbn28hpcplusbwp30p140.tsmc_mux:v
+		errors: 0, warnings: 0
+	primitive tcbn28hpcplusbwp30p140.tsmc_xbuf:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+		Caching library 'tcbn28hpcplusbwp30p140' ....... Done
+	Top level design units:
+		testbench
+	Reading SDF file from location "/home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf"
+	Writing compiled SDF file to "synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf.X".
+	Annotating SDF timing data:
+		Compiled SDF file:     synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf.X
+		Log file:              /home/aluno/Documents/RSA_APB_32-bit/reports/amba_3_apb_rsa_apb_top_tsmc28/xrun_ps/amba_3_apb_rsa_apb_top_2026-11-05_09-41-33_837005307_tsmc28/sdf_annotation_tsmc28.log
+		Backannotation scope:  testbench.dut
+		Configuration file:    
+		MTM control:           MAXIMUM
+		Scale factors:         
+		Scale type:            FROM_MTM
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.regbank_inst_status_error_reg_reg of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18067>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.regbank_inst_status_done_reg_reg of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18254>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[0]  of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18287>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[30]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18499>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[30]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18529>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[2]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18559>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[20]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18589>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[12]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18643>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[8]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18687>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[14]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18717>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[13]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18747>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[18]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18777>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[26]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18807>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[23]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18837>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[6]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18867>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[4]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18897>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[0]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18927>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[15]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18957>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[23]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 18987>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[22]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19017>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[25]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19047>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[1]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19077>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[9]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19319>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[5]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19397>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[30]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19583>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[2]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19613>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[28]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19643>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[3]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19673>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[10]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19703>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[11]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19733>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[6]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19763>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[7]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19840>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[11]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19870>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[12]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19900>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[14]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19930>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[15]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19960>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[16]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 19990>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[17]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20020>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[19]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20050>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[20]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20080>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[23]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20110>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[21]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20140>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[24]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20170>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[26]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20200>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[27]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20230>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[28]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20260>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[29]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20290>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[31]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20320>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[0]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20350>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[2]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20380>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[5]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20410>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[6]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20440>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[4]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20470>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[7]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20500>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[8]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20530>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[10]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20560>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[9]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20590>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[11]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20620>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[13]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20650>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[14]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20680>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[16]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20710>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[17]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20740>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[18]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20770>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[19]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20800>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[21]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20830>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[22]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20860>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[24]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20890>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[25]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20920>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[26]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20950>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[27]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 20980>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[29]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21010>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_mod_reg_reg[31]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21040>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[1]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21070>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[1]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21100>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[5]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21130>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[3]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21160>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[4]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21190>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[7]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21220>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[8]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21250>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[29]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21280>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[31]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21310>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[3]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21340>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[10]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21370>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[12]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21400>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[13]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21430>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[15]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21460>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[16]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21490>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[17]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21520>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[19]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21550>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[18]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21580>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[21]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21610>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[22]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21640>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[24]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21670>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[25]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21700>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[27]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21730>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[28]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21760>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[9]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21790>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_msg_reg_reg[20]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 21820>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[4]  of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 25594>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[2]  of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 25749>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[12]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 25958>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[8]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 25988>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[30]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26018>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[22]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26048>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[23]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26078>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[19]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26108>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[26]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26138>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[17]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26168>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[13]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26198>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[15]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26228>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[10]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26258>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[1]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26288>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[18]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26318>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[31]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26348>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[2]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26414>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[9]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26444>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[3]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26474>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[25]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26624>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[24]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26654>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[14]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26704>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[7]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26734>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[6]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26764>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[28]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26794>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[0]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26824>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[4]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26854>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[27]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26884>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[11]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26914>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[16]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26944>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[20]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 26974>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[21]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 27020>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[5]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 27050>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_result_reg_reg[29]  of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 27102>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.regbank_inst_ier_done_ie_reg_reg of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 29955>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.regbank_inst_ier_err_ie_reg_reg of module EDFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 29985>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\reset_inst_reset_sync_reg_reg[1]  of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 46812>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\reset_inst_reset_sync_reg_reg[0]  of module DFCNQD1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 50213>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_SDFCHK (posedge CP)) (-22) (32)) of instance testbench.dut.\rsa_wrapper_inst_rsa_wrapper_control_inst_c_state_reg[5]  of module DFCND1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 51806>.
+xmelab: *W,SDFNET: Unable to annotate to non-existent timing check (RECREM (posedge CDN) (COND D_E_SDFCHK (posedge CP)) (-17) (26)) of instance testbench.dut.\regbank_inst_exp_reg_reg[0]  of module EDFCND1BWP30P140 </home/aluno/Documents/RSA_APB_32-bit/ps_files/rsa_apb_top_tsmc28/sdf/synth_amba_3_apb_rsa_apb_top_2026-11-05_09-15-51_907875919_tsmc28.sdf, line 51988>.
+	Annotation completed with 0 Errors and 138 Warnings
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\rsa_wrapper_inst_rsa_core_inst_rsa_core_ctrl_blk_state_reg_reg[1] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[30] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[30] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[2] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[20] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[12] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[8] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[14] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[13] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[18] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[26] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[23] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[6] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[4] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[0] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[15] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[23] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[22] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[25] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[1] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[9] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[5] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[30] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[2] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[28] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[3] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[10] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[11] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[6] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[7] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[11] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[12] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[14] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[15] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[16] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[17] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[19] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[20] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[23] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[21] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[24] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[26] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[27] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[28] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[29] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[31] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[0] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[2] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[5] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[6] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[4] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[7] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[8] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[10] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[9] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[11] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[13] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[14] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[16] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[17] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[18] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[19] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[21] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[22] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[24] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[25] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[26] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[27] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[29] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_mod_reg_reg[31] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[1] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[1] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[5] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[3] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[4] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[7] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[8] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[29] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[31] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[3] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[10] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[12] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[13] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[15] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[16] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[17] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[19] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[18] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[21] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[22] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[24] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[25] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[27] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[28] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[9] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_msg_reg_reg[20] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[12] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[8] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[30] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[22] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[23] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[19] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[26] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[17] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[13] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[15] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[10] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[1] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[18] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[31] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[2] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[9] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[3] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[25] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[24] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[14] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[7] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[6] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[28] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[0] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[4] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[27] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[11] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[16] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[20] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[21] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[5] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_result_reg_reg[29] .
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.regbank_inst_ier_done_ie_reg_reg.
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.regbank_inst_ier_err_ie_reg_reg.
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.rsa_wrapper_inst_rsa_core_inst_rsa_core_mod_blk_mod_done_ff_reg.
+xmelab: *W,NTCNNC: Non-convergence of negative timing check values in instance testbench.dut.\regbank_inst_exp_reg_reg[0] .
+	SDF statistics: 
+		 No. of Pathdelays = 14922   	 No. of Disabled Pathdelays = 0        Annotated = 100.00% (14922/14922) 
+		 No. of Tchecks    = 17924   	 No. of Disabled Tchecks    = 0        Annotated = 40.72% (7298/17924) 
+				        Total(T) 	   Disabled(D) 	    Annotated(A)	  Percentage(A/(T-D))
+		 Path Delays	         14922	             0	             14922	                100.00
+		       $hold	           138	             0	                 0	                  0.00
+		      $width	         10348	             0	                 0	                  0.00
+		   $recovery	           138	             0	                 0	                  0.00
+		  $setuphold	          7300	             0	              7298	                 99.97
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.amba_3_apb_rsa_apb_top:v <0x7785e6f9>
+			streams:   2, words:   338
+		worklib.testbench:sv <0x3c5ff8b1>
+			streams:  39, words: 55688
+		tcbn28hpcplusbwp30p140.EDFCND1BWP30P140:v <0x7bf1ab0c>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFKCND1BWP30P140:v <0x1f54b8b3>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFCND1BWP30P140:v <0x28a8fb00>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFD1BWP30P140:v <0x39c80234>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFD1BWP30P140:v <0x0749ee7f>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFKCND1BWP30P140:v <0x30aefa70>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFCNQD1BWP30P140:v <0x67899a42>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI21D1BWP30P140:v <0x34018f07>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI222D0BWP30P140:v <0x7f10b427>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.FA1D1BWP30P140:v <0x0e55f0cd>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MOAI22D1BWP30P140:v <0x68a72b7d>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI221D1BWP30P140:v <0x3f2a91aa>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI21D0P7BWP30P140:v <0x716e885a>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OA211D1BWP30P140:v <0x63340892>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AO211D1BWP30P140:v <0x09caaba8>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI222D1BWP30P140:v <0x24a6ddb7>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI22D0BWP30P140:v <0x48f190b6>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MAOI222D1BWP30P140:v <0x23e85930>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.EDFCNQD1BWP30P140:v <0x2e83984f>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI22D0P7BWP30P140:v <0x5818ff12>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFCNQD1BWP30P140:v <0x77c78e66>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OA211D1BWP30P140:v <0x37587fdd>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.XNR2UD1BWP30P140:v <0x0114a9e3>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OA21D1BWP30P140:v <0x786924e2>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI211D1BWP30P140:v <0x52fc2ac7>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.IAO21D1BWP30P140:v <0x779f06de>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFKCSND1BWP30P140:v <0x00259d14>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI21D0P7BWP30P140:v <0x5720b16b>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI22D1BWP30P140:v <0x3a10ca82>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MUX2NUD1BWP30P140:v <0x61f4c558>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFKCNQD2BWP30P140:v <0x4e0180c6>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI222D1BWP30P140:v <0x0e4c2cd6>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MUX2NUD1BWP30P140:v <0x28960474>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI33D1BWP30P140:v <0x3db76f6a>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI221D0BWP30P140:v <0x7d65ac04>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI22D1BWP30P140:v <0x7d8969f1>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AO21D1BWP30P140:v <0x01898ee3>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AO21D1BWP30P140:v <0x28be5938>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI22D0P7BWP30P140:v <0x2a4b3eba>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.IOA21D1BWP30P140:v <0x7de0732f>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI32D1BWP30P140:v <0x275af12a>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI31D1BWP30P140:v <0x30e12c5f>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MAOI22D1BWP30P140:v <0x077e018f>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI31D1BWP30P140:v <0x5761cab5>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI32D1BWP30P140:v <0x1f417b87>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI211D1BWP30P140:v <0x28a7278c>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI211D1BWP30P140:v <0x54000f5e>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI22D1BWP30P140:v <0x46e2f804>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI221D1BWP30P140:v <0x5835b279>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.OAI21D1BWP30P140:v <0x54bca2e6>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AOI21D1BWP30P140:v <0x39ebe6ce>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.XOR2UD1BWP30P140:v <0x39d13c4d>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.MOAI22D1BWP30P140:v <0x2f3e880e>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.AO22D0BWP30P140:v <0x39ee8a7a>
+			streams:   0, words:     0
+		tcbn28hpcplusbwp30p140.DFMQD1BWP30P140:v <0x5e1cad40>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                      Instances  Unique
+		Modules:                  2,553      78
+		UDPs:                    13,458       3
+		Primitives:              21,712       6
+		Timing outputs:           2,582      51
+		Registers:                  776      82
+		Scalar wires:             3,565       -
+		Expanded wires:              44       2
+		Always blocks:                1       1
+		Initial blocks:               5       5
+		Cont. assignments:            1       1
+		Pseudo assignments:           8       -
+		Timing checks:           25,224   4,853
+		Interconnect:             8,110       -
+		Delayed tcheck signals:   2,615   1,068
+		Simulation timescale:       1ps
+	Writing initial simulation snapshot: worklib.testbench:sv
+Loading snapshot worklib.testbench:sv .................... Done
+xcelium> source /home/cadence/XCELIUM2403/tools/xcelium/files/xmsimrc
+xcelium> # Xcelium gate-level run. SDF is annotated at elaboration by -sdf_cmd_file.
+xcelium> source [file join [file dirname [info script]] report_common.tcl]
+xmsim: *E,TCLERR: couldn't read file "./report_common.tcl": no such file or directory.
+xcelium> flow_reports::init $::env(REPORT_DIR) tsmc28
+xmsim: *E,TCLERR: invalid command name "flow_reports::init".
+xcelium> 
+xcelium> set provenance [open [flow_reports::path simulation_inputs txt] w]
+xmsim: *E,TCLERR: invalid command name "flow_reports::path".
+    while executing
+"flow_reports::path simulation_inputs txt"
+    invoked from within
+"open [flow_reports::path simulation_inputs txt] w"
+    invoked from within
+"set provenance [open [flow_reports::path simulation_inputs txt] w]"
+xcelium> foreach name {SYNTH_RUN NETLIST_FILE SDF_FILE TSMC28_VERILOG_FILE CLOCK_PERIOD_NS SDF_LOG} {
+>     puts $provenance "$name: $::env($name)"
+> }
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+    while executing
+"puts $provenance "$name: $::env($name)""
+    ("foreach" body line 2)
+    invoked from within
+"foreach name {SYNTH_RUN NETLIST_FILE SDF_FILE TSMC28_VERILOG_FILE CLOCK_PERIOD_NS SDF_LOG} {
+    puts $provenance "$name: $::env($name)"
+}"
+xcelium> puts $provenance "DUT scope: testbench.dut"
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xcelium> puts $provenance "SDF selection: MAXIMUM (corner characterized by the synthesis Liberty)"
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xcelium> close $provenance
+xmsim: *E,TCLERR: can't read "provenance": no such variable.
+xcelium> 
+xcelium> database -open waves -into $::env(WAVE_FILE) -event -default
+Created default SHM database waves
+xcelium> probe -create testbench -all -depth all -database waves
+xmsim: *W,PRLDYN: The design contains dynamic objects. The "-all" option excludes dynamic objects to improve performance. To enable probing of dynamic objects the "-all -dynamic" options should be added to the probe command.
+xmsim: *W,PRHOPT: The design contains optimized signals. To improve simulation performance these signals are excluded.
+Created probe 1
+xcelium> run
+
+[TEST] amba_3_apb_rsa_apb_top | clock=6.666667 ns | dado=0x1234567b | rodadas=30
+[RESET] CTRL.SRST enviado; 5 clocks de espera concluidos.
+
+[SCB] Valores apos reset
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   1 |        107 | CTRL        | 0x000 | 0x00000002 | 0x00000000 | 0x00000000 | PASS   |
+|   2 |        127 | STATUS      | 0x004 | --         | 0x00000000 | 0x00000000 | PASS   |
+|   3 |        147 | IER         | 0x008 | --         | 0x00000000 | 0x00000000 | PASS   |
+|   4 |        167 | MSG         | 0x00c | --         | 0x00000000 | 0x00000000 | PASS   |
+|   5 |        187 | EXP         | 0x010 | --         | 0x00000000 | 0x00000000 | PASS   |
+|   6 |        207 | MOD         | 0x014 | --         | 0x00000000 | 0x00000000 | PASS   |
+|   7 |        227 | RESULT      | 0x018 | --         | 0x00000000 | 0x00000000 | PASS   |
+|   8 |        247 | ID          | 0x01c | --         | 0x52530200 | 0x52530200 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 01/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   9 |        287 | IER         | 0x008 | 0x1234567b | 0x00000003 | 0x00000003 | PASS   |
+|  10 |        327 | MSG         | 0x00c | 0x1234567b | 0x1234567b | 0x1234567b | PASS   |
+|  11 |        367 | EXP         | 0x010 | 0xb791f3de | 0xb791f3de | 0xb791f3de | PASS   |
+|  12 |        407 | MOD         | 0x014 | 0x486e0c21 | 0x486e0c21 | 0x486e0c21 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 01/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  13 |        427 | IER         | 0x008 | 0x1234567b | 0x00000003 | 0x00000003 | PASS   |
+|  14 |        447 | MSG         | 0x00c | 0x1234567b | 0x1234567b | 0x1234567b | PASS   |
+|  15 |        467 | EXP         | 0x010 | 0xb791f3de | 0xb791f3de | 0xb791f3de | PASS   |
+|  16 |        487 | MOD         | 0x014 | 0x486e0c21 | 0x486e0c21 | 0x486e0c21 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 02/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  17 |        527 | IER         | 0x008 | 0xb06bd034 | 0x00000000 | 0x00000000 | PASS   |
+|  18 |        567 | MSG         | 0x00c | 0xb06bd034 | 0xb06bd034 | 0xb06bd034 | PASS   |
+|  19 |        607 | EXP         | 0x010 | 0x15ce7591 | 0x15ce7591 | 0x15ce7591 | PASS   |
+|  20 |        647 | MOD         | 0x014 | 0xea318a6e | 0xea318a6e | 0xea318a6e | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 02/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  21 |        667 | IER         | 0x008 | 0xb06bd034 | 0x00000000 | 0x00000000 | PASS   |
+|  22 |        687 | MSG         | 0x00c | 0xb06bd034 | 0xb06bd034 | 0xb06bd034 | PASS   |
+|  23 |        707 | EXP         | 0x010 | 0x15ce7591 | 0x15ce7591 | 0x15ce7591 | PASS   |
+|  24 |        727 | MOD         | 0x014 | 0xea318a6e | 0xea318a6e | 0xea318a6e | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 03/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  25 |        767 | IER         | 0x008 | 0x4ea349ed | 0x00000001 | 0x00000001 | PASS   |
+|  26 |        807 | MSG         | 0x00c | 0x4ea349ed | 0x4ea349ed | 0x4ea349ed | PASS   |
+|  27 |        847 | EXP         | 0x010 | 0xeb06ec48 | 0xeb06ec48 | 0xeb06ec48 | PASS   |
+|  28 |        887 | MOD         | 0x014 | 0x14f913b7 | 0x14f913b7 | 0x14f913b7 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 03/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  29 |        907 | IER         | 0x008 | 0x4ea349ed | 0x00000001 | 0x00000001 | PASS   |
+|  30 |        927 | MSG         | 0x00c | 0x4ea349ed | 0x4ea349ed | 0x4ea349ed | PASS   |
+|  31 |        947 | EXP         | 0x010 | 0xeb06ec48 | 0xeb06ec48 | 0xeb06ec48 | PASS   |
+|  32 |        967 | MOD         | 0x014 | 0x14f913b7 | 0x14f913b7 | 0x14f913b7 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 04/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  33 |       1007 | IER         | 0x008 | 0xecdac3a6 | 0x00000002 | 0x00000002 | PASS   |
+|  34 |       1047 | MSG         | 0x00c | 0xecdac3a6 | 0xecdac3a6 | 0xecdac3a6 | PASS   |
+|  35 |       1087 | EXP         | 0x010 | 0x497f6603 | 0x497f6603 | 0x497f6603 | PASS   |
+|  36 |       1127 | MOD         | 0x014 | 0xb68099fc | 0xb68099fc | 0xb68099fc | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 04/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  37 |       1147 | IER         | 0x008 | 0xecdac3a6 | 0x00000002 | 0x00000002 | PASS   |
+|  38 |       1167 | MSG         | 0x00c | 0xecdac3a6 | 0xecdac3a6 | 0xecdac3a6 | PASS   |
+|  39 |       1187 | EXP         | 0x010 | 0x497f6603 | 0x497f6603 | 0x497f6603 | PASS   |
+|  40 |       1207 | MOD         | 0x014 | 0xb68099fc | 0xb68099fc | 0xb68099fc | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 05/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  41 |       1247 | IER         | 0x008 | 0x8b123d5f | 0x00000003 | 0x00000003 | PASS   |
+|  42 |       1287 | MSG         | 0x00c | 0x8b123d5f | 0x8b123d5f | 0x8b123d5f | PASS   |
+|  43 |       1327 | EXP         | 0x010 | 0x2eb798fa | 0x2eb798fa | 0x2eb798fa | PASS   |
+|  44 |       1367 | MOD         | 0x014 | 0xd1486705 | 0xd1486705 | 0xd1486705 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 05/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  45 |       1387 | IER         | 0x008 | 0x8b123d5f | 0x00000003 | 0x00000003 | PASS   |
+|  46 |       1407 | MSG         | 0x00c | 0x8b123d5f | 0x8b123d5f | 0x8b123d5f | PASS   |
+|  47 |       1427 | EXP         | 0x010 | 0x2eb798fa | 0x2eb798fa | 0x2eb798fa | PASS   |
+|  48 |       1447 | MOD         | 0x014 | 0xd1486705 | 0xd1486705 | 0xd1486705 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 06/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  49 |       1487 | IER         | 0x008 | 0x2949b718 | 0x00000000 | 0x00000000 | PASS   |
+|  50 |       1527 | MSG         | 0x00c | 0x2949b718 | 0x2949b718 | 0x2949b718 | PASS   |
+|  51 |       1567 | EXP         | 0x010 | 0x8cec12bd | 0x8cec12bd | 0x8cec12bd | PASS   |
+|  52 |       1607 | MOD         | 0x014 | 0x7313ed42 | 0x7313ed42 | 0x7313ed42 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 06/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  53 |       1627 | IER         | 0x008 | 0x2949b718 | 0x00000000 | 0x00000000 | PASS   |
+|  54 |       1647 | MSG         | 0x00c | 0x2949b718 | 0x2949b718 | 0x2949b718 | PASS   |
+|  55 |       1666 | EXP         | 0x010 | 0x8cec12bd | 0x8cec12bd | 0x8cec12bd | PASS   |
+|  56 |       1686 | MOD         | 0x014 | 0x7313ed42 | 0x7313ed42 | 0x7313ed42 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 07/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  57 |       1726 | IER         | 0x008 | 0xc78130d1 | 0x00000001 | 0x00000001 | PASS   |
+|  58 |       1766 | MSG         | 0x00c | 0xc78130d1 | 0xc78130d1 | 0xc78130d1 | PASS   |
+|  59 |       1806 | EXP         | 0x010 | 0x62249574 | 0x62249574 | 0x62249574 | PASS   |
+|  60 |       1846 | MOD         | 0x014 | 0x9ddb6a8b | 0x9ddb6a8b | 0x9ddb6a8b | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 07/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  61 |       1866 | IER         | 0x008 | 0xc78130d1 | 0x00000001 | 0x00000001 | PASS   |
+|  62 |       1886 | MSG         | 0x00c | 0xc78130d1 | 0xc78130d1 | 0xc78130d1 | PASS   |
+|  63 |       1906 | EXP         | 0x010 | 0x62249574 | 0x62249574 | 0x62249574 | PASS   |
+|  64 |       1926 | MOD         | 0x014 | 0x9ddb6a8b | 0x9ddb6a8b | 0x9ddb6a8b | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 08/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  65 |       1966 | IER         | 0x008 | 0x65b8aa8a | 0x00000002 | 0x00000002 | PASS   |
+|  66 |       2006 | MSG         | 0x00c | 0x65b8aa8a | 0x65b8aa8a | 0x65b8aa8a | PASS   |
+|  67 |       2046 | EXP         | 0x010 | 0xc01d0f2f | 0xc01d0f2f | 0xc01d0f2f | PASS   |
+|  68 |       2086 | MOD         | 0x014 | 0x3fe2f0d0 | 0x3fe2f0d0 | 0x3fe2f0d0 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 08/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  69 |       2106 | IER         | 0x008 | 0x65b8aa8a | 0x00000002 | 0x00000002 | PASS   |
+|  70 |       2126 | MSG         | 0x00c | 0x65b8aa8a | 0x65b8aa8a | 0x65b8aa8a | PASS   |
+|  71 |       2146 | EXP         | 0x010 | 0xc01d0f2f | 0xc01d0f2f | 0xc01d0f2f | PASS   |
+|  72 |       2166 | MOD         | 0x014 | 0x3fe2f0d0 | 0x3fe2f0d0 | 0x3fe2f0d0 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 09/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  73 |       2206 | IER         | 0x008 | 0x03f02443 | 0x00000003 | 0x00000003 | PASS   |
+|  74 |       2246 | MSG         | 0x00c | 0x03f02443 | 0x03f02443 | 0x03f02443 | PASS   |
+|  75 |       2286 | EXP         | 0x010 | 0xa65581e6 | 0xa65581e6 | 0xa65581e6 | PASS   |
+|  76 |       2326 | MOD         | 0x014 | 0x59aa7e19 | 0x59aa7e19 | 0x59aa7e19 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 09/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  77 |       2346 | IER         | 0x008 | 0x03f02443 | 0x00000003 | 0x00000003 | PASS   |
+|  78 |       2366 | MSG         | 0x00c | 0x03f02443 | 0x03f02443 | 0x03f02443 | PASS   |
+|  79 |       2386 | EXP         | 0x010 | 0xa65581e6 | 0xa65581e6 | 0xa65581e6 | PASS   |
+|  80 |       2406 | MOD         | 0x014 | 0x59aa7e19 | 0x59aa7e19 | 0x59aa7e19 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 10/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  81 |       2446 | IER         | 0x008 | 0xa2279dfc | 0x00000000 | 0x00000000 | PASS   |
+|  82 |       2486 | MSG         | 0x00c | 0xa2279dfc | 0xa2279dfc | 0xa2279dfc | PASS   |
+|  83 |       2526 | EXP         | 0x010 | 0x07823859 | 0x07823859 | 0x07823859 | PASS   |
+|  84 |       2566 | MOD         | 0x014 | 0xf87dc7a6 | 0xf87dc7a6 | 0xf87dc7a6 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 10/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  85 |       2586 | IER         | 0x008 | 0xa2279dfc | 0x00000000 | 0x00000000 | PASS   |
+|  86 |       2606 | MSG         | 0x00c | 0xa2279dfc | 0xa2279dfc | 0xa2279dfc | PASS   |
+|  87 |       2626 | EXP         | 0x010 | 0x07823859 | 0x07823859 | 0x07823859 | PASS   |
+|  88 |       2646 | MOD         | 0x014 | 0xf87dc7a6 | 0xf87dc7a6 | 0xf87dc7a6 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 11/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  89 |       2686 | IER         | 0x008 | 0x405f17b5 | 0x00000001 | 0x00000001 | PASS   |
+|  90 |       2726 | MSG         | 0x00c | 0x405f17b5 | 0x405f17b5 | 0x405f17b5 | PASS   |
+|  91 |       2766 | EXP         | 0x010 | 0xe5fab210 | 0xe5fab210 | 0xe5fab210 | PASS   |
+|  92 |       2806 | MOD         | 0x014 | 0x1a054def | 0x1a054def | 0x1a054def | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 11/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  93 |       2826 | IER         | 0x008 | 0x405f17b5 | 0x00000001 | 0x00000001 | PASS   |
+|  94 |       2846 | MSG         | 0x00c | 0x405f17b5 | 0x405f17b5 | 0x405f17b5 | PASS   |
+|  95 |       2866 | EXP         | 0x010 | 0xe5fab210 | 0xe5fab210 | 0xe5fab210 | PASS   |
+|  96 |       2886 | MOD         | 0x014 | 0x1a054def | 0x1a054def | 0x1a054def | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 12/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|  97 |       2926 | IER         | 0x008 | 0xde96916e | 0x00000002 | 0x00000002 | PASS   |
+|  98 |       2966 | MSG         | 0x00c | 0xde96916e | 0xde96916e | 0xde96916e | PASS   |
+|  99 |       3006 | EXP         | 0x010 | 0x7b3334cb | 0x7b3334cb | 0x7b3334cb | PASS   |
+| 100 |       3046 | MOD         | 0x014 | 0x84cccb34 | 0x84cccb34 | 0x84cccb34 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 12/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 101 |       3066 | IER         | 0x008 | 0xde96916e | 0x00000002 | 0x00000002 | PASS   |
+| 102 |       3086 | MSG         | 0x00c | 0xde96916e | 0xde96916e | 0xde96916e | PASS   |
+| 103 |       3106 | EXP         | 0x010 | 0x7b3334cb | 0x7b3334cb | 0x7b3334cb | PASS   |
+| 104 |       3126 | MOD         | 0x014 | 0x84cccb34 | 0x84cccb34 | 0x84cccb34 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 13/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 105 |       3166 | IER         | 0x008 | 0x7cce0b27 | 0x00000003 | 0x00000003 | PASS   |
+| 106 |       3206 | MSG         | 0x00c | 0x7cce0b27 | 0x7cce0b27 | 0x7cce0b27 | PASS   |
+| 107 |       3246 | EXP         | 0x010 | 0xd96bae82 | 0xd96bae82 | 0xd96bae82 | PASS   |
+| 108 |       3286 | MOD         | 0x014 | 0x2694517d | 0x2694517d | 0x2694517d | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 13/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 109 |       3306 | IER         | 0x008 | 0x7cce0b27 | 0x00000003 | 0x00000003 | PASS   |
+| 110 |       3326 | MSG         | 0x00c | 0x7cce0b27 | 0x7cce0b27 | 0x7cce0b27 | PASS   |
+| 111 |       3346 | EXP         | 0x010 | 0xd96bae82 | 0xd96bae82 | 0xd96bae82 | PASS   |
+| 112 |       3366 | MOD         | 0x014 | 0x2694517d | 0x2694517d | 0x2694517d | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 14/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 113 |       3406 | IER         | 0x008 | 0x1b0584e0 | 0x00000000 | 0x00000000 | PASS   |
+| 114 |       3446 | MSG         | 0x00c | 0x1b0584e0 | 0x1b0584e0 | 0x1b0584e0 | PASS   |
+| 115 |       3486 | EXP         | 0x010 | 0xbea02145 | 0xbea02145 | 0xbea02145 | PASS   |
+| 116 |       3526 | MOD         | 0x014 | 0x415fdeba | 0x415fdeba | 0x415fdeba | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 14/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 117 |       3546 | IER         | 0x008 | 0x1b0584e0 | 0x00000000 | 0x00000000 | PASS   |
+| 118 |       3566 | MSG         | 0x00c | 0x1b0584e0 | 0x1b0584e0 | 0x1b0584e0 | PASS   |
+| 119 |       3586 | EXP         | 0x010 | 0xbea02145 | 0xbea02145 | 0xbea02145 | PASS   |
+| 120 |       3606 | MOD         | 0x014 | 0x415fdeba | 0x415fdeba | 0x415fdeba | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 15/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 121 |       3646 | IER         | 0x008 | 0xb93cfe99 | 0x00000001 | 0x00000001 | PASS   |
+| 122 |       3686 | MSG         | 0x00c | 0xb93cfe99 | 0xb93cfe99 | 0xb93cfe99 | PASS   |
+| 123 |       3726 | EXP         | 0x010 | 0x1c995b3c | 0x1c995b3c | 0x1c995b3c | PASS   |
+| 124 |       3766 | MOD         | 0x014 | 0xe366a4c3 | 0xe366a4c3 | 0xe366a4c3 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 15/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 125 |       3786 | IER         | 0x008 | 0xb93cfe99 | 0x00000001 | 0x00000001 | PASS   |
+| 126 |       3806 | MSG         | 0x00c | 0xb93cfe99 | 0xb93cfe99 | 0xb93cfe99 | PASS   |
+| 127 |       3826 | EXP         | 0x010 | 0x1c995b3c | 0x1c995b3c | 0x1c995b3c | PASS   |
+| 128 |       3846 | MOD         | 0x014 | 0xe366a4c3 | 0xe366a4c3 | 0xe366a4c3 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 16/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 129 |       3886 | IER         | 0x008 | 0x57747852 | 0x00000002 | 0x00000002 | PASS   |
+| 130 |       3926 | MSG         | 0x00c | 0x57747852 | 0x57747852 | 0x57747852 | PASS   |
+| 131 |       3966 | EXP         | 0x010 | 0xf2d1ddf7 | 0xf2d1ddf7 | 0xf2d1ddf7 | PASS   |
+| 132 |       4006 | MOD         | 0x014 | 0x0d2e2208 | 0x0d2e2208 | 0x0d2e2208 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 16/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 133 |       4026 | IER         | 0x008 | 0x57747852 | 0x00000002 | 0x00000002 | PASS   |
+| 134 |       4046 | MSG         | 0x00c | 0x57747852 | 0x57747852 | 0x57747852 | PASS   |
+| 135 |       4066 | EXP         | 0x010 | 0xf2d1ddf7 | 0xf2d1ddf7 | 0xf2d1ddf7 | PASS   |
+| 136 |       4086 | MOD         | 0x014 | 0x0d2e2208 | 0x0d2e2208 | 0x0d2e2208 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 17/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 137 |       4126 | IER         | 0x008 | 0xf5abf20b | 0x00000003 | 0x00000003 | PASS   |
+| 138 |       4166 | MSG         | 0x00c | 0xf5abf20b | 0xf5abf20b | 0xf5abf20b | PASS   |
+| 139 |       4206 | EXP         | 0x010 | 0x500e57ae | 0x500e57ae | 0x500e57ae | PASS   |
+| 140 |       4246 | MOD         | 0x014 | 0xaff1a851 | 0xaff1a851 | 0xaff1a851 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 17/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 141 |       4266 | IER         | 0x008 | 0xf5abf20b | 0x00000003 | 0x00000003 | PASS   |
+| 142 |       4286 | MSG         | 0x00c | 0xf5abf20b | 0xf5abf20b | 0xf5abf20b | PASS   |
+| 143 |       4306 | EXP         | 0x010 | 0x500e57ae | 0x500e57ae | 0x500e57ae | PASS   |
+| 144 |       4326 | MOD         | 0x014 | 0xaff1a851 | 0xaff1a851 | 0xaff1a851 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 18/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 145 |       4366 | IER         | 0x008 | 0x93e36bc4 | 0x00000000 | 0x00000000 | PASS   |
+| 146 |       4406 | MSG         | 0x00c | 0x93e36bc4 | 0x93e36bc4 | 0x93e36bc4 | PASS   |
+| 147 |       4446 | EXP         | 0x010 | 0x3646ce61 | 0x3646ce61 | 0x3646ce61 | PASS   |
+| 148 |       4486 | MOD         | 0x014 | 0xc9b9319e | 0xc9b9319e | 0xc9b9319e | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 18/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 149 |       4506 | IER         | 0x008 | 0x93e36bc4 | 0x00000000 | 0x00000000 | PASS   |
+| 150 |       4526 | MSG         | 0x00c | 0x93e36bc4 | 0x93e36bc4 | 0x93e36bc4 | PASS   |
+| 151 |       4546 | EXP         | 0x010 | 0x3646ce61 | 0x3646ce61 | 0x3646ce61 | PASS   |
+| 152 |       4566 | MOD         | 0x014 | 0xc9b9319e | 0xc9b9319e | 0xc9b9319e | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 19/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 153 |       4606 | IER         | 0x008 | 0x321ae57d | 0x00000001 | 0x00000001 | PASS   |
+| 154 |       4646 | MSG         | 0x00c | 0x321ae57d | 0x321ae57d | 0x321ae57d | PASS   |
+| 155 |       4686 | EXP         | 0x010 | 0x97bf40d8 | 0x97bf40d8 | 0x97bf40d8 | PASS   |
+| 156 |       4726 | MOD         | 0x014 | 0x6840bf27 | 0x6840bf27 | 0x6840bf27 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 19/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 157 |       4746 | IER         | 0x008 | 0x321ae57d | 0x00000001 | 0x00000001 | PASS   |
+| 158 |       4766 | MSG         | 0x00c | 0x321ae57d | 0x321ae57d | 0x321ae57d | PASS   |
+| 159 |       4786 | EXP         | 0x010 | 0x97bf40d8 | 0x97bf40d8 | 0x97bf40d8 | PASS   |
+| 160 |       4806 | MOD         | 0x014 | 0x6840bf27 | 0x6840bf27 | 0x6840bf27 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 20/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 161 |       4846 | IER         | 0x008 | 0xd0525f36 | 0x00000002 | 0x00000002 | PASS   |
+| 162 |       4886 | MSG         | 0x00c | 0xd0525f36 | 0xd0525f36 | 0xd0525f36 | PASS   |
+| 163 |       4926 | EXP         | 0x010 | 0x75f7fa93 | 0x75f7fa93 | 0x75f7fa93 | PASS   |
+| 164 |       4966 | MOD         | 0x014 | 0x8a08056c | 0x8a08056c | 0x8a08056c | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 20/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 165 |       4986 | IER         | 0x008 | 0xd0525f36 | 0x00000002 | 0x00000002 | PASS   |
+| 166 |       5006 | MSG         | 0x00c | 0xd0525f36 | 0xd0525f36 | 0xd0525f36 | PASS   |
+| 167 |       5026 | EXP         | 0x010 | 0x75f7fa93 | 0x75f7fa93 | 0x75f7fa93 | PASS   |
+| 168 |       5046 | MOD         | 0x014 | 0x8a08056c | 0x8a08056c | 0x8a08056c | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 21/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 169 |       5086 | IER         | 0x008 | 0x6e89d8ef | 0x00000003 | 0x00000003 | PASS   |
+| 170 |       5126 | MSG         | 0x00c | 0x6e89d8ef | 0x6e89d8ef | 0x6e89d8ef | PASS   |
+| 171 |       5166 | EXP         | 0x010 | 0xcb2c7d4a | 0xcb2c7d4a | 0xcb2c7d4a | PASS   |
+| 172 |       5206 | MOD         | 0x014 | 0x34d382b5 | 0x34d382b5 | 0x34d382b5 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 21/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 173 |       5226 | IER         | 0x008 | 0x6e89d8ef | 0x00000003 | 0x00000003 | PASS   |
+| 174 |       5246 | MSG         | 0x00c | 0x6e89d8ef | 0x6e89d8ef | 0x6e89d8ef | PASS   |
+| 175 |       5266 | EXP         | 0x010 | 0xcb2c7d4a | 0xcb2c7d4a | 0xcb2c7d4a | PASS   |
+| 176 |       5286 | MOD         | 0x014 | 0x34d382b5 | 0x34d382b5 | 0x34d382b5 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 22/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 177 |       5326 | IER         | 0x008 | 0x0cc152a8 | 0x00000000 | 0x00000000 | PASS   |
+| 178 |       5366 | MSG         | 0x00c | 0x0cc152a8 | 0x0cc152a8 | 0x0cc152a8 | PASS   |
+| 179 |       5406 | EXP         | 0x010 | 0xa964f70d | 0xa964f70d | 0xa964f70d | PASS   |
+| 180 |       5446 | MOD         | 0x014 | 0x569b08f2 | 0x569b08f2 | 0x569b08f2 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 22/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 181 |       5466 | IER         | 0x008 | 0x0cc152a8 | 0x00000000 | 0x00000000 | PASS   |
+| 182 |       5486 | MSG         | 0x00c | 0x0cc152a8 | 0x0cc152a8 | 0x0cc152a8 | PASS   |
+| 183 |       5506 | EXP         | 0x010 | 0xa964f70d | 0xa964f70d | 0xa964f70d | PASS   |
+| 184 |       5526 | MOD         | 0x014 | 0x569b08f2 | 0x569b08f2 | 0x569b08f2 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 23/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 185 |       5566 | IER         | 0x008 | 0xaaf8cc61 | 0x00000001 | 0x00000001 | PASS   |
+| 186 |       5606 | MSG         | 0x00c | 0xaaf8cc61 | 0xaaf8cc61 | 0xaaf8cc61 | PASS   |
+| 187 |       5646 | EXP         | 0x010 | 0x0f5d69c4 | 0x0f5d69c4 | 0x0f5d69c4 | PASS   |
+| 188 |       5686 | MOD         | 0x014 | 0xf0a2963b | 0xf0a2963b | 0xf0a2963b | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 23/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 189 |       5706 | IER         | 0x008 | 0xaaf8cc61 | 0x00000001 | 0x00000001 | PASS   |
+| 190 |       5726 | MSG         | 0x00c | 0xaaf8cc61 | 0xaaf8cc61 | 0xaaf8cc61 | PASS   |
+| 191 |       5746 | EXP         | 0x010 | 0x0f5d69c4 | 0x0f5d69c4 | 0x0f5d69c4 | PASS   |
+| 192 |       5766 | MOD         | 0x014 | 0xf0a2963b | 0xf0a2963b | 0xf0a2963b | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 24/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 193 |       5806 | IER         | 0x008 | 0x4930461a | 0x00000002 | 0x00000002 | PASS   |
+| 194 |       5846 | MSG         | 0x00c | 0x4930461a | 0x4930461a | 0x4930461a | PASS   |
+| 195 |       5886 | EXP         | 0x010 | 0xec95e3bf | 0xec95e3bf | 0xec95e3bf | PASS   |
+| 196 |       5926 | MOD         | 0x014 | 0x136a1c40 | 0x136a1c40 | 0x136a1c40 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 24/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 197 |       5946 | IER         | 0x008 | 0x4930461a | 0x00000002 | 0x00000002 | PASS   |
+| 198 |       5966 | MSG         | 0x00c | 0x4930461a | 0x4930461a | 0x4930461a | PASS   |
+| 199 |       5986 | EXP         | 0x010 | 0xec95e3bf | 0xec95e3bf | 0xec95e3bf | PASS   |
+| 200 |       6006 | MOD         | 0x014 | 0x136a1c40 | 0x136a1c40 | 0x136a1c40 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 25/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 201 |       6046 | IER         | 0x008 | 0xe767bfd3 | 0x00000003 | 0x00000003 | PASS   |
+| 202 |       6086 | MSG         | 0x00c | 0xe767bfd3 | 0xe767bfd3 | 0xe767bfd3 | PASS   |
+| 203 |       6126 | EXP         | 0x010 | 0x42c21a76 | 0x42c21a76 | 0x42c21a76 | PASS   |
+| 204 |       6166 | MOD         | 0x014 | 0xbd3de589 | 0xbd3de589 | 0xbd3de589 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 25/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 205 |       6186 | IER         | 0x008 | 0xe767bfd3 | 0x00000003 | 0x00000003 | PASS   |
+| 206 |       6206 | MSG         | 0x00c | 0xe767bfd3 | 0xe767bfd3 | 0xe767bfd3 | PASS   |
+| 207 |       6226 | EXP         | 0x010 | 0x42c21a76 | 0x42c21a76 | 0x42c21a76 | PASS   |
+| 208 |       6246 | MOD         | 0x014 | 0xbd3de589 | 0xbd3de589 | 0xbd3de589 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 26/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 209 |       6286 | IER         | 0x008 | 0x859f398c | 0x00000000 | 0x00000000 | PASS   |
+| 210 |       6326 | MSG         | 0x00c | 0x859f398c | 0x859f398c | 0x859f398c | PASS   |
+| 211 |       6366 | EXP         | 0x010 | 0x203a9c29 | 0x203a9c29 | 0x203a9c29 | PASS   |
+| 212 |       6406 | MOD         | 0x014 | 0xdfc563d6 | 0xdfc563d6 | 0xdfc563d6 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 26/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 213 |       6426 | IER         | 0x008 | 0x859f398c | 0x00000000 | 0x00000000 | PASS   |
+| 214 |       6446 | MSG         | 0x00c | 0x859f398c | 0x859f398c | 0x859f398c | PASS   |
+| 215 |       6466 | EXP         | 0x010 | 0x203a9c29 | 0x203a9c29 | 0x203a9c29 | PASS   |
+| 216 |       6486 | MOD         | 0x014 | 0xdfc563d6 | 0xdfc563d6 | 0xdfc563d6 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 27/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 217 |       6526 | IER         | 0x008 | 0x23d6b345 | 0x00000001 | 0x00000001 | PASS   |
+| 218 |       6566 | MSG         | 0x00c | 0x23d6b345 | 0x23d6b345 | 0x23d6b345 | PASS   |
+| 219 |       6606 | EXP         | 0x010 | 0x867316e0 | 0x867316e0 | 0x867316e0 | PASS   |
+| 220 |       6646 | MOD         | 0x014 | 0x798ce91f | 0x798ce91f | 0x798ce91f | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 27/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 221 |       6666 | IER         | 0x008 | 0x23d6b345 | 0x00000001 | 0x00000001 | PASS   |
+| 222 |       6686 | MSG         | 0x00c | 0x23d6b345 | 0x23d6b345 | 0x23d6b345 | PASS   |
+| 223 |       6706 | EXP         | 0x010 | 0x867316e0 | 0x867316e0 | 0x867316e0 | PASS   |
+| 224 |       6726 | MOD         | 0x014 | 0x798ce91f | 0x798ce91f | 0x798ce91f | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 28/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 225 |       6766 | IER         | 0x008 | 0xc20e2cfe | 0x00000002 | 0x00000002 | PASS   |
+| 226 |       6806 | MSG         | 0x00c | 0xc20e2cfe | 0xc20e2cfe | 0xc20e2cfe | PASS   |
+| 227 |       6846 | EXP         | 0x010 | 0x67ab895b | 0x67ab895b | 0x67ab895b | PASS   |
+| 228 |       6886 | MOD         | 0x014 | 0x985476a4 | 0x985476a4 | 0x985476a4 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 28/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 229 |       6906 | IER         | 0x008 | 0xc20e2cfe | 0x00000002 | 0x00000002 | PASS   |
+| 230 |       6926 | MSG         | 0x00c | 0xc20e2cfe | 0xc20e2cfe | 0xc20e2cfe | PASS   |
+| 231 |       6946 | EXP         | 0x010 | 0x67ab895b | 0x67ab895b | 0x67ab895b | PASS   |
+| 232 |       6966 | MOD         | 0x014 | 0x985476a4 | 0x985476a4 | 0x985476a4 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 29/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 233 |       7006 | IER         | 0x008 | 0x6045a6b7 | 0x00000003 | 0x00000003 | PASS   |
+| 234 |       7046 | MSG         | 0x00c | 0x6045a6b7 | 0x6045a6b7 | 0x6045a6b7 | PASS   |
+| 235 |       7086 | EXP         | 0x010 | 0xc5e00312 | 0xc5e00312 | 0xc5e00312 | PASS   |
+| 236 |       7126 | MOD         | 0x014 | 0x3a1ffced | 0x3a1ffced | 0x3a1ffced | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 29/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 237 |       7146 | IER         | 0x008 | 0x6045a6b7 | 0x00000003 | 0x00000003 | PASS   |
+| 238 |       7166 | MSG         | 0x00c | 0x6045a6b7 | 0x6045a6b7 | 0x6045a6b7 | PASS   |
+| 239 |       7186 | EXP         | 0x010 | 0xc5e00312 | 0xc5e00312 | 0xc5e00312 | PASS   |
+| 240 |       7206 | MOD         | 0x014 | 0x3a1ffced | 0x3a1ffced | 0x3a1ffced | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 30/30 | Escrita e leitura imediata
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 241 |       7246 | IER         | 0x008 | 0xfe7d2070 | 0x00000000 | 0x00000000 | PASS   |
+| 242 |       7286 | MSG         | 0x00c | 0xfe7d2070 | 0xfe7d2070 | 0xfe7d2070 | PASS   |
+| 243 |       7326 | EXP         | 0x010 | 0x5bd885d5 | 0x5bd885d5 | 0x5bd885d5 | PASS   |
+| 244 |       7366 | MOD         | 0x014 | 0xa4277a2a | 0xa4277a2a | 0xa4277a2a | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] Rodada 30/30 | Retencao apos todas as escritas
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 245 |       7386 | IER         | 0x008 | 0xfe7d2070 | 0x00000000 | 0x00000000 | PASS   |
+| 246 |       7406 | MSG         | 0x00c | 0xfe7d2070 | 0xfe7d2070 | 0xfe7d2070 | PASS   |
+| 247 |       7426 | EXP         | 0x010 | 0x5bd885d5 | 0x5bd885d5 | 0x5bd885d5 | PASS   |
+| 248 |       7446 | MOD         | 0x014 | 0xa4277a2a | 0xa4277a2a | 0xa4277a2a | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] RSA 01/10 | Carga dos operandos
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 249 |       7486 | IER         | 0x008 | 0x00000003 | 0x00000003 | 0x00000003 | PASS   |
+| 250 |       7526 | MSG         | 0x00c | 0x00000041 | 0x00000041 | 0x00000041 | PASS   |
+| 251 |       7566 | EXP         | 0x010 | 0x00000011 | 0x00000011 | 0x00000011 | PASS   |
+| 252 |       7606 | MOD         | 0x014 | 0x00000ca1 | 0x00000ca1 | 0x00000ca1 | PASS   |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+
+[SCB] RSA 01/10 | Execucao: MSG^EXP mod MOD = 0x00000ae6
++-----+------------+-------------+-------+------------+------------+------------+--------+
+|   # | Tempo (ns) | Registro    | End.  | Enviado    | Esperado   | Lido       | Status |
++-----+------------+-------------+-------+------------+------------+------------+--------+
+| 253 |       7626 | STATUS.IDLE | 0x004 | --         | 0x00000000 | 0x00000000 | PASS   |
+| 254 |       7626 | IRQ         | --    | --         | 0x00000000 | 0x00000000 | PASS   |
+| 255 |       7666 | STATUS.BUSY | 0x004 | --         | 0x00000001 | 0x00000001 | PASS   |
+xmsim: *F,FATSEV (/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv,362): (time 207645900 PS).
+testbench.wait_rsa_completion
+RSA timeout [RSA 01/10 | Execucao: MSG^EXP mod MOD = 0x00000ae6]: 10000 polls, STATUS=0x00000001
+Simulation terminated via $fatal(1) at time 207645900 PS + 0
+/home/aluno/Documents/RSA_APB_32-bit/testbenchs/rsa_apb_top/testbench.sv:362             $fatal(1, "RSA timeout [%s]: %0d polls, STATUS=0x%08h",
+xcelium> exit
+TOOL:	xrun(64)	24.03-s013: Exiting on Nov 05, 2026 at 09:41:35 -03  (total: 00:00:02)

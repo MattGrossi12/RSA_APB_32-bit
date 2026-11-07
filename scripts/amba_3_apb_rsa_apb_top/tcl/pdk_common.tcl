@@ -6,7 +6,7 @@ proc pdk_env {name fallback} {
 }
 
 set pdk [pdk_env PDK gpdk45]
-if {$pdk ni {sky130 gpdk45 free45 ics55}} {
+if {$pdk ni {sky130 gpdk45 free45 ics55 tsmc28}} {
     error "PDK invalido: $pdk"
 }
 if {[info exists selected_pdk] && $selected_pdk ne $pdk} {
@@ -17,8 +17,14 @@ set lambda_root [pdk_env LAMBDAPDK_ROOT [file join $pdk_base lambdapdk-v0.2.22-9
 set ring_width 1.0
 set ring_spacing 1.5
 set stripe_width 0.8
+set pdk_has_lef 1
 source [file join [file dirname [info script]] pdks ${pdk}.tcl]
-foreach input [concat $lib_files [list $tech_lef $cell_lef]] {
+set pdk_inputs $lib_files
+# LEC consumes Liberty only; physical flows keep LEF validation enabled.
+if {$pdk_has_lef && (![info exists pdk_require_lef] || $pdk_require_lef)} {
+    set pdk_inputs [concat $pdk_inputs [list $tech_lef $cell_lef]]
+}
+foreach input $pdk_inputs {
     if {![file isfile $input] || ![file readable $input]} {
         error "Arquivo do PDK $pdk ausente ou ilegivel: $input"
     }
